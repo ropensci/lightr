@@ -2,7 +2,7 @@
 % Please edit documentation in R/parse_procspec.R
 \name{parse_procspec}
 \alias{parse_procspec}
-\title{Import ProcSpec spectra file}
+\title{Parse OceanOptics ProcSpec spectra file}
 \usage{
 parse_procspec(filename)
 }
@@ -15,7 +15,7 @@ A list of two elements:
   * a list with metadata including
 }
 \description{
-Import ProcSpec spectra file
+Parse OceanOptics ProcSpec spectra file
 }
 \references{
 https://oceanoptics.com/faq/extract-data-procspec-file-without-spectrasuite/

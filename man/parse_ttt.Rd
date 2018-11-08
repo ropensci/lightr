@@ -3,7 +3,7 @@
 \name{parse_ttt}
 \alias{parse_ttt}
 \alias{parse_trt}
-\title{Import Avantes converted file}
+\title{Parse Avantes converted file}
 \usage{
 parse_ttt(filename)
 
@@ -18,7 +18,7 @@ A list of two elements:
   * a list with metadata including
 }
 \description{
-Import Avantes converted file
+Parse Avantes converted file
 }
 \author{
 Hugo Gruson \email{hugo.gruson+R@normalesup.org}
