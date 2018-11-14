@@ -1,4 +1,6 @@
-# lightR: import spectral data in R
+# `lightR`: import spectral data in R
+
+[![Travis build status](https://travis-ci.org/Bisaloo/lightR.svg?branch=master)](https://travis-ci.org/Bisaloo/lightR)
 
 There is no standard file format for spectrometry data and different scientific
 instrumentation comparnies use wildly different formats to store spectral data.
