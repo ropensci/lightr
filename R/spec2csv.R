@@ -2,7 +2,7 @@
 
 spec2csv <- function(filename, overwrite = FALSE) {
 
-  data <- dispatch_parser(filename))[[1]]
+  data <- dispatch_parser(filename)[[1]]
 
   csv_name <- paste0(file_path_sans_ext(filename), ".csv")
 

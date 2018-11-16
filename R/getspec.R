@@ -83,7 +83,7 @@ getspec <- function(where = getwd(), ext = "txt", lim = c(300, 700), decimal = "
 
   gsp <- function(ff) {
 
-    df <- dispatch_parser(ff, decimal = decimal, sep = sep))[[1]]
+    df <- dispatch_parser(ff, decimal = decimal, sep = sep)[[1]]
 
     # Only keep first and last column ("wl" and "processed") and interpolate
     # every nm
