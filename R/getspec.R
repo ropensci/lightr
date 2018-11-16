@@ -81,19 +81,6 @@ getspec <- function(where = getwd(), ext = "txt", lim = c(300, 700), decimal = "
     cores <- 1
   }
 
-  # if ProcSpec, check if xml2 is installed and loaded
-  if (any(grepl("\\.ProcSpec$", files, ignore.case = ignore.case))) {
-    if (!requireNamespace("xml2", quietly = TRUE)) {
-      stop('"xml2" package needed for to import .ProcSpec files. Please install it.',
-        call. = FALSE
-      )
-    }
-
-    if (!isNamespaceLoaded("xml2")) {
-      requireNamespace("xml2")
-    }
-  }
-
   # message with number of spectra files being imported
   message(nb_files, " files found; importing spectra:")
 
