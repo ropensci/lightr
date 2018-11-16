@@ -1,4 +1,5 @@
 #' @importFrom tools file_path_sans_ext
+#' @importFrom utils write.csv
 
 spec2csv <- function(filename, overwrite = FALSE) {
 
