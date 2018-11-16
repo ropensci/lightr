@@ -59,21 +59,18 @@ getmetadata <- function(where = getwd(), ext = "ProcSpec",
   }
 
   gmd <- function(ff) {
-    if (grepl("\\.ProcSpec$", ff, ignore.case = ignore.case)) {
-      return(parse_procspec(ff)[[2]])
-    }
-    else if (grepl("\\.(ABS|ROH|TRM)$", ff, ignore.case = ignore.case)) {
-      return(parse_trm(ff)[[2]])
-    }
-    else if (grepl("\\.t(r|t)t$", ff, ignore.case = ignore.case)) {
-      return(parse_ttt(ff)[[2]])
-    }
-    else if (grepl("\\.jdx$", ff, ignore.case = ignore.case)) {
-      return(parse_jdx(ff)[[2]])
-    }
-    else {
-      return(NULL)
-    }
+
+    df <- switch(
+      tolower(tools::file_ext(ff)),
+      procspec = parse_procspec(ff),
+      abs      = parse_abs(ff),
+      roh      = parse_roh(ff),
+      trm      = parse_trm(ff),
+      trt      = parse_trt(ff),
+      jdx      = parse_jdx(ff),
+      parse_generic(ff)
+    )[[2]]
+
   }
 
   tmp <- pbmclapply(files, function(x)

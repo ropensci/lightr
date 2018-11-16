@@ -106,21 +106,17 @@ getspec <- function(where = getwd(), ext = "txt", lim = c(300, 700), decimal = "
   message(nb_files, " files found; importing spectra:")
 
   gsp <- function(ff) {
-    if (grepl("\\.ProcSpec$", ff, ignore.case = ignore.case)) {
-      df = parse_procspec(ff)[[1]]
-    }
-    else if (grepl("\\.(ABS|ROH|TRM)$", ff, ignore.case = ignore.case)) {
-      df = parse_trm(ff)[[1]]
-    }
-    else if (grepl("\\.t(r|t)t$", ff, ignore.case = ignore.case)) {
-      df = parse_ttt(ff)[[1]]
-    }
-    else if (grepl("\\.jdx$", ff, ignore.case = ignore.case)) {
-      df = parse_jdx(ff)[[1]]
-    }
-    else {
-      df = parse_generic(ff)[[1]]
-    }
+
+    df <- switch(
+            tolower(tools::file_ext(ff)),
+            procspec = parse_procspec(ff),
+            abs      = parse_abs(ff),
+            roh      = parse_roh(ff),
+            trm      = parse_trm(ff),
+            trt      = parse_trt(ff),
+            jdx      = parse_jdx(ff),
+            parse_generic(ff)
+          )[[1]]
 
     # Only keep first and last column ("wl" and "processed") and interpolate
     # every nm
