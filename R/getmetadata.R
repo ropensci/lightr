@@ -55,10 +55,6 @@ getmetadata <- function(where = getwd(), ext = "ProcSpec",
     message('Parallel processing not available in Windows; "cores" set to 1.\n')
   }
 
-  if (nb_files <= cores) {
-    cores <- 1
-  }
-
   gmd <- function(ff) {
 
     df <- dispatch_parser(ff)[[2]]

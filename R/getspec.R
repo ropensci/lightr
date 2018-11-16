@@ -77,10 +77,6 @@ getspec <- function(where = getwd(), ext = "txt", lim = c(300, 700), decimal = "
     message('Parallel processing not available in Windows; "cores" set to 1.\n')
   }
 
-  if (nb_files <= cores) {
-    cores <- 1
-  }
-
   # message with number of spectra files being imported
   message(nb_files, " files found; importing spectra:")
 
