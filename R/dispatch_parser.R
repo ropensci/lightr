@@ -2,7 +2,7 @@
 #'
 #' @keywords internal
 #'
-dispatch_parser <- function(filename) {
+dispatch_parser <- function(filename, decimal = decimal, sep = sep) {
 
   switch(
     tolower(file_ext(filename)),
@@ -12,7 +12,7 @@ dispatch_parser <- function(filename) {
     trm      = parse_trm(filename),
     trt      = parse_trt(filename),
     jdx      = parse_jdx(filename),
-    parse_generic(filename)
+    parse_generic(filename, decimal = decimal, sep = sep)
   )
 
 }

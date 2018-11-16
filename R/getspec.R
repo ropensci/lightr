@@ -71,9 +71,6 @@ getspec <- function(where = getwd(), ext = "txt", lim = c(300, 700), decimal = "
   # Wavelength range
   range <- seq(lim[1], lim[2])
 
-  # define separators
-  seps <- paste0(c("\\\t|\\;| ", sep), collapse = "|\\")
-
   # On Windows, set cores to be 1
   if (cores > 1 && .Platform$OS.type == "windows") {
     cores <- 1
@@ -102,7 +99,7 @@ getspec <- function(where = getwd(), ext = "txt", lim = c(300, 700), decimal = "
 
   gsp <- function(ff) {
 
-    df <- dispatch_parser(ff))[[1]]
+    df <- dispatch_parser(ff, decimal = decimal, sep = sep))[[1]]
 
     # Only keep first and last column ("wl" and "processed") and interpolate
     # every nm
