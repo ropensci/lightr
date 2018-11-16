@@ -29,6 +29,7 @@
 #' @export
 #'
 #' @importFrom pbmcapply pbmclapply
+#' @importFrom tools file_path_sans_ext
 #' @importFrom stats approx
 #'
 #' @examples \dontrun{
@@ -61,11 +62,11 @@ getspec <- function(where = getwd(), ext = "txt", lim = c(300, 700), decimal = "
 
   files <- paste0(where, "/", file_names)
 
-  if (subdir.names) {
-    specnames <- gsub(extension, "", file_names, ignore.case = ignore.case)
-  } else {
-    specnames <- gsub(extension, "", basename(file_names), ignore.case = ignore.case)
+  if (!subdir.names) {
+    file_names <- basename(file_names)
   }
+
+  specnames <- file_path_sans_ext(file_names)
 
   # Wavelength range
   range <- seq(lim[1], lim[2])

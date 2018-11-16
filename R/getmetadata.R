@@ -15,6 +15,7 @@
 #' @export
 #'
 #' @importFrom pbmcapply pbmclapply
+#' @importFrom tools file_path_sans_ext
 #'
 #' @author Hugo Gruson \email{hugo.gruson+R@@normalesup.org}
 #'
@@ -42,11 +43,11 @@ getmetadata <- function(where = getwd(), ext = "ProcSpec",
 
   files <- paste0(where, "/", file_names)
 
-  if (subdir.names) {
-    specnames <- gsub(extension, "", file_names, ignore.case = ignore.case)
-  } else {
-    specnames <- gsub(extension, "", basename(file_names), ignore.case = ignore.case)
+  if (!subdir.names) {
+    file_names <- basename(file_names)
   }
+
+  specnames <- file_path_sans_ext(file_names)
 
   # On Windows, set cores to be 1
   if (cores > 1 && .Platform$OS.type == "windows") {
