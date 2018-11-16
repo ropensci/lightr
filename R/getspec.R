@@ -74,7 +74,7 @@ getspec <- function(where = getwd(), ext = "txt", lim = c(300, 700), decimal = "
 
   # On Windows, set cores to be 1
   if (cores > 1 && .Platform$OS.type == "windows") {
-    cores <- 1
+    cores <- 1L
     message('Parallel processing not available in Windows; "cores" set to 1.\n')
   }
 
