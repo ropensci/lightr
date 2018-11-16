@@ -52,10 +52,6 @@ getspec('examplespec/', lim = c(400, 900))
 getspec('examplespec/', ext = 'ttt')}
 
 }
-\references{
-Montgomerie R (2006) Analyzing colors. In: Hill G, McGraw K (eds)
-Bird coloration. Harvard University Press, Cambridge, pp 90-147.
-}
 \author{
 Rafael Maia \email{rm72@zips.uakron.edu}
 

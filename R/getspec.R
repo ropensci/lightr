@@ -39,8 +39,6 @@
 #' @author Rafael Maia \email{rm72@@zips.uakron.edu}
 #' @author Hugo Gruson \email{hugo.gruson+R@@normalesup.org}
 #'
-#' @references Montgomerie R (2006) Analyzing colors. In: Hill G, McGraw K (eds)
-#' Bird coloration. Harvard University Press, Cambridge, pp 90-147.
 
 getspec <- function(where = getwd(), ext = "txt", lim = c(300, 700), decimal = ".",
                     sep = NULL, subdir = FALSE, subdir.names = FALSE,
