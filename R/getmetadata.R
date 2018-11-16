@@ -41,7 +41,7 @@ getmetadata <- function(where = getwd(), ext = "ProcSpec",
     stop('No files found. Try a different extension value for argument "ext"')
   }
 
-  files <- paste0(where, "/", file_names)
+  files <- file.path(where, file_names)
 
   if (!subdir.names) {
     file_names <- basename(file_names)
