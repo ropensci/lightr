@@ -57,7 +57,8 @@ getspec <- function(where = getwd(), ext = "txt", lim = c(300, 700), decimal = "
   nb_files <- length(file_names)
 
   if (nb_files == 0) {
-    stop('No files found. Try a different extension value for argument "ext"')
+    warning('No files found. Try a different extension value for argument "ext"', call. = FALSE)
+    return(NULL)
   }
 
   files <- file.path(where, file_names)
@@ -99,7 +100,8 @@ getspec <- function(where = getwd(), ext = "txt", lim = c(300, 700), decimal = "
     whichfailed <- which(unlist(lapply(tmp, is.null)))
     # stop if all files are corrupt
     if (length(whichfailed) == nb_files) {
-      stop("Could not import spectra, check input files and function arguments", call. = FALSE)
+      warning("Could not import spectra, check input files and function arguments", call. = FALSE)
+      return()
     }
 
     # if not, import the ones remaining
@@ -128,5 +130,5 @@ getspec <- function(where = getwd(), ext = "txt", lim = c(300, 700), decimal = "
     )
   }
 
-  final
+  return(final)
 }
