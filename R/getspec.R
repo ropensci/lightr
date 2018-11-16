@@ -30,7 +30,6 @@
 #'
 #' @importFrom pbmcapply pbmclapply
 #' @importFrom stats approx
-#' @importFrom tools file_ext
 #'
 #' @examples \dontrun{
 #' getspec('examplespec/', lim = c(400, 900))
@@ -102,16 +101,7 @@ getspec <- function(where = getwd(), ext = "txt", lim = c(300, 700), decimal = "
 
   gsp <- function(ff) {
 
-    df <- switch(
-            tolower(file_ext(ff)),
-            procspec = parse_procspec(ff),
-            abs      = parse_abs(ff),
-            roh      = parse_roh(ff),
-            trm      = parse_trm(ff),
-            trt      = parse_trt(ff),
-            jdx      = parse_jdx(ff),
-            parse_generic(ff)
-          )[[1]]
+    df <- dispatch_parser(ff))[[1]]
 
     # Only keep first and last column ("wl" and "processed") and interpolate
     # every nm

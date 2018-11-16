@@ -60,16 +60,7 @@ getmetadata <- function(where = getwd(), ext = "ProcSpec",
 
   gmd <- function(ff) {
 
-    df <- switch(
-      tolower(tools::file_ext(ff)),
-      procspec = parse_procspec(ff),
-      abs      = parse_abs(ff),
-      roh      = parse_roh(ff),
-      trm      = parse_trm(ff),
-      trt      = parse_trt(ff),
-      jdx      = parse_jdx(ff),
-      parse_generic(ff)
-    )[[2]]
+    df <- dispatch_parser(ff)[[2]]
 
   }
 
