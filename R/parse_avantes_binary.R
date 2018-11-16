@@ -6,6 +6,8 @@
 #'   * a dataframe with columns "wl", "dark", "white", "scope" in that order
 #'   * a list with metadata including
 #'
+#' @importFrom stats setNames
+#'
 #' @author Hugo Gruson \email{hugo.gruson+R@@normalesup.org}
 #'
 parse_trm <- function(filename) {

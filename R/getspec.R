@@ -29,6 +29,8 @@
 #' @export
 #'
 #' @importFrom pbmcapply pbmclapply
+#' @importFrom stats approx
+#' @importFrom tools file_ext
 #'
 #' @examples \dontrun{
 #' getspec('examplespec/', lim = c(400, 900))
@@ -101,7 +103,7 @@ getspec <- function(where = getwd(), ext = "txt", lim = c(300, 700), decimal = "
   gsp <- function(ff) {
 
     df <- switch(
-            tolower(tools::file_ext(ff)),
+            tolower(file_ext(ff)),
             procspec = parse_procspec(ff),
             abs      = parse_abs(ff),
             roh      = parse_roh(ff),
