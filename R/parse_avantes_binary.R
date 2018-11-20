@@ -2,7 +2,7 @@
 #'
 #' @inheritParams parse_generic
 #'
-#' @inherit parse_genetic return
+#' @inherit parse_generic return
 #'
 #' @importFrom stats setNames
 #'
