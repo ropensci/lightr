@@ -17,3 +17,8 @@ A list of two elements:
 \description{
 Parse OceanOptics JCAMP-DX (.jdx) file
 }
+\references{
+McDonald RS, Wilks PA. JCAMP-DX: A Standard Form for Exchange of
+Infrared Spectra in Computer Readable Form. Applied Spectroscopy.
+1988;42(1):151‑62.
+}

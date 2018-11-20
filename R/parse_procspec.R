@@ -11,7 +11,9 @@
 #' @import xml2
 #'
 #' @references https://oceanoptics.com/faq/extract-data-procspec-file-without-spectrasuite/
-
+#'
+#' @export
+#'
 parse_procspec <- function(filename) {
   # We let R find the suitable tmp folder to extract files
   tmp <- tempdir()

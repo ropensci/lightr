@@ -4,6 +4,8 @@
 #'
 #' @inherit parse_generic return
 #'
+#' @export
+#'
 parse_ttt <- function(filename) {
 
   # FIXME: grep to find appropriate lines instead of relying on fixed indices
@@ -52,4 +54,7 @@ parse_ttt <- function(filename) {
 }
 
 #' @rdname parse_ttt
+#'
+#' @export
+#'
 parse_trt <- parse_ttt

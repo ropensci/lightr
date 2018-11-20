@@ -4,6 +4,12 @@
 #'
 #' @inherit parse_generic return
 #'
+#' @references McDonald RS, Wilks PA. JCAMP-DX: A Standard Form for Exchange of
+#' Infrared Spectra in Computer Readable Form. Applied Spectroscopy.
+#' 1988;42(1):151‑62.
+#'
+#' @export
+#'
 parse_jdx <- function(filename) {
   content <- readLines(filename)
   author <- grep("^##OWNER=", content, value = TRUE)

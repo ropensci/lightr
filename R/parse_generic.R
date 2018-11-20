@@ -8,6 +8,8 @@
 #'   * a dataframe with columns "wl", "dark", "white", "scope" in that order
 #'   * a list with metadata including
 #'
+#' @export
+#'
 
 parse_generic <- function(filename, decimal, sep) {
 

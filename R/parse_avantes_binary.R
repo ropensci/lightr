@@ -6,6 +6,8 @@
 #'
 #' @importFrom stats setNames
 #'
+#' @export
+#'
 parse_trm <- function(filename) {
   # Translation of the matlab script from:
   # Copyright: (cc-by) Kotya Karapetyan, 2011.
@@ -104,7 +106,13 @@ parse_trm <- function(filename) {
 }
 
 #' @rdname parse_trm
+#'
+#' @export
+#'
 parse_abs <- parse_trm
 
 #' @rdname parse_trm
+#'
+#' @export
+#'
 parse_roh <- parse_trm

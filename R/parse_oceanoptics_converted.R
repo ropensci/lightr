@@ -4,6 +4,8 @@
 #'
 #' @inherit parse_generic return
 #'
+#' @export
+#'
 parse_jaz <- function(filename) {
 
   # METADATA
@@ -69,4 +71,7 @@ parse_jaz <- function(filename) {
 }
 
 #' @rdname parse_jaz
+#'
+#' @export
+#'
 parse_jazirrad <- parse_jaz
