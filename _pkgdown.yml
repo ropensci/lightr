@@ -1,3 +1,4 @@
 url: https://bisaloo.github.io/lightR
 
-mode: auto
+development:
+  mode: auto
