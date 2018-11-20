@@ -18,7 +18,8 @@ Imports:
   xml2
 Suggests:
     testthat,
-    spelling
+    spelling,
+    covr
 URL: https://github.com/Bisaloo/lightR
 BugReports: https://github.com/Bisaloo/lightR/issues
 License: GPL (>=2)

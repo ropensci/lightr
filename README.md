@@ -3,6 +3,7 @@
 
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 [![Travis build status](https://travis-ci.org/Bisaloo/lightR.svg?branch=master)](https://travis-ci.org/Bisaloo/lightR)
+[![Coverage status](https://codecov.io/gh/Bisaloo/lightR/branch/master/graph/badge.svg)](https://codecov.io/github/Bisaloo/lightR?branch=master)
 
 There is no standard file format for spectrometry data and different scientific
 instrumentation comparnies use wildly different formats to store spectral data.
