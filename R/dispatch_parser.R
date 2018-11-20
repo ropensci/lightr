@@ -11,6 +11,7 @@ dispatch_parser <- function(filename, decimal = decimal, sep = sep) {
     roh      = parse_roh(filename),
     trm      = parse_trm(filename),
     trt      = parse_trt(filename),
+    ttt      = parse_ttt(filename),
     jdx      = parse_jdx(filename),
     jaz      = parse_jaz(filename),
     jazirrad = parse_jazirrad(filename),
