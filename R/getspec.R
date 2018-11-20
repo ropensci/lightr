@@ -83,9 +83,8 @@ getspec <- function(where = getwd(), ext = "txt", lim = c(300, 700), decimal = "
 
     df <- dispatch_parser(ff, decimal = decimal, sep = sep)[[1]]
 
-    # Only keep first and last column ("wl" and "processed") and interpolate
-    # every nm
-    interp <- approx(df[, 1], df[, 5], xout = range)$y
+    # Only keep "wl" and "processed" columns and interpolate every nm
+    interp <- approx(df[, "wl"], df[, "processed"], xout = range)$y
   }
 
   tmp <- pbmclapply(files, function(x)
