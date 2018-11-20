@@ -119,13 +119,5 @@ getspec <- function(where = getwd(), ext = "txt", lim = c(300, 700), decimal = "
   final <- as.data.frame(final)
   class(final) <- c("rspec", "data.frame")
 
-  # Negative value check
-  if (any(final < 0, na.rm = TRUE)) {
-    message(
-      "\nThe spectral data contain ", sum(final < 0, na.rm = TRUE),
-      " negative value(s), which may produce unexpected results if used in models. Consider using procspec() to correct them."
-    )
-  }
-
   return(final)
 }
