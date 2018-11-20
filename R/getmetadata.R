@@ -17,8 +17,6 @@
 #' @importFrom pbmcapply pbmclapply
 #' @importFrom tools file_path_sans_ext
 #'
-#' @author Hugo Gruson \email{hugo.gruson+R@@normalesup.org}
-#'
 #' @references White TE, Dalrymple RL, Noble DWA, O’Hanlon JC, Zurek DB,
 #' Umbers KDL. Reproducible research in the study of biological coloration.
 #' Animal Behaviour. 2015 Aug 1;106:51–7.
