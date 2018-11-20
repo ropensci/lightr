@@ -7,7 +7,7 @@ r:
   - devel
 os:
   - linux
-  - osx
+#  - osx
 sudo: false
 cache: packages
 
