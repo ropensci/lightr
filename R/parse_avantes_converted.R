@@ -1,6 +1,6 @@
 #' Parse Avantes converted file
 #'
-#' @inheritParams parse_genetic
+#' @inheritParams parse_generic
 #'
 #' @inherit parse_generic return
 #'
