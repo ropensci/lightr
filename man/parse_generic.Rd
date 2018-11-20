@@ -21,8 +21,3 @@ A list of two elements:
 \description{
 Generic function to parse spectra files that don't have a specific parser
 }
-\author{
-Rafael Maia \email{rm72@zips.uakron.edu}
-
-Hugo Gruson \email{hugo.gruson+R@normalesup.org}
-}

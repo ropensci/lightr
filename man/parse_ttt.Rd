@@ -9,9 +9,6 @@ parse_ttt(filename)
 
 parse_trt(filename)
 }
-\arguments{
-\item{filename}{Path of the ABS, TRM or ROH file}
-}
 \value{
 A list of two elements:
   * a dataframe with columns "wl", "dark", "white", "scope" in that order
@@ -19,7 +16,4 @@ A list of two elements:
 }
 \description{
 Parse Avantes converted file
-}
-\author{
-Hugo Gruson \email{hugo.gruson+R@normalesup.org}
 }

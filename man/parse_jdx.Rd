@@ -7,7 +7,7 @@
 parse_jdx(filename)
 }
 \arguments{
-\item{filename}{Path of the ABS, TRM or ROH file}
+\item{filename}{Path of the file to parse}
 }
 \value{
 A list of two elements:
@@ -16,7 +16,4 @@ A list of two elements:
 }
 \description{
 Parse OceanOptics JCAMP-DX (.jdx) file
-}
-\author{
-Hugo Gruson \email{hugo.gruson+R@normalesup.org}
 }

@@ -13,16 +13,8 @@ parse_abs(filename)
 parse_roh(filename)
 }
 \arguments{
-\item{filename}{Path of the ABS, TRM or ROH file}
-}
-\value{
-A list of two elements:
-  * a dataframe with columns "wl", "dark", "white", "scope" in that order
-  * a list with metadata including
+\item{filename}{Path of the file to parse}
 }
 \description{
 Parse Avantes binary file
-}
-\author{
-Hugo Gruson \email{hugo.gruson+R@normalesup.org}
 }

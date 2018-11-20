@@ -13,16 +13,8 @@ parse_jaz(filename)
 parse_jazirrad(filename)
 }
 \arguments{
-\item{filename}{Path of the ABS, TRM or ROH file}
-}
-\value{
-A list of two elements:
-  * a dataframe with columns "wl", "dark", "white", "scope" in that order
-  * a list with metadata including
+\item{filename}{Path of the file to parse}
 }
 \description{
 Parse OceanOptics converted file
-}
-\author{
-Hugo Gruson \email{hugo.gruson+R@normalesup.org}
 }
