@@ -11,7 +11,7 @@
 
 parse_generic <- function(filename, decimal, sep) {
 
-  seps <- paste0(c("\\\t|\\;| ", sep), collapse = "|\\")
+  seps <- paste0(c("[[:blank:]]", sep), collapse = "|\\")
 
   # Code from pavo::getspec
 
