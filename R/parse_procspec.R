@@ -8,7 +8,7 @@
 #'
 #' @author Hugo Gruson \email{hugo.gruson+R@@normalesup.org}
 #'
-#' @import xml2
+#' @importFrom xml2 read_xml xml_find_all xml_find_first xml_text
 #'
 #' @references https://oceanoptics.com/faq/extract-data-procspec-file-without-spectrasuite/
 #'
@@ -41,7 +41,7 @@ parse_procspec <- function(filename) {
     return(line)
   }, USE.NAMES = FALSE)
 
-  clean_text = paste(clean_text, collapse = "\n")
+  clean_text <- paste(clean_text, collapse = "\n")
 
   # Because the file is non ASCII, we don't need to specify the encoding.
   xml_source <- read_xml(clean_text)
@@ -74,10 +74,10 @@ parse_procspec <- function(filename) {
   # Get rid of the XML tags.
   dark <- xml_text(dark_values)
 
-  processed_node <- xml2::xml_find_all(xml_source, ".//processedPixels")
-  processed_values <- xml2::xml_find_all(processed_node, ".//double")
+  processed_node <- xml_find_all(xml_source, ".//processedPixels")
+  processed_values <- xml_find_all(processed_node, ".//double")
   # Get rid of the XML tags.
-  processed <- xml2::xml_text(processed_values)
+  processed <- xml_text(processed_values)
 
   specdf <- data.frame(wl, dark, white, scope, processed, stringsAsFactors = FALSE)
   # The XML file was considered as text. So are "wl" and "procspec" columns.
@@ -95,7 +95,7 @@ parse_procspec <- function(filename) {
                 dark_boxcar, white_boxcar, scope_boxcar)
 
   # Put integration time in ms instead of us
-  metadata[c(5,6,7)] = as.numeric(metadata[c(5,6,7)]) / 1000
+  metadata[c(5,6,7)] <- as.numeric(metadata[c(5,6,7)]) / 1000
 
   return(list(specdf, metadata))
 }

@@ -30,7 +30,7 @@ parse_jaz <- function(filename) {
   inttime_unit <- gsub("^Integration Time \\((.+)\\):.*", "\\1", int)
 
   if (inttime_unit == "usec") {
-    inttime = as.numeric(inttime) / 1000
+    inttime <- as.numeric(inttime) / 1000
   }
 
   average <- grep("^Spectra Averaged: [[:digit:]]+", content, value = TRUE)

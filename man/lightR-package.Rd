@@ -8,6 +8,14 @@
 \description{
 Parse various spectra file formats to extract spectral data and metadata, such as integration times, number of averages, spectrometer model or timestamp.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/Bisaloo/lightR}
+  \item Report bugs at \url{https://github.com/Bisaloo/lightR/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Hugo Gruson \email{hugo.gruson+R@normalesup.org} (0000-0002-4094-1476)
 

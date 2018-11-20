@@ -36,7 +36,8 @@ getmetadata <- function(where = getwd(), ext = "ProcSpec",
   nb_files <- length(file_names)
 
   if (nb_files == 0) {
-    warning('No files found. Try a different extension value for argument "ext"', call. = FALSE)
+    warning('No files found. Try a different extension value for argument "ext"',
+            call. = FALSE)
     return(NULL)
   }
 

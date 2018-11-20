@@ -67,7 +67,7 @@ parse_trm <- function(filename) {
     data <- setNames(data.frame(matrix(data, ncol = 3, byrow = TRUE)),
                      c("scope", "white", "dark"))
   } else {# scope mode
-    data = data.frame(
+    data <- data.frame(
       "scope" = readBin(f, "numeric", ipixlast - ipixfirst + 1, 4),
       "white" = NA,
       "dark"  = NA
