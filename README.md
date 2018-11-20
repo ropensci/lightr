@@ -42,6 +42,9 @@ and
 getspec(".", ext = "ProcSpec")
 ```
 
+`getspec()` returns a dataframe that is compatible with [`pavo`](https://github.com/rmaia/pavo) custom S3 class (`rspec`) and can be
+used for further analyses using colour vision models.
+
 All supported file formats can also be parsed using the `parse_$extension()` 
 function where `$extension` is the lowercase extension of your file. This
 family of functions return a list where the first element is the data dataframe
