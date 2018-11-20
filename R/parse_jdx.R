@@ -30,6 +30,7 @@ parse_jdx <- function(filename) {
                     content[blockstarts[index]:blockends[index]],
                     value = TRUE)
     inttime <- gsub("^##\\.ACQUISITION TIME= ", "", inttime)
+    inttime <- set_units(as.numeric(inttime), "ms")
   }
 
   scope_inttime <- get_inttime(which(blocktype=="processed"))
@@ -58,10 +59,10 @@ parse_jdx <- function(filename) {
   dark_boxcar <- get_boxcar(which(blocktype=="dark"))
   white_boxcar <- get_boxcar(which(blocktype=="reference"))
 
-  metadata <- c(author, savetime, specmodel, specID,
-                dark_inttime, white_inttime, scope_inttime,
-                dark_average, white_average, scope_average,
-                dark_boxcar, white_boxcar, scope_boxcar)
+  metadata <- data.frame(author, savetime, specmodel, specID,
+                         dark_inttime, white_inttime, scope_inttime,
+                         dark_average, white_average, scope_average,
+                         dark_boxcar, white_boxcar, scope_boxcar)
 
 
   get_data <- function(index) {

@@ -75,7 +75,8 @@ parse_trm <- function(filename) {
   }
 
   # integration time [ms] during file-save
-  dark_inttime <- white_inttime <- scope_inttime <- readBin(f, "numeric", 1, 4)
+  inttime <- set_units(readBin(f, "numeric", 1, 4), "ms")
+  dark_inttime <- white_inttime <- scope_inttime <- inttime
 
   # nr of average during file-save
   dark_average <- white_average <- scope_average <- readBin(f, "numeric", 1, 4)
@@ -97,10 +98,10 @@ parse_trm <- function(filename) {
 
   author <- NA
   specmodel <- NA
-  metadata <- c(author, savetime, specmodel, specID,
-                dark_inttime, white_inttime, scope_inttime,
-                dark_average, white_average, scope_average,
-                dark_boxcar, white_boxcar, scope_boxcar)
+  metadata <- data.frame(author, savetime, specmodel, specID,
+                         dark_inttime, white_inttime, scope_inttime,
+                         dark_average, white_average, scope_average,
+                         dark_boxcar, white_boxcar, scope_boxcar)
 
   return(list(data, metadata))
 }

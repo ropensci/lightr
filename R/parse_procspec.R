@@ -54,6 +54,7 @@ parse_procspec <- function(filename) {
   scope_node <- xml_find_first(xml_source, ".//pixelValues")
   scope_values <- xml_find_all(scope_node, ".//double")
   scope_inttime <- xml_text(xml_find_first(xml_source, ".//integrationTime"))
+  scope_inttime <- as.numeric(scope_inttime, "us")
   scope_average <- xml_text(xml_find_first(xml_source, ".//scansToAverage"))
   scope_boxcar <- xml_text(xml_find_first(xml_source, ".//boxcarWidth"))
   scope <- xml_text(scope_values)
@@ -61,6 +62,7 @@ parse_procspec <- function(filename) {
   white_node <- xml_find_all(xml_source, ".//referenceSpectrum")
   white_values <- xml_find_all(white_node, ".//double")
   white_inttime <- xml_text(xml_find_all(white_node, ".//integrationTime"))
+  white_inttime <- as.numeric(white_inttime, "us")
   white_average <- xml_text(xml_find_all(white_node, ".//scansToAverage"))
   white_boxcar <- xml_text(xml_find_all(white_node, ".//boxcarWidth"))
   # Get rid of the XML tags.
@@ -69,6 +71,7 @@ parse_procspec <- function(filename) {
   dark_node <- xml_find_all(xml_source, ".//darkSpectrum")
   dark_values <- xml_find_all(dark_node, ".//double")
   dark_inttime <- xml_text(xml_find_all(dark_node, ".//integrationTime"))
+  dark_inttime <- as.numeric(dark_inttime, "us")
   dark_average <- xml_text(xml_find_all(dark_node, ".//scansToAverage"))
   dark_boxcar <- xml_text(xml_find_all(dark_node, ".//boxcarWidth"))
   # Get rid of the XML tags.
@@ -89,13 +92,10 @@ parse_procspec <- function(filename) {
   specmodel <- gsub(".+\\.([[:alnum:]]+)$", "\\1", specclass)
   specID <- xml_text(xml_find_first(xml_source, ".//spectrometerSerialNumber"))
 
-  metadata <- c(author, savetime, specmodel, specID,
-                dark_inttime, white_inttime, scope_inttime,
-                dark_average, white_average, scope_average,
-                dark_boxcar, white_boxcar, scope_boxcar)
-
-  # Put integration time in ms instead of us
-  metadata[c(5,6,7)] = as.numeric(metadata[c(5,6,7)]) / 1000
+  metadata <- data.frame(author, savetime, specmodel, specID,
+                         dark_inttime, white_inttime, scope_inttime,
+                         dark_average, white_average, scope_average,
+                         dark_boxcar, white_boxcar, scope_boxcar)
 
   return(list(specdf, metadata))
 }

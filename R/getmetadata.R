@@ -89,7 +89,7 @@ getmetadata <- function(where = getwd(), ext = "ProcSpec",
                      paste(c("White reference", "Dark reference", "Sample"), "number of averages"),
                      paste(c("White reference", "Dark reference", "Sample"), "boxcar width"))
   rownames(res) <- specnames
-  res[, c(5,6,7,8,9,10,11,12,13)] <- sapply(res[, c(5,6,7,8,9,10,11,12,13)], as.numeric)
+  res[, c(8,9,10,11,12,13)] <- sapply(res[, c(8,9,10,11,12,13)], as.numeric)
 
 #  class(res) <- c("metaspec", "data.frame")
 

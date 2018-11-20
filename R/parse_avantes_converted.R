@@ -17,7 +17,9 @@ parse_ttt <- function(filename) {
   author <- NA
   savetime <- NA
   specmodel <- NA
-  inttime <- gsub("^Integration time: ([[:graph:]]+) ms$", "\\1", content[2])
+  inttime <- gsub("^Integration time: ([[:graph:]]+).*", "\\1", content[2])
+  inttime_unit <- gsub("^Integration time: [[:graph:]]+ (.+)", "\\1", content[2])
+  inttime <- set_units(as.numeric(inttime), inttime_unit, mode = "standard")
   average <- gsub("^Average: ([[:digit:]]+) scans$", "\\1", content[3])
   boxcar <- gsub("^Nr of pixels used for smoothing: ", "", content[4])
 
@@ -27,10 +29,10 @@ parse_ttt <- function(filename) {
   dark_boxcar <- white_boxcar <- scope_boxcar <- boxcar
 
 
-  metadata <- c(author, savetime, specmodel, specID,
-                dark_inttime, white_inttime, scope_inttime,
-                dark_average, white_average, scope_average,
-                dark_boxcar, white_boxcar, scope_boxcar)
+  metadata <- data.frame(author, savetime, specmodel, specID,
+                         dark_inttime, white_inttime, scope_inttime,
+                         dark_average, white_average, scope_average,
+                         dark_boxcar, white_boxcar, scope_boxcar)
 
   data_ind <- grep("^([[:digit:]]|\\.|;)+$", content)
   data <- strsplit(content[data_ind], ";")

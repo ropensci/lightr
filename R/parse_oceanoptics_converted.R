@@ -29,9 +29,7 @@ parse_jaz <- function(filename) {
 
   inttime_unit <- gsub("^Integration Time \\((.+)\\):.*", "\\1", int)
 
-  if (inttime_unit == "usec") {
-    inttime = as.numeric(inttime) / 1000
-  }
+  inttime <- set_units(as.numeric(inttime), inttime_unit, mode = "standard")
 
   average <- grep("^Spectra Averaged: [[:digit:]]+", content, value = TRUE)
   average <- gsub("^Spectra Averaged: ([[:digit:]]+).*", "\\1", average)
@@ -43,10 +41,10 @@ parse_jaz <- function(filename) {
   dark_average <- white_average <- scope_average <- average
   dark_boxcar <- white_boxcar <- scope_boxcar <- boxcar
 
-  metadata <- c(author, savetime, specmodel, specID,
-                dark_inttime, white_inttime, scope_inttime,
-                dark_average, white_average, scope_average,
-                dark_boxcar, white_boxcar, scope_boxcar)
+  metadata <- data.frame(author, savetime, specmodel, specID,
+                         dark_inttime, white_inttime, scope_inttime,
+                         dark_average, white_average, scope_average,
+                         dark_boxcar, white_boxcar, scope_boxcar)
 
   # SPECTRA
 
