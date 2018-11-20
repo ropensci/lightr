@@ -30,10 +30,7 @@ parallel processing (not available in Windows).}
 Extract metadata from all spectra files in a folder
 }
 \references{
-White TE, Dalrymple RL, Noble DWA, O’Hanlon JC, Zurek DB,
+White TE, Dalrymple RL, Noble DWA, O'Hanlon JC, Zurek DB,
 Umbers KDL. Reproducible research in the study of biological coloration.
 Animal Behaviour. 2015 Aug 1;106:51–7.
-}
-\author{
-Hugo Gruson \email{hugo.gruson+R@normalesup.org}
 }

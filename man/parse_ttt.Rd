@@ -9,6 +9,9 @@ parse_ttt(filename)
 
 parse_trt(filename)
 }
+\arguments{
+\item{filename}{Path of the file to parse}
+}
 \value{
 A list of two elements:
   * a dataframe with columns "wl", "dark", "white", "scope" in that order
