@@ -8,9 +8,6 @@
 #'   * a dataframe with columns "wl", "dark", "white", "scope" in that order
 #'   * a list with metadata including
 #'
-#' @author Rafael Maia \email{rm72@@zips.uakron.edu}
-#' @author Hugo Gruson \email{hugo.gruson+R@@normalesup.org}
-#'
 
 parse_generic <- function(filename, decimal, sep) {
 

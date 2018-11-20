@@ -1,12 +1,8 @@
 #' Parse Avantes converted file
 #'
-#' @param filename Path of the ABS, TRM or ROH file
+#' @inheritParams parse_genetic
 #'
-#' @return A list of two elements:
-#'   * a dataframe with columns "wl", "dark", "white", "scope" in that order
-#'   * a list with metadata including
-#'
-#' @author Hugo Gruson \email{hugo.gruson+R@@normalesup.org}
+#' @inherit parse_generic return
 #'
 parse_ttt <- function(filename) {
 

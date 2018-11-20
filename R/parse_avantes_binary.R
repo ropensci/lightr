@@ -1,14 +1,10 @@
 #' Parse Avantes binary file
 #'
-#' @param filename Path of the ABS, TRM or ROH file
+#' @inheritParams parse_generic
 #'
-#' @return A list of two elements:
-#'   * a dataframe with columns "wl", "dark", "white", "scope" in that order
-#'   * a list with metadata including
+#' @inherit parse_genetic return
 #'
 #' @importFrom stats setNames
-#'
-#' @author Hugo Gruson \email{hugo.gruson+R@@normalesup.org}
 #'
 parse_trm <- function(filename) {
   # Translation of the matlab script from:
