@@ -107,6 +107,6 @@ philosophy, `lightR` may also hopefully prove useful for people working with
 other languages than R.
 `
 
-[`pavo`]: https://github.com/rmaia/pavo
+[`pavo`]: https://cran.r-project.org/package=pavo
 
 [`photobiologyInOut`]: https://cran.r-project.org/package=photobiologyInOut
