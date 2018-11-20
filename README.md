@@ -70,6 +70,8 @@ This package is still under development but currently supports:
 - [OceanOptics](https://oceanoptics.com/):
     * `.jdx`
     * `.ProcSpec`
+    * `.jaz`
+    * `.JazIrrad`
 - [Avantes](https://www.avantes.com/):
     * `.ABS`
     * `.ROH`
