@@ -15,6 +15,7 @@
 #' @export
 #'
 #' @importFrom pbapply pblapply
+#' @importFrom parallel makePSOCKcluster clusterExport stopCluster
 #' @importFrom tools file_path_sans_ext
 #'
 #' @references White TE, Dalrymple RL, Noble DWA, O'Hanlon JC, Zurek DB,
@@ -23,7 +24,7 @@
 
 getmetadata <- function(where = getwd(), ext = "ProcSpec",
                         subdir = FALSE, subdir.names = FALSE,
-                        cores = getOption("mc.cores", 2L), ignore.case = TRUE) {
+                        cores = getOption("cl.cores", 2L), ignore.case = TRUE) {
 
   # allow multiple extensions
   extension <- paste0("\\.", ext, "$", collapse = "|")
@@ -49,23 +50,15 @@ getmetadata <- function(where = getwd(), ext = "ProcSpec",
 
   specnames <- file_path_sans_ext(file_names)
 
-  # On Windows, set cores to be 1
-  if (cores > 1 && .Platform$OS.type == "windows") {
-    cores <- 1L
-    message('Parallel processing not available in Windows; "cores" set to 1.\n')
-  }
-
-  gmd <- function(ff) {
-
-    df <- dispatch_parser(ff)[[2]]
-
-  }
+  clstrs <- makePSOCKcluster(cores, methods = FALSE, useXDR = FALSE)
+  on.exit(stopCluster)
+  clusterExport(clstrs, varlist = c("file_ext", ls(pattern = "^parse_")))
 
   tmp <- pblapply(files, function(x)
-    tryCatch(gmd(x),
+    tryCatch(dispatch_parser(x)[[2]],
              error = function(e) NULL,
              warning = function(e) NULL
-    ), cl = cores)
+    ), cl = clstrs)
 
   if (any(unlist(lapply(tmp, is.null)))) {
     whichfailed <- which(unlist(lapply(tmp, is.null)))

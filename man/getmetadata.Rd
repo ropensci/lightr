@@ -5,7 +5,7 @@
 \title{Extract metadata from all spectra files in a folder}
 \usage{
 getmetadata(where = getwd(), ext = "ProcSpec", subdir = FALSE,
-  subdir.names = FALSE, cores = getOption("mc.cores", 2L),
+  subdir.names = FALSE, cores = getOption("cl.cores", 2L),
   ignore.case = TRUE)
 }
 \arguments{
