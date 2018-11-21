@@ -10,7 +10,7 @@
 #'
 #' @importFrom xml2 read_xml xml_find_all xml_find_first xml_text
 #'
-#' @references https://oceanoptics.com/faq/extract-data-procspec-file-without-spectrasuite/
+#' @references <https://oceanoptics.com/faq/extract-data-procspec-file-without-spectrasuite/>
 #'
 #' @export
 #'

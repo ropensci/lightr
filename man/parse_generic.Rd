@@ -15,8 +15,10 @@ parse_generic(filename, decimal, sep)
 }
 \value{
 A list of two elements:
-  * a dataframe with columns "wl", "dark", "white", "scope" in that order
-  * a list with metadata including
+\itemize{
+\item a dataframe with columns "wl", "dark", "white", "scope" in that order
+\item a list with metadata including
+}
 }
 \description{
 Generic function to parse spectra files that don't have a specific parser

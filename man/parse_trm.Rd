@@ -17,8 +17,10 @@ parse_roh(filename)
 }
 \value{
 A list of two elements:
-  * a dataframe with columns "wl", "dark", "white", "scope" in that order
-  * a list with metadata including
+\itemize{
+\item a dataframe with columns "wl", "dark", "white", "scope" in that order
+\item a list with metadata including
+}
 }
 \description{
 Parse Avantes binary file

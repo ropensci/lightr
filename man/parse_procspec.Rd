@@ -11,14 +11,16 @@ parse_procspec(filename)
 }
 \value{
 A list of two elements:
-  * a dataframe with columns "wl", "dark", "white", "scope" in that order
-  * a list with metadata including
+\itemize{
+\item a dataframe with columns "wl", "dark", "white", "scope" in that order
+\item a list with metadata including
+}
 }
 \description{
 Parse OceanOptics ProcSpec spectra file
 }
 \references{
-https://oceanoptics.com/faq/extract-data-procspec-file-without-spectrasuite/
+\url{https://oceanoptics.com/faq/extract-data-procspec-file-without-spectrasuite/}
 }
 \author{
 Hugo Gruson \email{hugo.gruson+R@normalesup.org}

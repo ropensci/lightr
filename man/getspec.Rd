@@ -51,9 +51,5 @@ Avantes (before or after exporting).
 getspec('examplespec/', lim = c(400, 900))
 getspec('examplespec/', ext = 'ttt')}
 
-}
-\author{
-Rafael Maia \email{rm72@zips.uakron.edu}
 
-Hugo Gruson \email{hugo.gruson+R@normalesup.org}
 }

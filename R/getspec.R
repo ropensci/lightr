@@ -36,10 +36,7 @@
 #' getspec('examplespec/', lim = c(400, 900))
 #' getspec('examplespec/', ext = 'ttt')}
 #'
-#' @author Rafael Maia \email{rm72@@zips.uakron.edu}
-#' @author Hugo Gruson \email{hugo.gruson+R@@normalesup.org}
 #'
-
 getspec <- function(where = getwd(), ext = "txt", lim = c(300, 700), decimal = ".",
                     sep = NULL, subdir = FALSE, subdir.names = FALSE,
                     cores = getOption("mc.cores", 2L), ignore.case = TRUE) {
