@@ -14,7 +14,7 @@
 #'
 #' @export
 #'
-#' @importFrom pbmcapply pbmclapply
+#' @importFrom pbapply pblapply
 #' @importFrom tools file_path_sans_ext
 #'
 #' @references White TE, Dalrymple RL, Noble DWA, O'Hanlon JC, Zurek DB,
@@ -61,11 +61,11 @@ getmetadata <- function(where = getwd(), ext = "ProcSpec",
 
   }
 
-  tmp <- pbmclapply(files, function(x)
+  tmp <- pblapply(files, function(x)
     tryCatch(gmd(x),
              error = function(e) NULL,
              warning = function(e) NULL
-    ), mc.cores = cores)
+    ), cl = cores)
 
   if (any(unlist(lapply(tmp, is.null)))) {
     whichfailed <- which(unlist(lapply(tmp, is.null)))

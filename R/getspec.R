@@ -28,7 +28,7 @@
 #'
 #' @export
 #'
-#' @importFrom pbmcapply pbmclapply
+#' @importFrom pbapply pblapply
 #' @importFrom tools file_path_sans_ext
 #' @importFrom stats approx
 #'
@@ -84,11 +84,11 @@ getspec <- function(where = getwd(), ext = "txt", lim = c(300, 700), decimal = "
     interp <- approx(df[, "wl"], df[, "processed"], xout = range)$y
   }
 
-  tmp <- pbmclapply(files, function(x)
+  tmp <- pblapply(files, function(x)
     tryCatch(gsp(x),
              error = function(e) NULL,
              warning = function(e) NULL
-    ), mc.cores = cores)
+    ), cl = cores)
 
   if (any(unlist(lapply(tmp, is.null)))) {
     whichfailed <- which(unlist(lapply(tmp, is.null)))
