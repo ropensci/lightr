@@ -6,6 +6,12 @@
 \usage{
 spec2csv(filename, overwrite = FALSE)
 }
+\arguments{
+\item{filename}{name of the file}
+
+\item{overwrite}{logical. Should the function overwrite existing files with
+the same name? (defaults to \code{FALSE}).}
+}
 \description{
 Convert spectral data files to csv files
 }

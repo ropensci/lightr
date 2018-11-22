@@ -1,5 +1,10 @@
 #' Convert spectral data files to csv files
 #'
+#' @param filename name of the file
+#'
+#' @param overwrite logical. Should the function overwrite existing files with
+#' the same name? (defaults to `FALSE`).
+#'
 #' @section Warning:
 #'
 #' This step loses all metadata associated to the spectra. This metadata is
