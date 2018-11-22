@@ -4,7 +4,7 @@
 \alias{parse_generic}
 \title{Generic function to parse spectra files that don't have a specific parser}
 \usage{
-parse_generic(filename, decimal, sep)
+parse_generic(filename, decimal = ".", sep = NULL)
 }
 \arguments{
 \item{filename}{Path of the file to parse}

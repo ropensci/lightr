@@ -1,5 +1,15 @@
+#' Convert spectral data files to csv files
+#'
+#' @section Warning
+#'
+#' This step loses all metadata associated to the spectra. This metadata is
+#' critical to ensure reproducibility. We recommended you use [getmetadata()] to
+#' extract this information from your raw data
+#'
 #' @importFrom tools file_path_sans_ext
 #' @importFrom utils write.csv
+#'
+#' @export
 
 spec2csv <- function(filename, overwrite = FALSE) {
 
