@@ -43,4 +43,11 @@ test_that("Parsers", {
   expect_length(parse_trt(system.file("testdata", "avantes_export2.trt", package = "lightR")),
                 2)
 
+  # Generic
+
+  expect_error(parse_generic(system.file("testdata", "spec.csv", package = "lightR")))
+
+  expect_length(parse_generic(system.file("testdata", "spec.csv", package = "lightR"), sep = ","),
+                2)
+
 })
