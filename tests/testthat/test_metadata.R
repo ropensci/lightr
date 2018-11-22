@@ -1,20 +1,19 @@
-library(lightR)
 context("metadata")
 
 test_that("Metadata", {
 
-  res <- getmetadata(system.file("testdata", package = "lightR"),
+  res <- getmetadata(system.file("testdata", package = "lightr"),
 	                   ext = c("TRM", "ROH", "ttt", "trt", "jdx", "jaz", "JazIrrad"))
   expect_identical(nrow(res), 9L)
 
   # Recursive
-  res <- getmetadata(system.file("testdata", package = "lightR"),
+  res <- getmetadata(system.file("testdata", package = "lightr"),
                      ext = "ProcSpec", subdir = TRUE)
   expect_identical(nrow(res), 3L)
 
   # Total fail
   totalfail <- expression({
-    getmetadata(system.file("testdata", package = "lightR"),
+    getmetadata(system.file("testdata", package = "lightr"),
                 ext = "fail")
   })
   expect_warning(eval(totalfail), "Could not import spectra")
@@ -23,7 +22,7 @@ test_that("Metadata", {
 
   # Partial fail
   partialfail <- expression({
-    getmetadata(system.file("testdata", package = "lightR"),
+    getmetadata(system.file("testdata", package = "lightr"),
                 ext = c("fail", "jdx"))
   })
   expect_warning(eval(partialfail), "Could not import one or more")

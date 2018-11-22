@@ -1,4 +1,4 @@
 library(testthat)
-library(lightR)
+library(lightr)
 
-test_check("lightR")
+test_check("lightr")

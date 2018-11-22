@@ -1,4 +1,4 @@
-Package: lightR
+Package: lightr
 Title: Read Spectrometric Data in R
 Version: 0.0.0.9000
 Authors@R: c(
@@ -20,8 +20,8 @@ Suggests:
     testthat,
     spelling,
     covr
-URL: https://github.com/Bisaloo/lightR
-BugReports: https://github.com/Bisaloo/lightR/issues
+URL: https://github.com/Bisaloo/lightr
+BugReports: https://github.com/Bisaloo/lightr/issues
 License: GPL (>=2)
 Encoding: UTF-8
 LazyData: true
