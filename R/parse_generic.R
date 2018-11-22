@@ -19,7 +19,7 @@ parse_generic <- function(filename, decimal = ".", sep = NULL) {
 
   raw <- scan(
     file = filename, what = character(), quiet = TRUE,
-    dec = decimal, sep = "\n", skipNul = TRUE
+    sep = "\n", skipNul = TRUE
   )
   # substitute separators for a single value to be used in split
   raw <- gsub(seps, ";", raw)
@@ -32,9 +32,6 @@ parse_generic <- function(filename, decimal = ".", sep = NULL) {
 
   # convert decimal value to point
   raw <- gsub(decimal, ".", raw, fixed = TRUE)
-
-  # exclude lines that have text
-  # raw <- raw[!grepl('[A-Da-dF-Zf-z]', raw)]
 
   # exclude any line that doesn't start with a number
   scinum <- "-?[[:digit:]]+\\.?[[:digit:]]*((E|e)(-|\\+)?[[:digit:]]+)?"
@@ -50,7 +47,7 @@ parse_generic <- function(filename, decimal = ".", sep = NULL) {
   }
 
   # convert to numeric, check for NA
-  suppressWarnings(class(rawsplit) <- "numeric")
+  class(rawsplit) <- "numeric"
 
   # remove columns where all values are NAs (due to poor tabulation)
   rawsplit <- rawsplit[, !apply(rawsplit, 2, function(x) all(is.na(x)))]
