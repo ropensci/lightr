@@ -8,7 +8,7 @@ reference:
     desc: These functions offers an intuitive and user-friendly way to import (and possibly) transform multiple files at once in a given location.
     contents:
     - getspec
-    - getmetata
+    - getmetadata
     - spec2csv
   - title: Low-level parsers
     desc: These functions are destined to advanced users that want a more flexible way to import spectral data. They can only read a single file at a time and users are responsible for writing a loop if necessary.
