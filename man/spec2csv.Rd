@@ -9,3 +9,11 @@ spec2csv(filename, overwrite = FALSE)
 \description{
 Convert spectral data files to csv files
 }
+\section{Warning}{
+
+
+This step loses all metadata associated to the spectra. This metadata is
+critical to ensure reproducibility. We recommended you use \code{\link[=getmetadata]{getmetadata()}} to
+extract this information from your raw data
+}
+

@@ -1,6 +1,6 @@
 #' Convert spectral data files to csv files
 #'
-#' @section Warning
+#' @section Warning:
 #'
 #' This step loses all metadata associated to the spectra. This metadata is
 #' critical to ensure reproducibility. We recommended you use [getmetadata()] to
