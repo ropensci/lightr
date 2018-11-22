@@ -11,7 +11,7 @@
 #' @export
 #'
 
-parse_generic <- function(filename, decimal, sep) {
+parse_generic <- function(filename, decimal = ".", sep = NULL) {
 
   seps <- paste0(c("[[:blank:]]", sep), collapse = "|\\")
 
