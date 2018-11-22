@@ -34,9 +34,10 @@
 #' getspec('examplespec/', ext = 'ttt')}
 #'
 #'
-get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700), decimal = ".",
-                    sep = NULL, subdir = FALSE, subdir.names = FALSE,
-                    cores = getOption("mc.cores", 2L), ignore.case = TRUE) {
+get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
+                     decimal = ".", sep = NULL, subdir = FALSE,
+                     subdir.names = FALSE, cores = getOption("mc.cores", 2L),
+                     ignore.case = TRUE) {
 
   # allow multiple extensions
   extension <- paste0("\\.", ext, "$", collapse = "|")
@@ -49,7 +50,8 @@ get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700), decimal = 
   nb_files <- length(file_names)
 
   if (nb_files == 0) {
-    warning('No files found. Try a different extension value for argument "ext"', call. = FALSE)
+    warning('No files found. Try a different value for argument "ext".',
+            call. = FALSE)
     return(NULL)
   }
 
@@ -91,7 +93,8 @@ get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700), decimal = 
     whichfailed <- which(unlist(lapply(tmp, is.null)))
     # stop if all files are corrupt
     if (length(whichfailed) == nb_files) {
-      warning("Could not import spectra, check input files and function arguments", call. = FALSE)
+      warning("File import failed.\n",
+              "Check input files and function arguments.", call. = FALSE)
       return()
     }
 

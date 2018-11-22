@@ -43,7 +43,8 @@ parse_generic <- function(filename, decimal = ".", sep = NULL) {
   rawsplit <- do.call(rbind, rawsplit)
 
   if (dim(rawsplit)[2] < 2) {
-    stop('could not separate columns, choose a different value for "sep" argument', call. = FALSE)
+    stop('Parsing failed.\n',
+         'Please a different value for "sep" argument', call. = FALSE)
   }
 
   # convert to numeric, check for NA

@@ -18,9 +18,8 @@ parse_procspec <- function(filename) {
   extracted_files <- utils::unzip(zipfile = filename,
                                   exdir = tmp)
 
-  # According to OceanOptics FAQ [1], each procspec archive will only contain
+  # According to OceanOptics FAQ, each procspec archive will only contain
   # one XML spectra file.
-  # [1] https://oceanoptics.com/faq/extract-data-procspec-file-without-spectrasuite/
 
   # Data files have the format ps_\d+.xml
   data_file <- grep(pattern = "ps_\\d+\\.xml", extracted_files, value = TRUE)
@@ -75,7 +74,8 @@ parse_procspec <- function(filename) {
   # Get rid of the XML tags.
   processed <- xml_text(processed_values)
 
-  specdf <- data.frame(wl, dark, white, scope, processed, stringsAsFactors = FALSE)
+  specdf <- data.frame(wl, dark, white, scope, processed,
+                       stringsAsFactors = FALSE)
   # The XML file was considered as text. So are "wl" and "procspec" columns.
   specdf <- sapply(specdf, as.numeric)
 

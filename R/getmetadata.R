@@ -25,7 +25,8 @@
 
 get_metadata <- function(where = getwd(), ext = "ProcSpec",
                          subdir = FALSE, subdir.names = FALSE,
-                         cores = getOption("mc.cores", 2L), ignore.case = TRUE) {
+                         cores = getOption("mc.cores", 2L),
+                         ignore.case = TRUE) {
 
   # allow multiple extensions
   extension <- paste0("\\.", ext, "$", collapse = "|")
@@ -38,7 +39,7 @@ get_metadata <- function(where = getwd(), ext = "ProcSpec",
   nb_files <- length(file_names)
 
   if (nb_files == 0) {
-    warning('No files found. Try a different extension value for argument "ext"',
+    warning('No files found. Try a different value for argument "ext".',
             call. = FALSE)
     return(NULL)
   }
@@ -73,7 +74,8 @@ get_metadata <- function(where = getwd(), ext = "ProcSpec",
     whichfailed <- which(unlist(lapply(tmp, is.null)))
     # stop if all files are corrupt
     if (length(whichfailed) == nb_files) {
-      warning("Could not import spectra, check input files and function arguments", call. = FALSE)
+      warning("File import failed.\n",
+              "Check input files and function arguments.", call. = FALSE)
       return()
     }
 
@@ -87,10 +89,14 @@ get_metadata <- function(where = getwd(), ext = "ProcSpec",
   }
 
   res <- as.data.frame(do.call(rbind, tmp), stringsAsFactors = FALSE)
-  colnames(res) <- c("User", "Date", "Spectrometer Model", "Spectrometer ID",
-                     paste(c("White reference", "Dark reference", "Sample"), "integration time"),
-                     paste(c("White reference", "Dark reference", "Sample"), "number of averages"),
-                     paste(c("White reference", "Dark reference", "Sample"), "boxcar width"))
+
+  colnames(res) <- c(
+    "User", "Date", "Spectrometer Model", "Spectrometer ID",
+    paste(c("White reference", "Dark reference", "Sample"), "integration time"),
+    paste(c("White reference", "Dark reference", "Sample"), "number of averages"),
+    paste(c("White reference", "Dark reference", "Sample"), "boxcar width")
+  )
+
   rownames(res) <- specnames
   res[, c(5,6,7,8,9,10,11,12,13)] <- sapply(res[, c(5,6,7,8,9,10,11,12,13)], as.numeric)
 

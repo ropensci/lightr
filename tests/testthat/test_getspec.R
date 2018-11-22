@@ -3,7 +3,8 @@ context("metadata")
 test_that("Spectra import", {
 
   res <- getspec(system.file("testdata", package = "lightr"),
-                 ext = c("TRM", "ttt", "jdx", "jaz", "JazIrrad", "csv"), sep = ",")
+                 ext = c("TRM", "ttt", "jdx", "jaz", "JazIrrad", "csv"),
+                 sep = ",")
   expect_identical(ncol(res), 9L)
 
   # Recursive

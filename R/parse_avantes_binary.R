@@ -56,9 +56,12 @@ parse_trm <- function(filename) {
   triggermode <- readBin(f, "numeric", 1, 4)
   triggersource <- readBin(f, "numeric", 1, 4)
   triggersourcetype <- readBin(f, "numeric", 1, 4)
-  NTC1 <- readBin(f, "numeric", 1, 4) # onboard temp in degrees Celsius
-  NTC2 <- readBin(f, "numeric",1, 4) # NTC2 in Volt (not connected)
-  Thermistor <- readBin(f, "numeric", 1, 4) # detector temp in degr Celsius (only TEC, NIR)
+  # onboard temp in degrees Celsius
+  NTC1 <- readBin(f, "numeric", 1, 4)
+  # NTC2 in Volt (not connected)
+  NTC2 <- readBin(f, "numeric",1, 4)
+  # detector temp in degr Celsius (only TEC, NIR)
+  Thermistor <- readBin(f, "numeric", 1, 4)
   dummy3 <- readBin(f, "numeric", 1, 4)
 
   # Data
