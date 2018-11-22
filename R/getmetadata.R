@@ -24,7 +24,7 @@
 
 getmetadata <- function(where = getwd(), ext = "ProcSpec",
                         subdir = FALSE, subdir.names = FALSE,
-                        cores = getOption("cl.cores", 2L), ignore.case = TRUE) {
+                        cores = getOption("mc.cores", 2L), ignore.case = TRUE) {
 
   # allow multiple extensions
   extension <- paste0("\\.", ext, "$", collapse = "|")
