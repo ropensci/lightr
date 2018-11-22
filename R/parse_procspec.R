@@ -27,7 +27,7 @@ parse_procspec <- function(filename) {
 
   # OceanOptics softwares produce badly encoded characters. The only fix is to
   # strip them before feeding the xml file to read_xml.
-  plain_text <- scan(data_file, what = "character", sep = "\n", quiet = TRUE)
+  plain_text <- scan(data_file, what = character(), sep = "\n", quiet = TRUE)
   clean_text <- sapply(plain_text, function(line) {
     # Convert non-ASCII character to ""
     line <- iconv(line, to = "ASCII", sub = "")

@@ -18,7 +18,7 @@ parse_generic <- function(filename, decimal = ".", sep = NULL) {
   # Code from pavo::getspec
 
   raw <- scan(
-    file = filename, what = "", quiet = TRUE,
+    file = filename, what = character(), quiet = TRUE,
     dec = decimal, sep = "\n", skipNul = TRUE
   )
   # substitute separators for a single value to be used in split
