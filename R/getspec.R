@@ -80,7 +80,7 @@ getspec <- function(where = getwd(), ext = "txt", lim = c(300, 700), decimal = "
   }
 
   clstrs <- makePSOCKcluster(cores, methods = FALSE, useXDR = FALSE)
-  on.exit(stopCluster)
+  on.exit(stopCluster(clstrs))
   clusterExport(clstrs, varlist = c("dispatch_parser", "file_ext", ls(pattern = "^parse_")))
 
   tmp <- pblapply(files, function(x)

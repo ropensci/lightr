@@ -51,7 +51,7 @@ getmetadata <- function(where = getwd(), ext = "ProcSpec",
   specnames <- file_path_sans_ext(file_names)
 
   clstrs <- makePSOCKcluster(cores, methods = FALSE, useXDR = FALSE)
-  on.exit(stopCluster)
+  on.exit(stopCluster(clstrs))
   clusterExport(clstrs, varlist = c("file_ext", ls(pattern = "^parse_")))
 
   tmp <- pblapply(files, function(x)
