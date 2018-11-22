@@ -1,4 +1,6 @@
-#' Extract metadata from all spectra files in a folder
+#' Extract metadata from spectra files
+#'
+#' Finds and imports metadata from spectra files in a given location.
 #'
 #' @param where (required) folder in which files are located.
 #' @param ext file extension to be searched for, without the "."

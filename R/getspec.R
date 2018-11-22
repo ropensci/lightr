@@ -1,9 +1,6 @@
-#' Extract spectral data from all spectra files in a folder
+#' Extract reflectance data from spectra files
 #'
-#' Finds and imports spectra files from a folder. Currently works
-#' for reflectance files generated in Ocean Optics SpectraSuite (USB2000,
-#' USB4000 and Jaz spectrometers), CRAIC software (after exporting) and
-#' Avantes (before or after exporting).
+#' Finds and imports reflectance data from spectra files in a given location.
 #'
 #' @param where (required) folder in which files are located.
 #' @param ext file extension to be searched for, without the "."

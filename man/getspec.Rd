@@ -2,7 +2,7 @@
 % Please edit documentation in R/getspec.R
 \name{getspec}
 \alias{getspec}
-\title{Extract spectral data from all spectra files in a folder}
+\title{Extract reflectance data from spectra files}
 \usage{
 getspec(where = getwd(), ext = "txt", lim = c(300, 700),
   decimal = ".", sep = NULL, subdir = FALSE, subdir.names = FALSE,
@@ -41,10 +41,7 @@ spectral files as columns.
 Reflectance values are interpolated to the nearest wavelength integer.
 }
 \description{
-Finds and imports spectra files from a folder. Currently works
-for reflectance files generated in Ocean Optics SpectraSuite (USB2000,
-USB4000 and Jaz spectrometers), CRAIC software (after exporting) and
-Avantes (before or after exporting).
+Finds and imports reflectance data from spectra files in a given location.
 }
 \examples{
 \dontrun{

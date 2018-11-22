@@ -2,7 +2,7 @@
 % Please edit documentation in R/getmetadata.R
 \name{getmetadata}
 \alias{getmetadata}
-\title{Extract metadata from all spectra files in a folder}
+\title{Extract metadata from spectra files}
 \usage{
 getmetadata(where = getwd(), ext = "ProcSpec", subdir = FALSE,
   subdir.names = FALSE, cores = getOption("mc.cores", 2L),
@@ -27,7 +27,7 @@ parallel processing (not available in Windows).}
 (defaults to \code{TRUE})}
 }
 \description{
-Extract metadata from all spectra files in a folder
+Finds and imports metadata from spectra files in a given location.
 }
 \references{
 White TE, Dalrymple RL, Noble DWA, O'Hanlon JC, Zurek DB,
