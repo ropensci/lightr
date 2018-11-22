@@ -7,7 +7,7 @@
 parse_procspec(filename)
 }
 \arguments{
-\item{filename}{Path of the ProcSpec file}
+\item{filename}{Path of the file to parse}
 }
 \value{
 A list of two elements:
@@ -21,7 +21,4 @@ Parse OceanOptics ProcSpec spectra file
 }
 \references{
 \url{https://oceanoptics.com/faq/extract-data-procspec-file-without-spectrasuite/}
-}
-\author{
-Hugo Gruson \email{hugo.gruson+R@normalesup.org}
 }
