@@ -15,6 +15,9 @@ are lost. However, those metadata are critical to ensure reproducibility ([White
 This package aims at offering a unified user-friendly interface for users to 
 read spectra files from various formats in a single line of code.
 
+Additionally, it provides for the first time a fully free and open source 
+solution to read proprietary spectra file formats on all systems.
+
 ## Installation
 
 This package is not yet published on CRAN and must be installed via GitHub:
