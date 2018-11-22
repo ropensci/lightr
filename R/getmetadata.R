@@ -48,14 +48,20 @@ getmetadata <- function(where = getwd(), ext = "ProcSpec",
     file_names <- basename(file_names)
   }
 
+  gmd <- function(ff) {
+
+    dispatch_parser(ff)[[2]]
+
+  }
+
   specnames <- file_path_sans_ext(file_names)
 
   clstrs <- makePSOCKcluster(cores, methods = FALSE, useXDR = FALSE)
   on.exit(stopCluster(clstrs))
-  clusterExport(clstrs, varlist = c("file_ext", ls(pattern = "^parse_")))
+  clusterExport(clstrs, varlist = c("dispatch_parser", "file_ext", ls(pattern = "^parse_")))
 
   tmp <- pblapply(files, function(x)
-    tryCatch(dispatch_parser(x)[[2]],
+    tryCatch(gmd(x),
              error = function(e) NULL,
              warning = function(e) NULL
     ), cl = clstrs)
