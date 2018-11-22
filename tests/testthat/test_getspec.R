@@ -17,7 +17,7 @@ test_that("Spectra import", {
     getspec(system.file("testdata", package = "lightr"),
             ext = "fail")
   })
-  expect_warning(eval(totalfail), "Could not import spectra")
+  expect_warning(eval(totalfail), "File import failed")
 
   expect_null(suppressWarnings(eval(totalfail)))
 
