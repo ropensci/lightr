@@ -21,14 +21,6 @@ parse_generic <- function(filename, decimal = ".", sep = NULL) {
     file = filename, what = "", quiet = TRUE,
     dec = decimal, sep = "\n", skipNul = TRUE
   )
-
-  # rough fix for 'JazIrrad' files that have a stram of calibration data at the end
-  if (any(grepl("Begin Calibration Data", raw))) {
-    raw <- raw[1:grep("Begin Calibration Data", raw) - 1]
-  }
-
-  # ToDo we can actually use this raw string to import metadata if we want
-
   # substitute separators for a single value to be used in split
   raw <- gsub(seps, ";", raw)
 
