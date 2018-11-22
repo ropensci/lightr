@@ -23,9 +23,9 @@
 #' Umbers KDL. Reproducible research in the study of biological coloration.
 #' Animal Behaviour. 2015 Aug 1;106:51–7 (\doi{10.1016/j.anbehav.2015.05.007}).
 
-getmetadata <- function(where = getwd(), ext = "ProcSpec",
-                        subdir = FALSE, subdir.names = FALSE,
-                        cores = getOption("mc.cores", 2L), ignore.case = TRUE) {
+get_metadata <- function(where = getwd(), ext = "ProcSpec",
+                         subdir = FALSE, subdir.names = FALSE,
+                         cores = getOption("mc.cores", 2L), ignore.case = TRUE) {
 
   # allow multiple extensions
   extension <- paste0("\\.", ext, "$", collapse = "|")
@@ -99,7 +99,7 @@ getmetadata <- function(where = getwd(), ext = "ProcSpec",
   return(res)
 }
 
-#' @rdname getmetadata
+#' @rdname get_metadata
 #'
 #' @export
-get_metadata <- getmetadata
+getmetadata <- get_metadata

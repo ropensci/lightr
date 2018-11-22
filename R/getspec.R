@@ -34,7 +34,7 @@
 #' getspec('examplespec/', ext = 'ttt')}
 #'
 #'
-getspec <- function(where = getwd(), ext = "txt", lim = c(300, 700), decimal = ".",
+get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700), decimal = ".",
                     sep = NULL, subdir = FALSE, subdir.names = FALSE,
                     cores = getOption("mc.cores", 2L), ignore.case = TRUE) {
 
@@ -116,7 +116,7 @@ getspec <- function(where = getwd(), ext = "txt", lim = c(300, 700), decimal = "
   return(final)
 }
 
-#' @rdname getspec
+#' @rdname get_spec
 #'
 #' @export
-get_spec <- getspec
+getspec <- get_spec
