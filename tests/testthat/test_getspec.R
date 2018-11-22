@@ -7,9 +7,33 @@ test_that("Spectra import", {
                  ext = c("TRM", "ttt", "jdx", "jaz", "JazIrrad"))
   expect_identical(ncol(res), 8L)
 
+  # Recursive
   res <- getspec(system.file("testdata", package = "lightR"),
                  ext = "ProcSpec", subdir = TRUE)
   expect_identical(ncol(res), 4L)
 
+  # Total fail
+  totalfail <- expression({
+    getspec(system.file("testdata", package = "lightR"),
+            ext = "fail")
+  })
+  expect_warning(eval(totalfail), "Could not import spectra")
+
+  expect_null(suppressWarnings(eval(totalfail)))
+
+  # Partial fail
+  partialfail <- expression({
+    getspec(system.file("testdata", package = "lightR"),
+            ext = c("fail", "jdx"))
+  })
+  expect_warning(eval(partialfail), "Could not import one or more")
+
+  # Missing
+  missing <- expression({
+    getspec(ext = "missing")
+  })
+  expect_warning(eval(missing), "No files found")
+
+  expect_null(suppressWarnings(eval(missing)))
 
 })
