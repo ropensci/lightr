@@ -25,8 +25,7 @@
 #'
 #' @export
 #'
-#' @importFrom pbapply pblapply
-#' @importFrom parallel makePSOCKcluster clusterExport stopCluster
+#' @importFrom pbmcapply pbmclapply
 #' @importFrom tools file_path_sans_ext
 #' @importFrom stats approx
 #'
@@ -65,6 +64,12 @@ getspec <- function(where = getwd(), ext = "txt", lim = c(300, 700), decimal = "
   # Wavelength range
   range <- seq(lim[1], lim[2])
 
+  # On Windows, set cores to be 1
+  if (cores > 1 && .Platform$OS.type == "windows") {
+    cores <- 1L
+    message('Parallel processing not available in Windows; "cores" set to 1.\n')
+  }
+
   # message with number of spectra files being imported
   message(nb_files, " files found; importing spectra:")
 
@@ -76,15 +81,11 @@ getspec <- function(where = getwd(), ext = "txt", lim = c(300, 700), decimal = "
     interp <- approx(df[, "wl"], df[, "processed"], xout = range)$y
   }
 
-  clstrs <- makePSOCKcluster(cores, methods = FALSE, useXDR = FALSE)
-  on.exit(stopCluster(clstrs))
-  clusterExport(clstrs, varlist = c("dispatch_parser", "file_ext", ls(pattern = "^parse_")))
-
-  tmp <- pblapply(files, function(x)
+  tmp <- pbmclapply(files, function(x)
     tryCatch(gsp(x),
              error = function(e) NULL,
              warning = function(e) NULL
-    ), cl = clstrs)
+    ), mc.cores = cores)
 
   if (any(unlist(lapply(tmp, is.null)))) {
     whichfailed <- which(unlist(lapply(tmp, is.null)))

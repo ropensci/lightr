@@ -14,9 +14,8 @@ Authors@R: c(
     )
 Description: Parse various spectra file formats to extract spectral data and metadata, such as integration times, number of averages, spectrometer model or timestamp.
 Imports:
-    parallel,
-    pbapply,
-    xml2
+  pbmcapply,
+  xml2
 Suggests:
     testthat,
     spelling,
