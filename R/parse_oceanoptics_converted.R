@@ -55,7 +55,8 @@ parse_jaz <- function(filename) {
 
   data <- content[seq(data_start+2, data_end-1)]
 
-  data <- do.call(rbind.data.frame, strsplit(data, "\t"))
+  data <- do.call(rbind.data.frame, list(strsplit(data, "\t"),
+                                         stringsAsFactors = FALSE))
 
   colnames(data) <- strsplit(content[data_start+1], "\t")[[1]]
 
