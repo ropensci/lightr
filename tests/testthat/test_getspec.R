@@ -4,8 +4,12 @@ context("metadata")
 test_that("Spectra import", {
 
   res <- getspec(system.file("testdata", package = "lightR"),
-    ext = c("TRM", "ProcSpec", "ttt", "jdx", "jaz", "JazIrrad"))
+                 ext = c("TRM", "ttt", "jdx", "jaz", "JazIrrad"))
+  expect_identical(ncol(res), 8L)
 
-  expect_length(res, 11)
+  res <- getspec(system.file("testdata", package = "lightR"),
+                 ext = "ProcSpec", subdir = TRUE)
+  expect_identical(ncol(res), 4L)
+
 
 })
