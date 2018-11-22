@@ -115,3 +115,8 @@ getspec <- function(where = getwd(), ext = "txt", lim = c(300, 700), decimal = "
 
   return(final)
 }
+
+#' @rdname getspec
+#'
+#' @export
+get_spec <- getspec

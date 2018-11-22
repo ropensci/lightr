@@ -2,9 +2,14 @@
 % Please edit documentation in R/getspec.R
 \name{getspec}
 \alias{getspec}
+\alias{get_spec}
 \title{Extract reflectance data from spectra files}
 \usage{
 getspec(where = getwd(), ext = "txt", lim = c(300, 700),
+  decimal = ".", sep = NULL, subdir = FALSE, subdir.names = FALSE,
+  cores = getOption("mc.cores", 2L), ignore.case = TRUE)
+
+get_spec(where = getwd(), ext = "txt", lim = c(300, 700),
   decimal = ".", sep = NULL, subdir = FALSE, subdir.names = FALSE,
   cores = getOption("mc.cores", 2L), ignore.case = TRUE)
 }

@@ -2,9 +2,14 @@
 % Please edit documentation in R/getmetadata.R
 \name{getmetadata}
 \alias{getmetadata}
+\alias{get_metadata}
 \title{Extract metadata from spectra files}
 \usage{
 getmetadata(where = getwd(), ext = "ProcSpec", subdir = FALSE,
+  subdir.names = FALSE, cores = getOption("mc.cores", 2L),
+  ignore.case = TRUE)
+
+get_metadata(where = getwd(), ext = "ProcSpec", subdir = FALSE,
   subdir.names = FALSE, cores = getOption("mc.cores", 2L),
   ignore.case = TRUE)
 }
