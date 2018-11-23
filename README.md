@@ -74,7 +74,7 @@ spec2csv(where = ".", ext = "ProcSpec")
 
 This package is still under development but currently supports:
 
-### [OceanOptics](https://oceanoptics.com/):
+### [OceanOptics](https://oceanoptics.com/)
 
   | Extension      | Parser             |
   |:---------------|:-------------------|
@@ -85,7 +85,7 @@ This package is still under development but currently supports:
   | `Transmission` | `parse_jaz()`      |
   | `txt`          | `parse_generic()`  |
 
-### [Avantes](https://www.avantes.com/):
+### [Avantes](https://www.avantes.com/)
 
   | Extension      | Parser             |
   |:---------------|:-------------------|
@@ -96,6 +96,12 @@ This package is still under development but currently supports:
   | `ttt`          | `parse_ttt()`      |
   | `txt`          | `parse_generic()`  |
   
+### [CRAIC](http://www.microspectra.com/)
+
+  | Extension | Parser            |
+  |:----------|:------------------|
+  | `txt`     | `parse_generic()` |
+   
 ## Similar projects
 
 * `lightr` itself contains some code that has been initially forked from 
