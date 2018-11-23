@@ -35,7 +35,7 @@ functions:
 
 ```r
 # Get a data.frame containing all useful metadata from spectra in a folder
-getmetadata(".", ext = "ProcSpec")
+get_metadata(".", ext = "ProcSpec")
 ```
 
 and
@@ -43,11 +43,11 @@ and
 ```r
 # Get a single dataframe where the first column contains the wavelengths and 
 # the next columns contain a spectra each (pavo's rspec class)
-getspec(".", ext = "ProcSpec")
+get_spec(".", ext = "ProcSpec")
 ```
 
-`getspec()` returns a dataframe that is compatible with [`pavo`] custom S3 class
-(`rspec`) and can be used for further analyses using colour vision models.
+`get_spec()` returns a dataframe that is compatible with [`pavo`] custom S3
+class (`rspec`) and can be used for further analyses using colour vision models.
 
 All supported file formats can also be parsed using the `parse_$extension()` 
 function where `$extension` is the lowercase extension of your file. This
@@ -56,7 +56,7 @@ and the second element is a vector with relevant metadata.
 
 Only exceptions are `.txt` and `.Transmission` files because those extensions
 are too generic. You will need to figure out which parser you should use in this
-case. `getmetadata` and `getspec` automatically try generic parsers in this
+case. `get_metadata` and `get_spec` automatically try generic parsers in this
 case.
 
 Alternatively, you may simply want to convert your spectra in a readable 
@@ -90,7 +90,7 @@ This package is still under development but currently supports:
 ## Similar projects
 
 * `lightr` itself contains some code that has been initially forked from 
-  [`pavo`], namely the `getspec()` function. The code has since then been 
+  [`pavo`], namely the `get_spec()` function. The code has since then been 
   refactored and optimised for speed. [`pavo`] differs from `lightr` in its
   focus and core functionalities. The main strength of [`pavo`] is the 
   comprehensive and user-friendly set of functions to analyse spectral data
