@@ -104,11 +104,16 @@ This package is still under development but currently supports:
   of the process. On the contrary, `lightr` aims at proposing a light package 
   with limited dependencies that focuses on the data import step of the process
   and let the user pick their favorite tool for the analysis step.
+* [`spectrolab`](https://github.com/meireles/spectrolab)
+* Other projects such as [`hyperSpec`](http://hyperspec.r-forge.r-project.org/)
+  have some overlap with `lightr` (import of JCAMP-DX `.jdx` files for example)
+  but mainly focus on other types of spectra, such a Raman spectra, while lightr
+  handles exclusively UV/VIS/NIR spectra.
   
 Because of its user-friendly high-levels functions and low dependency
 philosophy, `lightr` may also hopefully prove useful for people working with 
 other languages than R.
-`
+
 
 [`pavo`]: https://cran.r-project.org/package=pavo
 
