@@ -38,7 +38,7 @@ the white reference contained in the same file.
 library(lightr)
 ```
 
-# Step 1: import un-normalised data
+## Step 1: import un-normalised data
 
 We manually import the data using the appropriate low-level parser:
 
@@ -62,7 +62,7 @@ reflect_data <- reflect_data[[1]]
 knitr::kable(head(reflect_data))
 ```
 
-# Step 2: find the matching white reference
+## Step 2: find the matching white reference
 
 We import that white reference in the same way:
 
@@ -70,7 +70,7 @@ We import that white reference in the same way:
 white_data <- NULL
 ```
 
-# Step 3: normalise the reflectance data
+## Step 3: normalise the reflectance data
 
 ```{r}
 

@@ -29,10 +29,10 @@ way for `get_metadata()` and `spec2csv()`
 library(lightr)
 ```
 
-# `get_spec()`
+## `get_spec()`
 
 
-# `get_metadata()`
+## `get_metadata()`
 
-# `spec2csv()`
+## `spec2csv()`
 
