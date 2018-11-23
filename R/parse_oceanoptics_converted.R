@@ -19,7 +19,7 @@ parse_jaz <- function(filename) {
   author <- gsub("^User: ", "", author)
 
   savetime <- grep("^Date: .*", content, value = TRUE)
-  savetime <- gsub("^Data: ", "", author)
+  savetime <- gsub("^Date: ", "", author)
 
   specmodel <- NA
 
@@ -50,13 +50,13 @@ parse_jaz <- function(filename) {
 
   # SPECTRA
 
-  data_start <- grep("^>>>>>Begin Processed Spectral Data<<<<<$", content)
-  data_end <- grep("^>>>>>End Processed Spectral Data<<<<<$", content)
+  data_start <- grep("^>>>>>Begin (Processed )?Spectral Data<<<<<$", content)
+  data_end <- grep("^>>>>>End (Processed )?Spectral Data<<<<<$", content)
 
   data <- content[seq(data_start+2, data_end-1)]
 
-  data <- do.call(rbind.data.frame, list(strsplit(data, "\t"),
-                                         stringsAsFactors = FALSE))
+  data <- do.call(rbind, strsplit(data, "\t"))
+  data <- data.frame(data, stringsAsFactors = FALSE)
 
   colnames(data) <- strsplit(content[data_start+1], "\t")[[1]]
 
