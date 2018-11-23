@@ -12,10 +12,12 @@ parse_jaz <- function(filename) {
 
   content <- readLines(filename, skipNul = TRUE)
 
-  specID <- grep("^Spectrometers: JAZA[[:digit:]]{4}$", content, value = TRUE)
-  specID <- gsub("^Spectrometers: ", "", specID)
+  specID <- grep("^Spectrometers?( Serial Number)?: [[:graph:]]+$",
+                 content,
+                 value = TRUE)
+  specID <- gsub("^Spectrometers?( Serial Number)?: ", "", specID)
 
-  author <- grep("^User: [[:alnum:]]*$", content, value = TRUE)
+  author <- grep("^User: [[:print:]]*$", content, value = TRUE)
   author <- gsub("^User: ", "", author)
 
   savetime <- grep("^Date: .*", content, value = TRUE)

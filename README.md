@@ -83,7 +83,7 @@ This package is still under development but currently supports:
   | `jaz`          | `parse_jaz()`      |
   | `jazirrad`     | `parse_jazirrad()` |
   | `Transmission` | `parse_jaz()`      |
-  | `txt`          | `parse_generic()`  |
+  | `txt`          | `parse_jaz()`      |
 
 ### [Avantes](https://www.avantes.com/)
 
@@ -101,6 +101,11 @@ This package is still under development but currently supports:
   | Extension | Parser            |
   |:----------|:------------------|
   | `txt`     | `parse_generic()` |
+  
+### Others
+
+As a fallback, you should always try `parse_generic()` which offers a flexible
+and general algorithm that manages to extract data from most files.
    
 ## Similar projects
 
