@@ -4,13 +4,13 @@ test_that("Parsers", {
 
   # OceanOptics
 
-  expect_length(parse_procspec(system.file("testdata", "prospec_files", "OceanOptics_Linux.ProcSpec", package = "lightr")),
+  expect_length(parse_procspec(system.file("testdata", "procspec_files", "OceanOptics_Linux.ProcSpec", package = "lightr")),
                 2)
 
-  expect_length(parse_procspec(system.file("testdata", "prospec_files", "OceanOptics_Windows.ProcSpec", package = "lightr")),
+  expect_length(parse_procspec(system.file("testdata", "procspec_files", "OceanOptics_Windows.ProcSpec", package = "lightr")),
                 2)
 
-  expect_length(parse_procspec(system.file("testdata", "prospec_files", "OceanOptics_badencode.ProcSpec", package = "lightr")),
+  expect_length(parse_procspec(system.file("testdata", "procspec_files", "OceanOptics_badencode.ProcSpec", package = "lightr")),
                 2)
 
   expect_length(parse_jdx(system.file("testdata", "OceanOptics_jcamp-dx.jdx", package = "lightr")),
