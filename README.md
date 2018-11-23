@@ -74,18 +74,27 @@ spec2csv(where = ".", ext = "ProcSpec")
 
 This package is still under development but currently supports:
 
-- [OceanOptics](https://oceanoptics.com/):
-    * `.jdx`
-    * `.ProcSpec`
-    * `.jaz`
-    * `.JazIrrad`
+### [OceanOptics](https://oceanoptics.com/):
 
-- [Avantes](https://www.avantes.com/):
-    * `.ABS`
-    * `.ROH`
-    * `.TRM`
-    * `.trt`
-    * `.ttt`
+  | Extension      | Parser             |
+  |:---------------|:-------------------|
+  | `jdx`          | `parse_jdx()`      |
+  | `ProcSpec`     | `parse_procspec()` |
+  | `jaz`          | `parse_jaz()`      |
+  | `jazirrad`     | `parse_jazirrad()` |
+  | `Transmission` | `parse_jaz()`      |
+  | `txt`          | `parse_generic()`  |
+
+### [Avantes](https://www.avantes.com/):
+
+  | Extension      | Parser             |
+  |:---------------|:-------------------|
+  | `ABS`          | `parse_abs()`      |
+  | `ROH`          | `parse_roh()`      |
+  | `TRM`          | `parse_trm()`      |
+  | `trt`          | `parse_trt()`      |
+  | `ttt`          | `parse_ttt()`      |
+  | `txt`          | `parse_generic()`  |
   
 ## Similar projects
 
