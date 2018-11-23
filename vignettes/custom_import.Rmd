@@ -1,0 +1,31 @@
+---
+title: "Custom workflow using low level parsers"
+author: "Hugo Gruson"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+Some use cases require more flexibility than the high-level user-friendly functions provides by `lightr`. For this use case, `lightr` also exports the low-level individual parsers, which allow the user to code its own custom workflow.
+
+We don't recommend the use of those functions unless you absolutely have to.
+Most users should use `get_spec()` and `get_metadata()` instead.
+
+Here, we take the example of the method presented in 
+[Gruson *et al*](https://doi.org/10.1098/rsfs.2018.0049) where  reflectance
+spectra need to be normalised by another white reference contained in another
+file. This can't be done with with `get_spec()` because `get_spec()` returns reflectance spectra that have already been normalised by the white reference
+contained in the same file.
+
+# Step 1: export un-normalised data files
+
+```{r}
+
+```
+
+# Step 2: find the matching white reference
+
+# Step 3: normalise the reflectance data

@@ -1,0 +1,28 @@
+---
+title: "Batch import with get_spec() and get_metadata()"
+author: "Hugo Gruson"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+`lightr` provides three main functions for patch import of spectral data and
+metadata:
+
+* `get_spec()`
+* `get_metadata()`
+* `spec2csv()`
+
+```{r}
+library(lightr)
+```
+
+# `get_spec()`
+
+# `get_metadata()`
+
+# `spec2csv()`
+
