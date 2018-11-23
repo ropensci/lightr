@@ -19,7 +19,7 @@ parse_jaz <- function(filename) {
   author <- gsub("^User: ", "", author)
 
   savetime <- grep("^Date: .*", content, value = TRUE)
-  savetime <- gsub("^Date: ", "", author)
+  savetime <- gsub("^Date: ", "", savetime)
 
   specmodel <- NA
 
