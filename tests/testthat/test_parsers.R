@@ -22,6 +22,9 @@ test_that("Parsers", {
   expect_length(parse_jazirrad(system.file("testdata", "irrad.JazIrrad", package = "lightr")),
                 2)
 
+  expect_length(parse_jaz(system.file("testdata", "FMNH6834.00000001.Master.Transmission", package = "lightr")),
+                2)
+
   # Avantes
 
   expect_length(parse_roh(system.file("testdata", "avantes_reflect.ROH", package = "lightr")),
