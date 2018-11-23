@@ -16,11 +16,21 @@ metadata:
 * `get_metadata()`
 * `spec2csv()`
 
+Those three functions contain a loop and can directly be used to import/convert
+whole folders.
+
+They also allow for recursive search in the folder tree with the argument
+`subdir`.
+
+We first demonstrate these abilites on `get_spec()` but they work in the same
+way for `get_metadata()` and `spec2csv()`
+
 ```{r}
 library(lightr)
 ```
 
 # `get_spec()`
+
 
 # `get_metadata()`
 

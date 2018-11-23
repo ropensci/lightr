@@ -18,18 +18,60 @@ We don't recommend the use of those functions unless you absolutely have to.
 Most users should use `get_spec()` and `get_metadata()` instead.
 
 Here, we take the example of the method presented in 
-[Gruson *et al*](https://doi.org/10.1098/rsfs.2018.0049) where  reflectance
-spectra need to be normalised by another white reference contained in another
-file. This can't be done with with `get_spec()` because `get_spec()` returns
-reflectance spectra that have already been normalised by the white reference
-contained in the same file.
+[Gruson *et al*](https://doi.org/10.1098/rsfs.2018.0049) where reflectance
+spectra need to be normalised in an unusual way.
+file. 
 
-# Step 1: export un-normalised data files
+Raw, un-normalised spectral data depends on both the spectrometer and the lamp
+as well as the conditions during the recording (including ambient light, 
+temperature, etc.). To allow for comparison between studies, it is thus 
+normalised  by a white and a dark reference with the following formula:
+
+$$\text{Processed} = \dfrac{\text{Raw} - \text{Dark}}{\text{White} - \text{Dark}}$$
+
+For this example here, we need to normalise the raw data by a white reference
+contained in another file. This can't be done with with `get_spec()` because
+`get_spec()` returns reflectance spectra that have already been normalised by
+the white reference contained in the same file.
 
 ```{r}
+library(lightr)
+```
 
+# Step 1: import un-normalised data
+
+We manually import the data using the appropriate low-level parser:
+
+```{r}
+reflect_data <- parse_procspec(
+  system.file("testdata", "procspec_files", "OceanOptics_Linux.ProcSpec",
+               package = "lightr")
+  )
+length(reflect_data)
+```
+
+The result contains 2 elements:
+
+  * the spectral data itself
+  * the metadata captured during the recording
+  
+Here, we are only interested in the data itself, i.e. the first element:
+
+```{r}
+reflect_data <- reflect_data[[1]]
+knitr::kable(head(reflect_data))
 ```
 
 # Step 2: find the matching white reference
 
+We import that white reference in the same way:
+
+```{r}
+white_data <- NULL
+```
+
 # Step 3: normalise the reflectance data
+
+```{r}
+
+```
