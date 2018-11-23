@@ -14,15 +14,15 @@ Authors@R: c(
     )
 Description: Parse various spectra file formats to extract spectral data and metadata, such as integration times, number of averages, spectrometer model or timestamp.
 Imports:
-  pbmcapply,
-  xml2
+    pbmcapply,
+    xml2
 Suggests:
-    testthat,
-    spelling,
     covr,
     knitr,
-    rmarkdown
-URL: https://github.com/Bisaloo/lightr
+    rmarkdown,
+    spelling,
+    testthat
+URL: https://bisaloo.github.io/lightr, https://github.com/Bisaloo/lightr
 BugReports: https://github.com/Bisaloo/lightr/issues
 License: GPL (>=2)
 Encoding: UTF-8
