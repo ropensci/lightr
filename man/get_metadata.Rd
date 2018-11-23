@@ -17,10 +17,10 @@ getmetadata(where = getwd(), ext = "ProcSpec", subdir = FALSE,
 \item{where}{(required) folder in which files are located.}
 
 \item{ext}{file extension to be searched for, without the "."
-(defaults to "ProcSpec").}
+(defaults to "txt").}
 
-\item{subdir}{should subdirectories within the where folder be included in
-the search? (defaults to \code{FALSE}).}
+\item{subdir}{should subdirectories within the \code{where} folder be
+included in the search? (defaults to \code{FALSE}).}
 
 \item{subdir.names}{should subdirectory path be included in the name of the
 spectra? (defaults to \code{FALSE}).}
@@ -29,7 +29,11 @@ spectra? (defaults to \code{FALSE}).}
 parallel processing (not available in Windows).}
 
 \item{ignore.case}{Logical. Should the extension search be case insensitive?
-(defaults to \code{TRUE})}
+(defaults to TRUE)}
+}
+\value{
+A dataframe containing one spectrum per column and useful metadata
+to report in your manuscript.
 }
 \description{
 Finds and imports metadata from spectra files in a given location.

@@ -5,6 +5,8 @@
 #' @param overwrite logical. Should the function overwrite existing files with
 #' the same name? (defaults to `FALSE`).
 #'
+#' @inheritParams get_spec
+#'
 #' @section Warning:
 #'
 #' This step loses all metadata associated to the spectra. This metadata is

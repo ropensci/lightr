@@ -2,19 +2,12 @@
 #'
 #' Finds and imports metadata from spectra files in a given location.
 #'
-#' @param where (required) folder in which files are located.
-#' @param ext file extension to be searched for, without the "."
-#' (defaults to "ProcSpec").
-#' @param subdir should subdirectories within the where folder be included in
-#' the search? (defaults to \code{FALSE}).
-#' @param subdir.names should subdirectory path be included in the name of the
-#' spectra? (defaults to \code{FALSE}).
-#' @param cores Number of cores to be used. If greater than 1, import will use
-#'  parallel processing (not available in Windows).
-#' @param ignore.case Logical. Should the extension search be case insensitive?
-#' (defaults to \code{TRUE})
+#' @inheritParams get_spec
 #'
 #' @export
+#'
+#' @return A dataframe containing one spectrum per column and useful metadata
+#' to report in your manuscript.
 #'
 #' @importFrom pbmcapply pbmclapply
 #' @importFrom tools file_path_sans_ext
