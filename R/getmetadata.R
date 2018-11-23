@@ -90,15 +90,16 @@ get_metadata <- function(where = getwd(), ext = "ProcSpec",
 
   res <- as.data.frame(do.call(rbind, tmp), stringsAsFactors = FALSE)
 
+  res <- cbind(specnames, res)
+
   colnames(res) <- c(
-    "User", "Date", "Spectrometer Model", "Spectrometer ID",
+    "Name", "User", "Date", "Spectrometer Model", "Spectrometer ID",
     paste(c("White reference", "Dark reference", "Sample"), "integration time"),
     paste(c("White reference", "Dark reference", "Sample"), "number of averages"),
     paste(c("White reference", "Dark reference", "Sample"), "boxcar width")
   )
 
-  rownames(res) <- specnames
-  res[, c(5,6,7,8,9,10,11,12,13)] <- sapply(res[, c(5,6,7,8,9,10,11,12,13)], as.numeric)
+  res[, c(6,7,8,9,10,11,12,13,14)] <- sapply(res[, c(6,7,8,9,10,11,12,13,14)], as.numeric)
 
 #  class(res) <- c("metaspec", "data.frame")
 
