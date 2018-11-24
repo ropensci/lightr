@@ -6,8 +6,25 @@
 #'
 #' @export
 #'
-#' @return A dataframe containing one spectrum per column and useful metadata
-#' to report in your manuscript.
+#' @return A data.frame containing one file per row and the following columns:
+#'   * `name`: File name (without the extension)
+#'   * `user`: Name of the spectrometer operator
+#'   * `date`: Timestamp of the recording
+#'   * `spec_model`: Model of the spectrometer
+#'   * `spec_ID`: Unique ID of the spectrometer
+#'   * `white_inttime`: Integration time of the white reference
+#'   * `dark_inttime`: Integration time of the dark reference
+#'   * `sample_inttime`: Integration time of the sample
+#'   * `white_avgs`: Number of averaged measurements for the white reference
+#'   * `dark_avgs`: Number of averaged measurements for the dark reference
+#'   * `sample_avgs`: Number of averaged measurements for the sample
+#'   * `white_boxcar`: Boxcar width for the white reference
+#'   * `dark_boxcar`: Boxcar width for the dark reference
+#'   * `sample_boxcar`: Boxcar width for the sample reference
+#'
+#' @section Warning:
+#' `white_inttime`, `dark_inttime` and `sample_inttime` should be equal. The
+#' normalised data may be inaccurate otherwise.
 #'
 #' @importFrom pbmcapply pbmclapply
 #' @importFrom tools file_path_sans_ext
@@ -15,8 +32,12 @@
 #' @references White TE, Dalrymple RL, Noble DWA, O'Hanlon JC, Zurek DB,
 #' Umbers KDL. Reproducible research in the study of biological coloration.
 #' Animal Behaviour. 2015 Aug 1;106:51–7 (\doi{10.1016/j.anbehav.2015.05.007}).
+#'
+#' @examples
+#' get_metadata(system.file("testdata", package = "lightr"), ext = "ProcSpec",
+#'              subdir = TRUE)
 
-get_metadata <- function(where = getwd(), ext = "ProcSpec",
+get_metadata <- function(where = getwd(), ext = "ProcSpec", sep = NULL,
                          subdir = FALSE, subdir.names = FALSE,
                          cores = getOption("mc.cores", 2L),
                          ignore.case = TRUE) {
@@ -53,7 +74,7 @@ get_metadata <- function(where = getwd(), ext = "ProcSpec",
 
   gmd <- function(ff) {
 
-    df <- dispatch_parser(ff)[[2]]
+    df <- dispatch_parser(ff, sep = sep)[[2]]
 
   }
 
@@ -86,10 +107,10 @@ get_metadata <- function(where = getwd(), ext = "ProcSpec",
   res <- cbind(specnames, res)
 
   colnames(res) <- c(
-    "Name", "User", "Date", "Spectrometer Model", "Spectrometer ID",
-    paste(c("White reference", "Dark reference", "Sample"), "integration time"),
-    paste(c("White reference", "Dark reference", "Sample"), "number of averages"),
-    paste(c("White reference", "Dark reference", "Sample"), "boxcar width")
+    "name", "user", "date", "spec_model", "spec_ID",
+    paste0(c("white", "dark", "sample"), "inttime", sep = "_"),
+    paste0(c("white", "dark", "sample"), "avgs", sep = "_"),
+    paste0(c("white", "dark", "sample"), "boxcar", sep = "_")
   )
 
   res[, c(6,7,8,9,10,11,12,13,14)] <- sapply(res[, c(6,7,8,9,10,11,12,13,14)], as.numeric)

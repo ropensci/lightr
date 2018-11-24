@@ -9,9 +9,11 @@ parse_generic(filename, decimal = ".", sep = NULL)
 \arguments{
 \item{filename}{Path of the file to parse}
 
-\item{decimal}{Decimal separator}
+\item{decimal}{Character to be used to identify decimal plates
+(defaults to \code{.}).}
 
-\item{sep}{Column separator}
+\item{sep}{Column delimiting characters to be considered in addition to the
+default (which are: tab, space, and ";")}
 }
 \value{
 A list of two elements:

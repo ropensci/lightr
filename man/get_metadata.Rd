@@ -5,38 +5,67 @@
 \alias{getmetadata}
 \title{Extract metadata from spectra files}
 \usage{
-get_metadata(where = getwd(), ext = "ProcSpec", subdir = FALSE,
-  subdir.names = FALSE, cores = getOption("mc.cores", 2L),
-  ignore.case = TRUE)
+get_metadata(where = getwd(), ext = "ProcSpec", sep = NULL,
+  subdir = FALSE, subdir.names = FALSE, cores = getOption("mc.cores",
+  2L), ignore.case = TRUE)
 
-getmetadata(where = getwd(), ext = "ProcSpec", subdir = FALSE,
-  subdir.names = FALSE, cores = getOption("mc.cores", 2L),
-  ignore.case = TRUE)
+getmetadata(where = getwd(), ext = "ProcSpec", sep = NULL,
+  subdir = FALSE, subdir.names = FALSE, cores = getOption("mc.cores",
+  2L), ignore.case = TRUE)
 }
 \arguments{
-\item{where}{(required) folder in which files are located.}
+\item{where}{Folder in which files are located (defaults to current working
+directory).}
 
-\item{ext}{file extension to be searched for, without the "."
-(defaults to "txt").}
+\item{ext}{File extension to be searched for, without the "."
+(defaults to \code{txt}).}
 
-\item{subdir}{should subdirectories within the \code{where} folder be
-included in the search? (defaults to \code{FALSE}).}
+\item{sep}{Column delimiting characters to be considered in addition to the
+default (which are: tab, space, and ";")}
 
-\item{subdir.names}{should subdirectory path be included in the name of the
-spectra? (defaults to \code{FALSE}).}
+\item{subdir}{Should subdirectories within the \code{where} folder be included in
+the search? (defaults to \code{FALSE}).}
+
+\item{subdir.names}{Should subdirectory path be included in the name of the
+spectra? (defaults to `FALSE``).}
 
 \item{cores}{Number of cores to be used. If greater than 1, import will use
 parallel processing (not available in Windows).}
 
-\item{ignore.case}{Logical. Should the extension search be case insensitive?
-(defaults to TRUE)}
+\item{ignore.case}{Should the extension search be case insensitive? (defaults
+to `TRUE``)}
 }
 \value{
-A dataframe containing one spectrum per column and useful metadata
-to report in your manuscript.
+A data.frame containing one file per row and the following columns:
+\itemize{
+\item \code{name}: File name (without the extension)
+\item \code{user}: Name of the spectrometer operator
+\item \code{date}: Timestamp of the recording
+\item \code{spec_model}: Model of the spectrometer
+\item \code{spec_ID}: Unique ID of the spectrometer
+\item \code{white_inttime}: Integration time of the white reference
+\item \code{dark_inttime}: Integration time of the dark reference
+\item \code{sample_inttime}: Integration time of the sample
+\item \code{white_avgs}: Number of averaged measurements for the white reference
+\item \code{dark_avgs}: Number of averaged measurements for the dark reference
+\item \code{sample_avgs}: Number of averaged measurements for the sample
+\item \code{white_boxcar}: Boxcar width for the white reference
+\item \code{dark_boxcar}: Boxcar width for the dark reference
+\item \code{sample_boxcar}: Boxcar width for the sample reference
+}
 }
 \description{
 Finds and imports metadata from spectra files in a given location.
+}
+\section{Warning}{
+
+\code{white_inttime}, \code{dark_inttime} and \code{sample_inttime} should be equal. The
+normalised data may be inaccurate otherwise.
+}
+
+\examples{
+get_metadata(system.file("testdata", package = "lightr"), ext = "ProcSpec",
+             subdir = TRUE)
 }
 \references{
 White TE, Dalrymple RL, Noble DWA, O'Hanlon JC, Zurek DB,

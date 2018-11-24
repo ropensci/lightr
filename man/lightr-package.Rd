@@ -6,11 +6,13 @@
 \alias{lightr-package}
 \title{lightr: Read Spectrometric Data in R}
 \description{
-Parse various spectra file formats to extract spectral data and metadata, such as integration times, number of averages, spectrometer model or timestamp.
+Parse various UV-VIS reflectance/transmittance/absorbance spectra
+    file formats to extract spectral data and metadata.
 }
 \seealso{
 Useful links:
 \itemize{
+  \item \url{https://bisaloo.github.io/lightr}
   \item \url{https://github.com/Bisaloo/lightr}
   \item Report bugs at \url{https://github.com/Bisaloo/lightr/issues}
 }

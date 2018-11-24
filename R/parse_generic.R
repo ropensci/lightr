@@ -1,8 +1,10 @@
 #' Generic function to parse spectra files that don't have a specific parser
 #'
 #' @param filename Path of the file to parse
-#' @param decimal Decimal separator
-#' @param sep Column separator
+#' @param decimal Character to be used to identify decimal plates
+#' (defaults to `.`).
+#' @param sep Column delimiting characters to be considered in addition to the
+#' default (which are: tab, space, and ";")
 #'
 #' @return A list of two elements:
 #'   * a dataframe with columns "wl", "dark", "white", "scope" in that order

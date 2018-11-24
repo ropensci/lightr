@@ -3,7 +3,7 @@
 \name{get_spec}
 \alias{get_spec}
 \alias{getspec}
-\title{Extract reflectance data from spectra files}
+\title{Extract spectral data from spectra files}
 \usage{
 get_spec(where = getwd(), ext = "txt", lim = c(300, 700),
   decimal = ".", sep = NULL, subdir = FALSE, subdir.names = FALSE,
@@ -14,44 +14,43 @@ getspec(where = getwd(), ext = "txt", lim = c(300, 700),
   cores = getOption("mc.cores", 2L), ignore.case = TRUE)
 }
 \arguments{
-\item{where}{(required) folder in which files are located.}
+\item{where}{Folder in which files are located (defaults to current working
+directory).}
 
-\item{ext}{file extension to be searched for, without the "."
-(defaults to "txt").}
+\item{ext}{File extension to be searched for, without the "."
+(defaults to \code{txt}).}
 
-\item{lim}{a vector with two numbers determining the wavelength limits to be
-considered (defaults to 300 and 700).}
+\item{lim}{A vector with two numbers determining the wavelength limits to be
+considered (defaults to \code{c(300, 700)}).}
 
-\item{decimal}{character to be used to identify decimal plates
-(defaults to ".").}
+\item{decimal}{Character to be used to identify decimal plates
+(defaults to \code{.}).}
 
-\item{sep}{column delimiting characters to be considered in addition to the
+\item{sep}{Column delimiting characters to be considered in addition to the
 default (which are: tab, space, and ";")}
 
-\item{subdir}{should subdirectories within the \code{where} folder be
-included in the search? (defaults to \code{FALSE}).}
+\item{subdir}{Should subdirectories within the \code{where} folder be included in
+the search? (defaults to \code{FALSE}).}
 
-\item{subdir.names}{should subdirectory path be included in the name of the
-spectra? (defaults to \code{FALSE}).}
+\item{subdir.names}{Should subdirectory path be included in the name of the
+spectra? (defaults to `FALSE``).}
 
 \item{cores}{Number of cores to be used. If greater than 1, import will use
 parallel processing (not available in Windows).}
 
-\item{ignore.case}{Logical. Should the extension search be case insensitive?
-(defaults to TRUE)}
+\item{ignore.case}{Should the extension search be case insensitive? (defaults
+to `TRUE``)}
 }
 \value{
-A data frame, of class \code{rspec}, containing individual imported
-spectral files as columns.
+A data.frame, containing the wavelengths in the first column and
+individual imported spectral files in the subsequent columns.
 Reflectance values are interpolated to the nearest wavelength integer.
 }
 \description{
-Finds and imports reflectance data from spectra files in a given location.
+Finds and imports reflectance/transmittance/absorbance data from spectra
+files in a given location.
 }
 \examples{
-\dontrun{
-getspec('examplespec/', lim = c(400, 900))
-getspec('examplespec/', ext = 'ttt')}
-
+get_spec(system.file("testdata", package = "lightr"), lim = c(400, 900))
 
 }
