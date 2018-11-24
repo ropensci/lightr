@@ -12,7 +12,8 @@ Authors@R: c(
     email = "thomas.white026@gmail.com",
     comment = c(ORCID = "0000-0001-8493-9450"))
     )
-Description: Parse various spectra file formats to extract spectral data and metadata, such as integration times, number of averages, spectrometer model or timestamp.
+Description: Parse various UV-VIS reflectance/transmittance/absorbance spectra
+    file formats to extract spectral data and metadata.
 Imports:
     pbmcapply,
     xml2

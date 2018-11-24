@@ -6,14 +6,15 @@
 [![Coverage status](https://codecov.io/gh/Bisaloo/lightr/branch/master/graph/badge.svg)](https://codecov.io/github/Bisaloo/lightr?branch=master)
 
 There is no standard file format for spectrometry data and different scientific
-instrumentation comparnies use wildly different formats to store spectral data.
+instrumentation companies use wildly different formats to store spectral data.
 Vendors proprietary software sometimes have an option but convert those formats
 instead human readable files such as `csv` but in the process, most metadata
 are lost. However, those metadata are critical to ensure reproducibility ([White
 *et al*, 2015](https://doi.org/10.1016/j.anbehav.2015.05.007)).
 
 This package aims at offering a unified user-friendly interface for users to 
-read spectra files from various formats in a single line of code.
+read UV-VIS reflectance/transmittance/absorbance spectra files from various
+formats in a single line of code.
 
 Additionally, it provides for the first time a fully free and open source 
 solution to read proprietary spectra file formats on all systems.
@@ -56,8 +57,8 @@ and the second element is a vector with relevant metadata.
 
 Only exceptions are `.txt` and `.Transmission` files because those extensions
 are too generic. You will need to figure out which parser you should use in this
-case. `get_metadata` and `get_spec` automatically try generic parsers in this
-case.
+case. `get_metadata()` and `get_spec()` automatically try generic parsers in
+this case.
 
 Alternatively, you may simply want to convert your spectra in a readable 
 standard format and carry on with your analysis with another software.
@@ -110,7 +111,7 @@ and general algorithm that manages to extract data from most files.
 If you can't find the best parse for your specific file or if you believe you
 are using an unsupported format, please 
 [open an issue](https://github.com/Bisaloo/lightr/issues) or send me an email. 
-   
+
 ## Similar projects
 
 * `lightr` itself contains some code that has been initially forked from 
@@ -130,10 +131,11 @@ are using an unsupported format, please
   and let the user pick their favorite tool for the analysis step.
 * [`spectrolab`](https://github.com/meireles/spectrolab)
 * Other projects such as [`hyperSpec`](http://hyperspec.r-forge.r-project.org/)
-  have some overlap with `lightr` (import of JCAMP-DX `.jdx` files for example)
-  but mainly focus on other types of spectra, such a Raman spectra, while lightr
-  handles exclusively UV/VIS/NIR spectra.
-  
+  or [`readJDX`](https://cran.r-project.org/package=readJDX) have some overlap
+  with `lightr` (import of JCAMP-DX `.jdx` files for example) but mainly focus
+  on other types of spectra, such a Raman spectra, while `lightr` focuses
+  exclusively UV-VIS reflectance/transmittance/absorbance spectra.
+
 Because of its user-friendly high-levels functions and low dependency
 philosophy, `lightr` may also hopefully prove useful for people working with 
 other languages than R.
