@@ -108,9 +108,9 @@ get_metadata <- function(where = getwd(), ext = "ProcSpec", sep = NULL,
 
   colnames(res) <- c(
     "name", "user", "date", "spec_model", "spec_ID",
-    paste0(c("white", "dark", "sample"), "inttime", sep = "_"),
-    paste0(c("white", "dark", "sample"), "avgs", sep = "_"),
-    paste0(c("white", "dark", "sample"), "boxcar", sep = "_")
+    paste(c("white", "dark", "sample"), "inttime", sep = "_"),
+    paste(c("white", "dark", "sample"), "avgs", sep = "_"),
+    paste(c("white", "dark", "sample"), "boxcar", sep = "_")
   )
 
   res[, c(6,7,8,9,10,11,12,13,14)] <- sapply(res[, c(6,7,8,9,10,11,12,13,14)], as.numeric)
