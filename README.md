@@ -127,7 +127,9 @@ are using an unsupported format, please
   This however makes it more difficult to use a different tool for a given step
   of the process. On the contrary, `lightr` aims at proposing a light package 
   with limited dependencies that focuses on the data import step of the process
-  and let the user pick their favorite tool for the analysis step.
+  and let the user pick their favorite tool for the analysis step ([`pavo`],
+  [`colourvision`](https://cran.r-project.org/package=colourvision),
+  [`Avicol`](https://sites.google.com/site/avicolprogram/), etc.).
 * [`spectrolab`](https://github.com/meireles/spectrolab)
 * Other projects such as [`hyperSpec`](http://hyperspec.r-forge.r-project.org/)
   or [`readJDX`](https://cran.r-project.org/package=readJDX) have some overlap
