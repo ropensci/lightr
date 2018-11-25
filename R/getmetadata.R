@@ -12,9 +12,9 @@
 #'   * `date`: Timestamp of the recording
 #'   * `spec_model`: Model of the spectrometer
 #'   * `spec_ID`: Unique ID of the spectrometer
-#'   * `white_inttime`: Integration time of the white reference
-#'   * `dark_inttime`: Integration time of the dark reference
-#'   * `sample_inttime`: Integration time of the sample
+#'   * `white_inttime`: Integration time of the white reference (in ms)
+#'   * `dark_inttime`: Integration time of the dark reference (in ms)
+#'   * `sample_inttime`: Integration time of the sample (in ms)
 #'   * `white_avgs`: Number of averaged measurements for the white reference
 #'   * `dark_avgs`: Number of averaged measurements for the dark reference
 #'   * `sample_avgs`: Number of averaged measurements for the sample
