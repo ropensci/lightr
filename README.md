@@ -137,9 +137,9 @@ are using an unsupported format, please
   on other types of spectra, such a Raman spectra, while `lightr` focuses
   exclusively UV-VIS reflectance/transmittance/absorbance spectra.
 
-Because of its user-friendly high-levels functions and low dependency
-philosophy, `lightr` may also hopefully prove useful for people working with 
-other languages than R.
+To our knowledge, `lightr` is the only gratis tool to import some complex file
+formats such as Avantes binary files or OceanOptics `.ProcSpec`Because of its user-friendly high-levels functions and low dependency philosophy, `lightr` may 
+also hopefully prove useful for people working with other languages than R.
 
 
 [`pavo`]: https://cran.r-project.org/package=pavo
