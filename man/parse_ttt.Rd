@@ -22,3 +22,8 @@ A list of two elements:
 \description{
 Parse Avantes converted file
 }
+\examples{
+parse_ttt(system.file("testdata", "avantes_export.ttt", package = "lightr"))
+parse_trt(system.file("testdata", "avantes_export2.trt", package = "lightr"))
+
+}

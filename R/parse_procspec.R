@@ -8,6 +8,10 @@
 #'
 #' @references <https://oceanoptics.com/faq/extract-data-procspec-file-without-spectrasuite/>
 #'
+#' @examples
+#' parse_procspec(system.file("testdata", "procspec_files",
+#'                            "OceanOptics_Linux.ProcSpec", package = "lightr"))
+#'
 #' @export
 #'
 parse_procspec <- function(filename) {

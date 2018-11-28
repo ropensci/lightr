@@ -19,6 +19,10 @@ A list of two elements:
 \description{
 Parse OceanOptics JCAMP-DX (.jdx) file
 }
+\examples{
+parse_jdx(system.file("testdata", "OceanOptics.jdx", package = "lightr"))
+
+}
 \references{
 McDonald RS, Wilks PA. JCAMP-DX: A Standard Form for Exchange of
 Infrared Spectra in Computer Readable Form. Applied Spectroscopy.

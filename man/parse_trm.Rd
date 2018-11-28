@@ -25,3 +25,8 @@ A list of two elements:
 \description{
 Parse Avantes binary file
 }
+\examples{
+parse_trm(system.file("testdata", "avantes_trans.TRM", package = "lightr"))
+parse_roh(system.file("testdata", "avantes_reflect.ROH", package = "lightr"))
+
+}

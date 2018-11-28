@@ -8,6 +8,9 @@
 #' Infrared Spectra in Computer Readable Form. Applied Spectroscopy.
 #' 1988;42(1):151‑62.
 #'
+#' @examples
+#' parse_jdx(system.file("testdata", "OceanOptics.jdx", package = "lightr"))
+#'
 #' @export
 #'
 parse_jdx <- function(filename) {

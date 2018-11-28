@@ -4,6 +4,10 @@
 #'
 #' @inherit parse_generic return
 #'
+#' @examples
+#' parse_jaz(system.file("testdata", "jazspec.jaz", package = "lightr"))
+#' parse_jazirrad(system.file("testdata", "irrad.JazIrrad", package = "lightr"))
+#'
 #' @export
 #'
 parse_jaz <- function(filename) {

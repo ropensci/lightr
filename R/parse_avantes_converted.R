@@ -4,6 +4,10 @@
 #'
 #' @inherit parse_generic return
 #'
+#' @examples
+#' parse_ttt(system.file("testdata", "avantes_export.ttt", package = "lightr"))
+#' parse_trt(system.file("testdata", "avantes_export2.trt", package = "lightr"))
+#'
 #' @export
 #'
 parse_ttt <- function(filename) {

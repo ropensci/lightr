@@ -22,3 +22,8 @@ A list of two elements:
 \description{
 Parse OceanOptics converted file
 }
+\examples{
+parse_jaz(system.file("testdata", "jazspec.jaz", package = "lightr"))
+parse_jazirrad(system.file("testdata", "irrad.JazIrrad", package = "lightr"))
+
+}

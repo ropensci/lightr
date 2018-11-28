@@ -25,3 +25,9 @@ A list of two elements:
 \description{
 Generic function to parse spectra files that don't have a specific parser
 }
+\examples{
+parse_generic(system.file("testdata", "spec.csv", package = "lightr"),
+              sep = ",")
+parse_generic(system.file("testdata", "CRAIC_export.txt", package = "lightr"))
+
+}

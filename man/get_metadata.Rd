@@ -43,9 +43,9 @@ A data.frame containing one file per row and the following columns:
 \item \code{date}: Timestamp of the recording
 \item \code{spec_model}: Model of the spectrometer
 \item \code{spec_ID}: Unique ID of the spectrometer
-\item \code{white_inttime}: Integration time of the white reference
-\item \code{dark_inttime}: Integration time of the dark reference
-\item \code{sample_inttime}: Integration time of the sample
+\item \code{white_inttime}: Integration time of the white reference (in ms)
+\item \code{dark_inttime}: Integration time of the dark reference (in ms)
+\item \code{sample_inttime}: Integration time of the sample (in ms)
 \item \code{white_avgs}: Number of averaged measurements for the white reference
 \item \code{dark_avgs}: Number of averaged measurements for the dark reference
 \item \code{sample_avgs}: Number of averaged measurements for the sample

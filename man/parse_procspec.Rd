@@ -19,6 +19,11 @@ A list of two elements:
 \description{
 Parse OceanOptics ProcSpec spectra file
 }
+\examples{
+parse_procspec(system.file("testdata", "procspec_files",
+                           "OceanOptics_Linux.ProcSpec", package = "lightr"))
+
+}
 \references{
 \url{https://oceanoptics.com/faq/extract-data-procspec-file-without-spectrasuite/}
 }

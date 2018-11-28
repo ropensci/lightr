@@ -13,7 +13,7 @@ test_that("Parsers", {
   expect_length(parse_procspec(system.file("testdata", "procspec_files", "OceanOptics_badencode.ProcSpec", package = "lightr")),
                 2)
 
-  expect_length(parse_jdx(system.file("testdata", "OceanOptics_jcamp-dx.jdx", package = "lightr")),
+  expect_length(parse_jdx(system.file("testdata", "OceanOptics.jdx", package = "lightr")),
                 2)
 
   expect_length(parse_jaz(system.file("testdata", "jazspec.jaz", package = "lightr")),
