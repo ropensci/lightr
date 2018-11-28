@@ -1,0 +1,45 @@
+---
+title: "paper"
+tags:
+author: 
+  - name: Hugo Gruson
+    orcid:
+    affiliation: 1
+  - name: Thomas White
+  - name: Rafael Maia
+affiliations:
+  - name: Centre d'Écologie Fonctionnelle et Évolutive
+    index: 1
+date: "November 28, 2018"
+output: md_document
+---
+
+# Summary
+
+Living organisms wildly differ in their ability to see colours. For this reason,
+colour science relies on the use of objective measurements of reflectance,
+transmittance or aborbance spectra rather than human vision (@Cuthill1999).
+
+Spectrometers record the amount of captured photons at different wavelengths 
+(usually between 300-700 nm for colour sicence). However, there is no standard 
+file format for spectrometry data and different scientific instrumentation 
+companies use wildly different formats to store spectral data. Vendors 
+proprietary software sometimes have an option but convert those formats instead 
+human readable files such as `.csv` but such softwares are often expensive and
+they discard most metadata in the process. However, those metadata are critical
+to ensure reproducibility of the measurements, and ultimately of the scientific
+findings (@White2015).
+
+In this article, we present `lightr`, an R package which aims at offering a
+unified user-friendly interface for users to read reflectance, transmittance, 
+absorbance spectra files from various formats in a single line of code. 
+Additionally, it provides for the first time a fully free and open source
+solution to read proprietary spectra file formats on all systems.
+
+`lightr` started as a fork from the popular R package `pavo`, which provides
+a large suite of colour analysis tools (@Maia2013, @White2018).
+
+# Acknowledgements
+
+
+# References
