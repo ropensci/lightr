@@ -1,8 +1,6 @@
 context("parsers")
 
-test_that("Parsers", {
-
-  # OceanOptics
+test_that("OceanOptics", {
 
   expect_length(parse_procspec(test.file("procspec_files",
                                          "OceanOptics_Linux.ProcSpec")),
@@ -27,8 +25,9 @@ test_that("Parsers", {
 
   expect_length(parse_jaz(test.file("FMNH6834.00000001.Master.Transmission")),
                 2)
+})
 
-  # Avantes
+test_that("Avantes", {
 
   expect_length(parse_roh(test.file("avantes_reflect.ROH")),
                 2)
@@ -47,12 +46,12 @@ test_that("Parsers", {
 
   expect_length(parse_trt(test.file("avantes_export2.trt")),
                 2)
+})
 
-  # Generic
+test_that("Generic", {
 
   expect_error(parse_generic(test.file("spec.csv")))
 
   expect_length(parse_generic(test.file("spec.csv"), sep = ","),
                 2)
-
 })
