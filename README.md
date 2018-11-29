@@ -138,7 +138,8 @@ are using an unsupported format, please
   exclusively UV-VIS reflectance/transmittance/absorbance spectra.
 
 To our knowledge, `lightr` is the only gratis tool to import some complex file
-formats such as Avantes binary files or OceanOptics `.ProcSpec`Because of its user-friendly high-levels functions and low dependency philosophy, `lightr` may 
+formats such as Avantes binary files or OceanOptics `.ProcSpec`Because of its
+user-friendly high-levels functions and low dependency philosophy, `lightr` may 
 also hopefully prove useful for people working with other languages than R.
 
 
