@@ -45,7 +45,7 @@ spec2csv <- function(where = getwd(), ext = "txt", decimal = ".", sep = NULL,
   message(nb_files, " files found")
 
   tmp <- pbmclapply(files, function(x)
-    tryCatch(spec2csv(ff, decimal = decimal, sep = sep, overwrite = overwrite),
+    tryCatch(spec2csv(x, decimal = decimal, sep = sep, overwrite = overwrite),
              error = function(e) NULL,
              warning = function(e) NULL),
     mc.cores = cores)
