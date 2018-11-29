@@ -4,13 +4,36 @@
 \alias{spec2csv}
 \title{Convert spectral data files to csv files}
 \usage{
-spec2csv(filename, overwrite = FALSE)
+spec2csv(where = getwd(), ext = "txt", decimal = ".", sep = NULL,
+  subdir = FALSE, cores = getOption("mc.cores", 2L),
+  ignore.case = TRUE, overwrite = FALSE)
 }
 \arguments{
-\item{filename}{name of the file}
+\item{where}{Folder in which files are located (defaults to current working
+directory).}
+
+\item{ext}{File extension to be searched for, without the "."
+(defaults to \code{txt}).}
+
+\item{decimal}{Character to be used to identify decimal plates
+(defaults to \code{.}).}
+
+\item{sep}{Column delimiting characters to be considered in addition to the
+default (which are: tab, space, and ";")}
+
+\item{subdir}{Should subdirectories within the \code{where} folder be included in
+the search? (defaults to \code{FALSE}).}
+
+\item{cores}{Number of cores to be used. If greater than 1, import will use
+parallel processing (not available in Windows).}
+
+\item{ignore.case}{Should the extension search be case insensitive? (defaults
+to `TRUE``)}
 
 \item{overwrite}{logical. Should the function overwrite existing files with
 the same name? (defaults to \code{FALSE}).}
+
+\item{filename}{name of the file}
 }
 \description{
 Convert spectral data files to csv files
