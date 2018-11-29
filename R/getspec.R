@@ -38,10 +38,8 @@ get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
                      subdir.names = FALSE, cores = getOption("mc.cores", 2L),
                      ignore.case = TRUE) {
 
-  # allow multiple extensions
   extension <- paste0("\\.", ext, "$", collapse = "|")
 
-  # get file names
   file_names <- list.files(where,
     pattern = extension, ignore.case = ignore.case,
     recursive = subdir, include.dirs = subdir
@@ -62,23 +60,19 @@ get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
 
   specnames <- file_path_sans_ext(file_names)
 
-  # Wavelength range
   range <- seq(lim[1], lim[2])
 
-  # On Windows, set cores to be 1
   if (cores > 1 && .Platform$OS.type == "windows") {
     cores <- 1L
     message('Parallel processing not available in Windows; "cores" set to 1.\n')
   }
 
-  # message with number of spectra files being imported
   message(nb_files, " files found; importing spectra:")
 
   gsp <- function(ff) {
 
     df <- dispatch_parser(ff, decimal = decimal, sep = sep)[[1]]
 
-    # Only keep "wl" and "processed" columns and interpolate every nm
     interp <- approx(df[, "wl"], df[, "processed"], xout = range)$y
   }
 
@@ -90,14 +84,12 @@ get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
 
   if (any(unlist(lapply(tmp, is.null)))) {
     whichfailed <- which(unlist(lapply(tmp, is.null)))
-    # stop if all files are corrupt
     if (length(whichfailed) == nb_files) {
       warning("File import failed.\n",
               "Check input files and function arguments.", call. = FALSE)
       return()
     }
 
-    # if not, import the ones remaining
     warning("Could not import one or more files:\n",
       paste0(files[whichfailed], "\n"),
       call. = FALSE

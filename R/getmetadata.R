@@ -42,10 +42,8 @@ get_metadata <- function(where = getwd(), ext = "ProcSpec", sep = NULL,
                          cores = getOption("mc.cores", 2L),
                          ignore.case = TRUE) {
 
-  # allow multiple extensions
   extension <- paste0("\\.", ext, "$", collapse = "|")
 
-  # get file names
   file_names <- list.files(where,
     pattern = extension, ignore.case = ignore.case,
     recursive = subdir, include.dirs = subdir
@@ -66,7 +64,6 @@ get_metadata <- function(where = getwd(), ext = "ProcSpec", sep = NULL,
 
   specnames <- file_path_sans_ext(file_names)
 
-  # On Windows, set cores to be 1
   if (cores > 1 && .Platform$OS.type == "windows") {
     cores <- 1L
     message('Parallel processing not available in Windows; "cores" set to 1.\n')
@@ -86,14 +83,12 @@ get_metadata <- function(where = getwd(), ext = "ProcSpec", sep = NULL,
 
   if (any(unlist(lapply(tmp, is.null)))) {
     whichfailed <- which(unlist(lapply(tmp, is.null)))
-    # stop if all files are corrupt
     if (length(whichfailed) == nb_files) {
       warning("File import failed.\n",
               "Check input files and function arguments.", call. = FALSE)
       return()
     }
 
-    # if not, import the ones remaining
     warning("Could not import one or more files:\n",
             paste0(files[whichfailed], "\n"),
             call. = FALSE
@@ -114,8 +109,6 @@ get_metadata <- function(where = getwd(), ext = "ProcSpec", sep = NULL,
   )
 
   res[, c(6,7,8,9,10,11,12,13,14)] <- sapply(res[, c(6,7,8,9,10,11,12,13,14)], as.numeric)
-
-#  class(res) <- c("metaspec", "data.frame")
 
   return(res)
 }

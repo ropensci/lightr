@@ -52,14 +52,12 @@ spec2csv <- function(where = getwd(), ext = "txt", decimal = ".", sep = NULL,
 
   if (any(unlist(lapply(tmp, is.null)))) {
     whichfailed <- which(unlist(lapply(tmp, is.null)))
-    # stop if all files are corrupt
     if (length(whichfailed) == nb_files) {
       warning("File import failed.\n",
               "Check input files and function arguments.", call. = FALSE)
       return()
     }
 
-    # if not, import the ones remaining
     warning("Could not import one or more files:\n",
             paste0(files[whichfailed], "\n"),
             call. = FALSE
