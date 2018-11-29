@@ -9,6 +9,10 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+```{r include=FALSE}
+library(huxtable)
+```
+
 Some use cases require more flexibility than the high-level user-friendly
 functions provides by `lightr`. For this use case, `lightr` also exports the
 low-level individual parsers, which allow the user to code its own custom
@@ -18,9 +22,8 @@ We don't recommend the use of those functions unless you absolutely have to.
 Most users should use `get_spec()` and `get_metadata()` instead.
 
 Here, we take the example of the method presented in 
-[Gruson *et al*](https://doi.org/10.1098/rsfs.2018.0049) where reflectance
-spectra need to be normalised in an unusual way.
-file. 
+[Gruson *et al* (2018)](https://doi.org/10.1098/rsfs.2018.0049) where 
+reflectance spectra need to be normalised in an unusual way.
 
 Raw, un-normalised spectral data depends on both the spectrometer and the lamp
 as well as the conditions during the recording (including ambient light, 
@@ -55,11 +58,8 @@ The result contains 2 elements:
   * the spectral data itself
   * the metadata captured during the recording
   
-Here, we are only interested in the data itself, i.e. the first element:
-
 ```{r}
-reflect_data <- reflect_data[[1]]
-knitr::kable(head(reflect_data))
+head(reflect_data[[1]])
 ```
 
 ## Step 2: find the matching white reference
@@ -67,11 +67,38 @@ knitr::kable(head(reflect_data))
 We import that white reference in the same way:
 
 ```{r}
-white_data <- NULL
+white_data <- parse_procspec(
+  system.file("testdata", "procspec_files", "whiteref.ProcSpec",
+               package = "lightr")
+)
 ```
 
 ## Step 3: normalise the reflectance data
 
-```{r}
+We can now normalise the reflectance spectrum with the equation stated at the
+beginning of this vignette:
 
+$$\text{Processed} = \dfrac{\text{Raw} - \text{Dark}}{\text{White} - \text{Dark}}$$
+
+But first, we verify that the integration times:
+
+We can now get rid of the metadata part and focus on the data only:
+
+```{r}
+reflect_data = data.frame(reflect_data[[1]])
+white_data = data.frame(white_data[[1]])
+```
+
+As a last step before being able to normalise the data, we also need to check
+if the reflectance spectrum and the white reference are sampled with the same
+wavelengths:
+
+```{r}
+all.equal(reflect_data$wl, white_data$wl)
+```
+
+```{r}
+res <- (reflect_data$scope - reflect_data$dark) / 
+       (white_data$white - white_data$dark)
+head(res)
 ```
