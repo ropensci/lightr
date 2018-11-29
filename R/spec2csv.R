@@ -39,7 +39,7 @@ spec2csv <- function(where = getwd(), ext = "txt", decimal = ".", sep = NULL,
 
   if (cores > 1 && .Platform$OS.type == "windows") {
     cores <- 1L
-    message("Parallel processing not available in Windows; "cores" set to 1.\n")
+    message('Parallel processing not available in Windows; "cores" set to 1.\n')
   }
 
   message(nb_files, " files found")
