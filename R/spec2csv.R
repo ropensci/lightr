@@ -17,10 +17,61 @@
 #' @importFrom utils write.csv
 #'
 #' @export
+spec2csv <- function(where = getwd(), ext = "txt", decimal = ".", sep = NULL,
+                     subdir = FALSE, cores = getOption("mc.cores", 2L),
+                     ignore.case = TRUE, overwrite = FALSE) {
 
-spec2csv <- function(filename, overwrite = FALSE) {
+  extension <- paste0("\\.", ext, "$", collapse = "|")
 
-  data <- dispatch_parser(filename)[[1]]
+  file_names <- list.files(where,
+                           pattern = extension, ignore.case = ignore.case,
+                           recursive = subdir, include.dirs = subdir
+  )
+  nb_files <- length(file_names)
+
+  if (nb_files == 0) {
+    warning('No files found. Try a different value for argument "ext".',
+            call. = FALSE)
+    return(NULL)
+  }
+
+  files <- file.path(where, file_names)
+
+  if (cores > 1 && .Platform$OS.type == "windows") {
+    cores <- 1L
+    message("Parallel processing not available in Windows; "cores" set to 1.\n")
+  }
+
+  message(nb_files, " files found")
+
+  tmp <- pbmclapply(files, function(x)
+    tryCatch(spec2csv(ff, decimal = decimal, sep = sep, overwrite = overwrite),
+             error = function(e) NULL,
+             warning = function(e) NULL),
+    mc.cores = cores)
+
+  if (any(unlist(lapply(tmp, is.null)))) {
+    whichfailed <- which(unlist(lapply(tmp, is.null)))
+    # stop if all files are corrupt
+    if (length(whichfailed) == nb_files) {
+      warning("File import failed.\n",
+              "Check input files and function arguments.", call. = FALSE)
+      return()
+    }
+
+    # if not, import the ones remaining
+    warning("Could not import one or more files:\n",
+            paste0(files[whichfailed], "\n"),
+            call. = FALSE
+    )
+  }
+
+  invisible(unlist(list))
+}
+
+spec2csv_single <- function(filename, decimal, sep, overwrite = FALSE) {
+
+  data <- dispatch_parser(filename, decimal = decimal, sep = sep)[[1]]
 
   csv_name <- paste0(file_path_sans_ext(filename), ".csv")
 
@@ -29,5 +80,7 @@ spec2csv <- function(filename, overwrite = FALSE) {
   }
 
   write.csv(data, csv_name)
+
+  invisible(csv_name)
 
 }
