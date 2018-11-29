@@ -9,10 +9,6 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r include=FALSE}
-library(huxtable)
-```
-
 Some use cases require more flexibility than the high-level user-friendly
 functions provides by `lightr`. For this use case, `lightr` also exports the
 low-level individual parsers, which allow the user to code its own custom

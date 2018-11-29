@@ -10,7 +10,6 @@ vignette: >
 ---
 
 ```{r include=F}
-library(huxtable)
 knitr::opts_knit$set(root.dir = "../inst/testdata")
 ```
 
