@@ -21,12 +21,6 @@ parse_trm <- function(filename) {
 
   # Translation into R by Hugo Gruson
 
-  if (!grepl("\\.(abs|trm|roh)$", filename, ignore.case = TRUE)) {
-    stop("Unsupported file format. Please provide a file with either ",
-         "ABS, TRM or ROH ",
-         "file extension.")
-  }
-
   f <- file(filename, "rb")
 
   # Header
