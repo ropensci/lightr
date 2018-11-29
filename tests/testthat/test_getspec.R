@@ -1,21 +1,26 @@
-context("metadata")
+context("get_spec")
 
-test_that("Spectra import", {
+test_that("get_spec all", {
 
-  res <- getspec(system.file("testdata", package = "lightr"),
-                 ext = c("TRM", "ttt", "jdx", "jaz", "JazIrrad", "csv", "txt",
-                         "Transmission"),
-                 sep = ",")
-  expect_identical(ncol(res), 15L)
+  res <- get_spec(test.file(),
+                  ext = c("TRM", "ttt", "jdx", "jaz", "JazIrrad", "csv", "txt",
+                          "Transmission"),
+                  sep = ",")
+  expect_equal_to_reference(res, "known_output/getspec_all.rds")
+})
+
+test_that("get_spec recursive", {
 
   # Recursive
-  res <- getspec(system.file("testdata", package = "lightr"),
-                 ext = "ProcSpec", subdir = TRUE)
-  expect_identical(ncol(res), 4L)
+  res <- get_spec(test.file(), ext = "ProcSpec", subdir = TRUE)
+  expect_equal_to_reference(res, "known_output/getspec_recursive.rds")
 
+})
+
+test_that("get_spec warn/error", {
   # Total fail
   totalfail <- expression({
-    getspec(system.file("testdata", package = "lightr"),
+    getspec(test.file(),
             ext = "fail")
   })
   expect_warning(eval(totalfail), "File import failed")
@@ -24,7 +29,7 @@ test_that("Spectra import", {
 
   # Partial fail
   partialfail <- expression({
-    getspec(system.file("testdata", package = "lightr"),
+    getspec(test.file(),
             ext = c("fail", "jdx"))
   })
   expect_warning(eval(partialfail), "Could not import one or more")

@@ -1,19 +1,24 @@
-context("metadata")
+context("get_metadata")
 
-test_that("Metadata", {
+test_that("get_metadata all", {
 
-  res <- getmetadata(system.file("testdata", package = "lightr"),
+  res <- getmetadata(test.file(),
 	                   ext = c("TRM", "ROH", "ttt", "trt", "jdx", "jaz", "JazIrrad"))
-  expect_identical(nrow(res), 9L)
+  expect_equal_to_reference(res, "known_output/getmetadata_all.rds")
+})
+
+test_that("get_metadata recursive", {
 
   # Recursive
-  res <- getmetadata(system.file("testdata", package = "lightr"),
+  res <- getmetadata(test.file(),
                      ext = "ProcSpec", subdir = TRUE)
-  expect_identical(nrow(res), 3L)
+  expect_equal_to_reference(res, "known_output/getmetadata_recursive.rds")
+})
 
+test_that("get_metadata warn/error", {
   # Total fail
   totalfail <- expression({
-    getmetadata(system.file("testdata", package = "lightr"),
+    getmetadata(test.file(),
                 ext = "fail")
   })
   expect_warning(eval(totalfail), "File import failed")
@@ -22,7 +27,7 @@ test_that("Metadata", {
 
   # Partial fail
   partialfail <- expression({
-    getmetadata(system.file("testdata", package = "lightr"),
+    getmetadata(test.file(),
                 ext = c("fail", "jdx"))
   })
   expect_warning(eval(partialfail), "Could not import one or more")

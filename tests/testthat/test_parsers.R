@@ -4,52 +4,55 @@ test_that("Parsers", {
 
   # OceanOptics
 
-  expect_length(parse_procspec(system.file("testdata", "procspec_files", "OceanOptics_Linux.ProcSpec", package = "lightr")),
+  expect_length(parse_procspec(test.file("procspec_files",
+                                         "OceanOptics_Linux.ProcSpec")),
                 2)
 
-  expect_length(parse_procspec(system.file("testdata", "procspec_files", "OceanOptics_Windows.ProcSpec", package = "lightr")),
+  expect_length(parse_procspec(test.file("procspec_files",
+                                         "OceanOptics_Windows.ProcSpec")),
                 2)
 
-  expect_length(parse_procspec(system.file("testdata", "procspec_files", "OceanOptics_badencode.ProcSpec", package = "lightr")),
+  expect_length(parse_procspec(test.file("procspec_files",
+                                         "OceanOptics_badencode.ProcSpec")),
                 2)
 
-  expect_length(parse_jdx(system.file("testdata", "OceanOptics.jdx", package = "lightr")),
+  expect_length(parse_jdx(test.file("OceanOptics.jdx")),
                 2)
 
-  expect_length(parse_jaz(system.file("testdata", "jazspec.jaz", package = "lightr")),
+  expect_length(parse_jaz(test.file("jazspec.jaz")),
                 2)
 
-  expect_length(parse_jazirrad(system.file("testdata", "irrad.JazIrrad", package = "lightr")),
+  expect_length(parse_jazirrad(test.file("irrad.JazIrrad")),
                 2)
 
-  expect_length(parse_jaz(system.file("testdata", "FMNH6834.00000001.Master.Transmission", package = "lightr")),
+  expect_length(parse_jaz(test.file("FMNH6834.00000001.Master.Transmission")),
                 2)
 
   # Avantes
 
-  expect_length(parse_roh(system.file("testdata", "avantes_reflect.ROH", package = "lightr")),
+  expect_length(parse_roh(test.file("avantes_reflect.ROH")),
                 2)
 
-  expect_length(parse_trm(system.file("testdata", "avantes_trans.TRM", package = "lightr")),
+  expect_length(parse_trm(test.file("avantes_trans.TRM")),
                 2)
 
-  expect_length(parse_trm(system.file("testdata", "avantes2.TRM", package = "lightr")),
+  expect_length(parse_trm(test.file("avantes2.TRM")),
                 2)
 
-  expect_length(parse_ttt(system.file("testdata", "avantes_export.ttt", package = "lightr")),
+  expect_length(parse_ttt(test.file("avantes_export.ttt")),
                 2)
 
-  expect_length(parse_ttt(system.file("testdata", "avantes_export_long.ttt", package = "lightr")),
+  expect_length(parse_ttt(test.file("avantes_export_long.ttt")),
                 2)
 
-  expect_length(parse_trt(system.file("testdata", "avantes_export2.trt", package = "lightr")),
+  expect_length(parse_trt(test.file("avantes_export2.trt")),
                 2)
 
   # Generic
 
-  expect_error(parse_generic(system.file("testdata", "spec.csv", package = "lightr")))
+  expect_error(parse_generic(test.file("spec.csv")))
 
-  expect_length(parse_generic(system.file("testdata", "spec.csv", package = "lightr"), sep = ","),
+  expect_length(parse_generic(test.file("spec.csv"), sep = ","),
                 2)
 
 })
