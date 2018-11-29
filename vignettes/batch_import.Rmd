@@ -9,6 +9,11 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+```{r include=F}
+library(huxtable)
+knitr::opts_knit$set(root.dir = "../inst/testdata")
+```
+
 `lightr` provides three main functions for patch import of spectral data and
 metadata:
 
@@ -31,8 +36,57 @@ library(lightr)
 
 ## `get_spec()`
 
+`get_spec()` is one the core functions of `lightr`. It finds spectral data 
+files, extract the reflectance / transmittance / absorbance data and returns a
+`data.frame` where the first column (named `wl`) contains the wavelengths and
+the subsequent columns contain the spectral data, interpolated every nanometer:
+
+```{r}
+res <- get_spec(where = ".", ext = "txt", lim = c(300, 700))
+head(res)
+```
+
+`get_spec()` also supports setting multiple file extensions at once by passing
+a character vector to `ext`:
+
+```{r}
+res <- get_spec(where = ".", ext = c("txt", "trt"), lim = c(300, 700))
+head(res)
+```
+
+Finally, `get_spec()` can also recursively search in your folder tree with the
+`subdir` argument:
+
+```{r}
+res <- get_spec(where = ".", ext = "procspec", lim = c(300, 700), subdir = TRUE)
+head(res)
+```
 
 ## `get_metadata()`
 
+`get_metadata()` extracts metadata captured by the spectrophotometer during the
+recording. This metadata should be reported in your scientific articles to 
+ensure reproducibility of your measurements and ultimately of your findings. The
+amount of information strongly depends on the brand and model of the
+spectrometer.
+
+Similarly to `get_spec()`, it can handle multiple extensions at once and perform
+recursive searches:
+
+```{r}
+res <- get_metadata(where = ".", ext = c("trm", "procspec"), subdir = TRUE)
+head(res)
+```
+
 ## `spec2csv()`
 
+`spec2csv()` is designed for people that want to a machine readable version for
+each individual input file, possibly allowing them to carry on with their 
+analysis using another programming language or software.
+
+It works in a very similar way to `get_spec()` and will create `csv` files with
+the same file names as the input files (but a different extension).
+
+```{r}
+spec2csv(where = ".", ext = "procspec", subdir = TRUE)
+```
