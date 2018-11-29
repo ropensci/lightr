@@ -32,8 +32,6 @@ to `TRUE``)}
 
 \item{overwrite}{logical. Should the function overwrite existing files with
 the same name? (defaults to \code{FALSE}).}
-
-\item{filename}{name of the file}
 }
 \description{
 Convert spectral data files to csv files
