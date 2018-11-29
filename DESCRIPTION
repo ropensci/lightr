@@ -19,6 +19,7 @@ Imports:
     xml2
 Suggests:
     covr,
+    huxtable,
     knitr,
     rmarkdown,
     spelling,
