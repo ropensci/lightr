@@ -31,14 +31,14 @@ parse_procspec <- function(filename) {
   # OceanOptics softwares produce badly encoded characters. The only fix is to
   # strip them before feeding the xml file to read_xml.
   plain_text <- scan(data_file, what = character(), sep = "\n", quiet = TRUE)
-  clean_text <- sapply(plain_text, function(line) {
+  clean_text <- lapply(plain_text, function(line) {
     # Convert non-ASCII character to ""
     line <- iconv(line, to = "ASCII", sub = "")
     # Remove the extra malformed character
     line <- gsub("\\\001", "", line)
 
     return(line)
-  }, USE.NAMES = FALSE)
+  })
 
   clean_text <- paste(clean_text, collapse = "\n")
 
@@ -78,10 +78,10 @@ parse_procspec <- function(filename) {
   # Get rid of the XML tags.
   processed <- xml_text(processed_values)
 
-  specdf <- data.frame(wl, dark, white, scope, processed,
-                       stringsAsFactors = FALSE)
+  specdf <- data.frame(wl, dark, white, scope, processed)
+
   # The XML file was considered as text. So are "wl" and "procspec" columns.
-  specdf <- sapply(specdf, as.numeric)
+  specdf <- vapply(specdf, as.numeric, numeric(nrow(specdf)))
 
   author <- xml_text(xml_find_first(xml_source, ".//userName"))
   savetime <- NA # FIXME

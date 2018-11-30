@@ -2,9 +2,12 @@ context("get_metadata")
 
 test_that("get_metadata all", {
 
-  res <- getmetadata(test.file(),
-	                   ext = c("TRM", "ROH", "ttt", "trt", "jdx", "jaz", "JazIrrad"))
+  res <- getmetadata(
+    test.file(),
+	  ext = c("TRM", "ROH", "ttt", "trt", "jdx", "jaz", "JazIrrad")
+  )
   expect_equal_to_reference(res, "known_output/getmetadata_all.rds")
+
 })
 
 test_that("get_metadata recursive", {
