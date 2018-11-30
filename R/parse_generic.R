@@ -42,7 +42,7 @@ parse_generic <- function(filename, decimal = ".", sep = NULL) {
 
   # exclude any line that doesn't start with a number
   scinum <- "-?[[:digit:]]+\\.?[[:digit:]]*((E|e)(-|\\+)?[[:digit:]]+)?"
-  raw <- raw[grepl(paste0("^", scinum, ";"), raw)]
+  raw <- raw[grepl(paste0("^", scinum), raw)]
 
   # split on separators
   rawsplit <- strsplit(raw, ";")

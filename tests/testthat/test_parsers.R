@@ -50,7 +50,7 @@ test_that("Avantes", {
 
 test_that("Generic", {
 
-  expect_error(parse_generic(test.file("spec.csv")))
+  expect_error(parse_generic(test.file("spec.csv")), "Parsing failed.")
 
   expect_length(parse_generic(test.file("spec.csv"), sep = ","),
                 2)
