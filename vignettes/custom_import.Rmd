@@ -23,7 +23,7 @@ reflectance spectra need to be normalised in an unusual way.
 
 Raw, un-normalised spectral data depends on both the spectrometer and the lamp
 as well as the conditions during the recording (including ambient light, 
-temperature, etc.). To allow for comparison between studies, it is thus 
+temperature, *etc*.). To allow for comparison between studies, it is thus 
 normalised  by a white and a dark reference with the following formula:
 
 $$\text{Processed} = \dfrac{\text{Raw} - \text{Dark}}{\text{White} - \text{Dark}}$$

@@ -26,7 +26,7 @@ whole folders.
 They also allow for recursive search in the folder tree with the argument
 `subdir`.
 
-We first demonstrate these abilites on `get_spec()` but they work in the same
+We first demonstrate these features on `get_spec()` but they work in the same
 way for `get_metadata()` and `spec2csv()`
 
 ```{r}
@@ -38,7 +38,7 @@ library(lightr)
 `get_spec()` is one the core functions of `lightr`. It finds spectral data 
 files, extract the reflectance / transmittance / absorbance data and returns a
 `data.frame` where the first column (named `wl`) contains the wavelengths and
-the subsequent columns contain the spectral data, interpolated every nanometer:
+the subsequent columns contain the spectral data, interpolated every nanometre:
 
 ```{r}
 res <- get_spec(where = ".", ext = "txt", lim = c(300, 700))
