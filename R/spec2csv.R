@@ -43,7 +43,8 @@ spec2csv <- function(where = getwd(), ext = "txt", decimal = ".", sep = NULL,
   message(nb_files, " files found")
 
   tmp <- pbmclapply(files, function(x)
-    tryCatch(spec2csv(x, decimal = decimal, sep = sep, overwrite = overwrite),
+    tryCatch(spec2csv_single(x, decimal = decimal, sep = sep,
+                             overwrite = overwrite),
              error = function(e) NULL,
              warning = function(e) NULL),
     mc.cores = cores)
@@ -75,7 +76,7 @@ spec2csv_single <- function(filename, decimal, sep, overwrite = FALSE) {
     stop(csv_name, " already exists. Select `overwrite = TRUE` to overwrite.")
   }
 
-  write.csv(data, csv_name)
+  write.csv(data, csv_name, row.names = FALSE)
 
   invisible(csv_name)
 

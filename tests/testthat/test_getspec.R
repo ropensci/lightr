@@ -20,7 +20,7 @@ test_that("get_spec recursive", {
 test_that("get_spec warn/error", {
   # Total fail
   totalfail <- expression({
-    getspec(test.file(),
+    get_spec(test.file(),
             ext = "fail")
   })
   expect_warning(eval(totalfail), "File import failed")
@@ -29,14 +29,14 @@ test_that("get_spec warn/error", {
 
   # Partial fail
   partialfail <- expression({
-    getspec(test.file(),
+    get_spec(test.file(),
             ext = c("fail", "jdx"))
   })
   expect_warning(eval(partialfail), "Could not import one or more")
 
   # Missing
   missing <- expression({
-    getspec(ext = "missing")
+    get_spec(ext = "missing")
   })
   expect_warning(eval(missing), "No files found")
 
