@@ -37,7 +37,7 @@ test_that("Convert recursive", {
   spec2csv("conversion_test", ext = "ProcSpec", subdir = TRUE)
 
   input_files <- tools::list_files_with_exts("conversion_test/procspec_files",
-                                             exts)
+                                             "ProcSpec")
 
   output_files <- tools::list_files_with_exts("conversion_test/procspec_files",
                                               "csv")
