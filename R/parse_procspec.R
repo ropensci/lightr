@@ -78,7 +78,8 @@ parse_procspec <- function(filename) {
   # Get rid of the XML tags.
   processed <- xml_text(processed_values)
 
-  specdf <- data.frame(wl, dark, white, scope, processed)
+  specdf <- data.frame(wl, dark, white, scope, processed,
+                       stringsAsFactors = FALSE)
 
   # The XML file was considered as text. So are "wl" and "procspec" columns.
   specdf <- vapply(specdf, as.numeric, numeric(nrow(specdf)))
