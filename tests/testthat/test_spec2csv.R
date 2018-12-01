@@ -6,7 +6,7 @@ setup(file.copy(from = list.files(test.file(),
                                   full.names = TRUE,
                                   recursive = TRUE,
                                   include.dirs = TRUE),
-                to = "conversion_test"), recursive = FALSE)
+                to = "conversion_test", recursive = FALSE))
 setup(dir.create("conversion_test/csv"))
 setup(file.rename("conversion_test/spec.csv",
                   "conversion_test/csv/spec.csv"))
