@@ -4,7 +4,8 @@ context("spec2csv")
 setup(dir.create("conversion_test"))
 setup(file.copy(from = list.files(test.file(),
                                   full.names = TRUE,
-                                  recursive = TRUE),
+                                  recursive = TRUE,
+                                  include.dirs = TRUE),
                 to = "conversion_test"))
 setup(dir.create("conversion_test/csv"))
 setup(file.rename("conversion_test/spec.csv",
