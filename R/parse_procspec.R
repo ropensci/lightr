@@ -78,11 +78,10 @@ parse_procspec <- function(filename) {
   # Get rid of the XML tags.
   processed <- xml_text(processed_values)
 
-  specdf <- data.frame(wl, dark, white, scope, processed,
-                       stringsAsFactors = FALSE)
+  specdf <- cbind(wl, dark, white, scope, processed)
 
   # The XML file was considered as text. So are "wl" and "procspec" columns.
-  specdf <- vapply(specdf, as.numeric, numeric(nrow(specdf)))
+  specdf <- apply(specdf, 2, as.numeric)
 
   author <- xml_text(xml_find_first(xml_source, ".//userName"))
   savetime <- NA # FIXME
@@ -98,5 +97,5 @@ parse_procspec <- function(filename) {
   # Put integration time in ms instead of us
   metadata[c(5,6,7)] <- as.numeric(metadata[c(5,6,7)]) / 1000
 
-  return(list(specdf, metadata))
+  return(list(data.frame(specdf), metadata))
 }
