@@ -3,9 +3,7 @@ context("spec2csv")
 # Create temp environment to run tests
 setup(dir.create("conversion_test"))
 setup(file.copy(from = list.files(test.file(),
-                                  full.names = TRUE,
-                                  recursive = TRUE,
-                                  include.dirs = TRUE),
+                                  full.names = TRUE),
                 to = "conversion_test", recursive = TRUE))
 setup(dir.create("conversion_test/csv"))
 setup(file.rename("conversion_test/spec.csv",
