@@ -2,7 +2,7 @@
 #'
 #' @keywords internal
 #'
-dispatch_parser <- function(filename, decimal = decimal, sep = sep) {
+dispatch_parser <- function(filename, decimal = ".", sep = NULL) {
 
   switch(
     tolower(file_ext(filename)),
