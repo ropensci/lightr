@@ -53,7 +53,9 @@ parse_ttt <- function(filename) {
 
   colnames(data) <- names(cornames)[match(colnames(data), cornames)]
 
-  return(list(data, metadata))
+  data <- apply(data, 2, as.numeric)
+
+  return(list(data.frame(data), metadata))
 
 }
 
