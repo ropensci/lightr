@@ -17,6 +17,11 @@ test_that("get_spec recursive", {
 
 })
 
+test_that("get_spec range", {
+  res <- get_spec(test.file(), "ttt", lim = c(400,500))
+  expect_equal(nrow(res), 101)
+})
+
 test_that("get_spec warn/error", {
   # Total fail
   totalfail <- expression({
