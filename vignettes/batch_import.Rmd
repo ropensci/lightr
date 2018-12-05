@@ -9,10 +9,6 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r include=F}
-knitr::opts_knit$set(root.dir = "../inst/testdata")
-```
-
 `lightr` provides three main functions for patch import of spectral data and
 metadata:
 
@@ -24,7 +20,19 @@ Those three functions contain a loop and can directly be used to import/convert
 whole folders.
 
 They also allow for recursive search in the folder tree with the argument
-`subdir`.
+`subdir`. In this example, the `data` that contains a subdirectory named `procspec_files`, which contains :
+
+```
+data
+├── avantes_export.ttt
+├── avantes_export2.trt
+├── avantes_export_long.ttt
+└── procspec_files
+    ├── OceanOptics_badencode.ProcSpec
+    ├── OceanOptics_Linux.ProcSpec
+    ├── OceanOptics_Windows.ProcSpec
+    └── whiteref.ProcSpec
+```
 
 We first demonstrate these features on `get_spec()` but they work in the same
 way for `get_metadata()` and `spec2csv()`
@@ -41,7 +49,7 @@ files, extract the reflectance / transmittance / absorbance data and returns a
 the subsequent columns contain the spectral data, interpolated every nanometre:
 
 ```{r}
-res <- get_spec(where = ".", ext = "txt", lim = c(300, 700))
+res <- get_spec(where = "data", ext = "ttt", lim = c(300, 700))
 head(res)
 ```
 
@@ -49,7 +57,7 @@ head(res)
 a character vector to `ext`:
 
 ```{r}
-res <- get_spec(where = ".", ext = c("txt", "trt"), lim = c(300, 700))
+res <- get_spec(where = "data", ext = c("ttt", "trt"), lim = c(300, 700))
 head(res)
 ```
 
@@ -57,8 +65,15 @@ Finally, `get_spec()` can also recursively search in your folder tree with the
 `subdir` argument:
 
 ```{r}
-res <- get_spec(where = ".", ext = "procspec", lim = c(300, 700), subdir = TRUE)
+res <- get_spec(where = "data", ext = "procspec", lim = c(300, 700), subdir = TRUE)
 head(res)
+```
+
+As you may have noticed, `get_spec()` does not care about the file extension
+case by default. This can be changed by using the `ignore.case` switch:
+
+```{r}
+res <- get_spec(where = "data", ext = "procspec", subdir = TRUE, ignore.case = FALSE)
 ```
 
 ## `get_metadata()`
@@ -73,7 +88,7 @@ Similarly to `get_spec()`, it can handle multiple extensions at once and perform
 recursive searches:
 
 ```{r}
-res <- get_metadata(where = ".", ext = c("trm", "procspec"), subdir = TRUE)
+res <- get_metadata(where = "data", ext = c("trt", "procspec"), subdir = TRUE)
 head(res)
 ```
 
@@ -87,5 +102,5 @@ It works in a very similar way to `get_spec()` and will create `csv` files with
 the same file names as the input files (but a different extension).
 
 ```{r}
-spec2csv(where = ".", ext = "procspec", subdir = TRUE)
+spec2csv(where = "data", ext = "procspec", subdir = TRUE)
 ```
