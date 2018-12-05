@@ -23,15 +23,15 @@ They also allow for recursive search in the folder tree with the argument
 `subdir`. In this example, the `data` that contains a subdirectory named `procspec_files`, which contains :
 
 ```
-data
-├── avantes_export.ttt
-├── avantes_export2.trt
-├── avantes_export_long.ttt
-└── procspec_files
-    ├── OceanOptics_badencode.ProcSpec
-    ├── OceanOptics_Linux.ProcSpec
-    ├── OceanOptics_Windows.ProcSpec
-    └── whiteref.ProcSpec
+└──+ data
+   ├── avantes_export.ttt
+   ├── avantes_export2.trt
+   ├── avantes_export_long.ttt
+   └──+ procspec_files
+      ├── OceanOptics_badencode.ProcSpec
+      ├── OceanOptics_Linux.ProcSpec
+      ├── OceanOptics_Windows.ProcSpec
+      └── whiteref.ProcSpec
 ```
 
 We first demonstrate these features on `get_spec()` but they work in the same
@@ -41,7 +41,7 @@ way for `get_metadata()` and `spec2csv()`
 library(lightr)
 ```
 
-## `get_spec()`
+## Import spectral data: `get_spec()`
 
 `get_spec()` is one the core functions of `lightr`. It finds spectral data 
 files, extract the reflectance / transmittance / absorbance data and returns a
@@ -76,7 +76,7 @@ case by default. This can be changed by using the `ignore.case` switch:
 res <- get_spec(where = "data", ext = "procspec", subdir = TRUE, ignore.case = FALSE)
 ```
 
-## `get_metadata()`
+## Import spectral metadata: `get_metadata()`
 
 `get_metadata()` extracts metadata captured by the spectrophotometer during the
 recording. This metadata should be reported in your scientific articles to 
@@ -92,7 +92,7 @@ res <- get_metadata(where = "data", ext = c("trt", "procspec"), subdir = TRUE)
 head(res)
 ```
 
-## `spec2csv()`
+## Convert spectral data to csv: `spec2csv()`
 
 `spec2csv()` is designed for people that want to a machine readable version for
 each individual input file, possibly allowing them to carry on with their 
