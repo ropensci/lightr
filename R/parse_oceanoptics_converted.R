@@ -62,7 +62,6 @@ parse_jaz <- function(filename) {
   data <- content[seq(data_start+2, data_end-1)]
 
   data <- do.call(rbind, strsplit(data, "\t"))
-  data <- data.frame(data, stringsAsFactors = FALSE)
 
   colnames(data) <- strsplit(content[data_start+1], "\t")[[1]]
 
@@ -74,7 +73,9 @@ parse_jaz <- function(filename) {
 
   colnames(data) <- names(cornames)[match(colnames(data), cornames)]
 
-  return(list(data, metadata))
+  data <- apply(data, 2, as.numeric)
+
+  return(list(data.frame(data), metadata))
 }
 
 #' @rdname parse_jaz

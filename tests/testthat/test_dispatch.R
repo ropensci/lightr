@@ -46,19 +46,15 @@ test_that("Fallback", {
 
 test_that("Similar output for all parsers", {
 
-  files <- list("procspec_files/OceanOptics_Linux.ProcSpec",
-                "procspec_files/OceanOptics_Windows.ProcSpec",
-                "procspec_files/OceanOptics_badencode.ProcSpec",
-                "OceanOptics.jdx",
-                "jazspec.jaz",
-                "irrad.JazIrrad",
-                "FMNH6834.00000001.Master.Transmission")
+  files <- list.files(system.file("testdata", package = "lightr"),
+                      recursive = TRUE, include.dirs = TRUE)
+  files <- files[!tools::file_ext(files) %in% c("", "fail")]
 
   lapply(files, function(file) {
-    res <- dispatch_parser(test.file(file))
+    res <- dispatch_parser(test.file(file), sep = ",")
     expect_length(res, 2)
     expect_is(res[[1]], "data.frame")
-#    expect_is(res[[2]], "data.frame")
+    expect_true(all(apply(res[[1]], 2, is.numeric)))
   })
 
 })
