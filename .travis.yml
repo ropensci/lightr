@@ -10,13 +10,14 @@ os:
 #  - osx
 sudo: false
 cache: packages
-r_packages: goodpractice
+r_packages:
+  - goodpractice
+  - pkgdown
 
 after_success:
   - Rscript -e 'goodpractice::gp()'
   - Rscript -e 'covr::codecov()'
 
-before_deploy: Rscript -e 'install.packages("pkgdown")'
 deploy:
   provider: script
   script: Rscript -e 'pkgdown::deploy_site_github()'
