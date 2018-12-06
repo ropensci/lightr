@@ -10,6 +10,7 @@ os:
 #  - osx
 sudo: false
 cache: packages
+r_packages: goodpractice
 
 after_success:
   - Rscript -e 'goodpractice::gp()'

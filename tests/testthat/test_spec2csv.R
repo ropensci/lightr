@@ -13,7 +13,7 @@ teardown(unlink("conversion_test", recursive = TRUE))
 
 test_that("Convert all", {
 
-  exts = c("TRM", "ttt", "jdx", "jaz", "JazIrrad", "txt", "Transmission")
+  exts <- c("TRM", "ttt", "jdx", "jaz", "JazIrrad", "txt", "Transmission")
 
   spec2csv("conversion_test", ext = exts)
 
