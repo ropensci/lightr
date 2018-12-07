@@ -78,8 +78,7 @@ get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
 
   tmp <- pbmclapply(files, function(x)
     tryCatch(gsp(x),
-             error = function(e) NULL,
-             warning = function(e) NULL
+             error = function(e) NULL
     ), mc.cores = cores)
 
   if (any(unlist(lapply(tmp, is.null)))) {

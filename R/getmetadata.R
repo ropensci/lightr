@@ -77,8 +77,7 @@ get_metadata <- function(where = getwd(), ext = "ProcSpec", sep = NULL,
 
   tmp <- pbmclapply(files, function(x)
     tryCatch(gmd(x),
-             error = function(e) NULL,
-             warning = function(e) NULL
+             error = function(e) NULL
     ), mc.cores = cores)
 
   if (any(unlist(lapply(tmp, is.null)))) {
