@@ -15,7 +15,7 @@ test_that("Convert all", {
 
   exts <- c("TRM", "ttt", "jdx", "jaz", "JazIrrad", "txt", "Transmission")
 
-  spec2csv("conversion_test", ext = exts)
+  converted_files <- spec2csv("conversion_test", ext = exts)
 
   input_files <- tools::list_files_with_exts("conversion_test", exts)
 
@@ -24,6 +24,9 @@ test_that("Convert all", {
   # File names are kept
   expect_setequal(tools::file_path_sans_ext(input_files),
                   tools::file_path_sans_ext(output_files))
+
+  # Output file names are invisibly returned
+  expect_setequal(converted_files, output_files)
 
   # It doesn't change the behaviour of getspec
 #  expect_equal(getspec("conversion_test", exts),

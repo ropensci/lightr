@@ -33,6 +33,10 @@ to `TRUE``)}
 \item{overwrite}{logical. Should the function overwrite existing files with
 the same name? (defaults to \code{FALSE}).}
 }
+\value{
+Convert input files to csv and invisibly return the list of created
+file paths
+}
 \description{
 Convert spectral data files to csv files
 }

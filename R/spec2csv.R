@@ -5,6 +5,9 @@
 #'
 #' @inheritParams get_spec
 #'
+#' @return Convert input files to csv and invisibly return the list of created
+#' file paths
+#'
 #' @section Warning:
 #'
 #' This step loses all metadata associated to the spectra. This metadata is
@@ -62,7 +65,7 @@ spec2csv <- function(where = getwd(), ext = "txt", decimal = ".", sep = NULL,
     )
   }
 
-  invisible(unlist(list))
+  invisible(unlist(tmp))
 }
 
 spec2csv_single <- function(filename, decimal, sep, overwrite = FALSE) {
