@@ -1,6 +1,9 @@
 ---
 title: "paper"
 tags:
+  - R
+  - colour
+  - spectrophotometry
 author: 
   - name: Hugo Gruson
     orcid: "0000-0001-8493-9450"
@@ -19,14 +22,15 @@ affiliations:
   - name: Columbia University
     index: 3
 date: "November 28, 2018"
-output: md_document
+bibliography: lightr.bib
 ---
 
 # Summary
 
 Living organisms wildly differ in their ability to see colours. For this reason,
 colour science relies on the use of objective measurements of reflectance,
-transmittance or aborbance spectra rather than human vision (@Cuthill1999).
+transmittance or aborbance spectra rather than human vision (@Bennett1994,
+@Cuthill1999,@Eaton2005).
 
 Spectrometers record the amount of captured photons at different wavelengths 
 (usually between 300-700 nm for colour sicence). However, there is no standard 
