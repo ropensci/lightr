@@ -14,3 +14,9 @@ reference:
     desc: These functions are destined to advanced users that want a more flexible way to import spectral data. They can only read a single file at a time and users are responsible for writing a loop if necessary.
     contents:
     - starts_with("parse_")
+
+template:
+  params:
+    docsearch:
+      api_key: 83eca0d3a04dc5fd44007c444b55d06a
+      index_name: lightr
