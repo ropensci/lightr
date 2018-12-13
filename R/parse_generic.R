@@ -7,7 +7,8 @@
 #' default (which are: tab, space, and ";")
 #'
 #' @return A list of two elements:
-#'   * a dataframe with columns "wl", "dark", "white", "scope" in that order
+#'   * a dataframe with columns "wl", "dark", "white", "scope" and "processed",
+#'     in that order
 #'   * a list with metadata including
 #'
 #' @examples

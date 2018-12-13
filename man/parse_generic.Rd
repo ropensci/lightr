@@ -18,7 +18,8 @@ default (which are: tab, space, and ";")}
 \value{
 A list of two elements:
 \itemize{
-\item a dataframe with columns "wl", "dark", "white", "scope" in that order
+\item a dataframe with columns "wl", "dark", "white", "scope" and "processed",
+in that order
 \item a list with metadata including
 }
 }
