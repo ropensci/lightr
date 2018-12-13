@@ -74,7 +74,7 @@ the 300-700 nm wavelength range so we will only keep this range:
 library(pavo)
 res <- na.omit(res)
 res <- res[res$wl > 300 & res$wl < 700, ]
-res <- as.rspec(res, interp = FALSE)
+res <- as.rspec(res, interp = FALSE, whichwl = "wl")
 
 plot(res)
 ```
