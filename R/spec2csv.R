@@ -11,8 +11,8 @@
 #' @section Warning:
 #'
 #' This step loses all metadata associated to the spectra. This metadata is
-#' critical to ensure reproducibility. We recommended you use [getmetadata()] to
-#' extract this information from your raw data
+#' critical to ensure reproducibility. We recommended you use [get_metadata()]
+#' to extract this information from your raw data
 #'
 #' @importFrom tools file_path_sans_ext
 #' @importFrom utils write.csv

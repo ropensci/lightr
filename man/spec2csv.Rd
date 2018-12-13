@@ -44,7 +44,7 @@ Convert spectral data files to csv files
 
 
 This step loses all metadata associated to the spectra. This metadata is
-critical to ensure reproducibility. We recommended you use \code{\link[=getmetadata]{getmetadata()}} to
-extract this information from your raw data
+critical to ensure reproducibility. We recommended you use \code{\link[=get_metadata]{get_metadata()}}
+to extract this information from your raw data
 }
 
