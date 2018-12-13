@@ -81,10 +81,19 @@ plot(res)
 
 ## Bonus: one-liner with the tidyverse
 
+The following snippet should work for all file types supported by `lightr`:
+
 ```{r, eval = FALSE}
 library(tidyverse)
-map_dfc(jdx_files, function(file) parse_jdx(file)[[1]]) %>%
-  select(wl, starts_with("processed"))
+library(fs)
+
+get_uninterp <- function(path, extension) {
+  dir_ls(path = path, glob = extension) %>%
+    map_dfc(function(file) dispatch_parser(file)[[1]]) %>%
+    select(wl, starts_with("processed"))
+}
+
+get_uninterp("data/heliomaster/", extension = "*.jdx")
 ```
 
 ## Caveat
