@@ -28,6 +28,10 @@ In this vignette, I described how you can import your spectral data without any
 interpolation in the case where you are working with only one file format,
 created from the same spectrometer and software.
 
+```{r}
+library(lightr)
+```
+
 ## Step 1: find all files
 
 ```{r}
