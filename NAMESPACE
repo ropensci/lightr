@@ -2,8 +2,6 @@
 
 export(get_metadata)
 export(get_spec)
-export(getmetadata)
-export(getspec)
 export(parse_abs)
 export(parse_generic)
 export(parse_jaz)

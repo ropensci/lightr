@@ -108,8 +108,3 @@ get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
 
   return(final)
 }
-
-#' @rdname get_spec
-#'
-#' @export
-getspec <- get_spec

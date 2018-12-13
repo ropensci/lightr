@@ -113,8 +113,3 @@ get_metadata <- function(where = getwd(), ext = "ProcSpec", sep = NULL,
 
   return(res)
 }
-
-#' @rdname get_metadata
-#'
-#' @export
-getmetadata <- get_metadata
