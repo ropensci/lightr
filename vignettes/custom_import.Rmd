@@ -98,5 +98,8 @@ Many statistics and models will produce bogus results when fed interpolated
 data.
 
 One reason if because wavelengths are not always evenly distributed within the 
-sampling range:
+sampling range (they can result from a [$3^{th}$](https://oceanoptics.com/wp-content/uploads/Spectrometer-Wavelength-Calibration-Instructions.pdf)
+to $5^{th}$ order polynome). Because of this, some regions of the wavelength
+range will be more heavily sampled than others, so statistics such a $S1$ 
+(`summary.rspec()` in `pavo`) may not make any sense.
 
