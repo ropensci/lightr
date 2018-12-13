@@ -17,84 +17,86 @@ workflow.
 We don't recommend the use of those functions unless you absolutely have to.
 Most users should use `get_spec()` and `get_metadata()` instead.
 
-Here, we take the example of the method presented in 
-[Gruson *et al* (2018)](https://doi.org/10.1098/rsfs.2018.0049) where 
-reflectance spectra need to be normalised in an unusual way.
+A common request from spectral data users is too keep their raw data, without
+any interpolation. This is not possible in `get_spec()` but it parses spectra
+from many different formats and then concatenates them to output a single 
+dataframe. For this to be possible, all spectra must be evaluated over the same
+wavelengths, which is not usually the case at first. So, we do need to 
+interpolate them to make sure that they can safely be concatenated afterwards.
 
-Raw, un-normalised spectral data depends on both the spectrometer and the lamp
-as well as the conditions during the recording (including ambient light, 
-temperature, *etc*.). To allow for comparison between studies, it is thus 
-normalised  by a white and a dark reference with the following formula:
+In this vignette, I described how you can import your spectral data without any
+interpolation in the case where you are working with only one file format,
+created from the same spectrometer and software.
 
-$$\text{Processed} = \dfrac{\text{Raw} - \text{Dark}}{\text{White} - \text{Dark}}$$
-
-For this example here, we need to normalise the raw data by a white reference
-contained in another file. This can't be done with with `get_spec()` because
-`get_spec()` returns reflectance spectra that have already been normalised by
-the white reference contained in the same file.
+## Step 1: find all files
 
 ```{r}
-library(lightr)
+jdx_files <- list.files("data/heliomaster", pattern = "jdx$", full.names = TRUE)
 ```
 
-## Step 1: import un-normalised data
-
-We manually import the data using the appropriate low-level parser:
+## Step 2: import individual spectra
 
 ```{r}
-reflect_data <- parse_procspec(
-  system.file("testdata", "procspec_files", "OceanOptics_Linux.ProcSpec",
-               package = "lightr")
-  )
-length(reflect_data)
+first_jdx <- parse_jdx(jdx_files[1])[[1]]
+head(first_jdx)
 ```
 
-The result contains 2 elements:
+As you can see on this first file, `parse_$extension()` functions return a
+data frame with many columns. The meaning of each column is explained in full
+details in `?parse_jdx`. Here, we are only interested in the first column (the
+wavelengths) and the last one (the normalised spectral data).
 
-  * the spectral data itself
-  * the metadata captured during the recording
+```{r}
+res <- first_jdx[, c("wl", "processed")]
+```
+
+## Step 3: create a loop
+
+We captured the wavelengths in the first spectra, we don't need to save them 
+each time because in this example, they are the same for all spectra. So we only
+record the "processed" column:
+
+```{r}
+for (i in 2:length(jdx_files)) {
+  next_jdx <- parse_jdx(jdx_files[i])[[1]]
   
-```{r}
-head(reflect_data[[1]])
+  res <- cbind(res, next_jdx[, "processed"])
+}
+colnames(res) <- c("wl", paste0("spec", seq_along(jdx_files)))
 ```
 
-## Step 2: find the matching white reference
+And it's done, we can now convert `res` to an `rspec` object and use it in our
+analyses. The spectrometer I used for those measurements is not reliable outside
+the 300-700 nm wavelength range so we will only keep this range:
 
-We import that white reference in the same way:
 
-```{r}
-white_data <- parse_procspec(
-  system.file("testdata", "procspec_files", "whiteref.ProcSpec",
-               package = "lightr")
-)
+```{r eval=F}
+library(pavo)
+res <- na.omit(res)
+res <- res[res$wl > 300 & res$wl < 700, ]
+res <- as.rspec(res, interp = FALSE)
+
+plot(res)
 ```
 
-## Step 3: normalise the reflectance data
+## Bonus: one-liner with the tidyverse
 
-We can now normalise the reflectance spectrum with the equation stated at the
-beginning of this vignette:
-
-$$\text{Processed} = \dfrac{\text{Raw} - \text{Dark}}{\text{White} - \text{Dark}}$$
-
-But first, we verify that the integration times:
-
-We can now get rid of the metadata part and focus on the data only:
-
-```{r}
-reflect_data = data.frame(reflect_data[[1]])
-white_data = data.frame(white_data[[1]])
+```{r, eval = FALSE}
+library(tidyverse)
+map_dfc(jdx_files, function(file) parse_jdx(file)[[1]]) %>%
+  select(wl, starts_with("processed"))
 ```
 
-As a last step before being able to normalise the data, we also need to check
-if the reflectance spectrum and the white reference are sampled with the same
-wavelengths:
+## Caveat
 
-```{r}
-all.equal(reflect_data$wl, white_data$wl)
-```
+The example presented in this example might be useful if you want to export your
+data in a human readable format, while retaining as much information as 
+possible.
 
-```{r}
-res <- (reflect_data$scope - reflect_data$dark) / 
-       (white_data$white - white_data$dark)
-head(res)
-```
+**But be careful if you intend to use this interpolated data in your analyses**.
+Many statistics and models will produce bogus results when fed interpolated 
+data.
+
+One reason if because wavelengths are not always evenly distributed within the 
+sampling range:
+
