@@ -28,13 +28,13 @@ default (which are: tab, space, and ";")}
 the search? (defaults to \code{FALSE}).}
 
 \item{subdir.names}{Should subdirectory path be included in the name of the
-spectra? (defaults to `FALSE``).}
+spectra? (defaults to \code{FALSE}).}
 
 \item{cores}{Number of cores to be used. If greater than 1, import will use
 parallel processing (not available in Windows).}
 
 \item{ignore.case}{Should the extension search be case insensitive? (defaults
-to `TRUE``)}
+to \code{TRUE})}
 }
 \value{
 A data.frame, containing the wavelengths in the first column and

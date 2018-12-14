@@ -6,7 +6,7 @@
 
 There is no standard file format for spectrometry data and different scientific
 instrumentation companies use wildly different formats to store spectral data.
-Vendors proprietary software sometimes have an option but convert those formats
+Vendor proprietary softwares sometimes have an option but convert those formats
 instead human readable files such as `csv` but in the process, most metadata
 are lost. However, those metadata are critical to ensure reproducibility ([White
 *et al*, 2015](https://doi.org/10.1016/j.anbehav.2015.05.007)).
@@ -55,9 +55,9 @@ family of functions return a list where the first element is the data dataframe
 and the second element is a vector with relevant metadata.
 
 Only exceptions are `.txt` and `.Transmission` files because those extensions
-are too generic. You will need to figure out which parser you should use in this
-case. `get_metadata()` and `get_spec()` automatically try generic parsers in
-this case.
+are too generic. Users will need to figure out which parser is appropriate in 
+this case. `get_metadata()` and `get_spec()` automatically try generic parsers
+in this case.
 
 Alternatively, you may simply want to convert your spectra in a readable 
 standard format and carry on with your analysis with another software.
@@ -138,7 +138,7 @@ are using an unsupported format, please
   exclusively UV-VIS reflectance/transmittance/absorbance spectra.
 
 To our knowledge, `lightr` is the only gratis tool to import some complex file
-formats such as Avantes binary files or OceanOptics `.ProcSpec`Because of its
+formats such as Avantes binary files or OceanOptics `.ProcSpec`. Because of its
 user-friendly high-levels functions and low dependency philosophy, `lightr` may 
 also hopefully prove useful for people working with other languages than R.
 

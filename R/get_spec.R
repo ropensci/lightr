@@ -14,11 +14,11 @@
 #' @param subdir Should subdirectories within the `where` folder be included in
 #' the search? (defaults to `FALSE`).
 #' @param subdir.names Should subdirectory path be included in the name of the
-#' spectra? (defaults to `FALSE``).
+#' spectra? (defaults to `FALSE`).
 #' @param cores Number of cores to be used. If greater than 1, import will use
 #' parallel processing (not available in Windows).
 #' @param ignore.case Should the extension search be case insensitive? (defaults
-#' to `TRUE``)
+#' to `TRUE`)
 #'
 #' @return A data.frame, containing the wavelengths in the first column and
 #' individual imported spectral files in the subsequent columns.

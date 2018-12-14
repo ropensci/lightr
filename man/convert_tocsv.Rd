@@ -28,7 +28,7 @@ the search? (defaults to \code{FALSE}).}
 parallel processing (not available in Windows).}
 
 \item{ignore.case}{Should the extension search be case insensitive? (defaults
-to `TRUE``)}
+to \code{TRUE})}
 
 \item{overwrite}{logical. Should the function overwrite existing files with
 the same name? (defaults to \code{FALSE}).}
