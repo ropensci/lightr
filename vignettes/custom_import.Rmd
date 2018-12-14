@@ -74,7 +74,7 @@ analyses. The spectrometer I used for those measurements is not reliable outside
 the 300-700 nm wavelength range so we will only keep this range:
 
 
-```{r eval=F}
+```{r}
 library(pavo)
 res <- na.omit(res)
 res <- res[res$wl > 300 & res$wl < 700, ]
@@ -100,15 +100,15 @@ get_uninterp <- function(path, extension) {
 get_uninterp("data/heliomaster/", extension = "*.jdx")
 ```
 
-## Caveat
+## Caveats
 
 The example presented in this example might be useful if you want to export your
 data in a human readable format, while retaining as much information as 
 possible.
 
-**But be careful if you intend to use this interpolated data in your analyses**.
-Many statistics and models will produce bogus results when fed interpolated 
-data.
+**But be careful if you intend to use this uninterpolated data in your 
+analyses**. Many statistics and models will produce bogus results when fed 
+uninterpolated data.
 
 One reason if because wavelengths are not always evenly distributed within the 
 sampling range (they can result from a [$3^{th}$](https://oceanoptics.com/wp-content/uploads/Spectrometer-Wavelength-Calibration-Instructions.pdf)
