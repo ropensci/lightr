@@ -11,6 +11,7 @@ os:
 sudo: false
 cache: packages
 r_packages:
+  - covr
   - goodpractice
   - pkgdown
 

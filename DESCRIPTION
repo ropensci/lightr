@@ -18,7 +18,6 @@ Imports:
     pbmcapply,
     xml2
 Suggests:
-    covr,
     knitr,
     pavo,
     rmarkdown,
