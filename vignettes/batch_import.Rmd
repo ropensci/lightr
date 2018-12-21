@@ -92,15 +92,15 @@ res <- get_metadata(where = "data", ext = c("trt", "procspec"), subdir = TRUE)
 head(res)
 ```
 
-## Convert spectral data to csv: `spec2csv()`
+## Convert spectral data to csv: `convert_tocsv()`
 
-`spec2csv()` is designed for people that want to a machine readable version for
-each individual input file, possibly allowing them to carry on with their 
+`convert_tocsv()` is designed for people that want to a machine readable version
+for each individual input file, possibly allowing them to carry on with their 
 analysis using another programming language or software.
 
 It works in a very similar way to `get_spec()` and will create `csv` files with
 the same file names as the input files (but a different extension).
 
 ```{r}
-spec2csv(where = "data", ext = "procspec", subdir = TRUE)
+convert_tocsv(where = "data", ext = "procspec", subdir = TRUE)
 ```

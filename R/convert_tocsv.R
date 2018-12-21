@@ -18,9 +18,10 @@
 #' @importFrom utils write.csv
 #'
 #' @export
-spec2csv <- function(where = getwd(), ext = "txt", decimal = ".", sep = NULL,
-                     subdir = FALSE, cores = getOption("mc.cores", 2L),
-                     ignore.case = TRUE, overwrite = FALSE) {
+convert_tocsv <- function(where = getwd(), ext = "txt", decimal = ".",
+                          sep = NULL, subdir = FALSE,
+                          cores = getOption("mc.cores", 2L), ignore.case = TRUE,
+                          overwrite = FALSE) {
 
   extension <- paste0("\\.", ext, "$", collapse = "|")
 
@@ -68,6 +69,7 @@ spec2csv <- function(where = getwd(), ext = "txt", decimal = ".", sep = NULL,
   invisible(unlist(tmp))
 }
 
+#' @internal
 spec2csv_single <- function(filename, decimal, sep, overwrite = FALSE) {
 
   data <- dispatch_parser(filename, decimal = decimal, sep = sep)[[1]]
