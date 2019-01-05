@@ -1,4 +1,4 @@
-context("spec2csv")
+context("convert_tocsv")
 
 # Create temp environment to run tests
 setup(dir.create("conversion_test"))
@@ -15,7 +15,7 @@ test_that("Convert all", {
 
   exts <- c("TRM", "ttt", "jdx", "jaz", "JazIrrad", "txt", "Transmission")
 
-  converted_files <- spec2csv("conversion_test", ext = exts)
+  converted_files <- convert_tocsv("conversion_test", ext = exts)
 
   input_files <- tools::list_files_with_exts("conversion_test", exts)
 
@@ -36,7 +36,7 @@ test_that("Convert all", {
 
 test_that("Convert recursive", {
 
-  spec2csv("conversion_test", ext = "ProcSpec", subdir = TRUE)
+  convert_tocsv("conversion_test", ext = "ProcSpec", subdir = TRUE)
 
   input_files <- tools::list_files_with_exts("conversion_test/procspec_files",
                                              "ProcSpec")
@@ -51,7 +51,7 @@ test_that("Convert recursive", {
 
 test_that("Convert csv", {
 
-  expect_warning(spec2csv("conversion_test/csv", ext = "csv", sep = ","))
+  expect_warning(convert_tocsv("conversion_test/csv", ext = "csv", sep = ","))
 
   spec2csv("conversion_test/csv", ext = "csv", sep = ",", overwrite = TRUE)
 
@@ -78,7 +78,7 @@ test_that("Convert warn/error", {
 
   # Missing
   missing <- expression({
-    spec2csv(ext = "missing")
+    convert_tocsv(ext = "missing")
   })
   expect_warning(eval(missing), "No files found")
 
