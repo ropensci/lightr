@@ -53,7 +53,7 @@ test_that("Convert csv", {
 
   expect_warning(convert_tocsv("conversion_test/csv", ext = "csv", sep = ","))
 
-  spec2csv("conversion_test/csv", ext = "csv", sep = ",", overwrite = TRUE)
+  convert_tocsv("conversion_test/csv", ext = "csv", sep = ",", overwrite = TRUE)
 
 })
 
