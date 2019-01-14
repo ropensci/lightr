@@ -73,7 +73,8 @@ get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
 
     df <- dispatch_parser(ff, decimal = decimal, sep = sep)[[1]]
 
-    interp <- approx(df[, "wl"], df[, "processed"], xout = range)$y
+    interp <- approx(df[, "wl"], df[, "processed"],
+                     xout = range, ties = "ordered")$y
   }
 
   tmp <- pbmclapply(files, function(x)
