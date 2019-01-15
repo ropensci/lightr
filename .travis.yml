@@ -7,14 +7,13 @@ r:
   - devel
 os:
   - linux
-  - osx
+#  - osx
 sudo: false
 cache: packages
 r_packages:
   - covr
   - goodpractice
   - pkgdown
-brew_packages: libgit2
 
 after_success:
   - Rscript -e 'goodpractice::gp()'
