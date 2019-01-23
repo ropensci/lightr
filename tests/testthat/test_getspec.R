@@ -6,14 +6,14 @@ test_that("get_spec all", {
                   ext = c("TRM", "ttt", "jdx", "jaz", "JazIrrad", "csv", "txt",
                           "Transmission"),
                   sep = ",")
-  expect_equal_to_reference(res, "known_output/getspec_all.rds")
+  expect_known_value(res, "known_output/getspec_all.rds")
 })
 
 test_that("get_spec recursive", {
 
   # Recursive
   res <- get_spec(test.file(), ext = "ProcSpec", subdir = TRUE)
-  expect_equal_to_reference(res, "known_output/getspec_recursive.rds")
+  expect_known_value(res, "known_output/getspec_recursive.rds")
 
 })
 

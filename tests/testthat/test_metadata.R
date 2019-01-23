@@ -6,7 +6,7 @@ test_that("get_metadata all", {
     test.file(),
 	  ext = c("TRM", "ROH", "ttt", "trt", "jdx", "jaz", "JazIrrad")
   )
-  expect_equal_to_reference(res, "known_output/getmetadata_all.rds")
+  expect_known_value(res, "known_output/getmetadata_all.rds")
 
 })
 
@@ -15,7 +15,7 @@ test_that("get_metadata recursive", {
   # Recursive
   res <- get_metadata(test.file(),
                      ext = "ProcSpec", subdir = TRUE)
-  expect_equal_to_reference(res, "known_output/getmetadata_recursive.rds")
+  expect_known_value(res, "known_output/getmetadata_recursive.rds")
 })
 
 test_that("get_metadata warn/error", {
