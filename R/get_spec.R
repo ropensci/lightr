@@ -40,11 +40,14 @@ get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
 
   extension <- paste0("\\.", ext, "$", collapse = "|")
 
-  file_names <- list.files(where,
+  file_names <- sort(list.files(where,
     pattern = extension, ignore.case = ignore.case,
     recursive = subdir, include.dirs = subdir
-  )
+  ))
   nb_files <- length(file_names)
+
+  # This step is needed to ensure reproducibility between locales and platforms
+  file_names <- sort(file_names, method = "radix")
 
   if (nb_files == 0) {
     warning('No files found. Try a different value for argument "ext".',
