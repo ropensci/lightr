@@ -102,7 +102,7 @@ get_metadata <- function(where = getwd(), ext = "ProcSpec", sep = NULL,
 
   res <- as.data.frame(do.call(rbind, tmp), stringsAsFactors = FALSE)
 
-  res <- cbind(specnames, res)
+  res <- cbind(specnames, res, stringsAsFactors = FALSE)
 
   colnames(res) <- c(
     "name", "user", "date", "spec_model", "spec_ID",
