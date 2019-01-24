@@ -16,13 +16,13 @@ Description: Parse various UV-VIS reflectance/transmittance/absorbance spectra
     file formats to extract spectral data and metadata.
 Imports:
     pbmcapply,
-    xml2
+    xml2 (>=1.0.0)
 Suggests:
     knitr,
     pavo,
     rmarkdown,
     spelling,
-    testthat
+    testthat (>=2.0.0)
 URL: https://bisaloo.github.io/lightr, https://github.com/Bisaloo/lightr
 BugReports: https://github.com/Bisaloo/lightr/issues
 License: GPL (>=2)
