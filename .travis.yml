@@ -27,5 +27,5 @@ deploy:
     file: "${PKG_TARBALL}"
     skip_cleanup: true
     on:
-      - tags: true
-      - condition: "$TRAVIS_R_VERSION_STRING = release"
+      tags: true
+      condition: "$TRAVIS_R_VERSION_STRING = release"
