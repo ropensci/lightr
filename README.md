@@ -67,7 +67,7 @@ In this case, you can run:
 ```r
 # Convert every single ProcSpec file to a csv file with the same name and 
 # location
-spec2csv(where = ".", ext = "ProcSpec")
+convert_tocsv(where = ".", ext = "ProcSpec")
 ```
 
 ## Supported file formats
