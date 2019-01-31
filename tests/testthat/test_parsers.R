@@ -54,4 +54,7 @@ test_that("Generic", {
 
   expect_length(parse_generic(test.file("spec.csv"), sep = ","),
                 2)
+
+  expect_length(parse_generic(test.file("RS-1.dpt"), sep = ","),
+                2)
 })

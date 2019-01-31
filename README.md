@@ -104,6 +104,13 @@ This package is still under development but currently supports:
   
 ### Others
 
+  | Extension | Parser                     |
+  |:----------|:---------------------------|
+  | `csv`     | `parse_generic(sep = ",")` |
+  | `dpt`     | `parse_generic(sep = ",")` |
+  
+### Others
+
 As a fallback, you should always try `parse_generic()` which offers a flexible
 and general algorithm that manages to extract data from most files.
 
