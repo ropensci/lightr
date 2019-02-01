@@ -2,6 +2,7 @@
 
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Travis build status](https://travis-ci.org/Bisaloo/lightr.svg?branch=master)](https://travis-ci.org/Bisaloo/lightr)
+[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/Bisaloo/lightr?branch=master&svg=true)](https://ci.appveyor.com/project/Bisaloo/lightr)
 [![Coverage status](https://codecov.io/gh/Bisaloo/lightr/branch/master/graph/badge.svg)](https://codecov.io/github/Bisaloo/lightr?branch=master)
 
 There is no standard file format for spectrometry data and different scientific
