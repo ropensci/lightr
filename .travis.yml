@@ -1,7 +1,10 @@
 language: R
 r:
   - oldrel
-  - release
+  - release:
+    os:
+      - linux
+      - osx
   - devel
 os:
   - linux
@@ -20,7 +23,7 @@ deploy:
     script: Rscript -e 'pkgdown::deploy_site_github()'
     skip_cleanup: true
     on:
-      condition: "$TRAVIS_R_VERSION_STRING = release"
+      condition: "$TRAVIS_R_VERSION_STRING = release AND $TRAVIS_OS_NAME = linux"
   - provider: releases
     api_key:
       secure: uJsKCTuYpiFamNKUxMwy0MzHXWloq5dmJTyIoW7PUS//RREiWHDkoOXRK5FWhZzL+nbjTkmIh3sygAfW8kTBq+TJL0kaYNSrCSKJijFKqlh5ZBTyuV28nFYiT1Wx6YH7D+Bx74S0apvDnZ53Nn0ip9UZ8tOnutIYs+JLyqTbRYR8aRgp6uVQLlQmxSbQ1r1Q6kpuQ6eh2Aurc71urQGK9tFMzj6T0PA9sKt1VEkURUpfP0IX2qGBkfrlxjdz1m3h5uggO+FKWVo1CTUfpop2LcPdufF4nrfV70OVvpxoDoud+c2si+5lr/GrUHvqm2rRmc7d8TAh5FhvMD1m9B+YlQGLsYc/ExblC9S8OrSTCjMQZSSWOfw3PG/UkF6cZolnQmsv1mt6WJE62kOVnaby0lN/Hx2V4LLDbMmVGxyvOJwrpuPQECeNfp2M3IEHJUmeDB4k4EZmUpS3ohuohNvuKBt0J9+xK2uXEcGDaQx4Fm/REvK8JGJz6h1V0urPgn/xTzKnSFQF8zdJb1w67MATfF5XhDo8mOB5/jHkUrvnWqkV/6uqV2XezlgK1rZSyeupAiPwg/CGFir1JTxpEfKyeAHotuA0QhMSFw1aD0wsEakDoKuaNHqUKaO4q1l2GKTiMmR5U2f4epINMPI6Bwperewg7wJemnaM+ax7aWdFilA=
@@ -28,4 +31,4 @@ deploy:
     skip_cleanup: true
     on:
       tags: true
-      condition: "$TRAVIS_R_VERSION_STRING = release"
+      condition: "$TRAVIS_R_VERSION_STRING = release AND $TRAVIS_OS_NAME = linux"
