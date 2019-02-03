@@ -14,7 +14,7 @@ jobs:
   include:
     stages:
       - name: deploy
-        if: "$TRAVIS_R_VERSION_STRING = release" AND os = linux
+        if: "$TRAVIS_R_VERSION_STRING = release"
           - provider: script
             script: Rscript -e 'pkgdown::deploy_site_github()'
             skip_cleanup: true
