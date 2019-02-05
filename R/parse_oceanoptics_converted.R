@@ -59,7 +59,15 @@ parse_jaz <- function(filename) {
   data_start <- grep("^>>>>>Begin (Processed )?Spectral Data<<<<<$", content)
   data_end <- grep("^>>>>>End (Processed )?Spectral Data<<<<<$", content)
 
-  data <- content[seq(data_start+2, data_end-1)]
+  # Some files have an extra header for the data, some don't...
+  # If they do, it looks like this header will always start with W
+  if (grepl("^W", content[data_start+1])) {
+    data <- content[seq(data_start+2, data_end-1)]
+  }
+  else {
+    data <- content[seq(data_start+1, data_end-1)]
+  }
+
 
   data <- do.call(rbind, strsplit(data, "\t"))
 
