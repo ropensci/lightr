@@ -51,11 +51,16 @@ parse_ttt <- function(filename) {
                 "scope" = "Sample",
                 "processed" = "Transmittance")
 
-  colnames(data) <- names(cornames)[match(colnames(data), cornames)]
+  data_final <- setNames(
+    as.data.frame(matrix(NA, nrow = nrow(data), ncol = 5)),
+    names(cornames)
+  )
 
-  data <- apply(data, 2, as.numeric)
+  data_final[match(colnames(data), cornames)] <- data
 
-  return(list(data.frame(data), metadata))
+  data_final <- apply(data_final, 2, as.numeric)
+
+  return(list(data.frame(data_final), metadata))
 
 }
 
