@@ -61,17 +61,22 @@ parse_jaz <- function(filename) {
 
   # Some files have an extra header for the data, some don't...
   # If they do, it looks like this header will always start with W
-  if (grepl("^W", content[data_start+1])) {
-    data <- content[seq(data_start+2, data_end-1)]
-  }
-  else {
-    data <- content[seq(data_start+1, data_end-1)]
-  }
+  has_header <- grepl("^W", content[data_start+1])
 
+  data <- content[seq(ifelse(has_header, data_start+2, data_start+1),
+                      data_end-1)]
 
   data <- do.call(rbind, strsplit(data, "\t"))
 
-  colnames(data) <- strsplit(content[data_start+1], "\t")[[1]]
+  if (has_header) {
+    colnames(data) <- strsplit(content[data_start+1], "\t")[[1]]
+
+
+  } else {
+
+    colnames(data) <- c("W", "P")
+
+  }
 
   cornames <- c("wl" = "W",
                 "dark" = "D",
@@ -79,11 +84,16 @@ parse_jaz <- function(filename) {
                 "scope" = "S",
                 "processed" = "P")
 
-  colnames(data) <- names(cornames)[match(colnames(data), cornames)]
+  data_final <- setNames(
+    as.data.frame(matrix(NA, nrow = nrow(data), ncol = 5)),
+    names(cornames)
+  )
 
-  data <- apply(data, 2, as.numeric)
+  data_final[match(colnames(data), cornames)] <- data
 
-  return(list(data.frame(data), metadata))
+  data_final <- apply(data_final, 2, as.numeric)
+
+  return(list(data.frame(data_final), metadata))
 }
 
 #' @rdname parse_jaz
