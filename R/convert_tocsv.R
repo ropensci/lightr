@@ -52,13 +52,13 @@ convert_tocsv <- function(where = getwd(), ext = "txt", decimal = ".",
              error = function(e) NULL),
     mc.cores = cores)
 
-  if (any(unlist(lapply(tmp, is.null)))) {
-    whichfailed <- which(unlist(lapply(tmp, is.null)))
-    if (length(whichfailed) == nb_files) {
-      warning("File import failed.\n",
-              "Check input files and function arguments.", call. = FALSE)
-      return()
-    }
+  whichfailed <- which(vapply(tmp, is.null, logical(1)))
+
+  if (length(whichfailed) == nb_files) {
+    warning("File import failed.\n",
+            "Check input files and function arguments.", call. = FALSE)
+    return(NULL)
+  } else if (length(whichfailed) > 0) {
 
     warning("Could not import one or more files:\n",
             paste0(files[whichfailed], "\n"),
