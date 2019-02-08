@@ -6,10 +6,8 @@ Authors@R: c(
     email = "hugo.gruson+R@normalesup.org",
     comment = c(ORCID = "0000-0002-4094-1476")),
     person("Rafael", "Maia", role = "aut",
-    email = "rm72@zips.uakron.edu",
     comment = c(ORCID = "0000-0002-7563-9795")),
     person("Thomas", "White", role = "aut",
-    email = "thomas.white026@gmail.com",
     comment = c(ORCID = "0000-0001-8493-9450"))
     )
 Description: Parse various UV-VIS reflectance/transmittance/absorbance spectra
