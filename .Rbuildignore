@@ -1,3 +1,4 @@
+^codemeta\.json$
 ^appveyor\.yml$
 ^docs$
 ^_pkgdown\.yml$
