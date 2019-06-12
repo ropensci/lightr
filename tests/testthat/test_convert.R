@@ -1,25 +1,30 @@
 context("convert_tocsv")
 
 # Create temp environment to run tests
-setup(dir.create(t <- tempdir()))
-setup(file.copy(from = list.files(test.file(),
-                                  full.names = TRUE),
-                to = t, recursive = TRUE))
-setup(dir.create(paste0(t, "/csv")))
-setup(file.rename(paste0(t, "/spec.csv"),
-                  paste0(t, "/csv/spec.csv")))
+setup({
+  tdir <- tempdir()
+  file.copy(from = list.files(test.file(),
+                              full.names = TRUE),
+            to = tdir, recursive = TRUE)
+  dir.create(file.path(tdir, "csv"))
+  file.rename(file.path(tdir, "spec.csv"),
+              file.path(tdir, "csv", "spec.csv"))
+})
 
-teardown(unlink(t, recursive = TRUE))
+teardown({
+  unlink(tdir, recursive = TRUE)
+})
 
 test_that("Convert all", {
+  tdir <- tempdir()
 
   exts <- c("TRM", "ttt", "jdx", "jaz", "JazIrrad", "txt", "Transmission")
 
-  converted_files <- convert_tocsv("conversion_test", ext = exts)
+  converted_files <- convert_tocsv(tdir, ext = exts)
 
-  input_files <- tools::list_files_with_exts("conversion_test", exts)
+  input_files <- tools::list_files_with_exts(tdir, exts)
 
-  output_files <- tools::list_files_with_exts("conversion_test", "csv")
+  output_files <- tools::list_files_with_exts(tdir, "csv")
 
   # File names are kept
   expect_setequal(tools::file_path_sans_ext(input_files),
@@ -35,13 +40,14 @@ test_that("Convert all", {
 })
 
 test_that("Convert recursive", {
+  tdir <- tempdir()
 
-  convert_tocsv("conversion_test", ext = "ProcSpec", subdir = TRUE)
+  convert_tocsv(tdir, ext = "ProcSpec", subdir = TRUE)
 
-  input_files <- tools::list_files_with_exts("conversion_test/procspec_files",
+  input_files <- tools::list_files_with_exts(file.path(tdir, "procspec_files"),
                                              "ProcSpec")
 
-  output_files <- tools::list_files_with_exts("conversion_test/procspec_files",
+  output_files <- tools::list_files_with_exts(file.path(tdir, "procspec_files"),
                                               "csv")
 
 
@@ -50,15 +56,17 @@ test_that("Convert recursive", {
 })
 
 test_that("Convert csv", {
+  tdir <- tempdir()
 
-  expect_warning(convert_tocsv("conversion_test/csv", ext = "csv", sep = ","))
+  expect_warning(convert_tocsv(file.path(tdir, "csv"), ext = "csv", sep = ","))
 
-  convert_tocsv("conversion_test/csv", ext = "csv", sep = ",", overwrite = TRUE)
+  convert_tocsv(file.path(tdir, "csv"), ext = "csv", sep = ",", overwrite = TRUE)
 
 })
 
 
 test_that("Convert warn/error", {
+  tdir <- tempdir()
   # Total fail
   # totalfail <- expression({
   #   spec2csv("conversion_test",
