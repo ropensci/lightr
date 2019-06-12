@@ -1,15 +1,15 @@
 context("convert_tocsv")
 
 # Create temp environment to run tests
-setup(dir.create("conversion_test"))
+setup(dir.create(t <- tempdir()))
 setup(file.copy(from = list.files(test.file(),
                                   full.names = TRUE),
-                to = "conversion_test", recursive = TRUE))
-setup(dir.create("conversion_test/csv"))
-setup(file.rename("conversion_test/spec.csv",
-                  "conversion_test/csv/spec.csv"))
+                to = t, recursive = TRUE))
+setup(dir.create(paste0(t, "/csv")))
+setup(file.rename(paste0(t, "/spec.csv"),
+                  paste0(t, "/csv/spec.csv")))
 
-teardown(unlink("conversion_test", recursive = TRUE))
+teardown(unlink(t, recursive = TRUE))
 
 test_that("Convert all", {
 
