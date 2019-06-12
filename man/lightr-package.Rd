@@ -23,8 +23,8 @@ Useful links:
 
 Authors:
 \itemize{
-  \item Rafael Maia \email{rm72@zips.uakron.edu} (0000-0002-7563-9795)
-  \item Thomas White \email{thomas.white026@gmail.com} (0000-0001-8493-9450)
+  \item Rafael Maia (0000-0002-7563-9795)
+  \item Thomas White (0000-0001-8493-9450)
 }
 
 }

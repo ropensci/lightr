@@ -69,7 +69,7 @@ convert_tocsv <- function(where = getwd(), ext = "txt", decimal = ".",
   invisible(unlist(tmp))
 }
 
-#' @internal
+#' @noRd
 spec2csv_single <- function(filename, decimal, sep, overwrite = FALSE) {
 
   data <- dispatch_parser(filename, decimal = decimal, sep = sep)[[1]]
