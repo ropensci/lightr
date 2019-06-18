@@ -140,11 +140,6 @@ are using an unsupported format, please
   [`colourvision`](https://cran.r-project.org/package=colourvision),
   [`Avicol`](https://sites.google.com/site/avicolprogram/), etc.).
 * [`spectrolab`](https://github.com/meireles/spectrolab)
-* Other projects such as [`hyperSpec`](http://hyperspec.r-forge.r-project.org/)
-  or [`readJDX`](https://cran.r-project.org/package=readJDX) have some overlap
-  with `lightr` (import of JCAMP-DX `.jdx` files for example) but mainly focus
-  on other types of spectra, such a Raman spectra, while `lightr` focuses
-  exclusively UV-VIS reflectance/transmittance/absorbance spectra.
 
 To our knowledge, `lightr` is the only gratis tool to import some complex file
 formats such as Avantes binary files or OceanOptics `.ProcSpec`. Because of its
