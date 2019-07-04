@@ -18,12 +18,14 @@ r_packages:
   - covr
   - goodpractice
   - pkgdown
+r_github_packages:
+  - metrumresearchgroup/covrpage
 after_success:
   - Rscript -e 'goodpractice::gp()'
   - Rscript -e 'covr::codecov()'
 deploy:
   - provider: script
-    script: Rscript -e 'pkgdown::deploy_site_github()'
+    script: Rscript -e 'covrpage::covrpage_ci(); pkgdown::deploy_site_github()'
     skip_cleanup: true
     on:
       condition: "$DEPLOY = true"
