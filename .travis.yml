@@ -31,6 +31,8 @@ r_github_packages:
 after_success:
   - Rscript -e 'goodpractice::gp()'
   - Rscript -e 'covr::codecov()'
+before_deploy:
+  - Rscript -e 'devtools::install()'
 deploy:
   - provider: script
     script: Rscript -e 'covrpage::covrpage_ci(); pkgdown::deploy_site_github()'
