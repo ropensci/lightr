@@ -24,6 +24,7 @@ addons:
     - libglu1-mesa-dev
 r_packages:
   - covr
+  - devtools
   - goodpractice
   - pkgdown
 r_github_packages:
