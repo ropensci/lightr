@@ -20,7 +20,7 @@ formats in a single line of code.
 Additionally, it provides for the first time a fully free and open source 
 solution to read proprietary spectra file formats on all systems.
 
-## Installation
+## 🔧 Installation
 
 This package is not yet published on CRAN and must be installed via GitHub:
 
@@ -29,7 +29,7 @@ This package is not yet published on CRAN and must be installed via GitHub:
 remotes::install_github("bisaloo/lightr")
 ```
 
-## Usage
+## 💻 Usage
 
 A thorough documentation is available with the package, using R usual syntax
 `?function` or `help(function)`. However, users will probably mainly use two 
@@ -72,7 +72,7 @@ In this case, you can run:
 convert_tocsv(where = ".", ext = "ProcSpec")
 ```
 
-## Supported file formats
+## ✔ Supported file formats
 
 This package is still under development but currently supports:
 
@@ -120,7 +120,7 @@ If you can't find the best parse for your specific file or if you believe you
 are using an unsupported format, please 
 [open an issue](https://github.com/Bisaloo/lightr/issues) or send me an email. 
 
-## Similar projects
+## 🌐 Similar projects
 
 * `lightr` itself contains some code that has been initially forked from 
   [`pavo`], namely the `get_spec()` function. The code has since then been 
