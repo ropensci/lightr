@@ -59,6 +59,12 @@ parse_jaz <- function(filename) {
   data_start <- grep("^>>>>>Begin (Processed )?Spectral Data<<<<<$", content)
   data_end <- grep("^>>>>>End (Processed )?Spectral Data<<<<<$", content)
 
+  # Some files are missing the ending "tag". Let's then assume that data go to
+  # the end of file.
+  if (length(data_end)==0) {
+    data_end = length(content)
+  }
+
   # Some files have an extra header for the data, some don't...
   # If they do, it looks like this header will always start with W
   has_header <- grepl("^W", content[data_start+1])

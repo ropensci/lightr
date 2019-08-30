@@ -25,6 +25,9 @@ test_that("OceanOptics", {
 
   expect_length(parse_jaz(test.file("FMNH6834.00000001.Master.Transmission")),
                 2)
+
+  expect_length(parse_jaz(test.file("UK5.txt")),
+                2)
 })
 
 test_that("Avantes", {
