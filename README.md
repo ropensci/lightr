@@ -116,7 +116,7 @@ This package is still under development but currently supports:
 As a fallback, you should always try `parse_generic()` which offers a flexible
 and general algorithm that manages to extract data from most files.
 
-If you can't find the best parse for your specific file or if you believe you
+If you can't find the best parse fror your specific file or if you believe you
 are using an unsupported format, please 
 [open an issue](https://github.com/Bisaloo/lightr/issues) or send me an email. 
 
