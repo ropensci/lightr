@@ -1,5 +1,5 @@
 ---
-title: "paper"
+title: "lightr: import spectral data and metadata in R"
 tags:
   - R
   - colour
@@ -58,7 +58,7 @@ customability trade-off:
 
 * Spectral data and metadata for each file format are extracted using 
 specialized parsers. Parsers are also aliased with many different names so that
-users can often use `parse_$extension()` where `$extension$` is the file 
+users can often use `parse_$extension()` where `$extension` is the file 
 extension of the file to parse. For convenience, we also provide a generic 
 fallback, named `parse_generic()` that works for many "simple" formats, often
 derived from `csv` or `tsv`. Specialized parsers should usually be preferred to
