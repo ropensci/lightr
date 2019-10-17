@@ -4,7 +4,7 @@ tags:
   - R
   - colour
   - spectrophotometry
-author: 
+authors: 
   - name: Hugo Gruson
     orcid: "0000-0001-8493-9450"
     affiliation: 1
