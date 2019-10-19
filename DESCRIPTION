@@ -1,6 +1,6 @@
 Package: lightr
 Title: Read Spectrometric Data in R
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: c(
     person("Hugo", "Gruson", role = c("cre", "aut"),
     email = "hugo.gruson+R@normalesup.org",
