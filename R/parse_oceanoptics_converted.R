@@ -1,5 +1,7 @@
 #' Parse OceanOptics converted file
 #'
+#' Parse OceanOptics converted file. <https://oceanoptics.com/>
+#'
 #' @inheritParams parse_generic
 #'
 #' @inherit parse_generic return

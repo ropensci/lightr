@@ -1,4 +1,6 @@
-#' Parse OceanOptics ProcSpec spectra file
+#' Parse OceanOptics ProcSpec file
+#'
+#' Parse OceanOptics ProcSpec file. <https://oceanoptics.com/>
 #'
 #' @inheritParams parse_generic
 #'

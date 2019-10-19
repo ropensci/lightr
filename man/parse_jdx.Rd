@@ -18,7 +18,7 @@ in that order
 }
 }
 \description{
-Parse OceanOptics JCAMP-DX (.jdx) file
+Parse OceanOptics JCAMP-DX (.jdx) file. \url{https://oceanoptics.com/}
 }
 \examples{
 parse_jdx(system.file("testdata", "OceanOptics.jdx", package = "lightr"))

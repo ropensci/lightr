@@ -1,5 +1,7 @@
 #' Parse Avantes binary file
 #'
+#' Parse Avantes binary file. <https://www.avantes.com/products/spectrometers>
+#'
 #' @inheritParams parse_generic
 #'
 #' @inherit parse_generic return

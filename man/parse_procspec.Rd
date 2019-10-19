@@ -2,7 +2,7 @@
 % Please edit documentation in R/parse_procspec.R
 \name{parse_procspec}
 \alias{parse_procspec}
-\title{Parse OceanOptics ProcSpec spectra file}
+\title{Parse OceanOptics ProcSpec file}
 \usage{
 parse_procspec(filename)
 }
@@ -18,7 +18,7 @@ in that order
 }
 }
 \description{
-Parse OceanOptics ProcSpec spectra file
+Parse OceanOptics ProcSpec file. \url{https://oceanoptics.com/}
 }
 \examples{
 parse_procspec(system.file("testdata", "procspec_files",

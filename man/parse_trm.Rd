@@ -24,7 +24,7 @@ in that order
 }
 }
 \description{
-Parse Avantes binary file
+Parse Avantes binary file. \url{https://www.avantes.com/products/spectrometers}
 }
 \examples{
 parse_trm(system.file("testdata", "avantes_trans.TRM", package = "lightr"))

@@ -21,7 +21,7 @@ in that order
 }
 }
 \description{
-Parse OceanOptics converted file
+Parse OceanOptics converted file. \url{https://oceanoptics.com/}
 }
 \examples{
 parse_jaz(system.file("testdata", "jazspec.jaz", package = "lightr"))

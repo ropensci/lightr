@@ -21,7 +21,8 @@ in that order
 }
 }
 \description{
-Parse Avantes converted file
+Parse Avantes converted file.
+\url{https://www.avantes.com/products/spectrometers}
 }
 \examples{
 parse_ttt(system.file("testdata", "avantes_export.ttt", package = "lightr"))

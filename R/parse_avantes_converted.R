@@ -1,5 +1,8 @@
 #' Parse Avantes converted file
 #'
+#' Parse Avantes converted file.
+#' <https://www.avantes.com/products/spectrometers>
+#'
 #' @inheritParams parse_generic
 #'
 #' @inherit parse_generic return
