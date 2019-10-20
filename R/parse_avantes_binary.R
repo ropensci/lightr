@@ -2,19 +2,21 @@
 #'
 #' Parse Avantes binary file. <https://www.avantes.com/products/spectrometers>
 #'
-#' @inheritParams parse_generic
+#' @inheritParams lr_parse_generic
 #'
-#' @inherit parse_generic return
+#' @inherit lr_parse_generic return
 #'
 #' @importFrom stats setNames
 #'
 #' @examples
-#' parse_trm(system.file("testdata", "avantes_trans.TRM", package = "lightr"))
-#' parse_roh(system.file("testdata", "avantes_reflect.ROH", package = "lightr"))
+#' lr_parse_trm(system.file("testdata", "avantes_trans.TRM",
+#'                          package = "lightr"))
+#' lr_parse_roh(system.file("testdata", "avantes_reflect.ROH",
+#'                          package = "lightr"))
 #'
 #' @export
 #'
-parse_trm <- function(filename) {
+lr_parse_trm <- function(filename) {
   # Translation of the matlab script from:
   # Copyright: (cc-by) Kotya Karapetyan, 2011.
   # kotya.karapetyan@gmail.com
@@ -108,14 +110,14 @@ parse_trm <- function(filename) {
   return(list(data, metadata))
 }
 
-#' @rdname parse_trm
+#' @rdname lr_parse_trm
 #'
 #' @export
 #'
-parse_abs <- parse_trm
+lr_parse_abs <- lr_parse_trm
 
-#' @rdname parse_trm
+#' @rdname lr_parse_trm
 #'
 #' @export
 #'
-parse_roh <- parse_trm
+lr_parse_roh <- lr_parse_trm

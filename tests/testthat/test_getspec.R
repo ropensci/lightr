@@ -2,7 +2,7 @@ context("get_spec")
 
 test_that("get_spec all", {
 
-  res <- get_spec(test.file(),
+  res <- lr_get_spec(test.file(),
                   ext = c("TRM", "ttt", "jdx", "jaz", "JazIrrad", "csv", "txt",
                           "Transmission"),
                   sep = ",")
@@ -12,21 +12,21 @@ test_that("get_spec all", {
 test_that("get_spec recursive", {
 
   # Recursive
-  res <- get_spec(test.file(), ext = "ProcSpec", subdir = TRUE)
+  res <- lr_get_spec(test.file(), ext = "ProcSpec", subdir = TRUE)
   expect_known_value(res, "known_output/getspec_recursive.rds")
 
 })
 
 test_that("get_spec range", {
-  res <- get_spec(test.file(), "ttt", lim = c(400,500))
+  res <- lr_get_spec(test.file(), "ttt", lim = c(400,500))
   expect_equal(nrow(res), 101)
 })
 
 test_that("get_spec warn/error", {
   # Total fail
   totalfail <- expression({
-    get_spec(test.file(),
-            ext = "fail")
+    lr_get_spec(test.file(),
+                ext = "fail")
   })
   expect_warning(eval(totalfail), "File import failed")
 
@@ -34,14 +34,14 @@ test_that("get_spec warn/error", {
 
   # Partial fail
   partialfail <- expression({
-    get_spec(test.file(),
-            ext = c("fail", "jdx"))
+    lr_get_spec(test.file(),
+                ext = c("fail", "jdx"))
   })
   expect_warning(eval(partialfail), "Could not import one or more")
 
   # Missing
   missing <- expression({
-    get_spec(ext = "missing")
+    lr_get_spec(ext = "missing")
   })
   expect_warning(eval(missing), "No files found")
 

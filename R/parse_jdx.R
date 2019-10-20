@@ -2,20 +2,20 @@
 #'
 #' Parse OceanOptics JCAMP-DX (.jdx) file. <https://oceanoptics.com/>
 #'
-#' @inheritParams parse_generic
+#' @inheritParams lr_parse_generic
 #'
-#' @inherit parse_generic return
+#' @inherit lr_parse_generic return
 #'
 #' @references McDonald RS, Wilks PA. JCAMP-DX: A Standard Form for Exchange of
 #' Infrared Spectra in Computer Readable Form. Applied Spectroscopy.
 #' 1988;42(1):151‑62.
 #'
 #' @examples
-#' parse_jdx(system.file("testdata", "OceanOptics.jdx", package = "lightr"))
+#' lr_parse_jdx(system.file("testdata", "OceanOptics.jdx", package = "lightr"))
 #'
 #' @export
 #'
-parse_jdx <- function(filename) {
+lr_parse_jdx <- function(filename) {
   content <- readLines(filename)
   author <- grep("^##OWNER=", content, value = TRUE)
   author <- gsub("^##OWNER= ", "", author)[1]

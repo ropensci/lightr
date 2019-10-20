@@ -3,17 +3,19 @@
 #' Parse Avantes converted file.
 #' <https://www.avantes.com/products/spectrometers>
 #'
-#' @inheritParams parse_generic
+#' @inheritParams lr_parse_generic
 #'
-#' @inherit parse_generic return
+#' @inherit lr_parse_generic return
 #'
 #' @examples
-#' parse_ttt(system.file("testdata", "avantes_export.ttt", package = "lightr"))
-#' parse_trt(system.file("testdata", "avantes_export2.trt", package = "lightr"))
+#' lr_parse_ttt(system.file("testdata", "avantes_export.ttt",
+#'                          package = "lightr"))
+#' lr_parse_trt(system.file("testdata", "avantes_export2.trt",
+#'                          package = "lightr"))
 #'
 #' @export
 #'
-parse_ttt <- function(filename) {
+lr_parse_ttt <- function(filename) {
 
   # FIXME: grep to find appropriate lines instead of relying on fixed indices
 
@@ -67,8 +69,8 @@ parse_ttt <- function(filename) {
 
 }
 
-#' @rdname parse_ttt
+#' @rdname lr_parse_ttt
 #'
 #' @export
 #'
-parse_trt <- parse_ttt
+lr_parse_trt <- lr_parse_ttt

@@ -20,7 +20,7 @@ test_that("Convert all", {
 
   exts <- c("TRM", "ttt", "jdx", "jaz", "JazIrrad", "txt", "Transmission")
 
-  converted_files <- convert_tocsv(tdir, ext = exts)
+  converted_files <- lr_convert_tocsv(tdir, ext = exts)
 
   input_files <- tools::list_files_with_exts(tdir, exts)
 
@@ -42,7 +42,7 @@ test_that("Convert all", {
 test_that("Convert recursive", {
   tdir <- tempdir()
 
-  convert_tocsv(tdir, ext = "ProcSpec", subdir = TRUE)
+  lr_convert_tocsv(tdir, ext = "ProcSpec", subdir = TRUE)
 
   input_files <- tools::list_files_with_exts(file.path(tdir, "procspec_files"),
                                              "ProcSpec")
@@ -58,9 +58,11 @@ test_that("Convert recursive", {
 test_that("Convert csv", {
   tdir <- tempdir()
 
-  expect_warning(convert_tocsv(file.path(tdir, "csv"), ext = "csv", sep = ","))
+  expect_warning(lr_convert_tocsv(file.path(tdir, "csv"), ext = "csv",
+                                  sep = ","))
 
-  convert_tocsv(file.path(tdir, "csv"), ext = "csv", sep = ",", overwrite = TRUE)
+  lr_convert_tocsv(file.path(tdir, "csv"), ext = "csv", sep = ",",
+                   overwrite = TRUE)
 
 })
 
@@ -86,7 +88,7 @@ test_that("Convert warn/error", {
 
   # Missing
   missing <- expression({
-    convert_tocsv(ext = "missing")
+    lr_convert_tocsv(ext = "missing")
   })
   expect_warning(eval(missing), "No files found")
 

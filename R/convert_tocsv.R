@@ -3,7 +3,7 @@
 #' @param overwrite logical. Should the function overwrite existing files with
 #' the same name? (defaults to `FALSE`).
 #'
-#' @inheritParams get_spec
+#' @inheritParams lr_get_spec
 #'
 #' @return Convert input files to csv and invisibly return the list of created
 #' file paths
@@ -11,14 +11,14 @@
 #' @section Warning:
 #'
 #' This step loses all metadata associated to the spectra. This metadata is
-#' critical to ensure reproducibility. We recommended you use [get_metadata()]
-#' to extract this information from your raw data
+#' critical to ensure reproducibility. We recommended you use
+#' [lr_get_metadata()] to extract this information from your raw data.
 #'
 #' @importFrom tools file_path_sans_ext
 #' @importFrom utils write.csv
 #'
 #' @export
-convert_tocsv <- function(where = getwd(), ext = "txt", decimal = ".",
+lr_convert_tocsv <- function(where = getwd(), ext = "txt", decimal = ".",
                           sep = NULL, subdir = FALSE,
                           cores = getOption("mc.cores", 2L), ignore.case = TRUE,
                           overwrite = FALSE) {

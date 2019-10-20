@@ -12,15 +12,16 @@ vignette: >
 `lightr` provides three main functions for patch import of spectral data and
 metadata:
 
-* `get_spec()`
-* `get_metadata()`
-* `spec2csv()`
+* `lr_get_spec()`
+* `lr_get_metadata()`
+* `lr_spec2csv()`
 
 Those three functions contain a loop and can directly be used to import/convert
 whole folders.
 
 They also allow for recursive search in the folder tree with the argument
-`subdir`. In this example, the `data` that contains a subdirectory named `procspec_files`, which contains :
+`subdir`. In this example, the `data` that contains a subdirectory named 
+`procspec_files`, which contains :
 
 ```
 └──+ data
@@ -34,73 +35,73 @@ They also allow for recursive search in the folder tree with the argument
       └── whiteref.ProcSpec
 ```
 
-We first demonstrate these features on `get_spec()` but they work in the same
-way for `get_metadata()` and `spec2csv()`
+We first demonstrate these features on `lr_get_spec()` but they work in the same
+way for `lr_get_metadata()` and `lr_spec2csv()`
 
 ```{r}
 library(lightr)
 ```
 
-## Import spectral data: `get_spec()`
+## Import spectral data: `lr_get_spec()`
 
-`get_spec()` is one the core functions of `lightr`. It finds spectral data 
+`lr_get_spec()` is one the core functions of `lightr`. It finds spectral data 
 files, extract the reflectance / transmittance / absorbance data and returns a
 `data.frame` where the first column (named `wl`) contains the wavelengths and
 the subsequent columns contain the spectral data, interpolated every nanometre:
 
 ```{r}
-res <- get_spec(where = "data", ext = "ttt", lim = c(300, 700))
+res <- lr_get_spec(where = "data", ext = "ttt", lim = c(300, 700))
 head(res)
 ```
 
-`get_spec()` also supports setting multiple file extensions at once by passing
+`lr_get_spec()` also supports setting multiple file extensions at once by passing
 a character vector to `ext`:
 
 ```{r}
-res <- get_spec(where = "data", ext = c("ttt", "trt"), lim = c(300, 700))
+res <- lr_get_spec(where = "data", ext = c("ttt", "trt"), lim = c(300, 700))
 head(res)
 ```
 
-Finally, `get_spec()` can also recursively search in your folder tree with the
-`subdir` argument:
+Finally, `lr_get_spec()` can also recursively search in your folder tree with 
+the `subdir` argument:
 
 ```{r}
-res <- get_spec(where = "data", ext = "procspec", lim = c(300, 700), subdir = TRUE)
+res <- lr_get_spec(where = "data", ext = "procspec", lim = c(300, 700), subdir = TRUE)
 head(res)
 ```
 
-As you may have noticed, `get_spec()` does not care about the file extension
+As you may have noticed, `lr_get_spec()` does not care about the file extension
 case by default. This can be changed by using the `ignore.case` switch:
 
 ```{r}
-res <- get_spec(where = "data", ext = "procspec", subdir = TRUE, ignore.case = FALSE)
+res <- lr_get_spec(where = "data", ext = "procspec", subdir = TRUE, ignore.case = FALSE)
 ```
 
-## Import spectral metadata: `get_metadata()`
+## Import spectral metadata: `lr_get_metadata()`
 
-`get_metadata()` extracts metadata captured by the spectrophotometer during the
-recording. This metadata should be reported in your scientific articles to 
+`lr_get_metadata()` extracts metadata captured by the spectrophotometer during
+the recording. This metadata should be reported in your scientific articles to 
 ensure reproducibility of your measurements and ultimately of your findings. The
 amount of information strongly depends on the brand and model of the
 spectrometer.
 
-Similarly to `get_spec()`, it can handle multiple extensions at once and perform
-recursive searches:
+Similarly to `lr_get_spec()`, it can handle multiple extensions at once and 
+perform recursive searches:
 
 ```{r}
-res <- get_metadata(where = "data", ext = c("trt", "procspec"), subdir = TRUE)
+res <- lr_get_metadata(where = "data", ext = c("trt", "procspec"), subdir = TRUE)
 head(res)
 ```
 
-## Convert spectral data to csv: `convert_tocsv()`
+## Convert spectral data to csv: `lr_convert_tocsv()`
 
-`convert_tocsv()` is designed for people that want to a machine readable version
-for each individual input file, possibly allowing them to carry on with their 
-analysis using another programming language or software.
+`lr_convert_tocsv()` is designed for people that want to a machine readable 
+version for each individual input file, possibly allowing them to carry on with
+their analysis using another programming language or software.
 
-It works in a very similar way to `get_spec()` and will create `csv` files with
-the same file names as the input files (but a different extension).
+It works in a very similar way to `lr_get_spec()` and will create `csv` files 
+with the same file names as the input files (but a different extension).
 
 ```{r}
-convert_tocsv(where = "data", ext = "procspec", subdir = TRUE)
+lr_convert_tocsv(where = "data", ext = "procspec", subdir = TRUE)
 ```

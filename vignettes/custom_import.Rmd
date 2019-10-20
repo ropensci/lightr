@@ -15,10 +15,10 @@ low-level individual parsers, which allow the user to code its own custom
 workflow.
 
 We don't recommend the use of those functions unless you absolutely have to.
-Most users should use `get_spec()` and `get_metadata()` instead.
+Most users should use `lr_get_spec()` and `lr_get_metadata()` instead.
 
 A common request from spectral data users is too keep their raw data, without
-any interpolation. This is not possible in `get_spec()` but it parses spectra
+any interpolation. This is not possible in `lr_get_spec()` but it parses spectra
 from many different formats and then concatenates them to output a single 
 dataframe. For this to be possible, all spectra must be evaluated over the same
 wavelengths, which is not usually the case at first. So, we do need to 
@@ -41,14 +41,14 @@ jdx_files <- list.files("data/heliomaster", pattern = "jdx$", full.names = TRUE)
 ## Step 2: import individual spectra
 
 ```{r}
-first_jdx <- parse_jdx(jdx_files[1])[[1]]
+first_jdx <- lr_parse_jdx(jdx_files[1])[[1]]
 head(first_jdx)
 ```
 
-As you can see on this first file, `parse_$extension()` functions return a
+As you can see on this first file, `lr_parse_$extension()` functions return a
 data frame with many columns. The meaning of each column is explained in full
-details in `?parse_jdx`. Here, we are only interested in the first column (the
-wavelengths) and the last one (the normalised spectral data).
+details in `?lr_parse_jdx`. Here, we are only interested in the first column 
+(the wavelengths) and the last one (the normalised spectral data).
 
 ```{r}
 res <- first_jdx[, c("wl", "processed")]
@@ -62,7 +62,7 @@ record the "processed" column:
 
 ```{r}
 for (i in 2:length(jdx_files)) {
-  next_jdx <- parse_jdx(jdx_files[i])[[1]]
+  next_jdx <- lr_parse_jdx(jdx_files[i])[[1]]
   
   res <- cbind(res, next_jdx[, "processed"])
 }
@@ -93,7 +93,7 @@ library(fs)
 
 get_uninterp <- function(path, extension) {
   dir_ls(path = path, glob = extension) %>%
-    map_dfc(function(file) dispatch_parser(file)[[1]]) %>%
+    map_dfc(function(file) lightr:::dispatch_parser(file)[[1]]) %>%
     select(wl, starts_with("processed"))
 }
 

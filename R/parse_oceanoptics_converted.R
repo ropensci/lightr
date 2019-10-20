@@ -2,17 +2,18 @@
 #'
 #' Parse OceanOptics converted file. <https://oceanoptics.com/>
 #'
-#' @inheritParams parse_generic
+#' @inheritParams lr_parse_generic
 #'
-#' @inherit parse_generic return
+#' @inherit lr_parse_generic return
 #'
 #' @examples
-#' parse_jaz(system.file("testdata", "jazspec.jaz", package = "lightr"))
-#' parse_jazirrad(system.file("testdata", "irrad.JazIrrad", package = "lightr"))
+#' lr_parse_jaz(system.file("testdata", "jazspec.jaz", package = "lightr"))
+#' lr_parse_jazirrad(system.file("testdata", "irrad.JazIrrad",
+#'                   package = "lightr"))
 #'
 #' @export
 #'
-parse_jaz <- function(filename) {
+lr_parse_jaz <- function(filename) {
 
   # METADATA
 
@@ -104,8 +105,8 @@ parse_jaz <- function(filename) {
   return(list(data.frame(data_final), metadata))
 }
 
-#' @rdname parse_jaz
+#' @rdname lr_parse_jaz
 #'
 #' @export
 #'
-parse_jazirrad <- parse_jaz
+lr_parse_jazirrad <- lr_parse_jaz

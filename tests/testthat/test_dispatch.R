@@ -3,42 +3,42 @@ context("dispatch_parser")
 test_that("Fallback", {
 
   expect_equal(
-    parse_generic(test.file("spec.csv"), sep = ","),
+    lr_parse_generic(test.file("spec.csv"), sep = ","),
     dispatch_parser(test.file("spec.csv"), sep = ",")
   )
 
   expect_equal(
-    parse_jdx(test.file("OceanOptics.jdx")),
+    lr_parse_jdx(test.file("OceanOptics.jdx")),
     dispatch_parser(test.file("OceanOptics.jdx"))
   )
 
   expect_equal(
-    parse_jaz(test.file("jazspec.jaz")),
+    lr_parse_jaz(test.file("jazspec.jaz")),
     dispatch_parser(test.file("jazspec.jaz"))
   )
 
   expect_equal(
-    parse_jazirrad(test.file("irrad.JazIrrad")),
+    lr_parse_jazirrad(test.file("irrad.JazIrrad")),
     dispatch_parser(test.file("irrad.JazIrrad"))
   )
 
   expect_equal(
-    parse_roh(test.file("avantes_reflect.ROH")),
+    lr_parse_roh(test.file("avantes_reflect.ROH")),
     dispatch_parser(test.file("avantes_reflect.ROH"))
   )
 
   expect_equal(
-    parse_trm(test.file("avantes_trans.TRM")),
+    lr_parse_trm(test.file("avantes_trans.TRM")),
     dispatch_parser(test.file("avantes_trans.TRM"))
   )
 
   expect_equal(
-    parse_ttt(test.file("avantes_export.ttt")),
+    lr_parse_ttt(test.file("avantes_export.ttt")),
     dispatch_parser(test.file("avantes_export.ttt"))
   )
 
   expect_equal(
-    parse_trt(test.file("avantes_export2.trt")),
+    lr_parse_trt(test.file("avantes_export2.trt")),
     dispatch_parser(test.file("avantes_export2.trt"))
   )
 

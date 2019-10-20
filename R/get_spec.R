@@ -3,7 +3,7 @@
 #' Finds and imports reflectance/transmittance/absorbance data from spectra
 #' files in a given location.
 #'
-#' @inheritParams parse_generic
+#' @inheritParams lr_parse_generic
 #'
 #' @param where Folder in which files are located (defaults to current working
 #' directory).
@@ -31,9 +31,9 @@
 #' @importFrom stats approx
 #'
 #' @examples
-#' get_spec(system.file("testdata", package = "lightr"), lim = c(400, 900))
+#' lr_get_spec(system.file("testdata", package = "lightr"), lim = c(400, 900))
 #'
-get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
+lr_get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
                      decimal = ".", sep = NULL, subdir = FALSE,
                      subdir.names = FALSE, cores = getOption("mc.cores", 2L),
                      ignore.case = TRUE) {

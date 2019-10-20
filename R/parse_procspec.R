@@ -2,21 +2,22 @@
 #'
 #' Parse OceanOptics ProcSpec file. <https://oceanoptics.com/>
 #'
-#' @inheritParams parse_generic
+#' @inheritParams lr_parse_generic
 #'
-#' @inherit parse_generic return
+#' @inherit lr_parse_generic return
 #'
 #' @importFrom xml2 read_xml xml_find_all xml_find_first xml_text
 #'
 #' @references <https://oceanoptics.com/faq/extract-data-procspec-file-without-spectrasuite/>
 #'
 #' @examples
-#' parse_procspec(system.file("testdata", "procspec_files",
-#'                            "OceanOptics_Linux.ProcSpec", package = "lightr"))
+#' lr_parse_procspec(system.file("testdata", "procspec_files",
+#'                               "OceanOptics_Linux.ProcSpec",
+#'                               package = "lightr"))
 #'
 #' @export
 #'
-parse_procspec <- function(filename) {
+lr_parse_procspec <- function(filename) {
   # We let R find the suitable tmp folder to extract files
   tmp <- tempdir()
   on.exit(unlink(tmp))

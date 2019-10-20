@@ -2,7 +2,7 @@
 #'
 #' Finds and imports metadata from spectra files in a given location.
 #'
-#' @inheritParams get_spec
+#' @inheritParams lr_get_spec
 #'
 #' @export
 #'
@@ -34,10 +34,10 @@
 #' Animal Behaviour. 2015 Aug 1;106:51–7 (\doi{10.1016/j.anbehav.2015.05.007}).
 #'
 #' @examples
-#' get_metadata(system.file("testdata", package = "lightr"), ext = "ProcSpec",
-#'              subdir = TRUE)
+#' lr_get_metadata(system.file("testdata", package = "lightr"),
+#'                 ext = "ProcSpec", subdir = TRUE)
 
-get_metadata <- function(where = getwd(), ext = "ProcSpec", sep = NULL,
+lr_get_metadata <- function(where = getwd(), ext = "ProcSpec", sep = NULL,
                          subdir = FALSE, subdir.names = FALSE,
                          cores = getOption("mc.cores", 2L),
                          ignore.case = TRUE) {

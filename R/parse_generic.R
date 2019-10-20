@@ -12,14 +12,15 @@
 #'   * a list with metadata including
 #'
 #' @examples
-#' parse_generic(system.file("testdata", "spec.csv", package = "lightr"),
-#'               sep = ",")
-#' parse_generic(system.file("testdata", "CRAIC_export.txt", package = "lightr"))
+#' lr_parse_generic(system.file("testdata", "spec.csv", package = "lightr"),
+#'                  sep = ",")
+#' lr_parse_generic(system.file("testdata", "CRAIC_export.txt",
+#'                              package = "lightr"))
 #'
 #' @export
 #'
 
-parse_generic <- function(filename, decimal = ".", sep = NULL) {
+lr_parse_generic <- function(filename, decimal = ".", sep = NULL) {
 
   seps <- paste0(c("[[:blank:]]", sep), collapse = "|\\")
 

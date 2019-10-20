@@ -37,7 +37,7 @@ functions:
 
 ```r
 # Get a data.frame containing all useful metadata from spectra in a folder
-get_metadata(where = "inst/testdata", ext = "ProcSpec")
+lr_get_metadata(where = "inst/testdata", ext = "ProcSpec")
 ```
 
 and
@@ -45,21 +45,21 @@ and
 ```r
 # Get a single dataframe where the first column contains the wavelengths and 
 # the next columns contain a spectra each (pavo's rspec class)
-get_spec(where = "inst/testdata", ext = "ProcSpec")
+lr_get_spec(where = "inst/testdata", ext = "ProcSpec")
 ```
 
-`get_spec()` returns a dataframe that is compatible with [`pavo`] custom S3
+`lr_get_spec()` returns a dataframe that is compatible with [`pavo`] custom S3
 class (`rspec`) and can be used for further analyses using colour vision models.
 
-All supported file formats can also be parsed using the `parse_$extension()` 
+All supported file formats can also be parsed using the `lr_parse_$extension()` 
 function where `$extension` is the lowercase extension of your file. This
 family of functions return a list where the first element is the data dataframe
 and the second element is a vector with relevant metadata.
 
 Only exceptions are `.txt` and `.Transmission` files because those extensions
 are too generic. Users will need to figure out which parser is appropriate in 
-this case. `get_metadata()` and `get_spec()` automatically try generic parsers
-in this case.
+this case. `lr_get_metadata()` and `lr_get_spec()` automatically try generic 
+parsers in this case.
 
 Alternatively, you may simply want to convert your spectra in a readable 
 standard format and carry on with your analysis with another software.
@@ -69,7 +69,7 @@ In this case, you can run:
 ```r
 # Convert every single ProcSpec file to a csv file with the same name and 
 # location
-convert_tocsv(where = "inst/testdata", ext = "ProcSpec")
+lr_convert_tocsv(where = "inst/testdata", ext = "ProcSpec")
 ```
 
 ## ✔ Supported file formats
@@ -78,43 +78,43 @@ This package is still under development but currently supports:
 
 ### [OceanOptics](https://oceanoptics.com/)
 
-  | Extension      | Parser             |
-  |:---------------|:-------------------|
-  | `jdx`          | `parse_jdx()`      |
-  | `ProcSpec`     | `parse_procspec()` |
-  | `jaz`          | `parse_jaz()`      |
-  | `jazirrad`     | `parse_jazirrad()` |
-  | `Transmission` | `parse_jaz()`      |
-  | `txt`          | `parse_jaz()`      |
+  | Extension      | Parser                |
+  |:---------------|:----------------------|
+  | `jdx`          | `lr_parse_jdx()`      |
+  | `ProcSpec`     | `lr_parse_procspec()` |
+  | `jaz`          | `lr_parse_jaz()`      |
+  | `jazirrad`     | `lr_parse_jazirrad()` |
+  | `Transmission` | `lr_parse_jaz()`      |
+  | `txt`          | `lr_parse_jaz()`      |
 
 ### [Avantes](https://www.avantes.com/)
 
-  | Extension      | Parser             |
-  |:---------------|:-------------------|
-  | `ABS`          | `parse_abs()`      |
-  | `ROH`          | `parse_roh()`      |
-  | `TRM`          | `parse_trm()`      |
-  | `trt`          | `parse_trt()`      |
-  | `ttt`          | `parse_ttt()`      |
-  | `txt`          | `parse_generic()`  |
+  | Extension      | Parser                |
+  |:---------------|:----------------------|
+  | `ABS`          | `lr_parse_abs()`      |
+  | `ROH`          | `lr_parse_roh()`      |
+  | `TRM`          | `lr_parse_trm()`      |
+  | `trt`          | `lr_parse_trt()`      |
+  | `ttt`          | `lr_parse_ttt()`      |
+  | `txt`          | `lr_parse_generic()`  |
   
 ### [CRAIC](http://www.microspectra.com/)
 
-  | Extension | Parser            |
-  |:----------|:------------------|
-  | `txt`     | `parse_generic()` |
+  | Extension | Parser               |
+  |:----------|:---------------------|
+  | `txt`     | `lr_parse_generic()` |
   
 ### Others
 
-  | Extension | Parser                     |
-  |:----------|:---------------------------|
-  | `csv`     | `parse_generic(sep = ",")` |
-  | `dpt`     | `parse_generic(sep = ",")` |
+  | Extension | Parser                        |
+  |:----------|:------------------------------|
+  | `csv`     | `lr_parse_generic(sep = ",")` |
+  | `dpt`     | `lr_parse_generic(sep = ",")` |
   
 ### Others
 
-As a fallback, you should always try `parse_generic()` which offers a flexible
-and general algorithm that manages to extract data from most files.
+As a fallback, you should always try `lr_parse_generic()` which offers a
+flexible and general algorithm that manages to extract data from most files.
 
 If you can't find the best parser for your specific file or if you believe you
 are using an unsupported format, please 
@@ -123,7 +123,7 @@ are using an unsupported format, please
 ## 🌐 Similar projects
 
 * `lightr` itself contains some code that has been initially forked from 
-  [`pavo`], namely the `get_spec()` function. The code has since then been 
+  [`pavo`], namely the `lr_get_spec()` function. The code has since then been 
   refactored and optimised for speed. [`pavo`] differs from `lightr` in its
   focus and core functionalities. The main strength of [`pavo`] is the 
   comprehensive and user-friendly set of functions to analyse spectral data

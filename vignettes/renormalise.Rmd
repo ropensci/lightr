@@ -15,7 +15,7 @@ low-level individual parsers, which allow the user to code its own custom
 workflow.
 
 We don't recommend the use of those functions unless you absolutely have to.
-Most users should use `get_spec()` and `get_metadata()` instead.
+Most users should use `lr_get_spec()` and `lr_get_metadata()` instead.
 
 Here, we take the example of the method presented in 
 [Gruson *et al* (2018)](https://doi.org/10.1098/rsfs.2018.0049) where 
@@ -29,8 +29,8 @@ normalised  by a white and a dark reference with the following formula:
 $$\text{Processed} = \dfrac{\text{Raw} - \text{Dark}}{\text{White} - \text{Dark}}$$
 
 For this example here, we need to normalise the raw data by a white reference
-contained in another file. This can't be done with with `get_spec()` because
-`get_spec()` returns reflectance spectra that have already been normalised by
+contained in another file. This can't be done with with `lr_get_spec()` because
+`lr_get_spec()` returns reflectance spectra that have already been normalised by
 the white reference contained in the same file.
 
 ```{r}
@@ -42,7 +42,7 @@ library(lightr)
 We manually import the data using the appropriate low-level parser:
 
 ```{r}
-reflect_data <- parse_procspec(
+reflect_data <- lr_parse_procspec(
   system.file("testdata", "procspec_files", "OceanOptics_Linux.ProcSpec",
                package = "lightr")
   )
@@ -63,7 +63,7 @@ head(reflect_data[[1]])
 We import that white reference in the same way:
 
 ```{r}
-white_data <- parse_procspec(
+white_data <- lr_parse_procspec(
   system.file("testdata", "procspec_files", "whiteref.ProcSpec",
                package = "lightr")
 )
