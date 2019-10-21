@@ -1,5 +1,8 @@
 {
-  "@context": ["https://doi.org/10.5063/schema/codemeta-2.0", "http://schema.org"],
+  "@context": [
+    "https://doi.org/10.5063/schema/codemeta-2.0",
+    "http://schema.org"
+  ],
   "@type": "SoftwareSourceCode",
   "identifier": "lightr",
   "description": "Parse various UV-VIS reflectance/transmittance/absorbance spectra\n    file formats to extract spectral data and metadata.",
@@ -7,15 +10,15 @@
   "codeRepository": "https://github.com/Bisaloo/lightr",
   "relatedLink": "https://bisaloo.github.io/lightr",
   "issueTracker": "https://github.com/Bisaloo/lightr/issues",
-  "license": "GPL (>=2)",
-  "version": "0.0.0.9000",
+  "license": "https://spdx.org/licenses/GPL-2.0",
+  "version": "0.0.1",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
-    "version": "3.5.2",
+    "version": "3.6.1",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.5.2 (2018-12-20)",
+  "runtimePlatform": "R version 3.6.1 (2019-07-05)",
   "author": [
     {
       "@type": "Person",
@@ -137,8 +140,24 @@
     }
   ],
   "readme": "https://github.com/Bisaloo/lightr/blob/master/README.md",
-  "fileSize": "2550.455KB",
-  "contIntegration": ["https://travis-ci.org/Bisaloo/lightr", "https://ci.appveyor.com/project/Bisaloo/lightr", "https://codecov.io/github/Bisaloo/lightr?branch=master"],
+  "fileSize": "5290.071KB",
+  "contIntegration": [
+    "https://travis-ci.org/Bisaloo/lightr",
+    "https://ci.appveyor.com/project/Bisaloo/lightr",
+    "https://codecov.io/github/Bisaloo/lightr?branch=master"
+  ],
   "developmentStatus": "https://www.repostatus.org/#active",
-  "keywords": ["r", "spectroscopy", "spectral-data", "reproducible-research", "reproducible-science", "reproducibility", "r-package", "file-import"]
+  "keywords": [
+    "r",
+    "spectroscopy",
+    "spectral-data",
+    "reproducible-research",
+    "reproducible-science",
+    "reproducibility",
+    "r-package",
+    "file-import"
+  ],
+  "contributor": {},
+  "copyrightHolder": {},
+  "funder": {}
 }
