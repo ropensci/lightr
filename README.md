@@ -26,7 +26,7 @@ This package is not yet published on CRAN and must be installed via GitHub:
 
 ```r
 # install.packages("remotes")
-remotes::install_github("bropenscilightr")
+remotes::install_github("ropensci/lightr")
 ```
 
 ## 💻 Usage
@@ -37,7 +37,7 @@ functions:
 
 ```r
 # Get a data.frame containing all useful metadata from spectra in a folder
-lr_get_metadata(where = system.file("testdata/procspec_files" , 
+lr_get_metadata(where = system.file("testdata/procspec_files", 
                                     package = "lightr"), 
                 ext = "ProcSpec")
 ```
@@ -47,8 +47,8 @@ and
 ```r
 # Get a single dataframe where the first column contains the wavelengths and 
 # the next columns contain a spectra each (pavo's rspec class)
-lr_get_spec(where = "isystem.file("testdata/procspec_files" , package = "lightr")e
-            t = "ProcSpec")
+lr_get_spec(where = "system.file("testdata/procspec_files", package = "lightr"),
+            ext = "ProcSpec")
 ```
 
 `lr_get_spec()` returns a dataframe that is compatible with [`pavo`] custom S3
@@ -72,9 +72,9 @@ In this case, you can run:
 ```r
 # Convert every single ProcSpec file to a csv file with the same name and 
 # location
-lr_convert_tocsv(where = "isystem.file("testdata/procspec_files" , 
-                                     package = "lightr")ex
-                 t = "ProcSpec")
+lr_convert_tocsv(where = "system.file("testdata/procspec_files" , 
+                                      package = "lightr"),
+                 ext = "ProcSpec")
 ```
 
 ## ✔ Supported file formats
@@ -123,7 +123,7 @@ flexible and general algorithm that manages to extract data from most files.
 
 If you can't find the best parser for your specific file or if you believe you
 are using an unsupported format, please 
-[open an issue](https://github.com/Biropensciightr/issues) or send me an email. 
+[open an issue](https://github.com/ropensci/lightr/issues) or send me an email. 
 
 ## 🌐 Similar projects
 
