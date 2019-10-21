@@ -7,13 +7,13 @@ reference:
   - title: High-level functions
     desc: These functions offers an intuitive and user-friendly way to import (and possibly) transform multiple files at once in a given location.
     contents:
-    - get_spec
-    - get_metadata
-    - convert_tocsv
+    - lr_get_spec
+    - lr_get_metadata
+    - lr_convert_tocsv
   - title: Low-level parsers
     desc: These functions are destined to advanced users that want a more flexible way to import spectral data. They can only read a single file at a time and users are responsible for writing a loop if necessary.
     contents:
-    - starts_with("parse_")
+    - starts_with("lr_parse_")
 
 template:
   params:
