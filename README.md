@@ -155,3 +155,5 @@ also hopefully prove useful for people working with other languages than R.
 [`pavo`]: https://cran.r-project.org/package=pavo
 
 [`photobiologyInOut`]: https://cran.r-project.org/package=photobiologyInOut
+
+[![ropensci_footer](https://ropensci.org/public_images/ropensci_footer.png)](https://ropensci.org)
