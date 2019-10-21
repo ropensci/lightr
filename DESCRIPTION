@@ -21,8 +21,8 @@ Suggests:
     rmarkdown,
     spelling,
     testthat (>= 2.0.0)
-URL: https://bisaloo.github.io/lightr, https://github.com/Bisaloo/lightr
-BugReports: https://github.com/Bisaloo/lightr/issues
+URL: https://docs.ropensci.org/lightr, https://github.com/ropensci/lightr
+BugReports: https://github.com/ropensci/lightr/issues
 License: GPL (>=2)
 Encoding: UTF-8
 LazyData: true
