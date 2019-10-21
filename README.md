@@ -37,7 +37,9 @@ functions:
 
 ```r
 # Get a data.frame containing all useful metadata from spectra in a folder
-lr_get_metadata(where = "inst/testdata", ext = "ProcSpec")
+lr_get_metadata(where = system.file("testdata/procspec_files" , 
+                                    package = "lightr"), 
+                ext = "ProcSpec")
 ```
 
 and
@@ -45,7 +47,8 @@ and
 ```r
 # Get a single dataframe where the first column contains the wavelengths and 
 # the next columns contain a spectra each (pavo's rspec class)
-lr_get_spec(where = "inst/testdata", ext = "ProcSpec")
+lr_get_spec(where = "isystem.file("testdata/procspec_files" , package = "lightr")e
+            t = "ProcSpec")
 ```
 
 `lr_get_spec()` returns a dataframe that is compatible with [`pavo`] custom S3
@@ -69,7 +72,9 @@ In this case, you can run:
 ```r
 # Convert every single ProcSpec file to a csv file with the same name and 
 # location
-lr_convert_tocsv(where = "inst/testdata", ext = "ProcSpec")
+lr_convert_tocsv(where = "isystem.file("testdata/procspec_files" , 
+                                     package = "lightr")ex
+                 t = "ProcSpec")
 ```
 
 ## ✔ Supported file formats
