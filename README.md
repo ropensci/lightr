@@ -47,7 +47,7 @@ and
 ```r
 # Get a single dataframe where the first column contains the wavelengths and 
 # the next columns contain a spectra each (pavo's rspec class)
-lr_get_spec(where = "system.file("testdata/procspec_files", package = "lightr"),
+lr_get_spec(where = system.file("testdata/procspec_files", package = "lightr"),
             ext = "ProcSpec")
 ```
 
@@ -72,7 +72,7 @@ In this case, you can run:
 ```r
 # Convert every single ProcSpec file to a csv file with the same name and 
 # location
-lr_convert_tocsv(where = "system.file("testdata/procspec_files" , 
+lr_convert_tocsv(where = system.file("testdata/procspec_files", 
                                       package = "lightr"),
                  ext = "ProcSpec")
 ```
