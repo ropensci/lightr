@@ -1,6 +1,6 @@
 Package: lightr
 Title: Read Spectrometric Data in R
-Version: 0.0.1
+Version: 0.1
 Authors@R: c(
     person("Hugo", "Gruson", role = c("cre", "aut"),
     email = "hugo.gruson+R@normalesup.org",
@@ -12,7 +12,7 @@ Authors@R: c(
     )
 Description: Parse various UV-VIS reflectance/transmittance/absorbance spectra
     file formats to extract spectral data and metadata.
-    This package has been peer-reviewed by rOpenSci (v. 0.0.1).
+    This package has been peer-reviewed by rOpenSci (v. 0.1).
 Imports:
     pbmcapply,
     xml2 (>= 1.0.0)
