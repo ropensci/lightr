@@ -8,13 +8,14 @@
 \description{
 Parse various UV-VIS reflectance/transmittance/absorbance spectra
     file formats to extract spectral data and metadata.
+    This package has been peer-reviewed by rOpenSci (v. 0.1).
 }
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://bisaloo.github.io/lightr}
-  \item \url{https://github.com/Bisaloo/lightr}
-  \item Report bugs at \url{https://github.com/Bisaloo/lightr/issues}
+  \item \url{https://docs.ropensci.org/lightr}
+  \item \url{https://github.com/ropensci/lightr}
+  \item Report bugs at \url{https://github.com/ropensci/lightr/issues}
 }
 
 }
