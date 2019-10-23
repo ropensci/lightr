@@ -1,5 +1,5 @@
 ---
-title: "Batch import with get_spec() and get_metadata()"
+title: "Batch import with lr_get_spec() and lr_get_metadata()"
 author: "Hugo Gruson"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
