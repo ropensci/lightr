@@ -32,7 +32,7 @@ arctica*](https://en.wikipedia.org/wiki/Atlantic_puffin). This data was
 collected by Dr Claire Doutrelant, using an OceanOptics spectrometer.
 
 ```{r, fig.cap="Atlantic puffin close up, by user john-289283 from pexels.com", out.width='100%'}
-knitr::include_graphics("atlantic-puffin-close-up.jpg")
+knitr::include_graphics("puffin-small.jpg")
 ```
 
 # Comparison of outputs
