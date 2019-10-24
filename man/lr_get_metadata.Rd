@@ -65,5 +65,5 @@ lr_get_metadata(system.file("testdata", package = "lightr"),
 \references{
 White TE, Dalrymple RL, Noble DWA, O'Hanlon JC, Zurek DB,
 Umbers KDL. Reproducible research in the study of biological coloration.
-Animal Behaviour. 2015 Aug 1;106:51–7 (\doi{10.1016/j.anbehav.2015.05.007}).
+Animal Behaviour. 2015 Aug 1;106:51-7 (\doi{10.1016/j.anbehav.2015.05.007}).
 }
