@@ -4,7 +4,7 @@
 [![Travis build status](https://travis-ci.org/ropensci/lightr.svg?branch=master)](https://travis-ci.org/ropensci/lightr)
 [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/ropensci/lightr?branch=master&svg=true)](https://ci.appveyor.com/project/ropensci/lightr)
 [![Coverage status](https://codecov.io/gh/ropensci/lightr/branch/master/graph/badge.svg)](https://codecov.io/github/ropensci/lightr?branch=master)
-[![Under review at rOpenSci](https://badges.ropensci.org/267_status.svg)](https://github.com/ropensci/software-review/issues/267)
+[![peer-review](https://badges.ropensci.org/267_status.svg)](https://github.com/ropensci/software-review/issues/267)
 
 There is no standard file format for spectrometry data and different scientific
 instrumentation companies use wildly different formats to store spectral data.
