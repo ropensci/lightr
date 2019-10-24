@@ -30,7 +30,7 @@ bibliography: lightr.bib
 Living organisms wildly differ in their ability to see colours [@Osorio2008]. 
 For this reason, colour science relies on the use of objective measurements of
 reflectance, transmittance or aborbance spectra rather than human vision
-[@Bennett1994;@Cuthill1999;@Eaton2005]. These spectra ara then used in vision
+[@Bennett1994;@Cuthill1999;@Eaton2005]. These spectra are then used in vision
 models which allow scientists to predict how a given object is seen through the
 eyes of a given species (e.g. how a male bird is seen by a potential mate).
 
