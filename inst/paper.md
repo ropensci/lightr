@@ -15,11 +15,11 @@ authors:
     orcid: "0000-0002-7563-9795"
     affiliation: 3
 affiliations:
-  - name: Centre d'Écologie Fonctionnelle et Évolutive, Montpellier
+  - name: CEFE, University Montpellier, CNRS, University Paul Valery Montpellier 3, EPHE, IRD, Montpellier, France
     index: 1
-  - name: School of Life and Environmental Sciences, University of Sidney
+  - name: School of Life and Environmental Sciences, University of Sidney, Sidney, NSW, Australia
     index: 2
-  - name: Columbia University
+  - name: Department of Ecology, Evolution and Environmental Biology, Columbia University, New York, NY
     index: 3
 date: "November 28, 2018"
 bibliography: lightr.bib
