@@ -41,7 +41,7 @@ lr_parse_ttt <- function(filename) {
                 dark_average, white_average, scope_average,
                 dark_boxcar, white_boxcar, scope_boxcar)
 
-  data_ind <- grep("^([[:digit:]]|\\.|;)+$", content)
+  data_ind <- grep("^([[:digit:];.-])+$", content)
   data <- strsplit(content[data_ind], ";")
   data <- do.call(rbind, data)
 
