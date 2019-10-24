@@ -27,26 +27,28 @@ bibliography: lightr.bib
 
 # Summary
 
-Living organisms wildly differ in their ability to see colours. For this reason,
-colour science relies on the use of objective measurements of reflectance,
-transmittance or aborbance spectra rather than human vision [@Bennett1994;
-@Cuthill1999;@Eaton2005].
+Living organisms wildly differ in their ability to see colours [@Osorio2008]. 
+For this reason, colour science relies on the use of objective measurements of
+reflectance, transmittance or aborbance spectra rather than human vision
+[@Bennett1994;@Cuthill1999;@Eaton2005]. These spectra ara then used in vision
+models which allow scientists to predict how a given object is seen through the
+eyes of a given species (e.g. how a male bird is seen by a potential mate).
 
-Spectrometers record the amount of captured photons at different wavelengths 
-(usually between 300-700 nm for colour science). However, there is no standard 
-file format for spectrometry data and different scientific instrumentation 
-companies use wildly different formats to store spectral data. Vendors 
-proprietary software sometimes have an option to convert those formats into
-human readable files such as `.csv` but such softwares are often expensive and
-they discard most metadata in the process. Yet, those metadata are critical
-to ensure reproducibility of the measurements, and ultimately of the scientific
-findings [@White2015].
+Spectrometers record the amount of captured photons at different wavelengths
+(usually between 300-700 nm for colour science, as many species are sensitive to
+ultraviolet radiations). However, there is no standard file format for
+spectrometry data and different scientific instrumentation companies use wildly
+different formats to store spectral data. Vendors proprietary software sometimes
+have an option to convert those formats into human readable files such as `.csv`
+but such softwares are often expensive and they discard most metadata in the
+process. Yet, those metadata are critical to ensure reproducibility of the
+measurements, and ultimately of the scientific findings [@White2015].
 
 In this article, we present `lightr`, an R package which aims at offering a
 unified user-friendly interface for users to read reflectance, transmittance, 
 absorbance spectra files from various formats in a single line of code. 
 Additionally, it provides for the first time a fully free and open source
-solution to read proprietary spectra file formats on all systems.
+solution to read proprietary spectra file formats on all operating systems.
 
 `lightr` started as a fork from the popular R package `pavo`, which provides
 a large suite of colour analysis tools [@Maia2013;@Maia2019].
@@ -88,6 +90,6 @@ you use `lightr` to convert them into your preferred file format (such as
 # Acknowledgements
 
 We thank the two rOpenSci reviewers, Jeroen Ooms and Karthik Ram, for their 
-helpful feedback which improve this package.
+helpful feedback which improved this package.
 
 # References
