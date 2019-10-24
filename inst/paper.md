@@ -21,6 +21,7 @@ affiliations:
     index: 2
   - name: Department of Ecology, Evolution and Environmental Biology, Columbia University, New York, NY
     index: 3
+date: "October 24, 2019"
 bibliography: lightr.bib
 ---
 
