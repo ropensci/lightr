@@ -8,7 +8,7 @@
 #'
 #' @references McDonald RS, Wilks PA. JCAMP-DX: A Standard Form for Exchange of
 #' Infrared Spectra in Computer Readable Form. Applied Spectroscopy.
-#' 1988;42(1):151‑62.
+#' 1988;42(1):151-62.
 #'
 #' @examples
 #' lr_parse_jdx(system.file("testdata", "OceanOptics.jdx", package = "lightr"))
