@@ -34,8 +34,9 @@
 #' Animal Behaviour. 2015 Aug 1;106:51-7 (\doi{10.1016/j.anbehav.2015.05.007}).
 #'
 #' @examples
-#' lr_get_metadata(system.file("testdata", package = "lightr"),
-#'                 ext = "ProcSpec", subdir = TRUE)
+#' lr_get_metadata(system.file("testdata", "procspec_files",
+#'                             package = "lightr"),
+#'                 ext = "ProcSpec")
 
 lr_get_metadata <- function(where = getwd(), ext = "ProcSpec", sep = NULL,
                          subdir = FALSE, subdir.names = FALSE,
