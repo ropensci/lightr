@@ -28,6 +28,9 @@ test_that("OceanOptics", {
 
   expect_length(lr_parse_jaz(test.file("UK5.txt")),
                 2)
+
+  expect_length(lr_parse_jaz(test.file("OO_comma.txt")),
+                2)
 })
 
 test_that("Avantes", {

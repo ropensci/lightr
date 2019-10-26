@@ -75,6 +75,9 @@ lr_parse_jaz <- function(filename) {
   data <- content[seq(ifelse(has_header, data_start+2, data_start+1),
                       data_end-1)]
 
+  # Depending on the user locale, some files might use ',' as a decimal sep
+  data <- gsub(",", ".", data)
+
   data <- do.call(rbind, strsplit(data, "\t"))
 
   if (has_header) {
