@@ -31,7 +31,7 @@
 #' @importFrom stats approx
 #'
 #' @examples
-#' lr_get_spec(system.file("testdata", package = "lightr"), lim = c(400, 900))
+#' lr_get_spec(system.file("testdata", package = "lightr"), ext = "jdx")
 #'
 lr_get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
                      decimal = ".", sep = NULL, subdir = FALSE,
