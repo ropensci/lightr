@@ -46,6 +46,6 @@ Finds and imports reflectance/transmittance/absorbance data from spectra
 files in a given location.
 }
 \examples{
-lr_get_spec(system.file("testdata", package = "lightr"), lim = c(400, 900))
+lr_get_spec(system.file("testdata", package = "lightr"), ext = "jdx")
 
 }
