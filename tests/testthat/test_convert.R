@@ -20,7 +20,7 @@ test_that("Convert all", {
 
   exts <- c("TRM", "ttt", "jdx", "jaz", "JazIrrad", "txt", "Transmission")
 
-  converted_files <- lr_convert_tocsv(tdir, ext = exts)
+  converted_files <- lr_convert_tocsv(tdir, ext = exts, sep = ",")
 
   input_files <- tools::list_files_with_exts(tdir, exts)
 
