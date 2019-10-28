@@ -5,6 +5,9 @@ r:
   - release
 os:
   - linux
+env:
+  - _R_CHECK_LENGTH_1_CONDITION_=verbose
+  - _R_CHECK_LENGTH_1_LOGIC2_=verbose
 matrix:
   include:
     - r: release
