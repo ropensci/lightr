@@ -32,7 +32,9 @@ For this reason, colour science relies on the use of objective measurements of
 reflectance, transmittance or aborbance spectra rather than human vision
 [@Bennett1994;@Cuthill1999;@Eaton2005]. These spectra are then used in vision
 models which allow scientists to predict how a given object is seen through the
-eyes of a given species (e.g. how a male bird is seen by a potential mate).
+eyes of a given species (e.g. how a male bird is seen by a potential mate). This
+is the basis of all studies in for example the study of the evolution of colours
+of animals and plants as communication signals
 
 Spectrometers record the amount of captured photons at different wavelengths
 (usually between 300-700 nm for colour science, as many species are sensitive to
@@ -43,10 +45,10 @@ jeopardises scientific reproducibility [@Peng2009] as other researchers might
 not have the (paid) tools to open these files, and it makes us dependent on a
 third-party which might vanish anytime, leaving a trove of scientific data
 impossible to access. Vendors proprietary software sometimes have an option to
-convert those formats into human readable files such as `.csv` but such
-softwares are often expensive and they discard most metadata in the process.
-Yet, those metadata are critical to ensure reproducibility of the measurements,
-and ultimately of the scientific findings [@White2015].
+convert those formats into human readable files such as `csv` but such softwares
+are often expensive and they discard most metadata in the process. Yet, those
+metadata are critical to ensure reproducibility of the measurements, and
+ultimately of the scientific findings [@White2015].
 
 In this article, we present `lightr`, an R package which aims at offering a
 unified user-friendly interface for users to read reflectance, transmittance, 
@@ -54,8 +56,8 @@ absorbance spectra files from various formats in a single line of code.
 Additionally, it provides for the first time a fully free and open source
 solution to read proprietary spectra file formats on all operating systems.
 
-`lightr` started as a fork from the popular R package `pavo`, which provides
-a large suite of colour analysis tools [@Maia2013;@Maia2019].
+`lightr` started as a fork from the popular R package `pavo`, which provides a
+large suite of colour analysis tools [@Maia2013;@Maia2019].
 
 # Package design
 
@@ -74,7 +76,15 @@ derived from `csv` or `tsv`. Specialized parsers should usually be preferred to
 files for a single study can quickly increase. To ensure easy and efficient 
 processing of those files, `lightr` also provides three high-levels functions
 that can recursively find files and process them with a parallelized loop using
-the `parallel` R package.
+the `parallel` R package: `lr_get_spec()` and `lr_get_metadata()` which import
+respectively spectral data and metadata as `data.frame` in R, as well as 
+`lr_convert_tocsv()` which convert all spectra files in a given folder as `csv`,
+which the same filename (minus the file extension).
+
+```
+library(lightr)
+lr_convert_tocsv(where = "yourfolder", ext = "ProcSpec")
+```
 
 # Recommended workflow
 
@@ -90,6 +100,51 @@ Instead, we recommend you keep the files in the proprietary format (such as
 Avantes `ABS`, `ROH` and `TRM`, or OceanOptics `ProcSpec` and `jdx`) and that
 you use `lightr` to convert them into your preferred file format (such as 
 `csv`). 
+
+# Usage and future directions
+
+`lightr` can serve as a basis to colour analysis R packages to deal with the
+file import step. Most of them can indeed only read a limited variety of file
+formats currently. It is for example planned to become a dependency to the 
+vision model package `pavo`. For example:
+
+```
+library(lightr)
+specs <- lr_get_spec(where = "yourfolder", ext = "ProcSpec")
+
+library(pavo)
+plot(specs, col = spec2rgb(specs))
+```
+
+![](specs_joss.pdf)
+
+```
+summary(specs, subset = TRUE)
+```
+
+|       B2|       S8|  H1|
+|--------:|--------:|---:|
+|  9.31682| 1.915661| 561|
+| 11.26643| 2.156246| 551|
+| 12.78053| 2.128401| 557|
+| 13.41558| 2.123076| 551|
+| 13.44852| 2.118632| 562|
+| 12.14774| 2.210931| 557|
+| 11.76633| 2.076845| 547|
+| 10.62519| 2.204452| 551|
+| 10.14280| 2.272771| 547|
+
+The first column indicates the brightness (in % relative to a white reference),
+the second is the saturation (also called spectral purity) and the last contains
+the hue (in nm).
+
+`lightr` can also prove useful for developers of 
+other programming languages, providing a free and open source template which can
+easily be translated.
+We also plan on providing a web application based on shiny 
+(<https://github.com/rstudio/shiny>), which uses `lightr` in the background, and
+provides users with limited R or technical knowledge with a simple and 
+convenient way to convert all their proprietary files to `csv`.
 
 # Acknowledgements
 
