@@ -38,11 +38,15 @@ Spectrometers record the amount of captured photons at different wavelengths
 (usually between 300-700 nm for colour science, as many species are sensitive to
 ultraviolet radiations). However, there is no standard file format for
 spectrometry data and different scientific instrumentation companies use wildly
-different formats to store spectral data. Vendors proprietary software sometimes
-have an option to convert those formats into human readable files such as `.csv`
-but such softwares are often expensive and they discard most metadata in the
-process. Yet, those metadata are critical to ensure reproducibility of the
-measurements, and ultimately of the scientific findings [@White2015].
+different formats to store spectral data. This use of non-standard file formats
+jeopardises scientific reproducibility [@Peng2009] as other researchers might
+not have the (paid) tools to open these files, and it makes us dependent on a
+third-party which might vanish anytime, leaving a trove of scientific data
+impossible to access. Vendors proprietary software sometimes have an option to
+convert those formats into human readable files such as `.csv` but such
+softwares are often expensive and they discard most metadata in the process.
+Yet, those metadata are critical to ensure reproducibility of the measurements,
+and ultimately of the scientific findings [@White2015].
 
 In this article, we present `lightr`, an R package which aims at offering a
 unified user-friendly interface for users to read reflectance, transmittance, 
