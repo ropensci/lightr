@@ -9,3 +9,5 @@
 ^\.Rproj\.user$
 ^LICENSE\.md$
 ^cran-comments\.md$
+^inst/specs_joss.pdf$
+^inst/paper.md$
