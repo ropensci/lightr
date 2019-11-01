@@ -105,8 +105,9 @@ you use `lightr` to convert them into your preferred file format (such as
 
 `lightr` can serve as a basis for colour analysis R packages to deal with the
 file import step. Most of them can only read a limited variety of file
-formats currently. It is for example planned to become a dependency to the 
-vision model package `pavo`. For example:
+formats currently. Future versions of `pavo`, for example, will include `lightr`
+as a dependency. Below is an illustration of a workflow where `lightr` is used
+to import the spectral data, which is then analysed with `pavo`:
 
 ```
 library(lightr)
@@ -149,6 +150,7 @@ convenient way to convert all their proprietary files to `csv`.
 # Acknowledgements
 
 We thank the two rOpenSci reviewers, Jeroen Ooms and Karthik Ram, for their 
-helpful feedback that improved this package.
+helpful feedback that improved this package, as well as JOSS editor Daniel S. 
+Katz for his comments on this manuscript.
 
 # References
