@@ -27,14 +27,14 @@ bibliography: lightr.bib
 
 # Summary
 
-Living organisms wildly differ in their ability to see colours [@Osorio2008]. 
+Living organisms wildly differ in their ability to see colours [@Osorio2008].
 For this reason, colour science relies on the use of objective measurements of
 reflectance, transmittance, or aborbance spectra rather than human vision
 [@Bennett1994;@Cuthill1999;@Eaton2005]. These spectra are then used in vision
 models that allow scientists to predict how a given object is seen through the
-eyes of a given species (e.g., how a male bird is seen by a potential mate). This
-is the basis of all studies in for example the study of the evolution of colours
-of animals and plants as communication signals
+eyes of a given species (e.g., how a male bird is seen by a potential mate).
+This is the basis of all studies in for example the study of the evolution of
+colours of animals and plants as communication signals
 
 Spectrometers record the amount of captured photons at different wavelengths
 (usually between 300-700 nm for colour science, as many species are sensitive to
@@ -51,8 +51,8 @@ metadata are critical to ensure reproducibility of the measurements, and
 ultimately of the scientific findings [@White2015].
 
 In this article, we present `lightr`, an R package that aims at offering a
-unified user-friendly interface for users to read reflectance, transmittance, and
-absorbance spectra files from various formats in a single line of code. 
+unified user-friendly interface for users to read reflectance, transmittance,
+and absorbance spectra files from various formats in a single line of code.
 Additionally, it provides for the first time a fully free and open source
 solution to read proprietary spectra file formats on all operating systems.
 
@@ -73,13 +73,13 @@ derived from `csv` or `tsv`. Specialized parsers should usually be preferred to
 `lr_parse_generic()` because `lr_parse_generic()` is not able to parse metadata.
 
 * Because spectrometers store each measurement in a separate file, the number of
-files for a single study can quickly increase. To ensure easy and efficient 
+files for a single study can quickly increase. To ensure easy and efficient
 processing of those files, `lightr` also provides three high-levels functions
 that can recursively find files and process them with a parallelized loop using
 the `parallel` R package: `lr_get_spec()` and `lr_get_metadata()`, which import
-respectively spectral data and metadata as `data.frame` in R, as well as 
-`lr_convert_tocsv()`, which converts all spectra files in a given folder as `csv`,
-with the same filename (minus the file extension).
+respectively spectral data and metadata as `data.frame` in R, as well as
+`lr_convert_tocsv()`, which converts all spectra files in a given folder as
+`csv`, with the same filename (minus the file extension).
 
 ```
 library(lightr)
