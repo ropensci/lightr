@@ -9,7 +9,7 @@ authors:
     orcid: "0000-0001-8493-9450"
     affiliation: 1
   - name: Thomas White
-    orcid: "0000-0002-4094-1476"
+    orcid: "0000-0002-3976-1734"
     affiliation: 2
   - name: Rafael Maia
     orcid: "0000-0002-7563-9795"

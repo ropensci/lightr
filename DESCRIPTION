@@ -8,7 +8,7 @@ Authors@R: c(
     person("Rafael", "Maia", role = "aut",
     comment = c(ORCID = "0000-0002-7563-9795")),
     person("Thomas", "White", role = "aut",
-    comment = c(ORCID = "0000-0001-8493-9450"))
+    comment = c(ORCID = "0000-0002-3976-1734"))
     )
 Description: Parse various UV-VIS reflectance/transmittance/absorbance spectra
     file formats to extract spectral data and metadata.
