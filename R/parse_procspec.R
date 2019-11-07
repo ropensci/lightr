@@ -83,7 +83,7 @@ lr_parse_procspec <- function(filename) {
   specdf <- cbind(wl, dark, white, scope, processed)
 
   author <- xml_text(xml_find_first(xml_source, ".//userName"))
-  savetime <- NA # FIXME
+  savetime <- xml_text(xml_find_first(xml_source, "//milliTime"))
   specclass <- xml_text(xml_find_first(xml_source, ".//spectrometerClass"))
   specmodel <- gsub(".+\\.([[:alnum:]]+)$", "\\1", specclass)
   specID <- xml_text(xml_find_first(xml_source, ".//spectrometerSerialNumber"))
