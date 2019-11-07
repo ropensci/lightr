@@ -34,14 +34,11 @@ lr_parse_procspec <- function(filename) {
   # OceanOptics softwares produce badly encoded characters. The only fix is to
   # strip them before feeding the xml file to read_xml.
   plain_text <- scan(data_file, what = character(), sep = "\n", quiet = TRUE)
-  clean_text <- vapply(plain_text, function(line) {
-    # Convert non-ASCII character to ""
-    line <- iconv(line, to = "ASCII", sub = "")
-    # Remove the extra malformed character
-    line <- gsub("\\\001", "", line)
 
-    return(line)
-  }, character(1))
+  # Convert to ASCII
+  clean_text <- iconv(plain_text, to = "ASCII", sub = "")
+  # Remove extra broken character
+  clean_text <- gsub("\\\001", "", clean_text)
 
   clean_text <- paste(clean_text, collapse = "\n")
 
