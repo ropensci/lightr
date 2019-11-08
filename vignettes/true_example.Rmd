@@ -55,8 +55,8 @@ We can visually inspect these two file using the dedicated S3 function
 
 ```{r, fig.show='hold'}
 library(pavo)
-plot(raw_files, col = rep(1:3, each = 2), main = "Raw ProSpec files")
-plot(txt_files, col = rep(1:3, each = 2), main = "Exported txt files")
+plot(raw_files, main = "Raw ProSpec files")
+plot(txt_files, main = "Exported txt files")
 ```
 
 Spectra imported by `lightr` and converted by SpectraSuite look pretty similar 
@@ -78,8 +78,7 @@ of the beak for two individuals, with `pavo::summary.rspec()` function (after
 smoothing with `pavo::procspec()`):
 
 ```{r}
-beak <- raw_files[, c(1, grep("BR", colnames(raw_files)))]
-beak <- procspec(beak, opt = "smooth")
+beak <- procspec(raw_files, opt = "smooth")
 summary(beak, subset = c("B2", "H5"))
 ```
 
