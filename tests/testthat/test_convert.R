@@ -88,9 +88,14 @@ test_that("Convert warn/error", {
 
   # Missing
   missing <- expression({
-    lr_convert_tocsv(ext = "missing")
+    lr_convert_tocsv(where = getwd(), ext = "missing")
   })
   expect_warning(eval(missing), "No files found")
+
+  location <- expression({
+    lr_convert_tocsv()
+  })
+  expect_warning(eval(location), "Please provide a valid location")
 
   expect_null(suppressWarnings(eval(missing)))
 
