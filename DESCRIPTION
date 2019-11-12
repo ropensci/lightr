@@ -8,11 +8,13 @@ Authors@R: c(
     person("Rafael", "Maia", role = "aut",
     comment = c(ORCID = "0000-0002-7563-9795")),
     person("Thomas", "White", role = "aut",
-    comment = c(ORCID = "0000-0002-3976-1734"))
+    comment = c(ORCID = "0000-0002-3976-1734")),
+    person("Kotya", "Karapetyan", role = "cph",
+    comment = "Author of the MATLAB script to read Avantes binary files (CC-BY)")
     )
-Description: Parse various UV-VIS reflectance/transmittance/absorbance spectra
-    file formats to extract spectral data and metadata (Gruson, White & Maia
-    2019 <doi:10.21105/joss.01857>).
+Description: Parse various reflectance/transmittance/absorbance spectra file
+    formats to extract spectral data and metadata, as described in Gruson, White
+    & Maia (2019) <doi:10.21105/joss.01857>.
     This package has been peer-reviewed by rOpenSci (v. 0.1).
 Depends:
     R (>= 3.5.0)
