@@ -4,7 +4,7 @@
 \alias{lr_convert_tocsv}
 \title{Convert spectral data files to csv files}
 \usage{
-lr_convert_tocsv(where = getwd(), ext = "txt", decimal = ".",
+lr_convert_tocsv(where = NULL, ext = "txt", decimal = ".",
   sep = NULL, subdir = FALSE, cores = getOption("mc.cores", 2L),
   ignore.case = TRUE, overwrite = FALSE)
 }

@@ -4,10 +4,11 @@
 \name{lightr-package}
 \alias{lightr}
 \alias{lightr-package}
-\title{lightr: Read Spectrometric Data in R}
+\title{lightr: Read Spectrometric Data and Metadata}
 \description{
-Parse various UV-VIS reflectance/transmittance/absorbance spectra
-    file formats to extract spectral data and metadata.
+Parse various reflectance/transmittance/absorbance spectra file
+    formats to extract spectral data and metadata, as described in Gruson, White
+    & Maia (2019) <doi:10.21105/joss.01857>.
     This package has been peer-reviewed by rOpenSci (v. 0.1).
 }
 \seealso{
@@ -25,7 +26,12 @@ Useful links:
 Authors:
 \itemize{
   \item Rafael Maia (0000-0002-7563-9795)
-  \item Thomas White (0000-0001-8493-9450)
+  \item Thomas White (0000-0002-3976-1734)
+}
+
+Other contributors:
+\itemize{
+  \item Kotya Karapetyan (Author of the MATLAB script to read Avantes binary files (CC-BY)) [copyright holder]
 }
 
 }
