@@ -18,10 +18,16 @@
 #' @importFrom utils write.csv
 #'
 #' @export
-lr_convert_tocsv <- function(where = getwd(), ext = "txt", decimal = ".",
-                          sep = NULL, subdir = FALSE,
-                          cores = getOption("mc.cores", 2L), ignore.case = TRUE,
-                          overwrite = FALSE) {
+lr_convert_tocsv <- function(where = NULL, ext = "txt", decimal = ".",
+                             sep = NULL, subdir = FALSE,
+                             cores = getOption("mc.cores", 2L),
+                             ignore.case = TRUE, overwrite = FALSE) {
+
+  if (is.null(where)) {
+    warning("Please provide a valid location to read and write the files.",
+            call. = FALSE)
+    return(NULL)
+  }
 
   extension <- paste0("\\.", ext, "$", collapse = "|")
 
