@@ -11,3 +11,9 @@
 0 errors | 0 warnings | 1 note
 
 * This is a new release.
+
+* Following CRAN feedback:
+  - the default value for the 'where' argument of lr_convert_tocsv() has been
+    removed.
+  - the DESCRIPTION has been updated to remove acronyms, format the reference
+    as requested and add a copyright holder.
