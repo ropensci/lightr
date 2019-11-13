@@ -21,12 +21,12 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Hugo Gruson \email{hugo.gruson+R@normalesup.org} (0000-0002-4094-1476)
+\strong{Maintainer}: Hugo Gruson \email{hugo.gruson+R@normalesup.org} (\href{https://orcid.org/0000-0002-4094-1476}{ORCID})
 
 Authors:
 \itemize{
-  \item Rafael Maia (0000-0002-7563-9795)
-  \item Thomas White (0000-0002-3976-1734)
+  \item Rafael Maia (\href{https://orcid.org/0000-0002-7563-9795}{ORCID})
+  \item Thomas White (\href{https://orcid.org/0000-0002-3976-1734}{ORCID})
 }
 
 Other contributors:

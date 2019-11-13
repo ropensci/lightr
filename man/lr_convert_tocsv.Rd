@@ -4,9 +4,16 @@
 \alias{lr_convert_tocsv}
 \title{Convert spectral data files to csv files}
 \usage{
-lr_convert_tocsv(where = NULL, ext = "txt", decimal = ".",
-  sep = NULL, subdir = FALSE, cores = getOption("mc.cores", 2L),
-  ignore.case = TRUE, overwrite = FALSE)
+lr_convert_tocsv(
+  where = NULL,
+  ext = "txt",
+  decimal = ".",
+  sep = NULL,
+  subdir = FALSE,
+  cores = getOption("mc.cores", 2L),
+  ignore.case = TRUE,
+  overwrite = FALSE
+)
 }
 \arguments{
 \item{where}{Folder in which files are located (defaults to current working

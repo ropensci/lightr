@@ -4,9 +4,15 @@
 \alias{lr_get_metadata}
 \title{Extract metadata from spectra files}
 \usage{
-lr_get_metadata(where = getwd(), ext = "ProcSpec", sep = NULL,
-  subdir = FALSE, subdir.names = FALSE, cores = getOption("mc.cores",
-  2L), ignore.case = TRUE)
+lr_get_metadata(
+  where = getwd(),
+  ext = "ProcSpec",
+  sep = NULL,
+  subdir = FALSE,
+  subdir.names = FALSE,
+  cores = getOption("mc.cores", 2L),
+  ignore.case = TRUE
+)
 }
 \arguments{
 \item{where}{Folder in which files are located (defaults to current working

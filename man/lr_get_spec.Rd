@@ -4,9 +4,17 @@
 \alias{lr_get_spec}
 \title{Extract spectral data from spectra files}
 \usage{
-lr_get_spec(where = getwd(), ext = "txt", lim = c(300, 700),
-  decimal = ".", sep = NULL, subdir = FALSE, subdir.names = FALSE,
-  cores = getOption("mc.cores", 2L), ignore.case = TRUE)
+lr_get_spec(
+  where = getwd(),
+  ext = "txt",
+  lim = c(300, 700),
+  decimal = ".",
+  sep = NULL,
+  subdir = FALSE,
+  subdir.names = FALSE,
+  cores = getOption("mc.cores", 2L),
+  ignore.case = TRUE
+)
 }
 \arguments{
 \item{where}{Folder in which files are located (defaults to current working
