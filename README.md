@@ -23,13 +23,21 @@ formats in a single line of code.
 Additionally, it provides for the first time a fully free and open source 
 solution to read proprietary spectra file formats on all systems.
 
-## 🔧 Installation
+## 🔧 Install
 
 This package is not yet published on CRAN and must be installed via GitHub:
 
 ```r
 # install.packages("remotes")
 remotes::install_github("ropensci/lightr")
+```
+
+If you're using Windows and you want to use multiple cores for file import, you
+can install the development version from the `future` branch:
+
+```r
+# install.package("remotes")
+remotes::install_github("ropensci/lightr@future")
 ```
 
 ## 💻 Usage
