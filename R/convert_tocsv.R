@@ -16,12 +16,18 @@
 #'
 #' @importFrom tools file_path_sans_ext
 #' @importFrom utils write.csv
+#' @importFrom future.apply future_lapply
+#' @importFrom progressr with_progress progressor
 #'
 #' @export
 lr_convert_tocsv <- function(where = NULL, ext = "txt", decimal = ".",
                              sep = NULL, subdir = FALSE,
                              cores = getOption("mc.cores", 2L),
                              ignore.case = TRUE, overwrite = FALSE) {
+
+  if (!is.null(cores)) {
+    warning("'cores' argument is deprecated.")
+  }
 
   if (is.null(where)) {
     warning("Please provide a valid location to read and write the files.",
@@ -45,18 +51,17 @@ lr_convert_tocsv <- function(where = NULL, ext = "txt", decimal = ".",
 
   files <- file.path(where, file_names)
 
-  if (cores > 1 && .Platform$OS.type == "windows") {
-    cores <- 1L
-    message('Parallel processing not available in Windows; "cores" set to 1.\n')
-  }
-
   message(nb_files, " files found")
 
-  tmp <- pbmclapply(files, function(x)
-    tryCatch(spec2csv_single(x, decimal = decimal, sep = sep,
-                             overwrite = overwrite),
-             error = function(e) NULL),
-    mc.cores = cores)
+  with_progress({
+    p <- progressor(along = files)
+    tmp <- future_lapply(files, function(x) {
+      p()
+      tryCatch(spec2csv_single(x, decimal = decimal, sep = sep,
+                               overwrite = overwrite),
+               error = function(e) NULL)
+    })
+  })
 
   whichfailed <- which(vapply(tmp, is.null, logical(1)))
 

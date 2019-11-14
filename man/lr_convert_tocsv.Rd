@@ -32,8 +32,7 @@ default (which are: tab, space, and ";")}
 \item{subdir}{Should subdirectories within the \code{where} folder be included in
 the search? (defaults to \code{FALSE}).}
 
-\item{cores}{Number of cores to be used. If greater than 1, import will use
-parallel processing (not available in Windows).}
+\item{cores}{deprecated}
 
 \item{ignore.case}{Should the extension search be case insensitive? (defaults
 to \code{TRUE})}
