@@ -16,8 +16,7 @@
 #' the search? (defaults to `FALSE`).
 #' @param subdir.names Should subdirectory path be included in the name of the
 #' spectra? (defaults to `FALSE`).
-#' @param cores Number of cores to be used. If greater than 1, import will use
-#' parallel processing (not available in Windows).
+#' @param cores deprecated
 #' @param ignore.case Should the extension search be case insensitive? (defaults
 #' to `TRUE`)
 #' @param interpolate Boolean indicated whether spectral data should be
@@ -29,9 +28,10 @@
 #'
 #' @export
 #'
-#' @importFrom pbmcapply pbmclapply
 #' @importFrom tools file_path_sans_ext
 #' @importFrom stats approx
+#' @importFrom future.apply future_lapply
+#' @importFrom progressr with_progress progressor
 #'
 #' @seealso [pavo::getspec()]
 #'
@@ -39,9 +39,13 @@
 #' lr_get_spec(system.file("testdata", package = "lightr"), ext = "jdx")
 #'
 lr_get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
-                     decimal = ".", sep = NULL, subdir = FALSE,
-                     subdir.names = FALSE, cores = getOption("mc.cores", 2L),
-                     ignore.case = TRUE, interpolate = TRUE) {
+                        decimal = ".", sep = NULL, subdir = FALSE,
+                        subdir.names = FALSE, cores = NULL,
+                        ignore.case = TRUE, interpolate = TRUE) {
+
+  if (!is.null(cores)) {
+    warning("'cores' argument is deprecated.")
+  }
 
   extension <- paste0("\\.", ext, "$", collapse = "|")
 
@@ -71,11 +75,6 @@ lr_get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
 
   range <- seq(lim[1], lim[2])
 
-  if (cores > 1 && .Platform$OS.type == "windows") {
-    cores <- 1L
-    message('Parallel processing not available in Windows; "cores" set to 1.\n')
-  }
-
   message(nb_files, " files found; importing spectra:")
 
   if (!interpolate) {
@@ -95,10 +94,14 @@ lr_get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
     }
   }
 
-  tmp <- pbmclapply(files, function(x)
+  with_progress({
+  p <- progressor(along = files)
+  tmp <- future_lapply(files, function(x) {
+    p()
     tryCatch(gsp(x),
-             error = function(e) NULL
-    ), mc.cores = cores)
+             error = function(e) NULL)
+    })
+  })
 
   whichfailed <- which(vapply(tmp, is.null, logical(1)))
 

@@ -26,8 +26,9 @@
 #' `white_inttime`, `dark_inttime` and `sample_inttime` should be equal. The
 #' normalised data may be inaccurate otherwise.
 #'
-#' @importFrom pbmcapply pbmclapply
 #' @importFrom tools file_path_sans_ext
+#' @importFrom future.apply future_lapply
+#' @importFrom progressr with_progress progressor
 #'
 #' @references White TE, Dalrymple RL, Noble DWA, O'Hanlon JC, Zurek DB,
 #' Umbers KDL. Reproducible research in the study of biological coloration.
@@ -40,8 +41,12 @@
 
 lr_get_metadata <- function(where = getwd(), ext = "ProcSpec", sep = NULL,
                          subdir = FALSE, subdir.names = FALSE,
-                         cores = getOption("mc.cores", 2L),
+                         cores = NULL,
                          ignore.case = TRUE) {
+
+  if (!is.null(cores)) {
+    warning("'cores' argument is deprecated.")
+  }
 
   extension <- paste0("\\.", ext, "$", collapse = "|")
 
@@ -69,21 +74,20 @@ lr_get_metadata <- function(where = getwd(), ext = "ProcSpec", sep = NULL,
 
   specnames <- file_path_sans_ext(file_names)
 
-  if (cores > 1 && .Platform$OS.type == "windows") {
-    cores <- 1L
-    message('Parallel processing not available in Windows; "cores" set to 1.\n')
-  }
-
   gmd <- function(ff) {
 
     df <- dispatch_parser(ff, sep = sep)[[2]]
 
   }
 
-  tmp <- pbmclapply(files, function(x)
-    tryCatch(gmd(x),
-             error = function(e) NULL
-    ), mc.cores = cores)
+  with_progress({
+    p <- progressor(along = files)
+    tmp <- future_lapply(files, function(x) {
+      p()
+      tryCatch(gmd(x),
+               error = function(e) NULL)
+    })
+  })
 
   whichfailed <- which(vapply(tmp, is.null, logical(1)))
 

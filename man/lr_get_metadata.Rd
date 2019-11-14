@@ -10,7 +10,7 @@ lr_get_metadata(
   sep = NULL,
   subdir = FALSE,
   subdir.names = FALSE,
-  cores = getOption("mc.cores", 2L),
+  cores = NULL,
   ignore.case = TRUE
 )
 }
@@ -31,8 +31,7 @@ the search? (defaults to \code{FALSE}).}
 \item{subdir.names}{Should subdirectory path be included in the name of the
 spectra? (defaults to \code{FALSE}).}
 
-\item{cores}{Number of cores to be used. If greater than 1, import will use
-parallel processing (not available in Windows).}
+\item{cores}{deprecated}
 
 \item{ignore.case}{Should the extension search be case insensitive? (defaults
 to \code{TRUE})}
