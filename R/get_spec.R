@@ -7,8 +7,9 @@
 #'
 #' @param where Folder in which files are located (defaults to current working
 #' directory).
-#' @param ext File extension to be searched for, without the "."
-#' (defaults to `txt`).
+#' @param ext File extension to be searched for, without the "." (defaults to
+#' `txt`). You can also use a character vector to specify multiple file
+#' extensions.
 #' @param lim A vector with two numbers determining the wavelength limits to be
 #' considered (defaults to `c(300, 700)`).
 #' @param subdir Should subdirectories within the `where` folder be included in

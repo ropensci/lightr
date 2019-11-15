@@ -19,8 +19,9 @@ lr_convert_tocsv(
 \item{where}{Folder in which files are located (defaults to current working
 directory).}
 
-\item{ext}{File extension to be searched for, without the "."
-(defaults to \code{txt}).}
+\item{ext}{File extension to be searched for, without the "." (defaults to
+\code{txt}). You can also use a character vector to specify multiple file
+extensions.}
 
 \item{decimal}{Character to be used to identify decimal plates
 (defaults to \code{.}).}

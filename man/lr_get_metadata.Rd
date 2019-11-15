@@ -18,8 +18,9 @@ lr_get_metadata(
 \item{where}{Folder in which files are located (defaults to current working
 directory).}
 
-\item{ext}{File extension to be searched for, without the "."
-(defaults to \code{txt}).}
+\item{ext}{File extension to be searched for, without the "." (defaults to
+\code{txt}). You can also use a character vector to specify multiple file
+extensions.}
 
 \item{sep}{Column delimiting characters to be considered in addition to the
 default (which are: tab, space, and ";")}
