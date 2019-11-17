@@ -1,7 +1,10 @@
-# lightr 0.2
+# lightr 1.0
 
 ## New features and major changes
 
+* parallel processing now relies on the `future` package, which offers windows
+and high performance computing (HPC) environments support. The progress bar is
+produced by the `processr` package and can be customised as well.
 * `lr_parse_generic()` (and thus `lr_get_spec()`) now works with non-UTF8 files
 (this was a regression compared to pavo's `pavo::getspec()`).
 * `lr_get_spec()` now has a new `interpolate` argument to determine whether you
