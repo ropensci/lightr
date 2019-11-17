@@ -5,13 +5,13 @@
   ],
   "@type": "SoftwareSourceCode",
   "identifier": "lightr",
-  "description": "Parse various UV-VIS reflectance/transmittance/absorbance spectra\n    file formats to extract spectral data and metadata.",
-  "name": "lightr: Read Spectrometric Data in R",
-  "codeRepository": "https://github.com/Bisaloo/lightr",
-  "relatedLink": "https://bisaloo.github.io/lightr",
-  "issueTracker": "https://github.com/Bisaloo/lightr/issues",
+  "description": "Parse various reflectance/transmittance/absorbance spectra file\n    formats to extract spectral data and metadata, as described in Gruson, White\n    & Maia (2019) <doi:10.21105/joss.01857>.\n    This package has been peer-reviewed by rOpenSci (v. 0.1).",
+  "name": "lightr: Read Spectrometric Data and Metadata",
+  "codeRepository": "https://github.com/ropensci/lightr",
+  "relatedLink": ["https://bisaloo.github.io/lightr", "https://docs.ropensci.org/lightr"],
+  "issueTracker": "https://github.com/ropensci/lightr/issues",
   "license": "https://spdx.org/licenses/GPL-2.0",
-  "version": "0.0.1",
+  "version": "0.1",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -37,7 +37,7 @@
       "@type": "Person",
       "givenName": "Thomas",
       "familyName": "White",
-      "@id": "https://orcid.org/0000-0001-8493-9450"
+      "@id": "https://orcid.org/0000-0002-3976-1734"
     }
   ],
   "maintainer": [
@@ -115,6 +115,12 @@
   "softwareRequirements": [
     {
       "@type": "SoftwareApplication",
+      "identifier": "R",
+      "name": "R",
+      "version": ">= 3.5.0"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "pbmcapply",
       "name": "pbmcapply",
       "provider": {
@@ -140,7 +146,7 @@
     }
   ],
   "readme": "https://github.com/Bisaloo/lightr/blob/master/README.md",
-  "fileSize": "5290.071KB",
+  "fileSize": "2934.632KB",
   "contIntegration": [
     "https://travis-ci.org/Bisaloo/lightr",
     "https://ci.appveyor.com/project/Bisaloo/lightr",
@@ -158,6 +164,13 @@
     "file-import"
   ],
   "contributor": {},
-  "copyrightHolder": {},
-  "funder": {}
+  "copyrightHolder": [
+    {
+      "@type": "Person",
+      "givenName": "Kotya",
+      "familyName": "Karapetyan"
+    }
+  ],
+  "funder": {},
+  "releaseNotes": "https://github.com/Bisaloo/lightr/blob/master/NEWS.md"
 }
