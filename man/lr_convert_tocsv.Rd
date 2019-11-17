@@ -10,7 +10,7 @@ lr_convert_tocsv(
   decimal = ".",
   sep = NULL,
   subdir = FALSE,
-  cores = getOption("mc.cores", 2L),
+  cores = NULL,
   ignore.case = TRUE,
   overwrite = FALSE
 )
@@ -32,7 +32,8 @@ default (which are: tab, space, and ";")}
 \item{subdir}{Should subdirectories within the \code{where} folder be included in
 the search? (defaults to \code{FALSE}).}
 
-\item{cores}{deprecated}
+\item{cores}{deprecated. See \code{\link[future:plan]{future::plan()}} for more details on how to
+customise your parallelisation strategy.}
 
 \item{ignore.case}{Should the extension search be case insensitive? (defaults
 to \code{TRUE})}

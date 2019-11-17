@@ -40,12 +40,12 @@
 #'                 ext = "ProcSpec")
 
 lr_get_metadata <- function(where = getwd(), ext = "ProcSpec", sep = NULL,
-                         subdir = FALSE, subdir.names = FALSE,
-                         cores = NULL,
-                         ignore.case = TRUE) {
+                            subdir = FALSE, subdir.names = FALSE, cores = NULL,
+                            ignore.case = TRUE) {
 
   if (!is.null(cores)) {
-    warning("'cores' argument is deprecated.")
+    warning("'cores' argument is deprecated. See ?future::plan for more info ",
+            "about how you can choose your parallelisation strategy.")
   }
 
   extension <- paste0("\\.", ext, "$", collapse = "|")
