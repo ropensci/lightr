@@ -13,7 +13,8 @@ lr_get_spec(
   subdir = FALSE,
   subdir.names = FALSE,
   cores = getOption("mc.cores", 2L),
-  ignore.case = TRUE
+  ignore.case = TRUE,
+  interpolate = TRUE
 )
 }
 \arguments{
@@ -44,6 +45,10 @@ parallel processing (not available in Windows).}
 
 \item{ignore.case}{Should the extension search be case insensitive? (defaults
 to \code{TRUE})}
+
+\item{interpolate}{Boolean indicated whether spectral data should be
+interpolated and pruned at every nanometer. Note that this option can only
+work if all input data samples the same wavelengths. Defaults to \code{TRUE}.}
 }
 \value{
 A data.frame, containing the wavelengths in the first column and
