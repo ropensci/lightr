@@ -20,6 +20,9 @@
 #' parallel processing (not available in Windows).
 #' @param ignore.case Should the extension search be case insensitive? (defaults
 #' to `TRUE`)
+#' @param interpolate Boolean indicated whether spectral data should be
+#' interpolated and pruned at every nanometer. Note that this option can only
+#' work if all input data samples the same wavelengths. Defaults to `TRUE`.
 #'
 #' @return A data.frame, containing the wavelengths in the first column and
 #' individual imported spectral files in the subsequent columns.
@@ -37,7 +40,7 @@
 lr_get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
                      decimal = ".", sep = NULL, subdir = FALSE,
                      subdir.names = FALSE, cores = getOption("mc.cores", 2L),
-                     ignore.case = TRUE) {
+                     ignore.case = TRUE, interpolate = TRUE) {
 
   extension <- paste0("\\.", ext, "$", collapse = "|")
 
@@ -74,12 +77,17 @@ lr_get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
 
   message(nb_files, " files found; importing spectra:")
 
-  gsp <- function(ff) {
+  if (!interpolate) {
+    gsp <- function(ff) {
+      dispatch_parser(ff, decimal = decimal, sep = sep)[[1]]
+    }
+  } else {
+    gsp <- function(ff) {
+      df <- dispatch_parser(ff, decimal = decimal, sep = sep)[[1]]
 
-    df <- dispatch_parser(ff, decimal = decimal, sep = sep)[[1]]
-
-    interp <- approx(df[, "wl"], df[, "processed"],
-                     xout = range, ties = "ordered")$y
+      approx(df[, "wl"], df[, "processed"],
+             xout = range, ties = "ordered")$y
+    }
   }
 
   tmp <- pbmclapply(files, function(x)
@@ -103,12 +111,20 @@ lr_get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
     specnames <- specnames[-whichfailed]
   }
 
-  tmp <- do.call(cbind, tmp)
+  if (interpolate) {
+    tmp <- do.call(cbind, tmp)
 
-  final <- cbind(range, tmp)
+    final <- cbind(range, tmp)
+  } else {
+    final <- do.call(cbind, lapply(tmp, function(x) x[, "processed"]))
+
+    final <- cbind(tmp[[1]][, "wl"], final)
+  }
 
   colnames(final) <- c("wl", specnames)
   final <- as.data.frame(final)
+
+  # TODO: should uninterpolated spectra be marked as rspec objects?
   class(final) <- c("rspec", "data.frame")
 
   return(final)
