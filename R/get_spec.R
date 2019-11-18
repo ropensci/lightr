@@ -116,6 +116,10 @@ lr_get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
 
     final <- cbind(range, tmp)
   } else {
+    if (length(unique(lapply(tmp, nrow)))!=1) {
+      stop("'interpolate = FALSE' can only work if all input files sample the ",
+           "same wavelengths.", call. = FALSE)
+    }
     final <- do.call(cbind, lapply(tmp, function(x) x[, "processed"]))
 
     final <- cbind(tmp[[1]][, "wl"], final)
