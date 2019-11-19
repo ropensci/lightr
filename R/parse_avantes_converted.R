@@ -24,7 +24,11 @@ lr_parse_ttt <- function(filename) {
   # The ID is always included as the first 9 characters in the comment line
   specID <- gsub("([[:alnum:]]{9})-.*", "\\1", content[1])
   author <- NA
-  savetime <- NA
+  savetime <- grep("^Timestamp", content, value = TRUE)
+  savetime <- gsub("^Timestamp \\[.+\\]([[:digit:]]+)$", "\\1", savetime)
+  if (length(savetime)==0) {
+    savetime <- NA
+  }
   specmodel <- NA
   inttime <- gsub("^Integration time: ([[:graph:]]+) ms$", "\\1", content[2])
   average <- gsub("^Average: ([[:digit:]]+) scans$", "\\1", content[3])
