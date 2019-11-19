@@ -26,7 +26,6 @@
 #'
 #' @return A data.frame, containing the wavelengths in the first column and
 #' individual imported spectral files in the subsequent columns.
-#' Reflectance values are interpolated to the nearest wavelength integer.
 #'
 #' @export
 #'

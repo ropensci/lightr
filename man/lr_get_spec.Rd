@@ -53,7 +53,6 @@ work if all input data samples the same wavelengths. Defaults to \code{TRUE}.}
 \value{
 A data.frame, containing the wavelengths in the first column and
 individual imported spectral files in the subsequent columns.
-Reflectance values are interpolated to the nearest wavelength integer.
 }
 \description{
 Finds and imports reflectance/transmittance/absorbance data from spectra
