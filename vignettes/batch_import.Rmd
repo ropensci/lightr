@@ -77,6 +77,15 @@ case by default. This can be changed by using the `ignore.case` switch:
 res <- lr_get_spec(where = "data", ext = "procspec", subdir = TRUE, ignore.case = FALSE)
 ```
 
+If all your input files sample the wavelengths (this would be the case if you
+use the same spectrometer model and same recording software), you can also get
+uninterpolated data, by changing the valu of the `interpolate` boolean argument:
+
+```{r}
+res <- lr_get_spec(where = "data/heliomaster", ext = "jdx", interpolate = FALSE)
+head(res)
+```
+
 ## Import spectral metadata: `lr_get_metadata()`
 
 `lr_get_metadata()` extracts metadata captured by the spectrophotometer during
