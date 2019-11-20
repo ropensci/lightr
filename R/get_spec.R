@@ -84,6 +84,10 @@ lr_get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
     gsp <- function(ff) {
       df <- dispatch_parser(ff, decimal = decimal, sep = sep)[[1]]
 
+      # Prevent approx from filling a complete gap in the range of interest.
+      df <- df[which(df$wl >= lim[1]) - 1, ]
+      df <- df[which(df$wl <= lim[2]) + 1, ]
+
       approx(df[, "wl"], df[, "processed"],
              xout = range, ties = "ordered")$y
     }
