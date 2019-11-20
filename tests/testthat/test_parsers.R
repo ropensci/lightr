@@ -31,6 +31,7 @@ test_that("OceanOptics", {
 
   expect_length(lr_parse_jaz(test.file("OO_comma.txt")),
                 2)
+
 })
 
 test_that("Avantes", {
@@ -62,5 +63,9 @@ test_that("Generic", {
                 2)
 
   expect_length(lr_parse_generic(test.file("RS-1.dpt"), sep = ","),
+                2)
+
+  expect_length(lr_parse_generic(test.file("notest", "OceanView_nonEN.txt"),
+                                 decimal = ","),
                 2)
 })
