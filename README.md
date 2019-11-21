@@ -1,12 +1,11 @@
 # `lightr`: import spectral data in R
 
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![CRAN version](https://www.r-pkg.org/badges/version-ago/lightr)](https://cran.r-project.org/package=lightr)
 [![Travis build status](https://travis-ci.org/ropensci/lightr.svg?branch=master)](https://travis-ci.org/ropensci/lightr)
 [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/bisaloo/lightr?branch=master&svg=true)](https://ci.appveyor.com/project/bisaloo/lightr)
 [![Coverage status](https://codecov.io/gh/ropensci/lightr/branch/master/graph/badge.svg)](https://codecov.io/github/ropensci/lightr?branch=master)
-[![DOI](https://zenodo.org/badge/218985210.svg)](https://zenodo.org/badge/latestdoi/218985210)
-[![Under review at rOpenSci](https://badges.ropensci.org/267_status.svg)](https://github.com/ropensci/software-review/issues/267)
-[![status](https://joss.theoj.org/papers/7f76d78642d3dc72ea9d8c2597ef0e27/status.svg)](https://joss.theoj.org/papers/7f76d78642d3dc72ea9d8c2597ef0e27)
+[![Reviewed by rOpenSci](https://badges.ropensci.org/267_status.svg)](https://github.com/ropensci/software-review/issues/267)
+[![JOSS paper](https://joss.theoj.org/papers/7f76d78642d3dc72ea9d8c2597ef0e27/status.svg)](https://joss.theoj.org/papers/7f76d78642d3dc72ea9d8c2597ef0e27)
 
 
 There is no standard file format for spectrometry data and different scientific
