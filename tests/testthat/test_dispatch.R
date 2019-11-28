@@ -51,7 +51,7 @@ test_that("Similar output for all parsers", {
   files <- files[!tools::file_ext(files) %in% c("", "fail")]
 
   lapply(files, function(file) {
-    res <- dispatch_parser(test.file(file), sep = ",")
+    res <- expect_silent(dispatch_parser(test.file(file), sep = ","))
     expect_length(res, 2)
     expect_is(res[[1]], "data.frame")
     expect_true(all(apply(res[[1]], 2, is.numeric)))
