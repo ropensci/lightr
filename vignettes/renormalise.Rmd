@@ -26,7 +26,16 @@ as well as the conditions during the recording (including ambient light,
 temperature, *etc*.). To allow for comparison between studies, it is thus 
 normalised  by a white and a dark reference with the following formula:
 
-$$\text{Processed} = \dfrac{\text{Raw} - \text{Dark}}{\text{White} - \text{Dark}}$$
+<math>
+    <mrow>
+      <mtext>Processed</mtext>
+      <mo>=</mo>
+      <mfrac>
+        <mrow><mtext>Raw</mtext><mo>-</mo><mtext>Dark</mtext></mrow>
+        <mrow><mtext>White</mtext><mo>-</mo><mtext>Dark</mtext></mrow>
+      </mfrac>
+    </mrow>
+</math>
 
 For this example here, we need to normalise the raw data by a white reference
 contained in another file. This can't be done with with `lr_get_spec()` because
