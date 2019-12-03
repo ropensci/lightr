@@ -83,7 +83,16 @@ white_data <- lr_parse_procspec(
 We can now normalise the reflectance spectrum with the equation stated at the
 beginning of this vignette:
 
-$$\text{Processed} = \dfrac{\text{Raw} - \text{Dark}}{\text{White} - \text{Dark}}$$
+<math>
+    <mrow>
+      <mtext>Processed</mtext>
+      <mo>=</mo>
+      <mfrac>
+        <mrow><mtext>Raw</mtext><mo>-</mo><mtext>Dark</mtext></mrow>
+        <mrow><mtext>White</mtext><mo>-</mo><mtext>Dark</mtext></mrow>
+      </mfrac>
+    </mrow>
+</math>
 
 But first, we verify that the integration times:
 
