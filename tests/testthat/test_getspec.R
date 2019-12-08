@@ -22,6 +22,16 @@ test_that("get_spec range", {
   expect_equal(nrow(res), 101)
 })
 
+test_that("get_spec interpolate", {
+  expect_error(lr_get_spec(test.file("procspec_files"), ext = "ProcSpec",
+                           interpolate = FALSE),
+               "'interpolate = FALSE' can only work")
+
+  res <- lr_get_spec(test.file("heliomaster"), ext = "jdx", interpolate = FALSE)
+
+  expect_equal(nrow(res), 1992)
+})
+
 test_that("get_spec warn/error", {
   # Total fail
   totalfail <- expression({
