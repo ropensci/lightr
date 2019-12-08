@@ -8,7 +8,10 @@
   "description": "Parse various reflectance/transmittance/absorbance spectra file\n    formats to extract spectral data and metadata, as described in Gruson, White\n    & Maia (2019) <doi:10.21105/joss.01857>.\n    This package has been peer-reviewed by rOpenSci (v. 0.1).",
   "name": "lightr: Read Spectrometric Data and Metadata",
   "codeRepository": "https://github.com/ropensci/lightr",
-  "relatedLink": ["https://bisaloo.github.io/lightr", "https://docs.ropensci.org/lightr"],
+  "relatedLink": [
+    "https://docs.ropensci.org/lightr",
+    "https://CRAN.R-project.org/package=lightr"
+  ],
   "issueTracker": "https://github.com/ropensci/lightr/issues",
   "license": "https://spdx.org/licenses/GPL-2.0",
   "version": "0.1",
@@ -19,6 +22,12 @@
     "url": "https://r-project.org"
   },
   "runtimePlatform": "R version 3.6.1 (2019-07-05)",
+  "provider": {
+    "@id": "https://cran.r-project.org",
+    "@type": "Organization",
+    "name": "Comprehensive R Archive Network (CRAN)",
+    "url": "https://cran.r-project.org"
+  },
   "author": [
     {
       "@type": "Person",
@@ -40,6 +49,15 @@
       "@id": "https://orcid.org/0000-0002-3976-1734"
     }
   ],
+  "contributor": {},
+  "copyrightHolder": [
+    {
+      "@type": "Person",
+      "givenName": "Kotya",
+      "familyName": "Karapetyan"
+    }
+  ],
+  "funder": {},
   "maintainer": [
     {
       "@type": "Person",
@@ -145,14 +163,14 @@
       "sameAs": "https://CRAN.R-project.org/package=xml2"
     }
   ],
-  "readme": "https://github.com/Bisaloo/lightr/blob/master/README.md",
-  "fileSize": "2934.632KB",
+  "releaseNotes": "https://github.com/ropensci/lightr/blob/master/NEWS.md",
+  "readme": "https://github.com/ropensci/lightr/blob/master/README.md",
+  "fileSize": "2947.055KB",
   "contIntegration": [
-    "https://travis-ci.org/Bisaloo/lightr",
-    "https://ci.appveyor.com/project/Bisaloo/lightr",
-    "https://codecov.io/github/Bisaloo/lightr?branch=master"
+    "https://travis-ci.org/ropensci/lightr",
+    "https://ci.appveyor.com/project/bisaloo/lightr",
+    "https://codecov.io/github/ropensci/lightr?branch=master"
   ],
-  "developmentStatus": "https://www.repostatus.org/#active",
   "keywords": [
     "r",
     "spectroscopy",
@@ -162,15 +180,5 @@
     "reproducibility",
     "r-package",
     "file-import"
-  ],
-  "contributor": {},
-  "copyrightHolder": [
-    {
-      "@type": "Person",
-      "givenName": "Kotya",
-      "familyName": "Karapetyan"
-    }
-  ],
-  "funder": {},
-  "releaseNotes": "https://github.com/Bisaloo/lightr/blob/master/NEWS.md"
+  ]
 }
