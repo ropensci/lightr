@@ -71,7 +71,7 @@ test_that("Convert warn/error", {
   tdir <- tempdir()
   # Total fail
   totalfail <- expression({
-    lr_convert_tocsv(test.file(),
+    lr_convert_tocsv(tdir,
                      ext = "fail")
   })
   expect_warning(eval(totalfail), "File import failed")
@@ -80,7 +80,7 @@ test_that("Convert warn/error", {
 
   # # Partial fail
   partialfail <- expression({
-    lr_convert_tocsv(test.file(),
+    lr_convert_tocsv(tdir,
                      ext = c("fail", "jdx"),
                      overwrite = TRUE)
   })
