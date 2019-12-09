@@ -1,8 +1,5 @@
 url: https://docs.ropensci.org/lightr
 
-development:
-  mode: auto
-
 reference:
   - title: High-level functions
     desc: These functions offers an intuitive and user-friendly way to import (and possibly) transform multiple files at once in a given location.
