@@ -20,3 +20,11 @@ template:
     docsearch:
       api_key: 83eca0d3a04dc5fd44007c444b55d06a
       index_name: lightr
+
+authors:
+  Hugo Gruson:
+    href: https://www.normalesup.org/~hgruson/
+  Rafael Maia:
+    href: http://rafaelmaia.net/
+  Thomas White:
+    href: https://tomwhite.io/
