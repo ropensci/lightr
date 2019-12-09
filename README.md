@@ -22,9 +22,13 @@ formats in a single line of code.
 Additionally, it provides for the first time a fully free and open source 
 solution to read proprietary spectra file formats on all systems.
 
-## 🔧 Install
+## 🔧 Installation
 
-This package is not yet published on CRAN and must be installed via GitHub:
+```r
+install.packages("lightr")
+```
+
+You can also install the development version from GitHub:
 
 ```r
 # install.packages("remotes")
