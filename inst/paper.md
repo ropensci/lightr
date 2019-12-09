@@ -34,7 +34,7 @@ reflectance, transmittance, or aborbance spectra rather than human vision
 models that allow scientists to predict how a given object is seen through the
 eyes of a given species (e.g., how a male bird is seen by a potential mate).
 This is the basis of all studies in for example the study of the evolution of
-colours of animals and plants as communication signals
+colours of animals and plants as communication signals.
 
 Spectrometers record the amount of captured photons at different wavelengths
 (usually between 300-700 nm for colour science, as many species are sensitive to
