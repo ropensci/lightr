@@ -1,0 +1,14 @@
+citHeader("To cite lightr in publications use:")
+
+citEntry(
+  entry    = "Article",
+  title    = "lightr: import spectral data and metadata in R",
+  author   = c("Hugo Gruson", "Thomas E. White", "Rafael Maia"),
+  journal  = "Journal of Open Source Software",
+  year     = 2019,
+  volume   = 4,
+  number   = 43,
+  pages    = 1857,
+  doi      = "10.21105/joss.01857",
+  textVersion = "Gruson H., White T.E., Maia R., (2019). lightr: import spectral data and metadata in R. Journal of Open Source Software, 4(43), 1857, https://doi.org/10.21105/joss.01857"
+)
