@@ -3,6 +3,8 @@ title: "Real life example"
 author: "Hugo Gruson"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
+params:
+  pavo: !r requireNamespace("pavo", quietly = TRUE)
 vignette: >
   %\VignetteIndexEntry{Real life example}
   %\VignetteEngine{knitr::rmarkdown}
@@ -53,7 +55,7 @@ txt_files <- lr_get_spec("data/puffin", ext = "txt")
 We can visually inspect these two file using the dedicated S3 function 
 `pavo::plot.rspec()`:
 
-```{r, fig.show='hold'}
+```{r, fig.show='hold', eval=params$pavo}
 library(pavo)
 plot(raw_files, main = "Raw ProSpec files")
 plot(txt_files, main = "Exported txt files")
@@ -77,7 +79,7 @@ For this, we will look at the difference in hue and brightness on the red part
 of the beak for two individuals, with `pavo::summary.rspec()` function (after
 smoothing with `pavo::procspec()`):
 
-```{r}
+```{r, eval=params$pavo}
 beak <- procspec(raw_files, opt = "smooth")
 summary(beak, subset = c("B2", "H5"))
 ```
@@ -86,7 +88,7 @@ Okay, these two individuals seem to differ quite a lot in terms of hue and
 brightness. Now, one might ask if these difference can be perceived in bird
 vision. We can test this with the `pavo::coldist()` function.
 
-```{r}
+```{r, eval=params$pavo}
 vis_beak <- vismodel(beak, visual = "avg.uv", achromatic = "ch.dc")
 tcs_beak <- colspace(vis_beak)
 coldist(tcs_beak, achromatic = TRUE)
