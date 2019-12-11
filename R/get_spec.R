@@ -33,6 +33,8 @@
 #' @importFrom tools file_path_sans_ext
 #' @importFrom stats approx
 #'
+#' @seealso [pavo::getspec()]
+#'
 #' @examples
 #' lr_get_spec(system.file("testdata", package = "lightr"), ext = "jdx")
 #'

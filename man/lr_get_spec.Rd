@@ -62,3 +62,6 @@ files in a given location.
 lr_get_spec(system.file("testdata", package = "lightr"), ext = "jdx")
 
 }
+\seealso{
+\code{\link[pavo:getspec]{pavo::getspec()}}
+}
