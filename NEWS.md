@@ -10,8 +10,8 @@ want your data interpolated and pruned at every nm or not.
 ## Minor changes
 
 * vignette chunks that use `pavo` now only run if the package is available.
-* `savetime` field is now extracted from converted avantes files (when.
-available)
+* `savetime` field is now extracted from converted avantes files (when
+available).
 
 # lightr 0.1
 
