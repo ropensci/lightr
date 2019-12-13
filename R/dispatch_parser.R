@@ -1,3 +1,7 @@
+#' Internal function to dispatch files to the correct parser
+#'
+#' @inheritParams lr_parse_generic
+#'
 #' @importFrom tools file_ext
 #'
 #' @keywords internal
