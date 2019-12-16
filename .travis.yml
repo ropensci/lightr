@@ -21,14 +21,12 @@ addons:
     sources:
     - sourceline: 'ppa:cran/imagemagick'
     packages:
-    - libgmp3-dev
     - libmagick++-dev
     - libglu1-mesa-dev
 r_packages:
   - covr
   - devtools
   - goodpractice
-  - pkgdown
 r_github_packages:
   - metrumresearchgroup/covrpage
 after_success:
