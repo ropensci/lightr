@@ -2,7 +2,7 @@
 % Please edit documentation in R/parse_jdx.R
 \name{lr_parse_jdx}
 \alias{lr_parse_jdx}
-\title{Parse OceanOptics JCAMP-DX (.jdx) file}
+\title{Parse OceanInsights JCAMP-DX (.jdx) file}
 \usage{
 lr_parse_jdx(filename)
 }
@@ -18,7 +18,8 @@ in that order
 }
 }
 \description{
-Parse OceanOptics JCAMP-DX (.jdx) file. \url{https://oceanoptics.com/}
+Parse OceanInsights (formerly OceanOptics) JCAMP-DX (.jdx) file.
+\url{https://www.oceaninsight.com/}
 }
 \examples{
 lr_parse_jdx(system.file("testdata", "OceanOptics.jdx", package = "lightr"))

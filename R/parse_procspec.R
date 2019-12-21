@@ -1,6 +1,7 @@
-#' Parse OceanOptics ProcSpec file
+#' Parse OceanInsights ProcSpec file
 #'
-#' Parse OceanOptics ProcSpec file. <https://oceanoptics.com/>
+#' Parse OceanInsights (formerly OceanOptics) ProcSpec file.
+#' <https://www.oceaninsight.com/>
 #'
 #' @inheritParams lr_parse_generic
 #'
@@ -8,7 +9,7 @@
 #'
 #' @importFrom xml2 read_xml xml_find_all xml_find_first xml_text xml_double
 #'
-#' @references <https://oceanoptics.com/faq/extract-data-procspec-file-without-spectrasuite/>
+#' @references <https://www.oceaninsight.com/support/faqs/software/>
 #'
 #' @examples
 #' lr_parse_procspec(system.file("testdata", "procspec_files",

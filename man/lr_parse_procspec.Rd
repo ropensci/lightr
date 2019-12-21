@@ -2,7 +2,7 @@
 % Please edit documentation in R/parse_procspec.R
 \name{lr_parse_procspec}
 \alias{lr_parse_procspec}
-\title{Parse OceanOptics ProcSpec file}
+\title{Parse OceanInsights ProcSpec file}
 \usage{
 lr_parse_procspec(filename)
 }
@@ -18,7 +18,8 @@ in that order
 }
 }
 \description{
-Parse OceanOptics ProcSpec file. \url{https://oceanoptics.com/}
+Parse OceanInsights (formerly OceanOptics) ProcSpec file.
+\url{https://www.oceaninsight.com/}
 }
 \examples{
 lr_parse_procspec(system.file("testdata", "procspec_files",
@@ -27,5 +28,5 @@ lr_parse_procspec(system.file("testdata", "procspec_files",
 
 }
 \references{
-\url{https://oceanoptics.com/faq/extract-data-procspec-file-without-spectrasuite/}
+\url{https://www.oceaninsight.com/support/faqs/software/}
 }

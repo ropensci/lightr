@@ -1,6 +1,7 @@
-#' Parse OceanOptics JCAMP-DX (.jdx) file
+#' Parse OceanInsights JCAMP-DX (.jdx) file
 #'
-#' Parse OceanOptics JCAMP-DX (.jdx) file. <https://oceanoptics.com/>
+#' Parse OceanInsights (formerly OceanOptics) JCAMP-DX (.jdx) file.
+#' <https://www.oceaninsight.com/>
 #'
 #' @inheritParams lr_parse_generic
 #'

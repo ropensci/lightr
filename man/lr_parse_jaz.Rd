@@ -3,7 +3,7 @@
 \name{lr_parse_jaz}
 \alias{lr_parse_jaz}
 \alias{lr_parse_jazirrad}
-\title{Parse OceanOptics converted file}
+\title{Parse OceanInsights converted file}
 \usage{
 lr_parse_jaz(filename)
 
@@ -21,7 +21,8 @@ in that order
 }
 }
 \description{
-Parse OceanOptics converted file. \url{https://oceanoptics.com/}
+Parse OceanInsights (formerly OceanOptics) converted file.
+\url{https://www.oceaninsight.com/}
 }
 \examples{
 lr_parse_jaz(system.file("testdata", "jazspec.jaz", package = "lightr"))

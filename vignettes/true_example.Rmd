@@ -39,10 +39,10 @@ knitr::include_graphics("puffin-small.jpg")
 
 # Comparison of outputs
 
-By default, OceanOptics spectrometers produce `.ProcSpec` files, which R cannot 
-readily import. To help with this, OceanOptics official software, SpectraSuite
-has a conversion feature, which turns `.ProcSpec` files into tab separated 
-values files (`.txt`).
+By default, OceanInsights spectrometers produce `.ProcSpec` files, which R 
+cannot readily import. To help with this, OceanInsights official software,
+SpectraSuite has a conversion feature, which turns `.ProcSpec` files into tab
+separated values files (`.txt`).
 
 So, let's start by comparing the `.ProcSpec` spectra imported by `lightr` and
 the `.txt` files produced by OceanOptics.
