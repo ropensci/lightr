@@ -95,7 +95,7 @@ lr_convert_tocsv(where = system.file("testdata/procspec_files",
 
 This package is still under development but currently supports:
 
-### [OceanOpInsights (formerly Oceantics]()https://ocwww.oceaninsightom/)
+### [OceanInsight (formerly OceantOptics)](https://www.oceaninsight.com/)
 
   | Extension      | Parser                |
   |:---------------|:----------------------|
