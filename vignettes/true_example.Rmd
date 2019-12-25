@@ -39,8 +39,8 @@ knitr::include_graphics("puffin-small.jpg")
 
 # Comparison of outputs
 
-By default, OceanInsights spectrometers produce `.ProcSpec` files, which R 
-cannot readily import. To help with this, OceanInsights official software,
+By default, OceanInsight spectrometers produce `.ProcSpec` files, which R 
+cannot readily import. To help with this, OceanInsight official software,
 SpectraSuite has a conversion feature, which turns `.ProcSpec` files into tab
 separated values files (`.txt`).
 

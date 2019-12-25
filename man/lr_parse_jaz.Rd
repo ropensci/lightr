@@ -3,7 +3,7 @@
 \name{lr_parse_jaz}
 \alias{lr_parse_jaz}
 \alias{lr_parse_jazirrad}
-\title{Parse OceanInsights converted file}
+\title{Parse OceanInsight converted file}
 \usage{
 lr_parse_jaz(filename)
 
@@ -21,7 +21,7 @@ in that order
 }
 }
 \description{
-Parse OceanInsights (formerly OceanOptics) converted file.
+Parse OceanInsight (formerly OceanOptics) converted file.
 \url{https://www.oceaninsight.com/}
 }
 \examples{

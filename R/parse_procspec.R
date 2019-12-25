@@ -1,6 +1,6 @@
-#' Parse OceanInsights ProcSpec file
+#' Parse OceanInsight ProcSpec file
 #'
-#' Parse OceanInsights (formerly OceanOptics) ProcSpec file.
+#' Parse OceanInsight (formerly OceanOptics) ProcSpec file.
 #' <https://www.oceaninsight.com/>
 #'
 #' @inheritParams lr_parse_generic
