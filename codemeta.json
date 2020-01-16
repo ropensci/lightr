@@ -14,14 +14,14 @@
   ],
   "issueTracker": "https://github.com/ropensci/lightr/issues",
   "license": "https://spdx.org/licenses/GPL-2.0",
-  "version": "0.1",
+  "version": "0.1.9000",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
-    "version": "3.6.1",
+    "version": "3.6.2",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.6.1 (2019-07-05)",
+  "runtimePlatform": "R version 3.6.2 (2019-12-12)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -164,13 +164,8 @@
     }
   ],
   "releaseNotes": "https://github.com/ropensci/lightr/blob/master/NEWS.md",
-  "readme": "https://github.com/ropensci/lightr/blob/master/README.md",
   "fileSize": "2947.055KB",
-  "contIntegration": [
-    "https://travis-ci.org/ropensci/lightr",
-    "https://ci.appveyor.com/project/bisaloo/lightr",
-    "https://codecov.io/github/ropensci/lightr?branch=master"
-  ],
+  "contIntegration": ["https://travis-ci.org/ropensci/lightr", "https://ci.appveyor.com/project/bisaloo/lightr", "https://codecov.io/github/ropensci/lightr?branch=master"],
   "keywords": [
     "r",
     "spectroscopy",
@@ -180,5 +175,48 @@
     "reproducibility",
     "r-package",
     "file-import"
+  ],
+  "review": {
+    "@type": "Review",
+    "url": "https://github.com/ropensci/software-review/issues/267",
+    "provider": "https://ropensci.org"
+  },
+  "citation": [
+    {
+      "@type": "ScholarlyArticle",
+      "datePublished": "2019",
+      "author": [
+        {
+          "@type": "Person",
+          "givenName": "Hugo",
+          "familyName": "Gruson"
+        },
+        {
+          "@type": "Person",
+          "givenName": ["Thomas", "E."],
+          "familyName": "White"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Rafael",
+          "familyName": "Maia"
+        }
+      ],
+      "name": "lightr: import spectral data and metadata in R",
+      "identifier": "10.21105/joss.01857",
+      "pagination": "1857",
+      "@id": "https://doi.org/10.21105/joss.01857",
+      "sameAs": "https://doi.org/10.21105/joss.01857",
+      "isPartOf": {
+        "@type": "PublicationIssue",
+        "issueNumber": "43",
+        "datePublished": "2019",
+        "isPartOf": {
+          "@type": ["PublicationVolume", "Periodical"],
+          "volumeNumber": "4",
+          "name": "Journal of Open Source Software"
+        }
+      }
+    }
   ]
 }
