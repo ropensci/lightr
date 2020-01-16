@@ -16,7 +16,7 @@ jobs:
       - name: Install remotes
         run: Rscript -e 'install.packages("remotes")'
       - name: Install codemetar (dev version)
-        run: Rscript -e 'remotes::install_github("ropensci/codemeta@dev")'
+        run: Rscript -e 'remotes::install_github("ropensci/codemetar@dev")'
       - name: Render codemeta
         run: Rscript -e 'codemetar::write_codemeta()'
       - name: Commit results
