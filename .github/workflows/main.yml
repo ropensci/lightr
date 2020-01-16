@@ -12,8 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: r-lib/actions/setup-r@v1
-      - name: Install codemetar
-        run: Rscript -e 'install.packages("codemetar")'
+      - name: Install remotes
+        run: Rscript -e 'install.packages("remotes")'
+      - name: Install codemetar (dev version)
+        run: Rscript -e 'remotes::install_github("ropensci/codemeta@dev")'
       - name: Render codemeta
         run: Rscript -e 'codemetar::write_codemeta()'
       - name: Commit results
