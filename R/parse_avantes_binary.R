@@ -29,62 +29,62 @@ lr_parse_trm <- function(filename) {
 
   # Header
   versionID <- readBin(f, "numeric", n = 1, size = 4, endian = "little")
-  specID <- intToUtf8(readBin(f, "numeric", 9, 4, "little"))
-  userfriendlyname <- intToUtf8(readBin(f, "numeric", 64, 4, "little"))
+  specID <- intToUtf8(readBin(f, "numeric", 9, 4, endian = "little"))
+  userfriendlyname <- intToUtf8(readBin(f, "numeric", 64, 4, endian = "little"))
 
   # Coefficients for the polynome controlling wavelength sampling
-  WLIntercept <- readBin(f, "numeric", 1, 4, "little")
-  WLX1 <- readBin(f, "numeric", 1, 4, "little")
-  WLX2 <- readBin(f, "numeric", 1, 4, "little")
-  WLX3 <- readBin(f, "numeric", 1, 4, "little")
-  WLX4 <- readBin(f, "numeric", 1, 4, "little")
+  WLIntercept <- readBin(f, "numeric", 1, 4, endian = "little")
+  WLX1 <- readBin(f, "numeric", 1, 4, endian = "little")
+  WLX2 <- readBin(f, "numeric", 1, 4, endian = "little")
+  WLX3 <- readBin(f, "numeric", 1, 4, endian = "little")
+  WLX4 <- readBin(f, "numeric", 1, 4, endian = "little")
 
-  ipixfirst <- as.numeric(readBin(f, "numeric", 1, 4, "little"))
-  ipixlast <- as.numeric(readBin(f, "numeric", 1, 4, "little"))
+  ipixfirst <- as.numeric(readBin(f, "numeric", 1, 4, endian = "little"))
+  ipixlast <- as.numeric(readBin(f, "numeric", 1, 4, endian = "little"))
 
-  measuremode <- readBin(f, "numeric", 1, 4, "little")
-  dummy1 <- readBin(f, "numeric", 1, 4, "little")
-  laserwavelength <- readBin(f, "numeric", 1, 4, "little")
-  laserdelay <- readBin(f, "numeric", 1, 4, "little")
-  laserwidth <- readBin(f, "numeric", 1, 4, "little")
-  strobercontrol <- readBin(f, "numeric", 1, 4, "little")
-  dummy2 <- readBin(f, "numeric", 2, 4, "little")
-  savetime <- readBin(f, "numeric", 1, 4, "little")
-  dyndarkcorrection <- readBin(f, "numeric", 1, 4, "little")
+  measuremode <- readBin(f, "numeric", 1, 4, endian = "little")
+  dummy1 <- readBin(f, "numeric", 1, 4, endian = "little")
+  laserwavelength <- readBin(f, "numeric", 1, 4, endian = "little")
+  laserdelay <- readBin(f, "numeric", 1, 4, endian = "little")
+  laserwidth <- readBin(f, "numeric", 1, 4, endian = "little")
+  strobercontrol <- readBin(f, "numeric", 1, 4, endian = "little")
+  dummy2 <- readBin(f, "numeric", 2, 4, endian = "little")
+  savetime <- readBin(f, "numeric", 1, 4, endian = "little")
+  dyndarkcorrection <- readBin(f, "numeric", 1, 4, endian = "little")
 
-  smoothpix <- readBin(f, "numeric", 1, 4, "little")
+  smoothpix <- readBin(f, "numeric", 1, 4, endian = "little")
   dark_boxcar <- white_boxcar <- scope_boxcar <- smoothpix
-  smoothmodel <- readBin(f, "numeric", 1, 4, "little")
-  triggermode <- readBin(f, "numeric", 1, 4, "little")
-  triggersource <- readBin(f, "numeric", 1, 4, "little")
-  triggersourcetype <- readBin(f, "numeric", 1, 4, "little")
+  smoothmodel <- readBin(f, "numeric", 1, 4, endian = "little")
+  triggermode <- readBin(f, "numeric", 1, 4, endian = "little")
+  triggersource <- readBin(f, "numeric", 1, 4, endian = "little")
+  triggersourcetype <- readBin(f, "numeric", 1, 4, endian = "little")
   # onboard temp in degrees Celsius
-  NTC1 <- readBin(f, "numeric", 1, 4, "little")
+  NTC1 <- readBin(f, "numeric", 1, 4, endian = "little")
   # NTC2 in Volt (not connected)
-  NTC2 <- readBin(f, "numeric",1, 4, "little")
+  NTC2 <- readBin(f, "numeric",1, 4, endian = "little")
   # detector temp in degr Celsius (only TEC, NIR)
-  Thermistor <- readBin(f, "numeric", 1, 4, "little")
-  dummy3 <- readBin(f, "numeric", 1, 4, "little")
+  Thermistor <- readBin(f, "numeric", 1, 4, endian = "little")
+  dummy3 <- readBin(f, "numeric", 1, 4, endian = "little")
 
   # Data
   if (grepl("\\.(abs|trm)$", filename, ignore.case = TRUE)) {
-    data <- readBin(f, "numeric", 3*(ipixlast - ipixfirst + 1), 4, "little")
+    data <- readBin(f, "numeric", 3*(ipixlast - ipixfirst + 1), 4, endian = "little")
     data <- setNames(data.frame(matrix(data, ncol = 3, byrow = TRUE)),
                      c("scope", "white", "dark"))
   } else {# scope mode
     data <- data.frame(
-      "scope" = readBin(f, "numeric", ipixlast - ipixfirst + 1, 4, "little"),
+      "scope" = readBin(f, "numeric", ipixlast - ipixfirst + 1, 4, endian = "little"),
       "white" = NA,
       "dark"  = NA
     )
   }
 
   # integration time [ms] during file-save
-  dark_inttime <- white_inttime <- scope_inttime <- readBin(f, "numeric", 1, 4, "little")
+  dark_inttime <- white_inttime <- scope_inttime <- readBin(f, "numeric", 1, 4, endian = "little")
 
   # nr of average during file-save
-  dark_average <- white_average <- scope_average <- readBin(f, "numeric", 1, 4, "little")
-  integrationdelay <- readBin(f, "numeric", 1, 4, "little")
+  dark_average <- white_average <- scope_average <- readBin(f, "numeric", 1, 4, endian = "little")
+  integrationdelay <- readBin(f, "numeric", 1, 4, endian = "little")
 
   close(f)
 
