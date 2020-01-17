@@ -9,6 +9,8 @@ want your data interpolated and pruned at every nm or not.
 
 ## Minor changes
 
+* `readBin()` (in the binary Avantes parser) now has an explicit `endian` value,
+making this package portable to platform that use big endians.
 * documentation has been updated to follow the rebranding of OceanOptics into
 OceanInsights.
 * vignette chunks that use `pavo` now only run if the package is available.
