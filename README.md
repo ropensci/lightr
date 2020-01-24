@@ -36,14 +36,6 @@ You can also install the development version from GitHub:
 remotes::install_github("ropensci/lightr")
 ```
 
-If you're using Windows and you want to use multiple cores for file import, you
-can install the development version from the `future` branch:
-
-```r
-# install.package("remotes")
-remotes::install_github("ropensci/lightr@future")
-```
-
 ## 💻 Usage
 
 A thorough documentation is available with the package, using R usual syntax
