@@ -22,6 +22,8 @@
 #'   * `dark_boxcar`: Boxcar width for the dark reference
 #'   * `sample_boxcar`: Boxcar width for the sample reference
 #'
+#' @inherit lr_get_spec details
+#'
 #' @section Warning:
 #' `white_inttime`, `dark_inttime` and `sample_inttime` should be equal. The
 #' normalised data may be inaccurate otherwise.
