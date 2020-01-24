@@ -28,8 +28,6 @@ Suggests:
     rmarkdown,
     spelling,
     testthat (>= 2.0.0)
-Remotes: 
-    HenrikBengtsson/progressr
 URL: https://docs.ropensci.org/lightr, https://github.com/ropensci/lightr
 BugReports: https://github.com/ropensci/lightr/issues
 License: GPL (>=2)
