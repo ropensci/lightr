@@ -8,6 +8,8 @@
 #' @return Convert input files to csv and invisibly return the list of created
 #' file paths
 #'
+#' @inherit lr_get_spec details
+#'
 #' @section Warning:
 #'
 #' This step loses all metadata associated to the spectra. This metadata is

@@ -24,6 +24,13 @@
 #' interpolated and pruned at every nanometer. Note that this option can only
 #' work if all input data samples the same wavelengths. Defaults to `TRUE`.
 #'
+#' @details
+#' You can customise the type of parallel processing used by this function with
+#' the [future::plan()] function. This works on all operating systems, as well
+#' as high performance computing (HPC) environment. Similarly, you can customise
+#' the way progress is shown with the [progressr::handlers()] functions
+#' (progress bar, acoustic feedback, nothing, etc.)
+#'
 #' @return A data.frame, containing the wavelengths in the first column and
 #' individual imported spectral files in the subsequent columns.
 #'

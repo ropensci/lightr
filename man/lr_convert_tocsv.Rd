@@ -48,6 +48,13 @@ file paths
 \description{
 Convert spectral data files to csv files
 }
+\details{
+You can customise the type of parallel processing used by this function with
+the \code{\link[future:plan]{future::plan()}} function. This works on all operating systems, as well
+as high performance computing (HPC) environment. Similarly, you can customise
+the way progress is shown with the \code{\link[progressr:handlers]{progressr::handlers()}} functions
+(progress bar, acoustic feedback, nothing, etc.)
+}
 \section{Warning}{
 
 
