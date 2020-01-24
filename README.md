@@ -86,44 +86,59 @@ lr_convert_tocsv(where = system.file("testdata/procspec_files",
 
 ## ✔ Supported file formats
 
-This package is still under development but currently supports:
+This package is still under development but currently supports (you can click
+on the extension in the tables to see an example of this file format):
 
 ### [OceanInsight (formerly OceantOptics)](https://www.oceaninsight.com/)
 
-  | Extension      | Parser                |
-  |:---------------|:----------------------|
-  | `jdx`          | `lr_parse_jdx()`      |
-  | `ProcSpec`     | `lr_parse_procspec()` |
-  | `jaz`          | `lr_parse_jaz()`      |
-  | `jazirrad`     | `lr_parse_jazirrad()` |
-  | `Transmission` | `lr_parse_jaz()`      |
-  | `txt`          | `lr_parse_jaz()`      |
+  | Extension        | Parser                |
+  |:-----------------|:----------------------|
+  | [`jdx`]          | `lr_parse_jdx()`      |
+  | [`ProcSpec`]     | `lr_parse_procspec()` |
+  | [`jaz`]          | `lr_parse_jaz()`      |
+  | [`JazIrrad`]     | `lr_parse_jazirrad()` |
+  | [`Transmission`] | `lr_parse_jaz()`      |
+  | [`txt`](https://raw.githubusercontent.com/ropensci/lightr/master/inst/testdata/OceanView.txt) | `lr_parse_jaz()` |
+
+[`jdx`]: https://raw.githubusercontent.com/ropensci/lightr/master/inst/testdata/OceanOptics.jdx
+[`ProcSpec`]: https://github.com/ropensci/lightr/raw/master/inst/testdata/procspec_files/whiteref.ProcSpec
+[`jaz`]: https://raw.githubusercontent.com/ropensci/lightr/master/inst/testdata/jazspec.jaz
+[`JazIrrad`]: https://raw.githubusercontent.com/ropensci/lightr/master/inst/testdata/irrad.JazIrrad
+[`Transmission`]: https://raw.githubusercontent.com/ropensci/lightr/master/inst/testdata/FMNH6834.00000001.Master.Transmission
 
 ### [Avantes](https://www.avantes.com/)
 
-  | Extension      | Parser                |
-  |:---------------|:----------------------|
-  | `ABS`          | `lr_parse_abs()`      |
-  | `ROH`          | `lr_parse_roh()`      |
-  | `TRM`          | `lr_parse_trm()`      |
-  | `trt`          | `lr_parse_trt()`      |
-  | `ttt`          | `lr_parse_ttt()`      |
-  | `txt`          | `lr_parse_generic()`  |
+  | Extension        | Parser                |
+  |:---------------  |:----------------------|
+  | `ABS`            | `lr_parse_abs()`      |
+  | [`ROH`]          | `lr_parse_roh()`      |
+  | [`TRM`]          | `lr_parse_trm()`      |
+  | [`trt`]          | `lr_parse_trt()`      |
+  | [`ttt`]          | `lr_parse_ttt()`      |
+  | [`txt`](https://raw.githubusercontent.com/ropensci/lightr/master/inst/testdata/avasoft8.txt) | `lr_parse_generic()` |
+
+[`TRM`]: https://github.com/ropensci/lightr/raw/master/inst/testdata/avantes2.TRM
+[`ROH`]: https://github.com/ropensci/lightr/raw/master/inst/testdata/avantes_reflect.ROH
+[`trt`]: https://github.com/ropensci/lightr/raw/master/inst/testdata/avantes_export2.trt
+[`ttt`]: https://github.com/ropensci/lightr/raw/master/inst/testdata/avantes_export.ttt
   
 ### [CRAIC](http://www.microspectra.com/)
 
   | Extension | Parser               |
   |:----------|:---------------------|
-  | `txt`     | `lr_parse_generic()` |
+  | [`txt`](https://raw.githubusercontent.com/ropensci/lightr/master/inst/testdata/CRAIC_export.txt) | `lr_parse_generic()` |
   
 ### Others
 
   | Extension | Parser                        |
   |:----------|:------------------------------|
-  | `csv`     | `lr_parse_generic(sep = ",")` |
-  | `dpt`     | `lr_parse_generic(sep = ",")` |
-  
-### Others
+  | `c[sv`  ]   `lr_parse_generic(sep = ",")` |
+  | `d[pt`  ]   `lr_parse_generic(sep = ",")` |
+
+#  
+[`csv`]: https://raw.githubusercontent.com/ropensci/lightr/master/inst/testdata/spec.csv
+[`dpt`]: https://raw.githubusercontent.com/ropensci/lightr/master/inst/testdata/RS-1.dpt
+## Others
 
 As a fallback, you should always try `lr_parse_generic()` which offers a
 flexible and general algorithm that manages to extract data from most files.
