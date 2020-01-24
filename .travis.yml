@@ -1,4 +1,4 @@
-language: R
+language: r
 r:
   - oldrel
   - devel
@@ -16,7 +16,6 @@ matrix:
       brew_packages:
         - libgit2
         - imagemagick@6
-sudo: false
 cache: packages
 addons:
   apt:
