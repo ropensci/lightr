@@ -132,8 +132,8 @@ on the extension in the tables to see an example of this file format):
 
   | Extension | Parser                        |
   |:----------|:------------------------------|
-  | `c[sv`  ]   `lr_parse_generic(sep = ",")` |
-  | `d[pt`  ]   `lr_parse_generic(sep = ",")` |
+  | [`csv`]   | `lr_parse_generic(sep = ",")` |
+  | [`dpt`]   | `lr_parse_generic(sep = ",")` |
 
 #  
 [`csv`]: https://raw.githubusercontent.com/ropensci/lightr/master/inst/testdata/spec.csv
