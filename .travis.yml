@@ -13,7 +13,9 @@ matrix:
   include:
     - r: release
       os: osx
-      brew_packages: libgit2
+      brew_packages:
+        - libgit2
+        - imagemagick@6
 sudo: false
 cache: packages
 addons:
