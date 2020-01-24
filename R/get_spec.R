@@ -51,7 +51,7 @@ lr_get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
                         subdir.names = FALSE, cores = NULL,
                         ignore.case = TRUE, interpolate = TRUE) {
 
-  if (!is.null(cores)) {
+  if (!missing(cores)) {
     warning("'cores' argument is deprecated. See ?future::plan for more info ",
             "about how you can choose your parallelisation strategy.")
   }

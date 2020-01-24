@@ -8,8 +8,6 @@
 #' @return Convert input files to csv and invisibly return the list of created
 #' file paths
 #'
-#' @inherit lr_get_spec details
-#'
 #' @section Warning:
 #'
 #' This step loses all metadata associated to the spectra. This metadata is
@@ -26,7 +24,7 @@ lr_convert_tocsv <- function(where = NULL, ext = "txt", decimal = ".",
                              sep = NULL, subdir = FALSE, cores = NULL,
                              ignore.case = TRUE, overwrite = FALSE) {
 
-  if (!is.null(cores)) {
+  if (!missing(cores)) {
     warning("'cores' argument is deprecated. See ?future::plan for more info ",
             "about how you can choose your parallelisation strategy.")
   }
