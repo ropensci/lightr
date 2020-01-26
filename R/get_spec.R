@@ -53,7 +53,8 @@ lr_get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
 
   if (!missing(cores)) {
     warning("'cores' argument is deprecated. See ?future::plan for more info ",
-            "about how you can choose your parallelisation strategy.")
+            "about how you can choose your parallelisation strategy.",
+            call. = FALSE)
   }
 
   extension <- paste0("\\.", ext, "$", collapse = "|")
