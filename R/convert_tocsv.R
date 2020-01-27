@@ -28,7 +28,8 @@ lr_convert_tocsv <- function(where = NULL, ext = "txt", decimal = ".",
 
   if (!missing(cores)) {
     warning("'cores' argument is deprecated. See ?future::plan for more info ",
-            "about how you can choose your parallelisation strategy.")
+            "about how you can choose your parallelisation strategy.",
+            call. = FALSE)
   }
 
   if (is.null(where)) {
