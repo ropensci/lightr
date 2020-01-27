@@ -5,6 +5,8 @@
 #'
 #' @inheritParams lr_get_spec
 #'
+#' @inherit lr_get_spec details
+#'
 #' @return Convert input files to csv and invisibly return the list of created
 #' file paths
 #'
