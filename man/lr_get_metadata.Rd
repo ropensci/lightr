@@ -73,9 +73,11 @@ normalised data may be inaccurate otherwise.
 }
 
 \examples{
+\donttest{
 lr_get_metadata(system.file("testdata", "procspec_files",
                             package = "lightr"),
                 ext = "ProcSpec")
+}
 }
 \references{
 White TE, Dalrymple RL, Noble DWA, O'Hanlon JC, Zurek DB,
