@@ -11,3 +11,4 @@
 ^cran-comments\.md$
 ^inst/specs_joss.pdf$
 ^inst/paper.md$
+^CRAN-RELEASE$
