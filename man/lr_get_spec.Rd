@@ -47,7 +47,7 @@ customise your parallelisation strategy.}
 to \code{TRUE})}
 
 \item{interpolate}{Boolean indicated whether spectral data should be
-interpolated and pruned at every nanometer. Note that this option can only
+interpolated and pruned at every nanometre. Note that this option can only
 work if all input data samples the same wavelengths. Defaults to \code{TRUE}.}
 }
 \value{

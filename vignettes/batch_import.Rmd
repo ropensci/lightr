@@ -79,7 +79,8 @@ res <- lr_get_spec(where = "data", ext = "procspec", subdir = TRUE, ignore.case 
 
 If all your input files sample the wavelengths (this would be the case if you
 use the same spectrometer model and same recording software), you can also get
-uninterpolated data, by changing the valu of the `interpolate` boolean argument:
+uninterpolated data, by changing the value of the `interpolate` boolean 
+argument:
 
 ```{r}
 res <- lr_get_spec(where = "data/heliomaster", ext = "jdx", interpolate = FALSE)

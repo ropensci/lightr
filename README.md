@@ -11,7 +11,7 @@
 
 There is no standard file format for spectrometry data and different scientific
 instrumentation companies use wildly different formats to store spectral data.
-Vendor proprietary softwares sometimes have an option but convert those formats
+Vendor proprietary software sometimes has an option but convert those formats
 instead human readable files such as `csv` but in the process, most metadata
 are lost. However, those metadata are critical to ensure reproducibility ([White
 *et al*, 2015](https://doi.org/10.1016/j.anbehav.2015.05.007)).
