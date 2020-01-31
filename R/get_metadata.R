@@ -81,7 +81,7 @@ lr_get_metadata <- function(where = getwd(), ext = "ProcSpec", sep = NULL,
 
   gmd <- function(ff) {
 
-    df <- dispatch_parser(ff, sep = sep)[[2]]
+    dispatch_parser(ff, sep = sep)[[2]]
 
   }
 
