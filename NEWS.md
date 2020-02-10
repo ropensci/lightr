@@ -5,6 +5,10 @@
 * `lightr` can correctly imports `TRM` files from Avasoft 6.0 (previously it 
 only supported files from Avasoft 7.0)
 
+## Minor changes
+
+* new tests for `.IRR` files
+
 # lightr 1.0
 
 ## New features and major changes

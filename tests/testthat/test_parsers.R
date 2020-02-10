@@ -68,4 +68,7 @@ test_that("Generic", {
   expect_length(lr_parse_generic(test.file("notest", "OceanView_nonEN.txt"),
                                  decimal = ","),
                 2)
+
+  expect_length(lr_parse_generic(test.file("irr_820_1941.IRR")),
+                2)
 })
