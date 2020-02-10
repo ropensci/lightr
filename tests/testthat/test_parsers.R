@@ -2,73 +2,109 @@ context("parsers")
 
 test_that("OceanOptics", {
 
-  expect_length(lr_parse_procspec(test.file("procspec_files",
-                                         "OceanOptics_Linux.ProcSpec")),
-                2)
+  expect_known_hash(
+    expect_silent(lr_parse_procspec(test.file("procspec_files", "OceanOptics_Linux.ProcSpec"))),
+    "4a3b24e17d"
+  )
 
-  expect_length(lr_parse_procspec(test.file("procspec_files",
-                                         "OceanOptics_Windows.ProcSpec")),
-                2)
+  expect_known_hash(
+    expect_silent(lr_parse_procspec(test.file("procspec_files", "OceanOptics_Windows.ProcSpec"))),
+    "2e4d05a0e8"
+  )
 
-  expect_length(lr_parse_procspec(test.file("procspec_files",
-                                         "OceanOptics_badencode.ProcSpec")),
-                2)
+  expect_known_hash(
+    expect_silent(lr_parse_procspec(test.file("procspec_files", "OceanOptics_badencode.ProcSpec"))),
+    "3474bf01db"
+  )
 
-  expect_length(lr_parse_jdx(test.file("OceanOptics.jdx")),
-                2)
+  expect_known_hash(
+    expect_silent(lr_parse_jdx(test.file("OceanOptics.jdx"))),
+    "64a8240578"
+  )
 
-  expect_length(lr_parse_jaz(test.file("jazspec.jaz")),
-                2)
+  expect_known_hash(
+    expect_silent(lr_parse_jaz(test.file("jazspec.jaz"))),
+    "8af6858198"
+  )
 
-  expect_length(lr_parse_jazirrad(test.file("irrad.JazIrrad")),
-                2)
+  expect_known_hash(
+    expect_silent(lr_parse_jazirrad(test.file("irrad.JazIrrad"))),
+    "1e71c660d6"
+  )
 
-  expect_length(lr_parse_jaz(test.file("FMNH6834.00000001.Master.Transmission")),
-                2)
+  expect_known_hash(
+    expect_silent(lr_parse_jaz(test.file("FMNH6834.00000001.Master.Transmission"))),
+    "b95ed8922c"
+  )
 
-  expect_length(lr_parse_jaz(test.file("UK5.txt")),
-                2)
+  expect_known_hash(
+    expect_silent(lr_parse_jaz(test.file("UK5.txt"))),
+    "026afbfbd8"
+  )
 
-  expect_length(lr_parse_jaz(test.file("OO_comma.txt")),
-                2)
+  expect_known_hash(
+    expect_silent(lr_parse_jaz(test.file("OO_comma.txt"))),
+    "6c26f981e1"
+  )
 
 })
 
 test_that("Avantes", {
 
-  expect_length(lr_parse_roh(test.file("avantes_reflect.ROH")),
-                2)
+  expect_known_hash(
+    expect_silent(lr_parse_roh(test.file("avantes_reflect.ROH"))),
+    "c0d5f0efea"
+  )
 
-  expect_length(lr_parse_trm(test.file("avantes_trans.TRM")),
-                2)
+  expect_known_hash(
+    expect_silent(lr_parse_trm(test.file("avantes_trans.TRM"))),
+    "7264ef8eaa"
+  )
 
-  expect_length(lr_parse_trm(test.file("avantes2.TRM")),
-                2)
+  expect_known_hash(
+    expect_silent(lr_parse_trm(test.file("avantes2.TRM"))),
+    "0b261983d9"
+  )
 
-  expect_length(lr_parse_ttt(test.file("avantes_export.ttt")),
-                2)
+  expect_known_hash(
+    expect_silent(lr_parse_ttt(test.file("avantes_export.ttt"))),
+    "959c7de9c4"
+  )
 
-  expect_length(lr_parse_ttt(test.file("avantes_export_long.ttt")),
-                2)
+  expect_known_hash(
+    expect_silent(lr_parse_ttt(test.file("avantes_export_long.ttt"))),
+    "268d0c6203"
+  )
 
-  expect_length(lr_parse_trt(test.file("avantes_export2.trt")),
-                2)
+  expect_known_hash(
+    expect_silent(lr_parse_trt(test.file("avantes_export2.trt"))),
+    "578a1ea3e8"
+  )
+
 })
 
 test_that("Generic", {
 
   expect_error(lr_parse_generic(test.file("spec.csv")), "Parsing failed.")
 
-  expect_length(lr_parse_generic(test.file("spec.csv"), sep = ","),
-                2)
+  expect_known_hash(
+    expect_silent(lr_parse_generic(test.file("spec.csv"), sep = ",")),
+    "a0e065224c"
+  )
 
-  expect_length(lr_parse_generic(test.file("RS-1.dpt"), sep = ","),
-                2)
+  expect_known_hash(
+    expect_silent(lr_parse_generic(test.file("RS-1.dpt"), sep = ",")),
+    "5629fea790"
+  )
 
-  expect_length(lr_parse_generic(test.file("notest", "OceanView_nonEN.txt"),
-                                 decimal = ","),
-                2)
+  expect_known_hash(
+    expect_silent(lr_parse_generic(test.file("notest", "OceanView_nonEN.txt"), sep = ",")),
+    "d1b0f9b6a4"
+  )
 
-  expect_length(lr_parse_generic(test.file("irr_820_1941.IRR")),
-                2)
+  expect_known_hash(
+    expect_silent(lr_parse_generic(test.file("irr_820_1941.IRR"))),
+    "fd64124485"
+  )
+
 })
