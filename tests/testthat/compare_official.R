@@ -26,3 +26,11 @@ test_that("compare trm/ttt", {
 
   expect_equal(specs, specs_avasoft, tol = 1e-4)
 })
+
+test_that("compare spc/craic", {
+
+  specs <- lr_get_spec(test.file("compare/CRAIC"), ext = "spc")
+  specs_craic <- lr_get_spec(test.file("Compare/CRAIC", ext = "txt"))
+
+  expect_equal(specs, specs_craic, tol = 1e-4)
+})

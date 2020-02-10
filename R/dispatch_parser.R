@@ -19,6 +19,7 @@ dispatch_parser <- function(filename, decimal = ".", sep = NULL) {
     jdx      = lr_parse_jdx(filename),
     jaz      = lr_parse_jaz(filename),
     jazirrad = lr_parse_jazirrad(filename),
+    spc      = lr_parse_spc(filename),
     lr_parse_generic(filename, decimal = decimal, sep = sep)
   )
 

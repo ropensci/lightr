@@ -131,6 +131,9 @@ on the extension in the tables to see an example of this file format):
   | Extension | Parser               |
   |:----------|:---------------------|
   | [`txt`](https://raw.githubusercontent.com/ropensci/lightr/master/inst/testdata/CRAIC_export.txt) | `lr_parse_generic()` |
+  | [`spc`]   | `lr_parse_spc()`     |
+  
+[`spc`]: https://github.com/ropensci/lightr/raw/master/inst/testdata/compare/CRAIC/CRAIC.spc
   
 ### Others
 

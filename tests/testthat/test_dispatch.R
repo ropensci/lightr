@@ -42,6 +42,11 @@ test_that("Fallback", {
     dispatch_parser(test.file("avantes_export2.trt"))
   )
 
+  expect_equal(
+    lr_parse_spc(test.file("compare/CRAIC/CRAIC.spc")),
+    dispatch_parser(test.file("compare/CRAIC/CRAIC.spc"))
+  )
+
 })
 
 test_that("Similar output for all parsers", {
