@@ -17,15 +17,23 @@ lr_parse_spc <- function(filename) {
 
   f <- file(filename, "rb")
 
-  skip <- readBin(f, "raw", n = 512, endian = "little")
+  # HEADER (512 bytes)
 
-  comment <- rawToChar(skip[89:166])
+  skip1 <- readBin(f, "raw", n = 4, endian = "little")
 
-  wl <- readBin(f, "numeric", n = 3761, size = 4, endian = "little")
+  dat_len <- readBin(f, "integer", n = 1, size = 8)
+
+  skip2 <- readBin(f, "raw", n = 500, endian = "little")
+
+  comment <- rawToChar(skip2[77:154])
+
+  # DATA
+
+  wl <- readBin(f, "numeric", n = dat_len, size = 4, endian = "little")
 
   skip2 <- readBin(f, "raw", n = 32, endian = "little")
 
-  processed <- readBin(f, "numeric", n = 3761, size = 4, endian = "little")
+  processed <- readBin(f, "numeric", n = dat_len, size = 4, endian = "little")
 
   data <- as.data.frame(cbind(wl,
                               "dark" = NA,
