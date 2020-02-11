@@ -25,6 +25,23 @@ test_that("compare trm/ttt", {
   specs_avasoft <- lr_get_spec(test.file("compare/Avantes"), ext = "ttt")
 
   expect_equal(specs, specs_avasoft, tol = 1e-4)
+
+  spec1_avasoft <- lr_parse_generic(test.file("compare", "Avantes", "feather_1.TXT"))[[1]]
+  spec1 <- lr_parse_rfl8(test.file("compare", "Avantes", "feather.RFL8"), specnum = 1)[[1]]
+
+  # FIXME: Avasoft sets "processed" to 0 when "dark" > "white". Hence why we
+  # only test the first 200 rows until now.
+  expect_equal(spec1[seq_len(200), c("wl", "processed")],
+               spec1_avasoft[seq_len(200), c("wl", "processed")],
+               tol = 1e-4)
+
+  spec2_avasoft <- lr_parse_generic(test.file("compare", "Avantes", "feather_2.TXT"))[[1]]
+  spec2 <- lr_parse_rfl8(test.file("compare", "Avantes", "feather.RFL8"), specnum = 2)[[1]]
+
+  expect_equal(spec2[, c("wl", "processed")],
+               spec2_avasoft[, c("wl", "processed")],
+               tol = 1e-4)
+
 })
 
 test_that("compare spc/craic", {

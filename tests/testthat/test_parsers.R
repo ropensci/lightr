@@ -103,6 +103,29 @@ test_that("Avantes", {
     "4f9ce28d1e"
   )
 
+  rfl8_1_implicit <- expect_warning(
+    lr_parse_rfl8(test.file("compare", "Avantes", "feather.RFL8")),
+    "argument is missing"
+  )
+  rfl8_1 <- expect_silent(
+    lr_parse_rfl8(test.file("compare", "Avantes", "feather.RFL8"), specnum = 1)
+  )
+
+  expect_identical(rfl8_1_implicit, rfl8_1)
+
+  expect_known_hash(rfl8_1, "f844ad5fb5")
+
+  expect_known_hash(
+    expect_silent(lr_parse_rfl8(test.file("compare", "Avantes", "feather.RFL8"),
+                                specnum = 2)),
+    "29e0a49aed"
+  )
+
+  expect_error(
+    lr_parse_rfl8(test.file("compare", "Avantes", "feather.RFL8"), specnum = 5),
+    "'specnum' is larger"
+  )
+
 })
 
 test_that("CRAIC", {

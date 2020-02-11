@@ -4,16 +4,37 @@
 \alias{dispatch_parser}
 \title{Internal function to dispatch files to the correct parser}
 \usage{
-dispatch_parser(filename, decimal = ".", sep = NULL)
+dispatch_parser(filename, decimal = ".", sep = NULL, specnum = NULL)
 }
 \arguments{
 \item{filename}{Path of the file to parse}
 
-\item{decimal}{Character to be used to identify decimal plates
-(defaults to \code{.}).}
-
-\item{sep}{Column delimiting characters to be considered in addition to the
-default (which are: tab, space, and ";")}
+\item{specnum}{Integer representing the position of the spectrum to read in
+the file. This option only makes sense for AvaSoft8 files and is ignored
+in the other cases.}
+}
+\value{
+A list of two elements:
+\itemize{
+\item a dataframe with columns "wl", "dark", "white", "scope" and "processed",
+in that order
+\item a character vector with metadata including:
+\itemize{
+\item \code{user}: Name of the spectrometer operator
+\item \code{date}: Timestamp of the recording
+\item \code{spec_model}: Model of the spectrometer
+\item \code{spec_ID}: Unique ID of the spectrometer
+\item \code{white_inttime}: Integration time of the white reference (in ms)
+\item \code{dark_inttime}: Integration time of the dark reference (in ms)
+\item \code{sample_inttime}: Integration time of the sample (in ms)
+\item \code{white_avgs}: Number of averaged measurements for the white reference
+\item \code{dark_avgs}: Number of averaged measurements for the dark reference
+\item \code{sample_avgs}: Number of averaged measurements for the sample
+\item \code{white_boxcar}: Boxcar width for the white reference
+\item \code{dark_boxcar}: Boxcar width for the dark reference
+\item \code{sample_boxcar}: Boxcar width for the sample reference
+}
+}
 }
 \description{
 Internal function to dispatch files to the correct parser

@@ -1,12 +1,15 @@
 #' Internal function to dispatch files to the correct parser
 #'
-#' @inheritParams lr_parse_generic
+#' @inheritParams lr_parse_rfl8
+#'
+#' @inherit lr_parse_generic return
 #'
 #' @importFrom tools file_ext
 #'
 #' @keywords internal
 #'
-dispatch_parser <- function(filename, decimal = ".", sep = NULL) {
+dispatch_parser <- function(filename, decimal = ".", sep = NULL,
+                            specnum = NULL) {
 
   switch(
     tolower(file_ext(filename)),
@@ -16,6 +19,7 @@ dispatch_parser <- function(filename, decimal = ".", sep = NULL) {
     trm      = lr_parse_trm(filename),
     trt      = lr_parse_trt(filename),
     ttt      = lr_parse_ttt(filename),
+    rfl8     = lr_parse_rfl8(filename, specnum),
     jdx      = lr_parse_jdx(filename),
     jaz      = lr_parse_jaz(filename),
     jazirrad = lr_parse_jazirrad(filename),

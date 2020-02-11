@@ -47,6 +47,11 @@ test_that("Fallback", {
     dispatch_parser(test.file("compare/CRAIC/CRAIC.spc"))
   )
 
+  expect_equal(
+    lr_parse_rfl8(test.file("compare", "Avantes", "feather.RFL8"), specnum = 1),
+    dispatch_parser(test.file("compare", "Avantes", "feather.RFL8"), specnum = 1)
+  )
+
 })
 
 test_that("Similar output for all parsers", {
@@ -56,7 +61,7 @@ test_that("Similar output for all parsers", {
   files <- files[!tools::file_ext(files) %in% c("", "fail", "DRK", "REF")]
 
   lapply(files, function(file) {
-    res <- expect_silent(dispatch_parser(test.file(file), sep = ","))
+    res <- expect_silent(dispatch_parser(test.file(file), sep = ",", specnum = 1))
     expect_length(res, 2)
     expect_is(res[[1]], "data.frame")
     expect_true(all(apply(res[[1]], 2, is.numeric)))

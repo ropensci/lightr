@@ -3,3 +3,5 @@ RS-1.dpt from Guo X, Cai R, Wang S, Tang B, Li Y, Zhao W (2018) Data from: Non-d
 UK5.txt from Feller, Kathryn (2019), “"Long-wavelength reflecting filters found in the larval retinas of one mantis shrimp family (Nannosquillidae)" - Data and Codes”, Mendeley Data, v2 http://dx.doi.org/10.17632/2v2nv34jcm.2
 
 OO_comma.txt from https://doi.org/10.6084/m9.figshare.9883382, CC0
+
+feather.RFL8, feather_1.TXT and feather_2.TXT from M.D. Shawkey

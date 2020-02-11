@@ -4,6 +4,7 @@
 \alias{lr_parse_trm}
 \alias{lr_parse_abs}
 \alias{lr_parse_roh}
+\alias{lr_parse_rfl8}
 \title{Parse Avantes binary file}
 \usage{
 lr_parse_trm(filename)
@@ -11,9 +12,15 @@ lr_parse_trm(filename)
 lr_parse_abs(filename)
 
 lr_parse_roh(filename)
+
+lr_parse_rfl8(filename, specnum)
 }
 \arguments{
 \item{filename}{Path of the file to parse}
+
+\item{specnum}{Integer representing the position of the spectrum to read in
+the file. This option only makes sense for AvaSoft8 files and is ignored
+in the other cases.}
 }
 \value{
 A list of two elements:
@@ -47,5 +54,14 @@ lr_parse_trm(system.file("testdata", "avantes_trans.TRM",
                          package = "lightr"))
 lr_parse_roh(system.file("testdata", "avantes_reflect.ROH",
                          package = "lightr"))
+
+lr_parse_rfl8(system.file("testdata", "compare", "Avantes",
+                          "feather.RFL8",
+                          package = "lightr"),
+              specnum = 1)
+lr_parse_rfl8(system.file("testdata", "compare", "Avantes",
+                          "feather.RFL8",
+                          package = "lightr"),
+              specnum = 2)
 
 }
