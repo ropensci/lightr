@@ -98,8 +98,8 @@ test_that("Generic", {
   )
 
   expect_known_hash(
-    expect_silent(lr_parse_generic(test.file("notest", "OceanView_nonEN.txt"), sep = ",")),
-    "d1b0f9b6a4"
+    expect_silent(lr_parse_generic(test.file("notest", "OceanView_nonEN.txt"), decimal = ",")),
+    "45a0ebdc2f"
   )
 
   expect_known_hash(
