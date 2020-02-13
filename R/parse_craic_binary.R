@@ -22,7 +22,7 @@ lr_parse_spc <- function(filename) {
 
   skip1 <- readBin(f, "raw", n = 4, endian = "little")
 
-  dat_len <- readBin(f, "integer", n = 1, size = 8, endian = "little")
+  dat_len <- readBin(f, "integer", n = 1, size = 2, endian = "little")
 
   skip2 <- readBin(f, "raw", n = 76, endian = "little")
 
