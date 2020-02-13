@@ -16,6 +16,7 @@
 lr_parse_spc <- function(filename) {
 
   f <- file(filename, "rb")
+  on.exit(close(f))
 
   # HEADER (512 bytes)
 
