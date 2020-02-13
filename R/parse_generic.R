@@ -69,7 +69,7 @@ lr_parse_generic <- function(filename, decimal = ".", sep = NULL) {
   # remove columns where all values are NAs (due to poor tabulation)
   rawsplit <- rawsplit[, !apply(rawsplit, 2, function(x) all(is.na(x)))]
 
-  metadata <- rep(NA, 13)
+  metadata <- rep(NA_character_, 13)
 
   data <- data.frame("wl" = rawsplit[, 1],
                      "dark" = NA,

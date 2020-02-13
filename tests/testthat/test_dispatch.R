@@ -57,6 +57,7 @@ test_that("Similar output for all parsers", {
     expect_true(all(apply(res[[1]], 2, is.numeric)))
     expect_named(res[[1]], c("wl", "dark", "white", "scope", "processed"))
     expect_length(res[[2]], 13)
+    expect_is(res[[2]], "character")
   })
 
 })
