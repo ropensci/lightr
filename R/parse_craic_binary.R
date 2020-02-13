@@ -41,7 +41,7 @@ lr_parse_spc <- function(filename) {
                               "scope"= NA,
                               processed))
 
-  metadata <- rep(NA, 13)
+  metadata <- rep(NA_character_, 13)
 
   return(list(data, metadata))
 
