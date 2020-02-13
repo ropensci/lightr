@@ -26,6 +26,7 @@ lr_parse_trm <- function(filename) {
   # Translation into R by Hugo Gruson
 
   f <- file(filename, "rb")
+  on.exit(close(f))
 
   # Header
   versionID <- readBin(f, "numeric", n = 1, size = 4, endian = "little")
@@ -102,8 +103,6 @@ lr_parse_trm <- function(filename) {
     dark_boxcar <- white_boxcar <- scope_boxcar <- readBin(f, "numeric", 1, 4, endian = "little")
     savetime <- NA
   }
-
-  close(f)
 
   len <- nrow(data)
 
