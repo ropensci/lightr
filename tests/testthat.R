@@ -1,4 +1,9 @@
-library(testthat)
 library(lightr)
 
-test_check("lightr")
+if (requireNamespace("testthat", quietly=TRUE)) {
+
+  library(testthat)
+  test_check("lightr")
+
+}
+
