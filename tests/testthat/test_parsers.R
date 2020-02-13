@@ -89,22 +89,22 @@ test_that("Generic", {
 
   expect_known_hash(
     expect_silent(lr_parse_generic(test.file("spec.csv"), sep = ",")),
-    "a0e065224c"
+    "84908426d7"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_generic(test.file("RS-1.dpt"), sep = ",")),
-    "5629fea790"
+    "53771afc43"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_generic(test.file("notest", "OceanView_nonEN.txt"), decimal = ",")),
-    "45a0ebdc2f"
+    "243c174dbb"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_generic(test.file("irr_820_1941.IRR"))),
-    "fd64124485"
+    "d9d50623ee"
   )
 
 })
