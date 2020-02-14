@@ -116,14 +116,14 @@ on the extension in the tables to see an example of this file format):
   | [`trt`]          | `lr_parse_trt()`      |
   | [`ttt`]          | `lr_parse_ttt()`      |
   | [`txt`](https://raw.githubusercontent.com/ropensci/lightr/master/inst/testdata/avasoft8.txt) | `lr_parse_generic()` |
-
-[  | [`DRK`]          | `lr_parse_trm()`      |
+  | [`DRK`]          | `lr_parse_trm()`      |
   | [`REF`]          | `lr_parse_trm()`      |
-`TRM`]: https://github.com/ropensci/lightr/raw/master/inst/testdata/avantes2.TRM
+  
+[`TRM`]: https://github.com/ropensci/lightr/raw/master/inst/testdata/avantes2.TRM
 [`ROH`]: https://github.com/ropensci/lightr/raw/master/inst/testdata/avantes_reflect.ROH
 [`trt`]: https://github.com/ropensci/lightr/raw/master/inst/testdata/avantes_export2.trt
 [`ttt`]: https://github.com/ropensci/lightr/raw/master/inst/testdata/avantes_export.ttt
-  [`DRK`]: https://github.com/ropensci/lightr/raw/master/inst/testdata/1305084U1.DRK
+[`DRK`]: https://github.com/ropensci/lightr/raw/master/inst/testdata/1305084U1.DRK
 [`REF`]: https://github.com/ropensci/lightr/raw/master/inst/testdata/1305084U1.REF
 
 ### [CRAIC](http://www.microspectra.com/)
