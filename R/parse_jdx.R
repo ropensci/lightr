@@ -12,7 +12,8 @@
 #' 1988;42(1):151-62.
 #'
 #' @examples
-#' lr_parse_jdx(system.file("testdata", "OceanOptics.jdx", package = "lightr"))
+#' lr_parse_jdx(system.file("testdata", "OceanOptics_period.jdx",
+#'                          package = "lightr"))
 #'
 #' @export
 #'
