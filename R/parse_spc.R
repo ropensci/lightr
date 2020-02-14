@@ -7,6 +7,9 @@
 #'
 #' @inherit lr_parse_generic return
 #'
+#' @details
+#' Metadata parsing has not yet been implemented for this file format.
+#'
 #' @examples
 #' lr_parse_spc(system.file("testdata", "compare", "CRAIC", "CRAIC.spc",
 #'                          package = "lightr"))
@@ -21,6 +24,7 @@ lr_parse_spc <- function(filename) {
 
   # HEADER (512 bytes)
 
+  # Always 80 4b 00 80?
   skip1 <- readBin(f, "raw", n = 4, endian = "little")
 
   dat_len <- readBin(f, "integer", n = 1, size = 2, endian = "little")
