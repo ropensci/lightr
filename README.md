@@ -95,6 +95,7 @@ on the extension in the tables to see an example of this file format):
   |:-----------------|:----------------------|
   | [`jdx`]          | `lr_parse_jdx()`      |
   | [`ProcSpec`]     | `lr_parse_procspec()` |
+  | [`spc`][spc1]    | `lr_parse_spc()`      |
   | [`jaz`]          | `lr_parse_jaz()`      |
   | [`JazIrrad`]     | `lr_parse_jazirrad()` |
   | [`Transmission`] | `lr_parse_jaz()`      |
@@ -102,6 +103,7 @@ on the extension in the tables to see an example of this file format):
 
 [`jdx`]: https://raw.githubusercontent.com/ropensci/lightr/master/inst/testdata/OceanOptics.jdx
 [`ProcSpec`]: https://github.com/ropensci/lightr/raw/master/inst/testdata/procspec_files/whiteref.ProcSpec
+[spc1]: https://github.com/ropensci/lightr/raw/master/inst/testdata/OceanOptics.spc
 [`jaz`]: https://raw.githubusercontent.com/ropensci/lightr/master/inst/testdata/jazspec.jaz
 [`JazIrrad`]: https://raw.githubusercontent.com/ropensci/lightr/master/inst/testdata/irrad.JazIrrad
 [`Transmission`]: https://raw.githubusercontent.com/ropensci/lightr/master/inst/testdata/FMNH6834.00000001.Master.Transmission
@@ -131,6 +133,9 @@ on the extension in the tables to see an example of this file format):
   | Extension | Parser               |
   |:----------|:---------------------|
   | [`txt`](https://raw.githubusercontent.com/ropensci/lightr/master/inst/testdata/CRAIC_export.txt) | `lr_parse_generic()` |
+  | [`spc`]   | `lr_parse_spc()`     |
+  
+[`spc`]: https://github.com/ropensci/lightr/raw/master/inst/testdata/compare/CRAIC/CRAIC.spc
   
 ### Others
 

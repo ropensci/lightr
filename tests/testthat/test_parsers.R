@@ -28,6 +28,11 @@ test_that("OceanOptics", {
   )
 
   expect_known_hash(
+    expect_silent(lr_parse_spc(test.file("OceanOptics.spc"))),
+    "6f8bbc1429"
+  )
+
+  expect_known_hash(
     expect_silent(lr_parse_jaz(test.file("jazspec.jaz"))),
     "8af6858198"
   )
@@ -100,6 +105,15 @@ test_that("Avantes", {
 
 })
 
+test_that("CRAIC", {
+
+  expect_known_hash(
+    expect_silent(lr_parse_spc(test.file("compare", "CRAIC", "CRAIC.spc"))),
+    "4fb2c8a868"
+  )
+
+})
+
 test_that("Generic", {
 
   expect_error(lr_parse_generic(test.file("spec.csv")), "Parsing failed.")
@@ -119,6 +133,11 @@ test_that("Generic", {
     "d9d50623ee"
   )
 
+  expect_known_hash(
+    expect_silent(lr_parse_generic(test.file("compare", "CRAIC", "CRAIC.txt"))),
+    "87e165e94f"
+  )
+
   # These files are better suited to more specific parsers but are dispatched
   # here by default
 
@@ -131,4 +150,6 @@ test_that("Generic", {
     expect_silent(lr_parse_generic(test.file("non_english", "OO_comma.txt"), decimal = ",")),
     "f0ce048135"
   )
+
+
 })

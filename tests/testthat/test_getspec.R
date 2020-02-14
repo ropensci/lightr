@@ -4,7 +4,7 @@ test_that("get_spec all", {
 
   res <- lr_get_spec(test.file(),
                   ext = c("TRM", "ttt", "jdx", "jaz", "JazIrrad", "csv", "txt",
-                          "Transmission"),
+                          "Transmission", "spc"),
                   sep = ",")
   expect_known_value(res, "known_output/getspec_all.rds")
 })
