@@ -47,7 +47,7 @@ test_that("OceanOptics", {
   )
 
   expect_known_hash(
-    expect_silent(lr_parse_jaz(test.file("OO_comma.txt"))),
+    expect_silent(lr_parse_jaz(test.file("non_english", "OO_comma.txt"))),
     "6c26f981e1"
   )
 
@@ -114,13 +114,20 @@ test_that("Generic", {
   )
 
   expect_known_hash(
-    expect_silent(lr_parse_generic(test.file("notest", "OceanView_nonEN.txt"), decimal = ",")),
-    "243c174dbb"
-  )
-
-  expect_known_hash(
     expect_silent(lr_parse_generic(test.file("irr_820_1941.IRR"))),
     "d9d50623ee"
   )
 
+  # These files are better suited to more specific parsers but are dispatched
+  # here by default
+
+  expect_known_hash(
+    expect_silent(lr_parse_generic(test.file("non_english", "OceanView_nonEN.txt"), decimal = ",")),
+    "243c174dbb"
+  )
+
+  expect_known_hash(
+    expect_silent(lr_parse_generic(test.file("non_english", "OO_comma.txt"), decimal = ",")),
+    "f0ce048135"
+  )
 })

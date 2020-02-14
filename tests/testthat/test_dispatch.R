@@ -8,8 +8,8 @@ test_that("Fallback", {
   )
 
   expect_equal(
-    lr_parse_jdx(test.file("OceanOptics.jdx")),
-    dispatch_parser(test.file("OceanOptics.jdx"))
+    lr_parse_jdx(test.file("OceanOptics_period.jdx")),
+    dispatch_parser(test.file("OceanOptics_period.jdx"))
   )
 
   expect_equal(
