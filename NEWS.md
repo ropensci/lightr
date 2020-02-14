@@ -4,8 +4,8 @@
 
 * `lightr` can correctly imports `TRM` files from Avasoft 6.0 (previously it 
 only supported files from Avasoft 7.0).
-* `lightr` can now import binary CRAIC `.spc` files (via the `lr_parse_spc()`)
-parser.
+* `lightr` can now import binary `.spc` files (via the `lr_parse_spc()` parser).
+This format is used by OceanInsight and CRAIC.
 
 ## Minor changes
 

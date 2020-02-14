@@ -1,6 +1,7 @@
-#' Parse CRAIC binary file
+#' Parse SPC binary file
 #'
-#' Parse CRAIC binary file. <http://www.microspectra.com>
+#' Parse SPC binary file. (Used by CRAIC <http://www.microspectra.com> and
+#' OceanInsight <https://www.oceaninsight.com/>)
 #'
 #' @inheritParams lr_parse_generic
 #'
