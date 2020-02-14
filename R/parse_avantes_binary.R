@@ -32,6 +32,11 @@ lr_parse_trm <- function(filename) {
   # Header
   versionID <- readBin(f, "numeric", n = 1, size = 4, endian = "little")
 
+  if (!versionID %in% c(60, 70)) {
+    stop("parsing for this file type has not yet been implemented. ",
+         "Please open an issue with the problematic file.", call. = FALSE)
+  }
+
   if (versionID == 70) {
     specID <- intToUtf8(readBin(f, "numeric", 9, 4, endian = "little"))
     userfriendlyname <- intToUtf8(readBin(f, "numeric", 64, 4, endian = "little"))
