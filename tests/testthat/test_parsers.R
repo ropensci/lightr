@@ -22,9 +22,10 @@ test_that("OceanOptics", {
     "64a8240578"
   )
 
-  # expect_known_hash(
-  #   expect_silent(lr_parse_jdx(test.file("OceanOptics_comma.jdx")))
-  # )
+  expect_known_hash(
+    expect_silent(lr_parse_jdx(test.file("non_english", "OceanOptics_comma.jdx"))),
+    "4bd646e438"
+  )
 
   expect_known_hash(
     expect_silent(lr_parse_jaz(test.file("jazspec.jaz"))),

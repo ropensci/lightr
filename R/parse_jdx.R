@@ -75,8 +75,10 @@ lr_parse_jdx <- function(filename) {
     # Data is contained in lines that do NOT start with ##
     data <- grep("^##", content[blockstarts[index]:blockends[index]],
                  value = TRUE, invert = TRUE)
-    data <- strsplit(data, ",")
+    data <- strsplit(data, ", ")
     data <- do.call(rbind, data)
+    # Fix decimal for non-English files
+    data <- gsub(",", ".", data)
   }
 
   scope_data <- get_data(which(blocktype=="processed"))

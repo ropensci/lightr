@@ -8,6 +8,8 @@ only supported files from Avasoft 7.0)
 ## Minor changes
 
 * new tests for `.IRR` files
+* `jdx` files saved in a locale that uses `,` as the decimal separator are now
+parsed correctly.
 
 # lightr 1.0
 
