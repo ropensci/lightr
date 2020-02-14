@@ -81,6 +81,18 @@ test_that("Avantes", {
     "578a1ea3e8"
   )
 
+  # Dark reference file
+  expect_known_hash(
+    expect_silent(lr_parse_trm(test.file("1305084U1.DRK"))),
+    "c99c81aa5e"
+  )
+
+  # White reference file
+  expect_known_hash(
+    expect_silent(lr_parse_trm(test.file("1305084U1.REF"))),
+    "4f9ce28d1e"
+  )
+
 })
 
 test_that("Generic", {

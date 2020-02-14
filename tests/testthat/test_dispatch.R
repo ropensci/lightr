@@ -48,7 +48,7 @@ test_that("Similar output for all parsers", {
 
   files <- list.files(system.file("testdata", package = "lightr"),
                       recursive = TRUE, include.dirs = TRUE)
-  files <- files[!tools::file_ext(files) %in% c("", "fail")]
+  files <- files[!tools::file_ext(files) %in% c("", "fail", "DRK", "REF")]
 
   lapply(files, function(file) {
     res <- expect_silent(dispatch_parser(test.file(file), sep = ","))

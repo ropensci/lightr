@@ -24,7 +24,8 @@ in that order
 }
 }
 \description{
-Parse Avantes binary file. \url{https://www.avantes.com/products/spectrometers}
+Parse Avantes binary file (TRM, ABS, ROH, DRK, REF file extensions).
+\url{https://www.avantes.com/products/spectrometers}
 }
 \examples{
 lr_parse_trm(system.file("testdata", "avantes_trans.TRM",
