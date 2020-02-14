@@ -9,7 +9,20 @@
 #' @return A list of two elements:
 #'   * a dataframe with columns "wl", "dark", "white", "scope" and "processed",
 #'     in that order
-#'   * a list with metadata including
+#'   * a character vector with metadata including:
+#'     - `user`: Name of the spectrometer operator
+#'     - `date`: Timestamp of the recording
+#'     - `spec_model`: Model of the spectrometer
+#'     - `spec_ID`: Unique ID of the spectrometer
+#'     - `white_inttime`: Integration time of the white reference (in ms)
+#'     - `dark_inttime`: Integration time of the dark reference (in ms)
+#'     - `sample_inttime`: Integration time of the sample (in ms)
+#'     - `white_avgs`: Number of averaged measurements for the white reference
+#'     - `dark_avgs`: Number of averaged measurements for the dark reference
+#'     - `sample_avgs`: Number of averaged measurements for the sample
+#'     - `white_boxcar`: Boxcar width for the white reference
+#'     - `dark_boxcar`: Boxcar width for the dark reference
+#'     - `sample_boxcar`: Boxcar width for the sample reference
 #'
 #' @examples
 #' lr_parse_generic(system.file("testdata", "spec.csv", package = "lightr"),
