@@ -22,7 +22,8 @@ Parse OceanInsight (formerly OceanOptics) JCAMP-DX (.jdx) file.
 \url{https://www.oceaninsight.com/}
 }
 \examples{
-lr_parse_jdx(system.file("testdata", "OceanOptics.jdx", package = "lightr"))
+lr_parse_jdx(system.file("testdata", "OceanOptics_period.jdx",
+                         package = "lightr"))
 
 }
 \references{
