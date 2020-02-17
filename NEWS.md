@@ -11,6 +11,8 @@ This format is used by OceanInsight and CRAIC.
 
 ## Minor changes
 
+* warnings on CRAN build system for platforms that don't support markdown 2 
+have been fixed.
 * new tests for `.IRR` files
 * `jdx` files saved in a locale that uses `,` as the decimal separator are now
 parsed correctly.
