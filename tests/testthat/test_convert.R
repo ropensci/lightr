@@ -70,33 +70,26 @@ test_that("Convert csv", {
 test_that("Convert warn/error", {
   tdir <- tempdir()
   # Total fail
-  totalfail <- expression({
-    lr_convert_tocsv(tdir,
-                     ext = "fail")
-  })
-  expect_warning(eval(totalfail), "File import failed")
+  expect_warning(
+    expect_null(lr_convert_tocsv(tdir, ext = "fail")),
+    "File import failed"
+  )
 
-  expect_null(suppressWarnings(eval(totalfail)))
-
-  # # Partial fail
-  partialfail <- expression({
-    lr_convert_tocsv(tdir,
-                     ext = c("fail", "jdx"),
-                     overwrite = TRUE)
-  })
-  expect_warning(eval(partialfail), "Could not import one or more")
+  # Partial fail
+  expect_warning(
+    lr_convert_tocsv(tdir, ext = c("fail", "jdx"), overwrite = TRUE),
+    "Could not import one or more"
+  )
 
   # Missing
-  missing <- expression({
-    lr_convert_tocsv(where = getwd(), ext = "missing")
-  })
-  expect_warning(eval(missing), "No files found")
+  expect_warning(
+    expect_null(lr_convert_tocsv(where = getwd(), ext = "missing")),
+    "No files found"
+  )
 
-  location <- expression({
-    lr_convert_tocsv()
-  })
-  expect_warning(eval(location), "Please provide a valid location")
-
-  expect_null(suppressWarnings(eval(missing)))
+  expect_warning(
+    expect_null(lr_convert_tocsv()),
+    "Please provide a valid location"
+  )
 
 })
