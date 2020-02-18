@@ -178,9 +178,10 @@ are using an unsupported format, please
 * [`spectrolab`](https://github.com/meireles/spectrolab)
 
 To our knowledge, `lightr` is the only gratis tool to import some complex file
-formats such as Avantes binary files or OceanOptics `.ProcSpec`. Because of its
-user-friendly high-levels functions and low dependency philosophy, `lightr` may 
-also hopefully prove useful for people working with other languages than R.
+formats such as Avantes (`ABS`, `ROH`, `TRM`, `RFL8`) or CRAIC (`spc`) binary 
+files, or OceanOptics `.ProcSpec`. Because of its user-friendly high-levels
+functions and low dependency philosophy, `lightr` may also hopefully prove
+useful for people working with other languages than R.
 
 
 [`pavo`]: https://cran.r-project.org/package=pavo
