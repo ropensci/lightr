@@ -5,7 +5,7 @@
   ],
   "@type": "SoftwareSourceCode",
   "identifier": "lightr",
-  "description": "Parse various reflectance/transmittance/absorbance spectra file\n    formats to extract spectral data and metadata, as described in Gruson, White\n    & Maia (2019) <doi:10.21105/joss.01857>.\n    This package has been peer-reviewed by rOpenSci (v. 0.1).",
+  "description": "Parse various reflectance/transmittance/absorbance spectra file\n    formats to extract spectral data and metadata, as described in Gruson, White\n    & Maia (2019) <doi:10.21105/joss.01857>. Among other formats, it can import\n    files from Avantes <https://www.avantes.com/>, CRAIC \n    <http://www.microspectra.com/>, and OceanInsight (formerly OceanOptics) \n    <https://www.oceaninsight.com/> brands.\n    This package has been peer-reviewed by rOpenSci (v. 0.1).",
   "name": "lightr: Read Spectrometric Data and Metadata",
   "codeRepository": "https://github.com/ropensci/lightr",
   "relatedLink": [
