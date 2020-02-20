@@ -4,7 +4,7 @@ test_that("get_metadata all", {
 
   res <- lr_get_metadata(
     test.file(),
-	  ext = c("TRM", "ROH", "ttt", "trt", "jdx", "jaz", "JazIrrad")
+    ext = c("TRM", "ROH", "ttt", "trt", "jdx", "jaz", "JazIrrad")
   )
   expect_known_value(res, "known_output/getmetadata_all.rds")
 
