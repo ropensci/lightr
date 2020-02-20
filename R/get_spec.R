@@ -95,7 +95,9 @@ lr_get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
     gsp <- function(f) {
       df <- dispatch_parser(f, decimal = decimal, sep = sep)[[1]]
 
-      # Prevent approx from filling a complete gap in the range of interest.
+      # Trim now because otherwise, approx() can fill the region of interest
+      # with bogus data (e.g., if the data is complete between 200-300nm and
+      # 800-1200nm and your region of interested if 300-700 nm).
       bounds <- which(df$wl >= lim[1] & df$wl <= lim[2])
 
       if (length(bounds) == 0) {
