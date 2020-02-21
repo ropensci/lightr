@@ -11,6 +11,6 @@ compute_processed(spdata)
 'scope', 'dark', and 'white'}
 }
 \description{
-Conmpute processed spectral data, from the raw count/scope data, counts from
+Compute processed spectral data, from the raw count/scope data, counts from
 a dark reference, and from a white reference.
 }
