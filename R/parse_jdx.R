@@ -7,6 +7,10 @@
 #'
 #' @inherit lr_parse_generic return
 #'
+#' @details
+#' 'processed' column computed by lightr with the function
+#' [compute_processed()].
+#'
 #' @references McDonald RS, Wilks PA. JCAMP-DX: A Standard Form for Exchange of
 #' Infrared Spectra in Computer Readable Form. Applied Spectroscopy.
 #' 1988;42(1):151-62.
@@ -88,7 +92,7 @@ lr_parse_jdx <- function(filename) {
   data <- cbind(scope_data[,1], dark_data[,2], white_data[,2], scope_data[,2])
   colnames(data) <- c("wl", "dark", "white", "scope")
   data <- data.frame(apply(data, 2, as.numeric))
-  data$processed <- (data$scope - data$dark) / (data$white - data$dark) * 100
+  data$processed <- compute_processed(data)
 
   return(list(data, metadata))
 

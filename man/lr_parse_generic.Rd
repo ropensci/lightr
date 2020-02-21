@@ -41,6 +41,9 @@ in that order
 \description{
 Generic function to parse spectra files that don't have a specific parser
 }
+\details{
+'processed' column computed by official software and provided as is.
+}
 \examples{
 lr_parse_generic(system.file("testdata", "spec.csv", package = "lightr"),
                  sep = ",")

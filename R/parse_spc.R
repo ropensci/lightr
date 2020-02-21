@@ -5,9 +5,9 @@
 #'
 #' @inheritParams lr_parse_generic
 #'
-#' @inherit lr_parse_generic return
+#' @inherit lr_parse_generic return details
 #'
-#' @details
+#' @section In development:
 #' Metadata parsing has not yet been implemented for this file format.
 #'
 #' @examples

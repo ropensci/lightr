@@ -5,7 +5,7 @@
 #'
 #' @inheritParams lr_parse_generic
 #'
-#' @inherit lr_parse_generic return
+#' @inherit lr_parse_generic return details
 #'
 #' @importFrom xml2 read_xml xml_find_all xml_find_first xml_text xml_double
 #'

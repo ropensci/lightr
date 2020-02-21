@@ -36,6 +36,9 @@ in that order
 Parse OceanInsight (formerly OceanOptics) ProcSpec file.
 \url{https://www.oceaninsight.com/}
 }
+\details{
+'processed' column computed by official software and provided as is.
+}
 \examples{
 lr_parse_procspec(system.file("testdata", "procspec_files",
                               "OceanOptics_Linux.ProcSpec",

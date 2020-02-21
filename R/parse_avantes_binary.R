@@ -7,6 +7,8 @@
 #'
 #' @inherit lr_parse_generic return
 #'
+#' @inherit lr_parse_jdx details
+#'
 #' @importFrom stats setNames
 #'
 #' @examples
@@ -120,7 +122,7 @@ lr_parse_trm <- function(filename) {
 
   # Reorder columns
   data <- data[, c("wl", "dark", "white", "scope")]
-  data$processed <- (data$scope - data$dark) / (data$white - data$dark) * 100
+  data$processed <- compute_processed(data)
 
   author <- NA
   specmodel <- NA
@@ -272,7 +274,7 @@ lr_parse_rfl8 <- function(filename, specnum) {
                                 dark,
                                 "white" = reference,
                                 scope))
-    data$processed <- (data$scope - data$dark) / (data$white - data$dark) * 100
+    data$processed <- compute_processed(data)
 
     author <- NA
     savetime <- NA # FIXME: extract this from SPCfiledate

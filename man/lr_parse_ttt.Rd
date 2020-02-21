@@ -39,6 +39,9 @@ in that order
 Parse Avantes converted file.
 \url{https://www.avantes.com/products/spectrometers}
 }
+\details{
+'processed' column computed by official software and provided as is.
+}
 \examples{
 lr_parse_ttt(system.file("testdata", "avantes_export.ttt",
                          package = "lightr"))

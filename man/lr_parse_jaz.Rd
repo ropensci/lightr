@@ -39,6 +39,9 @@ in that order
 Parse OceanInsight (formerly OceanOptics) converted file.
 \url{https://www.oceaninsight.com/}
 }
+\details{
+'processed' column computed by official software and provided as is.
+}
 \examples{
 lr_parse_jaz(system.file("testdata", "jazspec.jaz", package = "lightr"))
 lr_parse_jazirrad(system.file("testdata", "irrad.JazIrrad",

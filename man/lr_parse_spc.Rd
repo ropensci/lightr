@@ -37,8 +37,13 @@ Parse SPC binary file. (Used by CRAIC \url{http://www.microspectra.com} and
 OceanInsight \url{https://www.oceaninsight.com/})
 }
 \details{
+'processed' column computed by official software and provided as is.
+}
+\section{In development}{
+
 Metadata parsing has not yet been implemented for this file format.
 }
+
 \examples{
 lr_parse_spc(system.file("testdata", "compare", "CRAIC", "CRAIC.spc",
                          package = "lightr"))

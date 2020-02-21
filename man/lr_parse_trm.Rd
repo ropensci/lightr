@@ -49,6 +49,10 @@ in that order
 Parse Avantes binary file (TRM, ABS, ROH, DRK, REF file extensions).
 \url{https://www.avantes.com/products/spectrometers}
 }
+\details{
+'processed' column computed by lightr with the function
+\code{\link[=compute_processed]{compute_processed()}}.
+}
 \examples{
 lr_parse_trm(system.file("testdata", "avantes_trans.TRM",
                          package = "lightr"))

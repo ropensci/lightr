@@ -24,6 +24,9 @@
 #'     - `dark_boxcar`: Boxcar width for the dark reference
 #'     - `sample_boxcar`: Boxcar width for the sample reference
 #'
+#' @details
+#' 'processed' column computed by official software and provided as is.
+#'
 #' @examples
 #' lr_parse_generic(system.file("testdata", "spec.csv", package = "lightr"),
 #'                  sep = ",")

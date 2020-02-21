@@ -5,7 +5,7 @@
 #'
 #' @inheritParams lr_parse_generic
 #'
-#' @inherit lr_parse_generic return
+#' @inherit lr_parse_generic return details
 #'
 #' @examples
 #' lr_parse_jaz(system.file("testdata", "jazspec.jaz", package = "lightr"))

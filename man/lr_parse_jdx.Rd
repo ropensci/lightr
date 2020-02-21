@@ -36,6 +36,10 @@ in that order
 Parse OceanInsight (formerly OceanOptics) JCAMP-DX (.jdx) file.
 \url{https://www.oceaninsight.com/}
 }
+\details{
+'processed' column computed by lightr with the function
+\code{\link[=compute_processed]{compute_processed()}}.
+}
 \examples{
 lr_parse_jdx(system.file("testdata", "OceanOptics_period.jdx",
                          package = "lightr"))
