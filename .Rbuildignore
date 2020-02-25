@@ -10,5 +10,6 @@
 ^LICENSE\.md$
 ^cran-comments\.md$
 ^inst/specs_joss.pdf$
-^inst/paper.md$
+^inst/paper\.md$
 ^CRAN-RELEASE$
+^AvaSoft8_File_Formats\.pdf$
