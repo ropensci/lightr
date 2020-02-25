@@ -42,7 +42,7 @@ A data.frame containing one file per row and the following columns:
 \itemize{
 \item \code{name}: File name (without the extension)
 \item \code{user}: Name of the spectrometer operator
-\item \code{date}: Timestamp of the recording
+\item \code{date}: Timestamp of the recording (ISO 8601 format)
 \item \code{spec_model}: Model of the spectrometer
 \item \code{spec_ID}: Unique ID of the spectrometer
 \item \code{white_inttime}: Integration time of the white reference (in ms)

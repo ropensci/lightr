@@ -6,7 +6,7 @@ test_that("get_metadata all", {
     test.file(),
     ext = c("TRM", "ROH", "ttt", "trt", "jdx", "jaz", "JazIrrad")
   )
-  expect_known_value(res, "known_output/getmetadata_all.rds")
+  expect_known_hash(res, "c585251bd0")
 
 })
 
@@ -15,7 +15,7 @@ test_that("get_metadata recursive", {
   # Recursive
   res <- lr_get_metadata(test.file(),
                      ext = "ProcSpec", subdir = TRUE)
-  expect_known_value(res, "known_output/getmetadata_recursive.rds")
+  expect_known_hash(res, "f82ad88fb1")
 })
 
 test_that("get_metadata warn/error", {

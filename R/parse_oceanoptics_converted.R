@@ -30,6 +30,9 @@ lr_parse_jaz <- function(filename) {
 
   savetime <- grep("^Date: .*", content, value = TRUE)
   savetime <- gsub("^Date: ", "", savetime)
+  savetime <- as.character(as.Date(savetime,
+                                   tryFormats = c("%c", "%+"),
+                                   optional = TRUE))
 
   specmodel <- NA_character_
 

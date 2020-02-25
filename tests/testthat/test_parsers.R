@@ -4,17 +4,17 @@ test_that("OceanOptics", {
 
   expect_known_hash(
     expect_silent(lr_parse_procspec(test.file("procspec_files", "OceanOptics_Linux.ProcSpec"))),
-    "4a3b24e17d"
+    "9857e34c56"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_procspec(test.file("procspec_files", "OceanOptics_Windows.ProcSpec"))),
-    "2e4d05a0e8"
+    "aec42324ce"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_procspec(test.file("procspec_files", "OceanOptics_badencode.ProcSpec"))),
-    "3474bf01db"
+    "c97d6dff94"
   )
 
   expect_known_hash(
@@ -34,27 +34,27 @@ test_that("OceanOptics", {
 
   expect_known_hash(
     expect_silent(lr_parse_jaz(test.file("jazspec.jaz"))),
-    "8af6858198"
+    "3626dd3975"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_jazirrad(test.file("irrad.JazIrrad"))),
-    "1e71c660d6"
+    "76fc2f1145"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_jaz(test.file("FMNH6834.00000001.Master.Transmission"))),
-    "b95ed8922c"
+    "64f0928f6b"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_jaz(test.file("UK5.txt"))),
-    "026afbfbd8"
+    "6e523f90b0"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_jaz(test.file("non_english", "OO_comma.txt"))),
-    "6c26f981e1"
+    "b02c338380"
   )
 
 })
@@ -63,17 +63,17 @@ test_that("Avantes", {
 
   expect_known_hash(
     expect_silent(lr_parse_roh(test.file("avantes_reflect.ROH"))),
-    "08283ca249"
+    "21c61378d7"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_trm(test.file("avantes_trans.TRM"))),
-    "7264ef8eaa"
+    "ab3f3cf76d"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_trm(test.file("avantes2.TRM"))),
-    "0b261983d9"
+    "6d59fbc34a"
   )
 
   expect_known_hash(
@@ -88,19 +88,19 @@ test_that("Avantes", {
 
   expect_known_hash(
     expect_silent(lr_parse_trt(test.file("avantes_export2.trt"))),
-    "578a1ea3e8"
+    "c20fb93714"
   )
 
   # Dark reference file
   expect_known_hash(
     expect_silent(lr_parse_trm(test.file("1305084U1.DRK"))),
-    "e600162aba"
+    "6364c89723"
   )
 
   # White reference file
   expect_known_hash(
     expect_silent(lr_parse_trm(test.file("1305084U1.REF"))),
-    "824e4331cd"
+    "5d322b7d10"
   )
 
   rfl8_1_implicit <- expect_warning(

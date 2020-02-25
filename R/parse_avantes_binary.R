@@ -67,7 +67,7 @@ lr_parse_trm <- function(filename) {
     laserwidth <- readBin(f, "numeric", 1, 4, endian = "little")
     strobercontrol <- readBin(f, "numeric", 1, 4, endian = "little")
     dummy2 <- readBin(f, "numeric", 2, 4, endian = "little")
-    savetime <- readBin(f, "numeric", 1, 4, endian = "little")
+    timestamp <- readBin(f, "numeric", 1, 4, endian = "little")
     dyndarkcorrection <- readBin(f, "numeric", 1, 4, endian = "little")
 
     smoothpix <- readBin(f, "numeric", 1, 4, endian = "little")
@@ -109,8 +109,8 @@ lr_parse_trm <- function(filename) {
   }
   if (versionID == 60) {
     dark_boxcar <- white_boxcar <- scope_boxcar <- readBin(f, "numeric", 1, 4, endian = "little")
-    savetime <- NA_character_
   }
+  savetime <- NA_character_
 
   len <- nrow(data)
 
