@@ -93,8 +93,8 @@ lr_parse_trm <- function(filename) {
   } else {# scope mode
     data <- data.frame(
       "scope" = readBin(f, "numeric", ipixlast - ipixfirst + 1, 4, endian = "little"),
-      "white" = NA,
-      "dark"  = NA
+      "white" = NA_real_,
+      "dark"  = NA_real_
     )
   }
 
@@ -109,7 +109,7 @@ lr_parse_trm <- function(filename) {
   }
   if (versionID == 60) {
     dark_boxcar <- white_boxcar <- scope_boxcar <- readBin(f, "numeric", 1, 4, endian = "little")
-    savetime <- NA
+    savetime <- NA_character_
   }
 
   len <- nrow(data)
@@ -124,8 +124,8 @@ lr_parse_trm <- function(filename) {
   data <- data[, c("wl", "dark", "white", "scope")]
   data$processed <- compute_processed(data)
 
-  author <- NA
-  specmodel <- NA
+  author <- NA_character_
+  specmodel <- NA_character_
   metadata <- c(author, savetime, specmodel, specID,
                 dark_inttime, white_inttime, scope_inttime,
                 dark_average, white_average, scope_average,
@@ -276,9 +276,9 @@ lr_parse_rfl8 <- function(filename, specnum) {
                                 scope))
     data$processed <- compute_processed(data)
 
-    author <- NA
-    savetime <- NA # FIXME: extract this from SPCfiledate
-    specmodel <- NA
+    author <- NA_character_
+    savetime <- NA_character_ # FIXME: extract this from SPCfiledate
+    specmodel <- NA_character_
 
     metadata <-  metadata <- c(author, savetime, specmodel, specID,
                                dark_inttime, white_inttime, scope_inttime,

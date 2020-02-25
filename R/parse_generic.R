@@ -88,9 +88,9 @@ lr_parse_generic <- function(filename, decimal = ".", sep = NULL) {
   metadata <- rep(NA_character_, 13)
 
   data <- data.frame("wl" = rawsplit[, 1],
-                     "dark" = NA,
-                     "white" = NA,
-                     "scope" = NA,
+                     "dark" = NA_real_,
+                     "white" = NA_real_,
+                     "scope" = NA_real_,
                      "processed" = rawsplit[, dim(rawsplit)[2]])
 
   return(list(data, metadata))

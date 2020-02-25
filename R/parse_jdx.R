@@ -25,9 +25,9 @@ lr_parse_jdx <- function(filename) {
   content <- readLines(filename)
   author <- grep("^##OWNER=", content, value = TRUE)
   author <- gsub("^##OWNER= ", "", author)[1]
-  savetime <- NA
-  specmodel <- NA
-  specID <- NA
+  savetime <- NA_character_
+  specmodel <- NA_character_
+  specID <- NA_character_
 
   # According to the standard, all blocks must start and end in this way:
   blockstarts <- grep("^##TITLE=", content)[-1]

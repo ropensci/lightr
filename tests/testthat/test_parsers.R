@@ -63,7 +63,7 @@ test_that("Avantes", {
 
   expect_known_hash(
     expect_silent(lr_parse_roh(test.file("avantes_reflect.ROH"))),
-    "c0d5f0efea"
+    "08283ca249"
   )
 
   expect_known_hash(
@@ -94,13 +94,13 @@ test_that("Avantes", {
   # Dark reference file
   expect_known_hash(
     expect_silent(lr_parse_trm(test.file("1305084U1.DRK"))),
-    "c99c81aa5e"
+    "e600162aba"
   )
 
   # White reference file
   expect_known_hash(
     expect_silent(lr_parse_trm(test.file("1305084U1.REF"))),
-    "4f9ce28d1e"
+    "824e4331cd"
   )
 
   rfl8_1_implicit <- expect_warning(
@@ -143,22 +143,22 @@ test_that("Generic", {
 
   expect_known_hash(
     expect_silent(lr_parse_generic(test.file("spec.csv"), sep = ",")),
-    "84908426d7"
+    "4fe5a89ddb"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_generic(test.file("RS-1.dpt"), sep = ",")),
-    "53771afc43"
+    "e9a4c7cf15"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_generic(test.file("irr_820_1941.IRR"))),
-    "d9d50623ee"
+    "7709b0faa3"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_generic(test.file("compare", "CRAIC", "CRAIC.txt"))),
-    "87e165e94f"
+    "91f4cc5696"
   )
 
   # These files are better suited to more specific parsers but are dispatched
@@ -166,12 +166,12 @@ test_that("Generic", {
 
   expect_known_hash(
     expect_silent(lr_parse_generic(test.file("non_english", "OceanView_nonEN.txt"), decimal = ",")),
-    "243c174dbb"
+    "d3d5283824"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_generic(test.file("non_english", "OO_comma.txt"), decimal = ",")),
-    "f0ce048135"
+    "7bb9eb694a"
   )
 
 

@@ -23,13 +23,13 @@ lr_parse_ttt <- function(filename) {
 
   # The ID is always included as the first 9 characters in the comment line
   specID <- gsub("([[:alnum:]]{9})-.*", "\\1", content[1])
-  author <- NA
+  author <- NA_character_
   savetime <- grep("^Timestamp", content, value = TRUE)
   savetime <- gsub("^Timestamp \\[.+\\]([[:digit:]]+)$", "\\1", savetime)
   if (length(savetime)==0) {
-    savetime <- NA
+    savetime <- NA_character_
   }
-  specmodel <- NA
+  specmodel <- NA_character_
   inttime <- gsub("^Integration time: ([[:graph:]]+) ms$", "\\1", content[2])
   average <- gsub("^Average: ([[:digit:]]+) scans$", "\\1", content[3])
   boxcar <- gsub("^Nr of pixels used for smoothing: ", "", content[4])
@@ -61,7 +61,7 @@ lr_parse_ttt <- function(filename) {
                 "processed" = "Transmittance")
 
   data_final <- setNames(
-    as.data.frame(matrix(NA, nrow = nrow(data), ncol = 5)),
+    as.data.frame(matrix(NA_real_, nrow = nrow(data), ncol = 5)),
     names(cornames)
   )
 

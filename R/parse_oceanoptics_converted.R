@@ -31,7 +31,7 @@ lr_parse_jaz <- function(filename) {
   savetime <- grep("^Date: .*", content, value = TRUE)
   savetime <- gsub("^Date: ", "", savetime)
 
-  specmodel <- NA
+  specmodel <- NA_character_
 
   # For those, be careful, the line ends with '(specID)' so no $
   int <- grep("^Integration Time (.+): [[:digit:]]+", content, value = TRUE)
