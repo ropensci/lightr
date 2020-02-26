@@ -20,11 +20,6 @@ matrix:
       env:
         - LANG=fr_FR.UTF-8
         - LC_ALL=fr_FR.UTF-8
-      addons:
-        apt:
-          packages:
-            - locales
-            - language-pack-fr
 cache: packages
 addons:
   apt:
@@ -33,6 +28,8 @@ addons:
     packages:
     - libmagick++-dev
     - libglu1-mesa-dev
+    - locales
+    - language-pack-fr
 r_packages:
   - covr
   - devtools
