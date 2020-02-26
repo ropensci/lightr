@@ -30,6 +30,14 @@ lr_parse_jaz <- function(filename) {
 
   savetime <- grep("^Date: .*", content, value = TRUE)
   savetime <- gsub("^Date: ", "", savetime)
+
+  # OceanOptics files use locale-dependant date formats but it looks like they
+  # are always using English for this, even when the locale is not set to
+  # English
+  orig_locale <- Sys.getlocale("LC_TIME")
+  on.exit(Sys.setlocale("LC_TIME", orig_locale))
+  Sys.setlocale("LC_TIME", "C")
+
   savetime <- as.character(as.Date(savetime,
                                    tryFormats = c("%c", "%+"),
                                    optional = TRUE))

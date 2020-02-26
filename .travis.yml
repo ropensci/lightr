@@ -16,6 +16,15 @@ matrix:
       brew_packages:
         - libgit2
         - imagemagick@6
+    - r: release
+      env:
+        - LANG=fr_FR.UTF-8
+        - LC_ALL=fr_FR.UTF-8
+      addons:
+        apt:
+          packages:
+            - locales
+            - language-pack-fr
 cache: packages
 addons:
   apt:
