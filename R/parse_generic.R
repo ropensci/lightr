@@ -80,7 +80,7 @@ lr_parse_generic <- function(filename, decimal = ".", sep = NULL) {
   }
 
   # convert to numeric, check for NA
-  class(rawsplit) <- "numeric"
+  storage.mode(rawsplit) <- "numeric"
 
   # remove columns where all values are NAs (due to poor tabulation)
   rawsplit <- rawsplit[, !apply(rawsplit, 2, function(x) all(is.na(x)))]
