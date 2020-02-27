@@ -230,5 +230,6 @@
         }
       }
     }
-  ]
+  ],
+  "readme": "https://github.com/ropensci/lightr/blob/master/README.md"
 }
