@@ -34,27 +34,27 @@ test_that("OceanOptics", {
 
   expect_known_hash(
     expect_silent(lr_parse_jaz(test.file("jazspec.jaz"))),
-    "8d7ce3d0bb"
+    "3e6a201559"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_jazirrad(test.file("irrad.JazIrrad"))),
-    "c4b26db614"
+    "7ef0a92aa9"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_jaz(test.file("FMNH6834.00000001.Master.Transmission"))),
-    "64f0928f6b"
+    "4bf335b952"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_jaz(test.file("UK5.txt"))),
-    "6e523f90b0"
+    "cb6b5c8099"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_jaz(test.file("non_english", "OO_comma.txt"))),
-    "b02c338380"
+    "8b7a100456"
   )
 
 })
@@ -78,17 +78,17 @@ test_that("Avantes", {
 
   expect_known_hash(
     expect_silent(lr_parse_ttt(test.file("avantes_export.ttt"))),
-    "959c7de9c4"
+    "25aaf7dc77"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_ttt(test.file("avantes_export_long.ttt"))),
-    "268d0c6203"
+    "116b0ae4dc"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_trt(test.file("avantes_export2.trt"))),
-    "c20fb93714"
+    "207b9bc5eb"
   )
 
   # Dark reference file
