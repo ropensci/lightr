@@ -23,7 +23,7 @@ in that order
 \item a character vector with metadata including:
 \itemize{
 \item \code{user}: Name of the spectrometer operator
-\item \code{date}: Timestamp of the recording
+\item \code{date}: Timestamp of the recording (ISO 8601 format)
 \item \code{spec_model}: Model of the spectrometer
 \item \code{spec_ID}: Unique ID of the spectrometer
 \item \code{white_inttime}: Integration time of the white reference (in ms)
