@@ -20,7 +20,8 @@
 #' @export
 #'
 lr_parse_trm <- function(filename) {
-  # Translation of the matlab script from:
+
+  # Modified from a matlab script by:
   # Copyright: (cc-by) Kotya Karapetyan, 2011.
   # kotya.karapetyan@gmail.com
 

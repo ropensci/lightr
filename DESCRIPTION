@@ -10,7 +10,7 @@ Authors@R: c(
     person("Thomas", "White", role = "aut",
     comment = c(ORCID = "0000-0002-3976-1734")),
     person("Kotya", "Karapetyan", role = "cph",
-    comment = "Author of the MATLAB script to read Avantes binary files (CC-BY)")
+    comment = "Author of the MATLAB script to read AvaSoft7 binary files (CC-BY)")
     )
 Description: Parse various reflectance/transmittance/absorbance spectra file
     formats to extract spectral data and metadata, as described in Gruson, White

@@ -34,7 +34,7 @@ Authors:
 
 Other contributors:
 \itemize{
-  \item Kotya Karapetyan (Author of the MATLAB script to read Avantes binary files (CC-BY)) [copyright holder]
+  \item Kotya Karapetyan (Author of the MATLAB script to read AvaSoft7 binary files (CC-BY)) [copyright holder]
 }
 
 }
