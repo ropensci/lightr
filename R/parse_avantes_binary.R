@@ -89,7 +89,7 @@ lr_parse_trm <- function(filename) {
   # Data
   if (grepl("\\.(abs|trm)$", filename, ignore.case = TRUE)) {
     data <- readBin(f, "numeric", 3*(ipixlast - ipixfirst + 1), 4, endian = "little")
-    data <- setNames(data.frame(matrix(data, ncol = 3, byrow = TRUE)),
+    data <- setNames(as.data.frame(matrix(data, ncol = 3, byrow = TRUE)),
                      c("scope", "white", "dark"))
   } else {# scope mode
     data <- data.frame(
