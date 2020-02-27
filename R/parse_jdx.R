@@ -91,7 +91,10 @@ lr_parse_jdx <- function(filename) {
 
   data <- cbind(scope_data[,1], dark_data[,2], white_data[,2], scope_data[,2])
   colnames(data) <- c("wl", "dark", "white", "scope")
-  data <- data.frame(apply(data, 2, as.numeric))
+
+  storage.mode(data) <- "numeric"
+  data <- as.data.frame(data)
+
   data$processed <- compute_processed(data)
 
   return(list(data, metadata))

@@ -61,6 +61,8 @@ lr_parse_ttt <- function(filename) {
   # Remove trailing whitespaces in names
   colnames(data) <- gsub("[[:space:]]*$", "", colnames(data))
 
+  storage.mode(data) <- "numeric"
+
   cornames <- c("wl" = "Wave",
                 "dark" = "Dark",
                 "white" = "Ref",
@@ -74,10 +76,7 @@ lr_parse_ttt <- function(filename) {
 
   data_final[match(colnames(data), cornames)] <- data
 
-  data_final <- apply(data_final, 2, as.numeric)
-
   return(list(data.frame(data_final), metadata))
-
 }
 
 #' @rdname lr_parse_ttt

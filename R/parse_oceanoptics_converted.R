@@ -101,6 +101,7 @@ lr_parse_jaz <- function(filename) {
     colnames(data) <- c("W", "P")
 
   }
+  storage.mode(data) <- "numeric"
 
   cornames <- c("wl" = "W",
                 "dark" = "D",
@@ -114,8 +115,6 @@ lr_parse_jaz <- function(filename) {
   )
 
   data_final[match(colnames(data), cornames)] <- data
-
-  data_final <- apply(data_final, 2, as.numeric)
 
   return(list(data.frame(data_final), metadata))
 }
