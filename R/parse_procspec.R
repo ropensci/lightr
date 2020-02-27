@@ -52,14 +52,14 @@ lr_parse_procspec <- function(filename) {
 
   scope_node <- xml_find_first(xml_source, ".//pixelValues")
   scope_values <- xml_find_all(scope_node, ".//double")
-  scope_inttime <- xml_text(xml_find_first(xml_source, ".//integrationTime"))
+  scope_inttime <- xml_double(xml_find_first(xml_source, ".//integrationTime"))/1000
   scope_average <- xml_text(xml_find_first(xml_source, ".//scansToAverage"))
   scope_boxcar <- xml_text(xml_find_first(xml_source, ".//boxcarWidth"))
   scope <- xml_double(scope_values)
 
   white_node <- xml_find_all(xml_source, ".//referenceSpectrum")
   white_values <- xml_find_all(white_node, ".//double")
-  white_inttime <- xml_text(xml_find_all(white_node, ".//integrationTime"))
+  white_inttime <- xml_double(xml_find_all(white_node, ".//integrationTime"))/1000
   white_average <- xml_text(xml_find_all(white_node, ".//scansToAverage"))
   white_boxcar <- xml_text(xml_find_all(white_node, ".//boxcarWidth"))
   # Get rid of the XML tags.
@@ -67,7 +67,7 @@ lr_parse_procspec <- function(filename) {
 
   dark_node <- xml_find_all(xml_source, ".//darkSpectrum")
   dark_values <- xml_find_all(dark_node, ".//double")
-  dark_inttime <- xml_text(xml_find_all(dark_node, ".//integrationTime"))
+  dark_inttime <- xml_double(xml_find_all(dark_node, ".//integrationTime"))/1000
   dark_average <- xml_text(xml_find_all(dark_node, ".//scansToAverage"))
   dark_boxcar <- xml_text(xml_find_all(dark_node, ".//boxcarWidth"))
   # Get rid of the XML tags.
@@ -81,7 +81,7 @@ lr_parse_procspec <- function(filename) {
   specdf <- cbind(wl, dark, white, scope, processed)
 
   author <- xml_text(xml_find_first(xml_source, ".//userName"))
-  savetime <- as.numeric(xml_text(xml_find_first(xml_source, "//milliTime")))
+  savetime <- xml_double(xml_find_first(xml_source, "//milliTime"))
   savetime <- as.character(as.Date(savetime/(1000*60*60*24), origin = "1970-01-01"))
   specclass <- xml_text(xml_find_first(xml_source, ".//spectrometerClass"))
   specmodel <- gsub(".+\\.([[:alnum:]]+)$", "\\1", specclass)
@@ -91,9 +91,6 @@ lr_parse_procspec <- function(filename) {
                 dark_inttime, white_inttime, scope_inttime,
                 dark_average, white_average, scope_average,
                 dark_boxcar, white_boxcar, scope_boxcar)
-
-  # Put integration time in ms instead of us
-  metadata[c(5,6,7)] <- as.numeric(metadata[c(5,6,7)]) / 1000
 
   return(list(data.frame(specdf), metadata))
 }
