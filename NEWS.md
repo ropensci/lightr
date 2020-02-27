@@ -12,9 +12,11 @@ This format is used by OceanInsight and CRAIC.
 
 ## Minor changes
 
+* new test suite on a different locale (in this case `fr_FR.UTF-8`) to ensure
+parsing is locale-independent.
 * warnings on CRAN build system for platforms that don't support markdown 2 
 have been fixed.
-* new tests for `.IRR` files
+* new, stricter tests for various file formats.
 * `jdx` files saved in a locale that uses `,` as the decimal separator are now
 parsed correctly.
 
