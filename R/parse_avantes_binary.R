@@ -179,13 +179,15 @@ lr_parse_rfl8 <- function(filename, specnum) {
   # number of spectra in file
   numspectra <- readBin(f, "integer", size = 1, signed = FALSE, endian = "little")
 
-  if (numspectra > 1 && missing(specnum)) {
+  if (is.null(specnum)) {
     specnum <- 1L
-    warning(
-      "This file contains multiple spectra and 'specnum' argument is missing. ",
-      "Returning the first spectrum by default.",
-      call. = FALSE
-    )
+    if (numspectra > 1) {
+      warning(
+        "This file contains multiple spectra and 'specnum' argument is ",
+        "missing. Returning the first spectrum by default.",
+        call. = FALSE
+      )
+    }
   }
   if (specnum > numspectra) {
     stop("'specnum' is larger than the number of spectra in the input file",
