@@ -165,7 +165,7 @@ lr_parse_roh <- lr_parse_trm
 #'                           package = "lightr"),
 #'               specnum = 2)
 #'
-lr_parse_rfl8 <- function(filename, specnum) {
+lr_parse_rfl8 <- function(filename, specnum = 1L) {
 
   # File structure information provided courtesy of Avantes
 
@@ -179,15 +179,12 @@ lr_parse_rfl8 <- function(filename, specnum) {
   # number of spectra in file
   numspectra <- readBin(f, "integer", size = 1, signed = FALSE, endian = "little")
 
-  if (is.null(specnum)) {
-    specnum <- 1L
-    if (numspectra > 1) {
-      warning(
-        "This file contains multiple spectra and 'specnum' argument is ",
-        "missing. Returning the first spectrum by default.",
-        call. = FALSE
-      )
-    }
+  if (numspectra > 1 && missing(specnum)) {
+    warning(
+      "This file contains multiple spectra and 'specnum' argument is ",
+      "missing. Returning the first spectrum by default.",
+      call. = FALSE
+    )
   }
   if (specnum > numspectra) {
     stop("'specnum' is larger than the number of spectra in the input file",
