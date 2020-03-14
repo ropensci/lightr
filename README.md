@@ -120,6 +120,7 @@ on the extension in the tables to see an example of this file format):
   | [`txt`](https://raw.githubusercontent.com/ropensci/lightr/master/inst/testdata/avasoft8.txt) | `lr_parse_generic()` |
   | [`DRK`]          | `lr_parse_trm()`      |
   | [`REF`]          | `lr_parse_trm()`      |
+  | [`RFL8`]         | `lr_parse_rfl8()`     |
   
 [`TRM`]: https://github.com/ropensci/lightr/raw/master/inst/testdata/avantes2.TRM
 [`ROH`]: https://github.com/ropensci/lightr/raw/master/inst/testdata/avantes_reflect.ROH
@@ -127,6 +128,7 @@ on the extension in the tables to see an example of this file format):
 [`ttt`]: https://github.com/ropensci/lightr/raw/master/inst/testdata/avantes_export.ttt
 [`DRK`]: https://github.com/ropensci/lightr/raw/master/inst/testdata/1305084U1.DRK
 [`REF`]: https://github.com/ropensci/lightr/raw/master/inst/testdata/1305084U1.REF
+[`RFL8`]: https://github.com/ropensci/lightr/raw/master/inst/testdata/compare/Avantes/feather.RFL8
 
 ### [CRAIC](http://www.microspectra.com/)
 
