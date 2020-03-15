@@ -101,7 +101,7 @@ on the extension in the tables to see an example of this file format):
   | [`Transmission`] | `lr_parse_jaz()`      |
   | [`txt`](https://raw.githubusercontent.com/ropensci/lightr/master/inst/testdata/OceanView.txt) | `lr_parse_jaz()` |
 
-[`jdx`]: https://raw.githubusercontent.com/ropensci/lightr/master/inst/testdata/OceanOptics.jdx
+[`jdx`]: https://raw.githubusercontent.com/ropensci/lightr/master/inst/testdata/OceanOptics_period.jdx
 [`ProcSpec`]: https://github.com/ropensci/lightr/raw/master/inst/testdata/procspec_files/whiteref.ProcSpec
 [spc1]: https://github.com/ropensci/lightr/raw/master/inst/testdata/OceanOptics.spc
 [`jaz`]: https://raw.githubusercontent.com/ropensci/lightr/master/inst/testdata/jazspec.jaz
