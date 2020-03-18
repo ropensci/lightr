@@ -1,48 +1,53 @@
-# Contributing to lightR
+# Contributing to lightr
 
-This outlines how to propose a change to lightR. For more detailed
-info about contributing to this, and other tidyverse packages, please see the
-[**development contributing guide**](https://rstd.io/tidy-contrib).
+There are many ways you can contribute to lightr. All contributions are very 
+much welcome and only some of them require technical knowledge. If you have 
+something you would like to contribute, but you are not sure how, please don't
+hesitate to reach out by opening an 
+[issue](https://github.com/ropensci/lightr/issues.) or sending me an email.
 
-### Fixing typos
+## Fixing typos
 
 Small typos or grammatical errors in documentation may be edited directly using
 the GitHub web interface, so long as the changes are made in the _source_ file.
+In other words, please edit a `.R` file in the `R/` folder, and not the `.Rd`
+files in the `man/` folder. This is because this package uses 
+[roxygen2](https://github.com/r-lib/roxygen2) to automatically rebuild the `.Rd`
+files.
 
-*  YES: you edit a roxygen comment in a `.R` file below `R/`.
-*  NO: you edit an `.Rd` file below `man/`.
+## Contributing test files
 
-### Prerequisites
+I am always looking for new test files but ensure that lightr works as expected
+for everybody. If you have spectrometry files that you would be willing to 
+share, please send me an email. At the very least, I will check if lightr parses
+them correctly and if they have unusual features, I will ask you if you agree
+that I add them to my continuous integration test suite (on GitHub and on CRAN).
 
-Before you make a substantial pull request, you should always file an issue and
-make sure someone from the team agrees that it’s a problem. If you’ve found a
-bug, create an associated issue and illustrate the bug with a minimal 
-[reprex](https://www.tidyverse.org/help/#reprex).
+## Reporting bugs
 
-### Pull request process
+If you think you found a bug in lightr, even if you're unsure, please let me 
+know. The best way is to open an issue on GitHub: 
+https://github.com/ropensci/lightr/issues.
 
-*  We recommend that you create a Git branch for each pull request (PR).  
-*  Look at the Travis and AppVeyor build status before and after making changes.
-The `README` should contain badges for any continuous integration services used
-by the package.  
-*  New code should follow the tidyverse [style guide](http://style.tidyverse.org).
-You can use the [styler](https://CRAN.R-project.org/package=styler) package to
-apply these styles, but please don't restyle code that has nothing to do with 
-your PR.  
-*  We use [roxygen2](https://cran.r-project.org/package=roxygen2), with
-[Markdown syntax](https://cran.r-project.org/web/packages/roxygen2/vignettes/markdown.html), 
-for documentation.  
-*  We use [testthat](https://cran.r-project.org/package=testthat). Contributions
-with test cases included are easier to accept.  
-*  For user-facing changes, add a bullet to the top of `NEWS.md` below the
-current development version header describing the changes made followed by your
-GitHub username, and links to relevant issue(s)/PR(s).
+Please try to create a [reprex](https://reprex.tidyverse.org/) with the minimal
+amount of code required to reproduce the bug you encountered.
 
-### Code of Conduct
+Please also include your session info (e.g. via the R command 
+`utils::sessionInfo()`).
 
-Please note that the lightR project is released with a
+Finally, if your issue relates to the parsing of a specific file, remember to
+include said file.
+
+## Add or request new parser
+
+If you find a file that lightr cannot open yet, please open an issue or send
+me an email with an example file. Some file formats are very complex so I cannot
+guarantee that I will be able to quickly provide a parser for all of them but I
+will at the very least try.
+
+## Code of Conduct
+
+Please note that lightr is released with a
 [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By contributing to this
 project you agree to abide by its terms.
 
-### See tidyverse [development contributing guide](https://rstd.io/tidy-contrib)
-for further details.
