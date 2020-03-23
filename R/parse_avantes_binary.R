@@ -291,3 +291,9 @@ lr_parse_rfl8 <- function(filename, specnum = 1L) {
 
   }
 }
+
+#' @rdname lr_parse_rfl8
+#'
+#' @export
+#'
+lr_parse_raw8 <- lr_parse_rfl8
