@@ -9,7 +9,7 @@
 #' @keywords internal
 #'
 dispatch_parser <- function(filename, decimal = ".", sep = NULL,
-                            specnum = NULL) {
+                            specnum = 1L) {
 
   switch(
     tolower(file_ext(filename)),
@@ -20,6 +20,7 @@ dispatch_parser <- function(filename, decimal = ".", sep = NULL,
     trt      = lr_parse_trt(filename),
     ttt      = lr_parse_ttt(filename),
     rfl8     = lr_parse_rfl8(filename, specnum),
+    raw8     = lr_parse_raw8(filename, specnum),
     jdx      = lr_parse_jdx(filename),
     jaz      = lr_parse_jaz(filename),
     jazirrad = lr_parse_jazirrad(filename),
