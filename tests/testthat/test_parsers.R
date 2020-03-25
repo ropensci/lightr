@@ -126,6 +126,11 @@ test_that("Avantes", {
     "'specnum' is larger"
   )
 
+  expect_known_hash(
+    expect_silent(lr_parse_raw8(test.file("1904090M1_0003.Raw8"))),
+    "45de5251ee"
+  )
+
 })
 
 test_that("CRAIC", {

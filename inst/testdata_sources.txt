@@ -5,3 +5,6 @@ UK5.txt from Feller, Kathryn (2019), “"Long-wavelength reflecting filters foun
 OO_comma.txt from https://doi.org/10.6084/m9.figshare.9883382, CC0
 
 feather.RFL8, feather_1.TXT and feather_2.TXT from M.D. Shawkey
+
+1904090M1_0003.Raw8 from Lindsey Swierk
+

@@ -3,8 +3,8 @@
 ## New features and major changes
 
 * `date` column in metadata is now always formatted as ISO 8601.
-* `lightr` can now import AvaSoft8 files (test file provided by M.D. Shawkey),
-via the function `lr_parse_rfl8()`.
+* `lightr` can now import AvaSoft8 files (test files provided by M.D. Shawkey 
+and L. Swierk), via the function `lr_parse_rfl8()`.
 * `lightr` can correctly imports `TRM` files from AvaSoft 6.0 (previously it 
 only supported files from AvaSoft 7.0).
 * `lightr` can now import binary `.spc` files (via the `lr_parse_spc()` parser).
