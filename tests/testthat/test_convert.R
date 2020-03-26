@@ -11,10 +11,6 @@ setup({
               file.path(tdir, "csv", "spec.csv"))
 })
 
-teardown({
-  unlink(tdir, recursive = TRUE)
-})
-
 test_that("Convert all", {
   tdir <- tempdir()
 
