@@ -4,7 +4,7 @@
 \alias{dispatch_parser}
 \title{Internal function to dispatch files to the correct parser}
 \usage{
-dispatch_parser(filename, decimal = ".", sep = NULL, specnum = NULL)
+dispatch_parser(filename, decimal = ".", sep = NULL, specnum = 1L)
 }
 \arguments{
 \item{filename}{Path of the file to parse}
