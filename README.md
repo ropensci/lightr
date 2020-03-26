@@ -121,6 +121,7 @@ on the extension in the tables to see an example of this file format):
   | [`DRK`]          | `lr_parse_trm()`      |
   | [`REF`]          | `lr_parse_trm()`      |
   | [`RFL8`]         | `lr_parse_rfl8()`     |
+  | [`Raw8`]         | `lr_parse_raw8()`     |
   
 [`TRM`]: https://github.com/ropensci/lightr/raw/master/inst/testdata/avantes2.TRM
 [`ROH`]: https://github.com/ropensci/lightr/raw/master/inst/testdata/avantes_reflect.ROH
@@ -129,6 +130,7 @@ on the extension in the tables to see an example of this file format):
 [`DRK`]: https://github.com/ropensci/lightr/raw/master/inst/testdata/1305084U1.DRK
 [`REF`]: https://github.com/ropensci/lightr/raw/master/inst/testdata/1305084U1.REF
 [`RFL8`]: https://github.com/ropensci/lightr/raw/master/inst/testdata/compare/Avantes/feather.RFL8
+[`Raw8`]: https://github.com/ropensci/lightr/raw/master/inst/testdata/1904090M1_0003.Raw8
 
 ### [CRAIC](http://www.microspectra.com/)
 
