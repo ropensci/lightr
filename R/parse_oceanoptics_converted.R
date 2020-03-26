@@ -110,7 +110,7 @@ lr_parse_jaz <- function(filename) {
                 "processed" = "P")
 
   data_final <- setNames(
-    as.data.frame(matrix(NA, nrow = nrow(data), ncol = 5)),
+    as.data.frame(matrix(NA_real_, nrow = nrow(data), ncol = 5)),
     names(cornames)
   )
 
