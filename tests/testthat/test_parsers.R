@@ -2,6 +2,8 @@ context("parsers")
 
 test_that("OceanOptics", {
 
+  skip_if(.Machine$sizeof.pointer==4, "Skip on 32bits")
+
   expect_known_hash(
     expect_silent(lr_parse_procspec(test.file("procspec_files", "OceanOptics_Linux.ProcSpec"))),
     "9857e34c56"
@@ -60,6 +62,8 @@ test_that("OceanOptics", {
 })
 
 test_that("Avantes", {
+
+  skip_if(.Machine$sizeof.pointer==4, "Skip on 32bits")
 
   expect_known_hash(
     expect_silent(lr_parse_roh(test.file("avantes_reflect.ROH"))),
@@ -135,6 +139,8 @@ test_that("Avantes", {
 
 test_that("CRAIC", {
 
+  skip_if(.Machine$sizeof.pointer==4, "Skip on 32bits")
+
   expect_known_hash(
     expect_silent(lr_parse_spc(test.file("compare", "CRAIC", "CRAIC.spc"))),
     "4fb2c8a868"
@@ -143,6 +149,8 @@ test_that("CRAIC", {
 })
 
 test_that("Generic", {
+
+  skip_if(.Machine$sizeof.pointer==4, "Skip on 32bits")
 
   expect_error(lr_parse_generic(test.file("spec.csv")), "Parsing failed.")
 
@@ -178,6 +186,5 @@ test_that("Generic", {
     expect_silent(lr_parse_generic(test.file("non_english", "OO_comma.txt"), decimal = ",")),
     "7bb9eb694a"
   )
-
 
 })
