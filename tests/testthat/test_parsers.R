@@ -39,22 +39,22 @@ test_that("OceanOptics", {
 
   expect_known_hash(
     expect_silent(lr_parse_jazirrad(test.file("irrad.JazIrrad"))),
-    "7ef0a92aa9"
+    "0c66334253"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_jaz(test.file("FMNH6834.00000001.Master.Transmission"))),
-    "4bf335b952"
+    "2d53e6819"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_jaz(test.file("UK5.txt"))),
-    "cb6b5c8099"
+    "f9ccc67ccc"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_jaz(test.file("non_english", "OO_comma.txt"))),
-    "8b7a100456"
+    "077c3dc851"
   )
 
 })
