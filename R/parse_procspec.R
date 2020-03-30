@@ -21,10 +21,10 @@
 lr_parse_procspec <- function(filename) {
   # We let R find the suitable tmp folder to extract files
   tmp <- tempdir()
-  on.exit(unlink(tmp))
 
   extracted_files <- utils::unzip(zipfile = filename,
                                   exdir = tmp)
+  on.exit(unlink(extracted_files))
 
   # According to OceanOptics FAQ, each procspec archive will only contain
   # one XML spectra file.
