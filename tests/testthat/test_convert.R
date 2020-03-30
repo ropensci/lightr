@@ -62,9 +62,10 @@ test_that("Convert csv", {
   expect_warning(lr_convert_tocsv(file.path(tdir, "csv"), ext = "csv",
                                   sep = ","))
 
-  output <- expect_silent(
+  output <- expect_message(
     lr_convert_tocsv(file.path(tdir, "csv"), ext = "csv", sep = ",",
-                     overwrite = TRUE)
+                     overwrite = TRUE),
+    "files found"
   )
 
   unlink(output)
