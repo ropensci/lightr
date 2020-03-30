@@ -33,6 +33,8 @@ test_that("Convert all", {
 #  expect_equal(getspec("conversion_test", exts),
 #               getspec("conversion_test", "csv", sep = ","))
 
+  unlink(output_files)
+
 })
 
 test_that("Convert recursive", {
@@ -49,6 +51,9 @@ test_that("Convert recursive", {
 
   expect_setequal(tools::file_path_sans_ext(input_files),
                   tools::file_path_sans_ext(output_files))
+
+  unlink(output_files)
+
 })
 
 test_that("Convert csv", {
@@ -57,8 +62,12 @@ test_that("Convert csv", {
   expect_warning(lr_convert_tocsv(file.path(tdir, "csv"), ext = "csv",
                                   sep = ","))
 
-  lr_convert_tocsv(file.path(tdir, "csv"), ext = "csv", sep = ",",
-                   overwrite = TRUE)
+  output <- expect_silent(
+    lr_convert_tocsv(file.path(tdir, "csv"), ext = "csv", sep = ",",
+                     overwrite = TRUE)
+  )
+
+  unlink(output)
 
 })
 
@@ -72,10 +81,12 @@ test_that("Convert warn/error", {
   )
 
   # Partial fail
-  expect_warning(
+  output <- expect_warning(
     lr_convert_tocsv(tdir, ext = c("fail", "jdx"), overwrite = TRUE),
     "Could not import one or more"
   )
+
+  unlink(output)
 
   # Missing
   expect_warning(
