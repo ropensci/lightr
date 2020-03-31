@@ -5,7 +5,7 @@
   ],
   "@type": "SoftwareSourceCode",
   "identifier": "lightr",
-  "description": "Parse various reflectance/transmittance/absorbance spectra file\n    formats to extract spectral data and metadata, as described in Gruson, White\n    & Maia (2019) <doi:10.21105/joss.01857>. Among other formats, it can import\n    files from Avantes <https://www.avantes.com/>, CRAIC \n    <http://www.microspectra.com/>, and OceanInsight (formerly OceanOptics) \n    <https://www.oceaninsight.com/> brands.\n    This package has been peer-reviewed by rOpenSci (v. 0.1).",
+  "description": "Parse various reflectance/transmittance/absorbance spectra file\n    formats to extract spectral data and metadata, as described in Gruson, White\n    & Maia (2019) <doi:10.21105/joss.01857>. Among other formats, it can import\n    files from 'Avantes' <https://www.avantes.com/>, 'CRAIC' \n    <http://www.microspectra.com/>, and 'OceanInsight' (formerly 'OceanOptics') \n    <https://www.oceaninsight.com/> brands.\n    This package has been peer-reviewed by rOpenSci (v. 0.1).",
   "name": "lightr: Read Spectrometric Data and Metadata",
   "codeRepository": "https://github.com/ropensci/lightr",
   "relatedLink": [
@@ -18,10 +18,9 @@
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
-    "version": "3.6.2",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.6.2 (2019-12-12)",
+  "runtimePlatform": "R version 3.6.3 (2020-02-29)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -176,7 +175,7 @@
     }
   ],
   "releaseNotes": "https://github.com/ropensci/lightr/blob/master/NEWS.md",
-  "fileSize": "2947.055KB",
+  "fileSize": "4624.43KB",
   "contIntegration": ["https://travis-ci.org/ropensci/lightr", "https://ci.appveyor.com/project/bisaloo/lightr", "https://codecov.io/github/ropensci/lightr?branch=master"],
   "keywords": [
     "r",
@@ -230,6 +229,5 @@
         }
       }
     }
-  ],
-  "readme": "https://github.com/ropensci/lightr/blob/master/README.md"
+  ]
 }
