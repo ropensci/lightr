@@ -52,9 +52,12 @@ lr_parse_ttt <- function(filename) {
                 dark_average, white_average, scope_average,
                 dark_boxcar, white_boxcar, scope_boxcar)
 
-  data_ind <- grep("^([[:digit:];.-])+$", content)
+  data_ind <- grep("^([[:digit:];.,-])+$", content)
   data <- strsplit(content[data_ind], ";")
   data <- do.call(rbind, data)
+
+  # Fix decimal for non-English files
+  data <- gsub(",", ".", data)
 
   colnames(data) <- strsplit(content[data_ind[1]-2], ";")[[1]]
 

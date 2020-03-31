@@ -95,6 +95,13 @@ test_that("Avantes", {
     "207b9bc5eb"
   )
 
+  expect_known_hash(
+    expect_silent(
+      lr_parse_ttt(test.file("non_english", "J_MUR_MARS_17_0001.ttt"))
+    ),
+    "42e55d3be8"
+  )
+
   # Dark reference file
   expect_known_hash(
     expect_silent(lr_parse_trm(test.file("1305084U1.DRK"))),

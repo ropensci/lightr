@@ -1,3 +1,11 @@
+# lightr 1.2
+
+# Minor changes
+
+* Avantes exported files in non-English locales (`ttt` and `trt` files) are now 
+parsed correctly again (this was a regression compared to pavo's `getspec()`).
+Thanks to A. Fargevieille for reporting the issue and providing a test file.
+
 # lightr 1.1
 
 ## New features and major changes
