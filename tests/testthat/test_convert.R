@@ -2,7 +2,9 @@ context("convert_tocsv")
 
 # Create temp environment to run tests
 setup({
-  tdir <- tempdir()
+
+  tdir <- file.path(tempdir(), "test_convert")
+  dir.create(tdir)
   file.copy(from = list.files(test.file(),
                               full.names = TRUE),
             to = tdir, recursive = TRUE)
@@ -12,7 +14,8 @@ setup({
 })
 
 test_that("Convert all", {
-  tdir <- tempdir()
+
+  tdir <- file.path(tempdir(), "test_convert")
 
   exts <- c("TRM", "ttt", "jdx", "jaz", "JazIrrad", "txt", "Transmission")
 
@@ -38,7 +41,8 @@ test_that("Convert all", {
 })
 
 test_that("Convert recursive", {
-  tdir <- tempdir()
+
+  tdir <- file.path(tempdir(), "test_convert")
 
   lr_convert_tocsv(tdir, ext = "ProcSpec", subdir = TRUE)
 
@@ -57,7 +61,8 @@ test_that("Convert recursive", {
 })
 
 test_that("Convert csv", {
-  tdir <- tempdir()
+
+  tdir <- file.path(tempdir(), "test_convert")
 
   expect_warning(lr_convert_tocsv(file.path(tdir, "csv"), ext = "csv",
                                   sep = ","))
@@ -74,7 +79,8 @@ test_that("Convert csv", {
 
 
 test_that("Convert warn/error", {
-  tdir <- tempdir()
+
+  tdir <- file.path(tempdir(), "test_convert")
   # Total fail
   expect_warning(
     expect_null(lr_convert_tocsv(tdir, ext = "fail")),
