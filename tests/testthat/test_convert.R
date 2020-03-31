@@ -26,11 +26,12 @@ test_that("Convert all", {
   output_files <- tools::list_files_with_exts(tdir, "csv")
 
   # File names are kept
-  expect_setequal(tools::file_path_sans_ext(input_files),
-                  tools::file_path_sans_ext(output_files))
+  expect_setequal(!!tools::file_path_sans_ext(input_files),
+                  !!tools::file_path_sans_ext(output_files))
 
   # Output file names are invisibly returned
-  expect_setequal(converted_files, output_files)
+  expect_setequal(!!basename(converted_files),
+                  !!basename(output_files))
 
   # It doesn't change the behaviour of getspec
 #  expect_equal(getspec("conversion_test", exts),
@@ -97,7 +98,7 @@ test_that("Convert warn/error", {
 
   # Missing
   expect_warning(
-    expect_null(lr_convert_tocsv(where = getwd(), ext = "missing")),
+    expect_null(lr_convert_tocsv(where = tdir, ext = "missing")),
     "No files found"
   )
 
