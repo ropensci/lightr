@@ -9,8 +9,8 @@
 Parse various reflectance/transmittance/absorbance spectra file
     formats to extract spectral data and metadata, as described in Gruson, White
     & Maia (2019) <doi:10.21105/joss.01857>. Among other formats, it can import
-    files from Avantes <https://www.avantes.com/>, CRAIC 
-    <http://www.microspectra.com/>, and OceanInsight (formerly OceanOptics) 
+    files from 'Avantes' <https://www.avantes.com/>, 'CRAIC' 
+    <http://www.microspectra.com/>, and 'OceanInsight' (formerly 'OceanOptics') 
     <https://www.oceaninsight.com/> brands.
     This package has been peer-reviewed by rOpenSci (v. 0.1).
 }
