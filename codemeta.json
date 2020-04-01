@@ -175,7 +175,7 @@
     }
   ],
   "releaseNotes": "https://github.com/ropensci/lightr/blob/master/NEWS.md",
-  "fileSize": "4624.43KB",
+  "fileSize": "4624.431KB",
   "contIntegration": ["https://travis-ci.org/ropensci/lightr", "https://ci.appveyor.com/project/bisaloo/lightr", "https://codecov.io/github/ropensci/lightr?branch=master"],
   "keywords": [
     "r",
