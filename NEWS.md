@@ -1,3 +1,10 @@
+# lightr 1.2
+
+## Minor changes
+
+* `spec_ID` extraction from Avantes exported files (`ttt` and `trt`) is now
+more robust, meaning it should work for more files.
+
 # lightr 1.1
 
 ## New features and major changes
