@@ -99,7 +99,7 @@ test_that("Avantes", {
     expect_silent(
       lr_parse_ttt(test.file("non_english", "J_MUR_MARS_17_0001.ttt"))
     ),
-    "42e55d3be8"
+    "6a7d0bd119"
   )
 
   # Dark reference file
