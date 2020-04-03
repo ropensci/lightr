@@ -3,7 +3,6 @@
 [![CRAN version](https://www.r-pkg.org/badges/version-ago/lightr)](https://cran.r-project.org/package=lightr)
 [![Dependencies](https://tinyverse.netlify.com/badge/lightr)](https://cran.r-project.org/package=lightr)
 [![Travis build status](https://travis-ci.org/ropensci/lightr.svg?branch=master)](https://travis-ci.org/ropensci/lightr)
-[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/bisaloo/lightr?branch=master&svg=true)](https://ci.appveyor.com/project/bisaloo/lightr)
 [![Coverage status](https://codecov.io/gh/ropensci/lightr/branch/master/graph/badge.svg)](https://codecov.io/github/ropensci/lightr?branch=master)
 [![Reviewed by rOpenSci](https://badges.ropensci.org/267_status.svg)](https://github.com/ropensci/software-review/issues/267)
 [![JOSS paper](https://joss.theoj.org/papers/7f76d78642d3dc72ea9d8c2597ef0e27/status.svg)](https://joss.theoj.org/papers/7f76d78642d3dc72ea9d8c2597ef0e27)
