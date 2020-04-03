@@ -6,6 +6,13 @@ something you would like to contribute, but you are not sure how, please don't
 hesitate to reach out by opening an 
 [issue](https://github.com/ropensci/lightr/issues.) or sending me an email.
 
+## Spread the word
+
+The easiest (and possibly one of the most useful) way you can contribute to 
+lightr is by spreading the word. Please 
+[cite it](https://docs.ropensci.org/lightr/CONTRIBUTING.html) in your 
+publications and tell your friends and colleagues about it!
+
 ## Fixing typos
 
 Small typos or grammatical errors in documentation may be edited directly using
