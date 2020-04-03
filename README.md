@@ -187,6 +187,15 @@ files, or OceanOptics `.ProcSpec`. Because of its user-friendly high-levels
 functions and low dependency philosophy, `lightr` may also hopefully prove
 useful for people working with other languages than R.
 
+## Contributing
+
+There are plenty of ways you can contribute to `lightr`. Please visit our 
+[contributing guide](https://docs.ropensci.org/lightr/CONTRIBUTING.html).
+
+Please note that this package is released with a [Contributor Code of
+Conduct](https://ropensci.org/code-of-conduct/). By contributing to this
+project, you agree to abide by its terms.
+
 
 [`pavo`]: https://cran.r-project.org/package=pavo
 
