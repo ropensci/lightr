@@ -200,5 +200,3 @@ project, you agree to abide by its terms.
 [`pavo`]: https://cran.r-project.org/package=pavo
 
 [`photobiologyInOut`]: https://cran.r-project.org/package=photobiologyInOut
-
-[![ropensci_footer](https://ropensci.org/public_images/ropensci_footer.png)](https://ropensci.org)
