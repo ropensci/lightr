@@ -2,6 +2,7 @@ context("parsers")
 
 test_that("OceanOptics", {
 
+  skip_if_not(capabilities(what = "long.double"), "Skip on noLD")
   skip_if(.Machine$sizeof.pointer==4, "Skip on 32bits")
 
   expect_known_hash(
@@ -63,6 +64,7 @@ test_that("OceanOptics", {
 
 test_that("Avantes", {
 
+  skip_if_not(capabilities(what = "long.double"), "Skip on noLD")
   skip_if(.Machine$sizeof.pointer==4, "Skip on 32bits")
 
   expect_known_hash(
@@ -146,6 +148,7 @@ test_that("Avantes", {
 
 test_that("CRAIC", {
 
+  skip_if_not(capabilities(what = "long.double"), "Skip on noLD")
   skip_if(.Machine$sizeof.pointer==4, "Skip on 32bits")
 
   expect_known_hash(
@@ -157,6 +160,7 @@ test_that("CRAIC", {
 
 test_that("Generic", {
 
+  skip_if_not(capabilities(what = "long.double"), "Skip on noLD")
   skip_if(.Machine$sizeof.pointer==4, "Skip on 32bits")
 
   expect_error(lr_parse_generic(test.file("spec.csv")), "Parsing failed.")
