@@ -13,3 +13,4 @@
 ^inst/paper\.md$
 ^CRAN-RELEASE$
 ^AvaSoft8_File_Formats\.pdf$
+^local$
