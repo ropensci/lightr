@@ -6,14 +6,14 @@ something you would like to contribute, but you are not sure how, please don't
 hesitate to reach out by opening an 
 [issue](https://github.com/ropensci/lightr/issues.) or sending me an email.
 
-## Spread the word
+## 🗣️ Spread the word
 
 The easiest (and possibly one of the most useful) way you can contribute to 
 lightr is by spreading the word. Please 
 [cite it](https://docs.ropensci.org/lightr/CONTRIBUTING.html) in your 
 publications and tell your friends and colleagues about it!
 
-## Fixing typos
+## ✍️ Fixing typos
 
 Small typos or grammatical errors in documentation may be edited directly using
 the GitHub web interface, so long as the changes are made in the _source_ file.
@@ -22,7 +22,7 @@ files in the `man/` folder. This is because this package uses
 [roxygen2](https://github.com/r-lib/roxygen2) to automatically rebuild the `.Rd`
 files.
 
-## Contributing test files
+## 📄 Contributing test files
 
 I am always looking for new test files but ensure that lightr works as expected
 for everybody. If you have spectrometry files that you would be willing to 
@@ -30,7 +30,7 @@ share, please send me an email. At the very least, I will check if lightr parses
 them correctly and if they have unusual features, I will ask you if you agree
 that I add them to my continuous integration test suite (on GitHub and on CRAN).
 
-## Reporting bugs
+## 😥 Reporting bugs
 
 If you think you found a bug in lightr, even if you're unsure, please let me 
 know. The best way is to open an issue on GitHub: 
@@ -45,14 +45,14 @@ Please also include your session info (e.g. via the R command
 Finally, if your issue relates to the parsing of a specific file, remember to
 include said file.
 
-## Add or request new parser
+## 🆕 Add or request new parser
 
 If you find a file that lightr cannot open yet, please open an issue or send
 me an email with an example file. Some file formats are very complex so I cannot
 guarantee that I will be able to quickly provide a parser for all of them but I
 will at the very least try.
 
-## Code of Conduct
+## 📖 Code of Conduct
 
 Please note that lightr is released with a [Contributor Code of
 Conduct](https://ropensci.org/code-of-conduct/). By contributing to this project
