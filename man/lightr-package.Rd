@@ -12,7 +12,6 @@ Parse various reflectance/transmittance/absorbance spectra file
     files from 'Avantes' <https://www.avantes.com/>, 'CRAIC' 
     <http://www.microspectra.com/>, and 'OceanInsight' (formerly 'OceanOptics') 
     <https://www.oceaninsight.com/> brands.
-    This package has been peer-reviewed by rOpenSci (v. 0.1).
 }
 \seealso{
 Useful links:
