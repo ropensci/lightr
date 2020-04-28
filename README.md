@@ -1,11 +1,13 @@
 # `lightr`: import spectral data in R
 
+<!-- badges: start -->
 [![CRAN version](https://www.r-pkg.org/badges/version-ago/lightr)](https://cran.r-project.org/package=lightr)
 [![Dependencies](https://tinyverse.netlify.com/badge/lightr)](https://cran.r-project.org/package=lightr)
-[![Travis build status](https://travis-ci.com/ropensci/lightr.svg?branch=master)](https://travis-ci.com/ropensci/lightr)
+[![R build status](https://github.com/ropensci/lightr/workflows/R-CMD-check/badge.svg)](https://github.com/ropensci/lightr/actions)
 [![Coverage status](https://codecov.io/gh/ropensci/lightr/branch/master/graph/badge.svg)](https://codecov.io/github/ropensci/lightr?branch=master)
 [![Reviewed by rOpenSci](https://badges.ropensci.org/267_status.svg)](https://github.com/ropensci/software-review/issues/267)
 [![JOSS paper](https://joss.theoj.org/papers/7f76d78642d3dc72ea9d8c2597ef0e27/status.svg)](https://joss.theoj.org/papers/7f76d78642d3dc72ea9d8c2597ef0e27)
+<!-- badges: end -->
 
 
 There is no standard file format for spectrometry data and different scientific
