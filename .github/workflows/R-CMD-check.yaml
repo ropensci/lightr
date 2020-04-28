@@ -36,7 +36,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Install lang package
-        if: runner.os == "Linux"
+        if: runner.os == 'Linux'
         run: sudo apt install locales language-pack-fr
 
       - uses: r-lib/actions/setup-r@master
