@@ -31,6 +31,9 @@ jobs:
       RSPM: ${{ matrix.config.rspm }}
       LANG: ${{ matrix.config.lang }}
       LC_ALL: ${{ matrix.config. lang }}
+      _R_CHECK_FORCE_SUGGESTS_: false
+      _R_CHECK_LENGTH_1_CONDITION_: true
+      _R_CHECK_LENGTH_1_LOGIC2_: true
 
     steps:
       - uses: actions/checkout@v2
