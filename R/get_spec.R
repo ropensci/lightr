@@ -48,8 +48,8 @@
 #'
 lr_get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
                         decimal = ".", sep = NULL, subdir = FALSE,
-                        subdir.names = FALSE, cores = NULL,
-                        ignore.case = TRUE, interpolate = TRUE) {
+                        subdir.names = FALSE, cores = NULL, ignore.case = TRUE,
+                        interpolate = TRUE) {
 
   if (!missing(cores)) {
     warning("'cores' argument is deprecated. See ?future::plan for more info ",
@@ -139,7 +139,9 @@ lr_get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
   }
 
   if (interpolate) {
-    tmp <- do.call(cbind, tmp)
+    # We convert to data.frame before adding the wl to preserve wl class (int or
+    # altrep)
+    tmp <- as.data.frame(do.call(cbind, tmp))
 
     final <- cbind(range, tmp)
   } else {
@@ -147,13 +149,12 @@ lr_get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
       stop("'interpolate = FALSE' can only work if all input files sample the ",
            "same wavelengths.", call. = FALSE)
     }
-    final <- do.call(cbind, lapply(tmp, function(x) x[, "processed"]))
+    final <- as.data.frame(do.call(cbind, lapply(tmp, function(x) x[, "processed"])))
 
     final <- cbind(tmp[[1]][, "wl"], final)
   }
 
   colnames(final) <- c("wl", specnames)
-  final <- as.data.frame(final)
 
   final <- final[final$wl <= lim[2] & final$wl >= lim[1],]
 
