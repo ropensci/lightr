@@ -48,8 +48,33 @@
       "@id": "https://orcid.org/0000-0002-3976-1734"
     }
   ],
-  "contributor": {},
+  "contributor": [
+    {
+      "@type": "Person",
+      "givenName": "Kotya",
+      "familyName": "Karapetyan"
+    }
+  ],
   "copyrightHolder": [
+    {
+      "@type": "Person",
+      "givenName": "Hugo",
+      "familyName": "Gruson",
+      "email": "hugo.gruson+R@normalesup.org",
+      "@id": "https://orcid.org/0000-0002-4094-1476"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Rafael",
+      "familyName": "Maia",
+      "@id": "https://orcid.org/0000-0002-7563-9795"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Thomas",
+      "familyName": "White",
+      "@id": "https://orcid.org/0000-0002-3976-1734"
+    },
     {
       "@type": "Person",
       "givenName": "Kotya",
@@ -175,8 +200,8 @@
     }
   ],
   "releaseNotes": "https://github.com/ropensci/lightr/blob/master/NEWS.md",
-  "fileSize": "4624.797KB",
-  "contIntegration": ["https://travis-ci.com/ropensci/lightr", "https://codecov.io/github/ropensci/lightr?branch=master"],
+  "fileSize": "4624.06KB",
+  "contIntegration": "https://codecov.io/github/ropensci/lightr?branch=master",
   "keywords": [
     "r",
     "spectroscopy",
