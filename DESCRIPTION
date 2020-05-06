@@ -2,14 +2,14 @@ Package: lightr
 Title: Read Spectrometric Data and Metadata
 Version: 1.1
 Authors@R: c(
-    person("Hugo", "Gruson", role = c("cre", "aut"),
+    person("Hugo", "Gruson", role = c("cre", "aut", "cph"),
     email = "hugo.gruson+R@normalesup.org",
     comment = c(ORCID = "0000-0002-4094-1476")),
-    person("Rafael", "Maia", role = "aut",
+    person("Rafael", "Maia", role = c("aut", "cph"),
     comment = c(ORCID = "0000-0002-7563-9795")),
-    person("Thomas", "White", role = "aut",
+    person("Thomas", "White", role = c("aut", "cph"),
     comment = c(ORCID = "0000-0002-3976-1734")),
-    person("Kotya", "Karapetyan", role = "cph",
+    person("Kotya", "Karapetyan", role = c("ctb", "cph"),
     comment = "Author of the MATLAB script to read AvaSoft7 binary files (CC-BY)")
     )
 Description: Parse various reflectance/transmittance/absorbance spectra file
