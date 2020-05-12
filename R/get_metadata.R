@@ -79,6 +79,8 @@ lr_get_metadata <- function(where = getwd(), ext = "ProcSpec", sep = NULL,
 
   specnames <- file_path_sans_ext(file_names)
 
+  message(nb_files, " files found; importing metadata:")
+
   gmd <- function(ff) {
 
     dispatch_parser(ff, sep = sep)[[2]]
