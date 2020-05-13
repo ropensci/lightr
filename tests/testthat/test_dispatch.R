@@ -63,11 +63,11 @@ test_that("Similar output for all parsers", {
   lapply(files, function(file) {
     res <- expect_silent(dispatch_parser(test.file(file), sep = ",", specnum = 1))
     expect_length(res, 2)
-    expect_is(res[[1]], "data.frame")
+    expect_s3_class(res[[1]], "data.frame")
     expect_true(all(apply(res[[1]], 2, is.numeric)))
     expect_named(res[[1]], c("wl", "dark", "white", "scope", "processed"))
     expect_length(res[[2]], 13)
-    expect_is(res[[2]], "character")
+    expect_type(res[[2]], "character")
     expect_true(is.na(res[[2]][2]) || grepl("^\\d{4}\\-[01]\\d-[0123]\\d$", res[[2]][2]))
   })
 
