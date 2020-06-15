@@ -23,17 +23,17 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Hugo Gruson \email{hugo.gruson+R@normalesup.org} (\href{https://orcid.org/0000-0002-4094-1476}{ORCID})
+\strong{Maintainer}: Hugo Gruson \email{hugo.gruson+R@normalesup.org} (\href{https://orcid.org/0000-0002-4094-1476}{ORCID}) [copyright holder]
 
 Authors:
 \itemize{
-  \item Rafael Maia (\href{https://orcid.org/0000-0002-7563-9795}{ORCID})
-  \item Thomas White (\href{https://orcid.org/0000-0002-3976-1734}{ORCID})
+  \item Rafael Maia (\href{https://orcid.org/0000-0002-7563-9795}{ORCID}) [copyright holder]
+  \item Thomas White (\href{https://orcid.org/0000-0002-3976-1734}{ORCID}) [copyright holder]
 }
 
 Other contributors:
 \itemize{
-  \item Kotya Karapetyan (Author of the MATLAB script to read AvaSoft7 binary files (CC-BY)) [copyright holder]
+  \item Kotya Karapetyan (Author of the MATLAB script to read AvaSoft7 binary files (CC-BY)) [contributor, copyright holder]
 }
 
 }
