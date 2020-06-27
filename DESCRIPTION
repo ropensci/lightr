@@ -25,6 +25,7 @@ Imports:
     progressr,
     xml2 (>= 1.0.0)
 Suggests:
+    digest,
     knitr,
     pavo,
     rmarkdown,
