@@ -2,6 +2,7 @@
 
 ## Minor changes
 
+* fixed tests on platform with no long-doubles ('noLD') 
 * restored tests on 32bits machines
 * `spec_ID` extraction from Avantes exported files (`ttt` and `trt`) is now
 more robust, meaning it should work for more files.
