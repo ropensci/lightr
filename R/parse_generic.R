@@ -80,6 +80,8 @@ lr_parse_generic <- function(filename, decimal = ".", sep = NULL) {
   }
 
   # convert to numeric, check for NA
+  # FIXME: this causes a loss of precision on some platforms, which ultimately
+  # results in irreproducibility on noLD platforms
   storage.mode(rawsplit) <- "numeric"
 
   # remove columns where all values are NAs (due to poor tabulation)

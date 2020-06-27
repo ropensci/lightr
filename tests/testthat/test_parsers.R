@@ -1,30 +1,61 @@
 context("parsers")
 
-test_that("OceanOptics", {
+test_that("OceanOptics ProcSpec", {
 
-  expect_known_hash(
-    expect_silent(lr_parse_procspec(test.file("procspec_files", "OceanOptics_Linux.ProcSpec"))),
-    "9857e34c56"
+  if (capabilities(what = "long.double")) {
+
+    expect_known_hash(
+      expect_silent(lr_parse_procspec(test.file("procspec_files", "OceanOptics_Linux.ProcSpec"))),
+      "9857e34c56"
+    )
+
+    expect_known_hash(
+      expect_silent(lr_parse_procspec(test.file("procspec_files", "OceanOptics_Windows.ProcSpec"))),
+      "aec42324ce"
+    )
+
+    expect_known_hash(
+      expect_silent(lr_parse_procspec(test.file("procspec_files", "OceanOptics_badencode.ProcSpec"))),
+      "c97d6dff94"
+    )
+
+  } else {
+
+    expect_known_hash(
+      expect_silent(lr_parse_procspec(test.file("procspec_files", "OceanOptics_Linux.ProcSpec"))),
+      "d5f01aa034"
+    )
+
+    expect_known_hash(
+      expect_silent(lr_parse_procspec(test.file("procspec_files", "OceanOptics_Windows.ProcSpec"))),
+      "4edd67616f"
+    )
+
+    expect_known_hash(
+      expect_silent(lr_parse_procspec(test.file("procspec_files", "OceanOptics_badencode.ProcSpec"))),
+      "11d9c12a82"
+    )
+
+  }
+
+})
+
+test_that("OceanOptics others", {
+
+  # Floating point precision issue on noLD platforms.
+  # This is caused by the conversion to "numeric":
+  # storage.mode(data) <- "numeric"
+  expect_equal(
+    digest::sha1(expect_silent(lr_parse_jdx(test.file("OceanOptics_period.jdx")))),
+    "4523bce41eec487fb528937c521f3cc62b11315a"
   )
 
-  expect_known_hash(
-    expect_silent(lr_parse_procspec(test.file("procspec_files", "OceanOptics_Windows.ProcSpec"))),
-    "aec42324ce"
-  )
-
-  expect_known_hash(
-    expect_silent(lr_parse_procspec(test.file("procspec_files", "OceanOptics_badencode.ProcSpec"))),
-    "c97d6dff94"
-  )
-
-  expect_known_hash(
-    expect_silent(lr_parse_jdx(test.file("OceanOptics_period.jdx"))),
-    "64a8240578"
-  )
-
-  expect_known_hash(
-    expect_silent(lr_parse_jdx(test.file("non_english", "OceanOptics_comma.jdx"))),
-    "4bd646e438"
+  # Floating point precision issue on noLD platforms.
+  # This is caused by the conversion to "numeric":
+  # storage.mode(data) <- "numeric"
+  expect_equal(
+    digest::sha1(expect_silent(lr_parse_jdx(test.file("non_english", "OceanOptics_comma.jdx")))),
+    "46f5a54cb1ce04a382b5fa20bbf90206d80f4da0"
   )
 
   expect_known_hash(
@@ -37,9 +68,12 @@ test_that("OceanOptics", {
     "3e6a201559"
   )
 
-  expect_known_hash(
-    expect_silent(lr_parse_jazirrad(test.file("irrad.JazIrrad"))),
-    "0c66334253"
+  # Floating point precision issue on noLD platforms.
+  # This is caused by the conversion to "numeric":
+  # storage.mode(data) <- "numeric"
+  expect_equal(
+    digest::sha1(expect_silent(lr_parse_jazirrad(test.file("irrad.JazIrrad")))),
+    "288e60c411353ade756c9984b98d25f439b68789"
   )
 
   expect_known_hash(
@@ -163,9 +197,13 @@ test_that("Generic", {
     "e9a4c7cf15"
   )
 
-  expect_known_hash(
-    expect_silent(lr_parse_generic(test.file("irr_820_1941.IRR"))),
-    "7709b0faa3"
+  # Floating point precision issue on noLD platforms.
+  # This is caused by the conversion to "numeric":
+  # storage.mode(rawsplit) <- "numeric"
+  # in parse_generic()
+  expect_equal(
+    digest::sha1(expect_silent(lr_parse_generic(test.file("irr_820_1941.IRR")))),
+    "7e182dc02c6f21dba8d1857c6e934ec1a3bbeca8"
   )
 
   expect_known_hash(
