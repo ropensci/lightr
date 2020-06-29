@@ -4,6 +4,8 @@
 #' <https://www.oceanoptics.com/>
 #'
 #' @inheritParams lr_parse_generic
+#' @param check Logical (defaults to `FALSE`). Should we check if the file has
+#' been modified since its creation by the spectrometer?
 #'
 #' @inherit lr_parse_generic return details
 #'
@@ -20,7 +22,7 @@
 #'
 #' @export
 #'
-lr_parse_procspec <- function(filename, ...) {
+lr_parse_procspec <- function(filename, check = FALSE, ...) {
   # We let R find the suitable tmp folder to extract files
   tmp <- tempdir()
 
@@ -32,6 +34,30 @@ lr_parse_procspec <- function(filename, ...) {
 
   # Data files have the format ps_\d+.xml
   data_file <- grep(pattern = "ps_\\d+\\.xml", extracted_files, value = TRUE)
+
+  if (check) {
+    if (!requireNamespace("openssl")) {
+      warning("The openssl package is required for check = TRUE. ",
+              "Skipping integrity check...", call. = FALSE)
+    } else {
+      sig <- read_xml(grep(pattern = "OOISignatures\\.xml$", extracted_files, value = TRUE))
+      saved_hash <- xml_text(xml_find_first(sig, ".//hashValue"))
+      saved_hash <- gsub(" ", "", saved_hash)
+      algo <- xml_text(xml_find_first(sig, ".//hashAlgorithm"))
+      if (algo == "SHA-512") {
+        actual_hash <- as.character(openssl::sha512(file(data_file)))
+      } else {
+        warning("Unknown hash in signature. Skipping.", call. = FALSE)
+        actual_hash <- saved_hash
+      }
+      if (actual_hash != saved_hash) {
+        stop(
+          "The file has been modified since its creation by the spectrometer. ",
+          "This can have serious consequences!\n",
+          "To bypass the warning, use 'check = FALSE'", call. = FALSE)
+      }
+    }
+  }
 
   # OceanOptics softwares produce badly encoded characters. The only fix is to
   # strip them before feeding the xml file to read_xml.
