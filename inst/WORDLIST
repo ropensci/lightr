@@ -1,4 +1,3 @@
-AppVeyor
 arctica
 atlantic
 avantes
@@ -25,6 +24,7 @@ JND
 KDL
 lr
 microspectra
+noLD
 O'Hanlon
 oceaninsight
 OceanInsight
@@ -34,7 +34,6 @@ pavo's
 ProcSpec
 RL
 ROH
-ropensci
 rOpenSci
 RS
 Shawkey
