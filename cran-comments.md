@@ -1,11 +1,17 @@
 ## Test environments
 
-* local Ubuntu 19.10, R 3.6.1
-* Ubuntu 16.04.6 LTS (on travis-ci), R 3.6.3 (with two different locales), R 3.5.3,
-  R-devel
-* macOS (on travis-ci), R 3.6.3
-* win-builder (R 3.6.3 and devel)
+* local Ubuntu 20.04, R 4.0.2
+* local Raspbian buster (ARM/noLD), R 3.5.2
+
+* Ubuntu 16.04.6 LTS (on GitHub actions), R 3.6, R 3.5,
+  R 4.0 (with two different locales)
+* macOS (on GitHub actions), R 4.0 and R-devel
+* Windows (on GitHub actions), R 4.0
+
+* win-builder (R release and devel)
+
 * rhub::check_for_cran()
+* rhub::check(platform = "debian-gcc-devel-nold")
 
 ## R CMD check results
 
@@ -13,5 +19,5 @@
 
 ## Comments
 
-resubmission after adding quotes around brand names in DESCRIPTION, as requested
-by Uwe Ligges
+I specifically tested on more test environments to make sure the noLD errors
+pointed out by Prof Brian Ripley are now fixed.
