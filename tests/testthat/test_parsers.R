@@ -2,6 +2,8 @@ context("parsers")
 
 test_that("OceanOptics ProcSpec", {
 
+  skip_on_os("solaris")
+
   if (capabilities(what = "long.double")) {
 
     expect_known_hash(
@@ -41,6 +43,8 @@ test_that("OceanOptics ProcSpec", {
 })
 
 test_that("OceanOptics others", {
+
+  skip_on_os("solaris")
 
   # Floating point precision issue on noLD platforms.
   # This is caused by the conversion to "numeric":
@@ -94,6 +98,8 @@ test_that("OceanOptics others", {
 })
 
 test_that("Avantes", {
+
+  skip_on_os("solaris")
 
   expect_known_hash(
     expect_silent(lr_parse_roh(test.file("avantes_reflect.ROH"))),
@@ -176,6 +182,8 @@ test_that("Avantes", {
 
 test_that("CRAIC", {
 
+  skip_on_os("solaris")
+
   expect_known_hash(
     expect_silent(lr_parse_spc(test.file("compare", "CRAIC", "CRAIC.spc"))),
     "4fb2c8a868"
@@ -184,6 +192,8 @@ test_that("CRAIC", {
 })
 
 test_that("Generic", {
+
+  skip_on_os("solaris")
 
   expect_error(lr_parse_generic(test.file("spec.csv")), "Parsing failed.")
 

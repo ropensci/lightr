@@ -1,6 +1,6 @@
 Package: lightr
 Title: Read Spectrometric Data and Metadata
-Version: 1.2
+Version: 1.3
 Authors@R: c(
     person("Hugo", "Gruson", role = c("cre", "aut", "cph"),
     email = "hugo.gruson+R@normalesup.org",
@@ -34,7 +34,7 @@ Suggests:
 URL: https://docs.ropensci.org/lightr, https://github.com/ropensci/lightr
 BugReports: https://github.com/ropensci/lightr/issues
 License: GPL (>=2)
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 Roxygen: list(markdown = TRUE)
 Language: en-GB
 VignetteBuilder: knitr

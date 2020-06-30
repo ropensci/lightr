@@ -11,7 +11,7 @@
 * win-builder (R release and devel)
 
 * rhub::check_for_cran()
-* rhub::check(platform = "debian-gcc-devel-nold")
+* rhub::check_on_solaris()
 
 ## R CMD check results
 
@@ -19,5 +19,5 @@
 
 ## Comments
 
-I specifically tested on more test environments to make sure the noLD errors
-pointed out by Prof Brian Ripley are now fixed.
+Resubmission as required by Prof Brian Ripley after the latest changes uncovered
+precision issues on Solaris that cause the hash tests to fail.

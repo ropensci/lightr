@@ -1,3 +1,9 @@
+# lightr 1.3
+
+## Minor changes
+
+* disable hash tests on Solaris (the output is still checked by other tests)
+
 # lightr 1.2
 
 ## Minor changes
