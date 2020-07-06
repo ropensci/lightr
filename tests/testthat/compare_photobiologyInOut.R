@@ -11,5 +11,5 @@ test_that("pio_lightr_jaz", {
   out_lightr <- lr_parse_jazirrad(file)[[1]]
   colnames(out_lightr) <- NULL
 
-  expect_equivalent(out_pio, out_lightr[, c(1,5)])
+  expect_equal(out_pio, out_lightr[, c(1,5)], ignore_attr = TRUE)
 })
