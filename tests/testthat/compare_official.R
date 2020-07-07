@@ -10,7 +10,7 @@ test_that("compare procspec/spectrasuite", {
                                     lim = c(100, 1000),
                                     interpolate = FALSE)
 
-  expect_equal(specs, specs_spectrasuite, tol = 1e-4)
+  expect_equal(specs, specs_spectrasuite, tolerance = 1e-4)
 })
 
 test_that("compare trm/ttt", {
@@ -24,7 +24,7 @@ test_that("compare trm/ttt", {
   specs <- lr_get_spec(test.file("compare/Avantes"), ext = "TRM")
   specs_avasoft <- lr_get_spec(test.file("compare/Avantes"), ext = "ttt")
 
-  expect_equal(specs, specs_avasoft, tol = 1e-4)
+  expect_equal(specs, specs_avasoft, tolerance = 1e-4)
 
   spec1_avasoft <- lr_parse_generic(test.file("compare", "Avantes", "feather_1.TXT"))[[1]]
   spec1 <- lr_parse_rfl8(test.file("compare", "Avantes", "feather.RFL8"), specnum = 1)[[1]]
@@ -40,7 +40,7 @@ test_that("compare trm/ttt", {
 
   expect_equal(spec2[, c("wl", "processed")],
                spec2_avasoft[, c("wl", "processed")],
-               tol = 1e-4)
+               tolerance = 1e-4)
 
 })
 
@@ -55,5 +55,5 @@ test_that("compare spc/craic", {
                              lim = c(100, 1000),
                              interpolate = FALSE)
 
-  expect_equal(specs, specs_craic, tol = 1e-4)
+  expect_equal(specs, specs_craic, tolerance = 1e-4)
 })
