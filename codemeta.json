@@ -156,14 +156,14 @@
       "@type": "SoftwareApplication",
       "identifier": "testthat",
       "name": "testthat",
-      "version": ">= 2.0.0",
+      "version": ">= 2.99",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
         "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
       },
-      "sameAs": "https://CRAN.R-project.org/package=testthat"
+      "sameAs": "https://github.com/r-lib/testthat"
     }
   ],
   "softwareRequirements": [
@@ -212,7 +212,7 @@
     }
   ],
   "releaseNotes": "https://github.com/ropensci/lightr/blob/master/NEWS.md",
-  "fileSize": "4626.592KB",
+  "fileSize": "4626.661KB",
   "contIntegration": "https://codecov.io/github/ropensci/lightr?branch=master",
   "keywords": [
     "r",
