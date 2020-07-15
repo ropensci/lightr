@@ -1,5 +1,3 @@
-context("get_metadata")
-
 test_that("get_metadata all", {
 
   res <- lr_get_metadata(

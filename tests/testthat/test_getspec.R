@@ -1,5 +1,3 @@
-context("get_spec")
-
 test_that("get_spec all", {
 
   res <- lr_get_spec(test.file(),
@@ -19,7 +17,7 @@ test_that("get_spec recursive", {
 
 test_that("get_spec range", {
   res <- lr_get_spec(test.file(), "ttt", lim = c(400,500))
-  expect_equal(nrow(res), 101)
+  expect_identical(nrow(res), 101L)
 })
 
 test_that("get_spec interpolate", {
@@ -29,7 +27,7 @@ test_that("get_spec interpolate", {
 
   res <- lr_get_spec(test.file("heliomaster"), ext = "jdx", interpolate = FALSE)
 
-  expect_equal(nrow(res), 1992)
+  expect_identical(nrow(res), 1992L)
 })
 
 test_that("get_spec warn/error", {

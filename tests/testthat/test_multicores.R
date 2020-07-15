@@ -1,5 +1,3 @@
-context("multicore")
-
 test_that("Multicores/single core", {
 
   expect_warning(lr_get_spec(test.file(), ext = "test", cores = 2),

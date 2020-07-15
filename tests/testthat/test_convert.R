@@ -1,5 +1,3 @@
-context("convert_tocsv")
-
 # Create temp environment to run tests
 setup({
 

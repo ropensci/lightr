@@ -1,5 +1,3 @@
-context("parsers")
-
 test_that("OceanOptics ProcSpec", {
 
   skip_on_os("solaris")
@@ -49,7 +47,7 @@ test_that("OceanOptics others", {
   # Floating point precision issue on noLD platforms.
   # This is caused by the conversion to "numeric":
   # storage.mode(data) <- "numeric"
-  expect_equal(
+  expect_identical(
     digest::sha1(expect_silent(lr_parse_jdx(test.file("OceanOptics_period.jdx")))),
     "4523bce41eec487fb528937c521f3cc62b11315a"
   )
@@ -57,7 +55,7 @@ test_that("OceanOptics others", {
   # Floating point precision issue on noLD platforms.
   # This is caused by the conversion to "numeric":
   # storage.mode(data) <- "numeric"
-  expect_equal(
+  expect_identical(
     digest::sha1(expect_silent(lr_parse_jdx(test.file("non_english", "OceanOptics_comma.jdx")))),
     "46f5a54cb1ce04a382b5fa20bbf90206d80f4da0"
   )
@@ -75,7 +73,7 @@ test_that("OceanOptics others", {
   # Floating point precision issue on noLD platforms.
   # This is caused by the conversion to "numeric":
   # storage.mode(data) <- "numeric"
-  expect_equal(
+  expect_identical(
     digest::sha1(expect_silent(lr_parse_jazirrad(test.file("irrad.JazIrrad")))),
     "288e60c411353ade756c9984b98d25f439b68789"
   )
@@ -211,7 +209,7 @@ test_that("Generic", {
   # This is caused by the conversion to "numeric":
   # storage.mode(rawsplit) <- "numeric"
   # in parse_generic()
-  expect_equal(
+  expect_identical(
     digest::sha1(expect_silent(lr_parse_generic(test.file("irr_820_1941.IRR")))),
     "7e182dc02c6f21dba8d1857c6e934ec1a3bbeca8"
   )
