@@ -1,17 +1,24 @@
 test_that("get_spec all", {
 
-  res <- lr_get_spec(test.file(),
-                  ext = c("TRM", "ttt", "jdx", "jaz", "JazIrrad", "csv", "txt",
-                          "Transmission", "spc"),
-                  sep = ",")
-  expect_known_value(res, "known_output/getspec_all.rds")
+  expect_snapshot_value(
+    lr_get_spec(test.file(),
+                ext = c("TRM", "ttt", "jdx", "jaz", "JazIrrad", "csv", "txt",
+                        "Transmission", "spc"),
+                sep = ","),
+    style = "serialize",
+    cran = TRUE
+  )
+
 })
 
 test_that("get_spec recursive", {
 
   # Recursive
-  res <- lr_get_spec(test.file(), ext = "ProcSpec", subdir = TRUE)
-  expect_known_value(res, "known_output/getspec_recursive.rds")
+  expect_snapshot_value(
+    lr_get_spec(test.file(), ext = "ProcSpec", subdir = TRUE),
+    style = "serialize",
+    cran = TRUE
+  )
 
 })
 
