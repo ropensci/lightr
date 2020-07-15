@@ -30,7 +30,8 @@ Suggests:
     pavo,
     rmarkdown,
     spelling,
-    testthat (>= 2.99)
+    testthat (>= 2.99),
+    withr
 URL: https://docs.ropensci.org/lightr, https://github.com/ropensci/lightr
 BugReports: https://github.com/ropensci/lightr/issues
 License: GPL (>=2)
