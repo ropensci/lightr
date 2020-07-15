@@ -1,19 +1,24 @@
 test_that("get_metadata all", {
 
-  res <- lr_get_metadata(
-    test.file(),
-    ext = c("TRM", "ROH", "ttt", "trt", "jdx", "jaz", "JazIrrad")
+  expect_snapshot_value(
+    lr_get_metadata(
+      test.file(),
+      ext = c("TRM", "ROH", "ttt", "trt", "jdx", "jaz", "JazIrrad")
+    ),
+    style = "json2"
   )
-  expect_known_hash(res, "c585251bd0")
 
 })
 
 test_that("get_metadata recursive", {
 
   # Recursive
-  res <- lr_get_metadata(test.file(),
-                     ext = "ProcSpec", subdir = TRUE)
-  expect_known_hash(res, "f82ad88fb1")
+  expect_snapshot_value(
+    lr_get_metadata(test.file(),
+                    ext = "ProcSpec", subdir = TRUE),
+    style = "json2"
+  )
+
 })
 
 test_that("get_metadata warn/error", {
