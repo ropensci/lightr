@@ -156,8 +156,6 @@ lr_get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
 
   colnames(final) <- c("wl", specnames)
 
-  final <- final[final$wl <= lim[2] & final$wl >= lim[1],]
-
   # TODO: should uninterpolated spectra be marked as rspec objects?
   class(final) <- c("rspec", "data.frame")
 

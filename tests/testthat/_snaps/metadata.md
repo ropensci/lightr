@@ -1,4 +1,4 @@
-## get_metadata all
+# get_metadata all
 
     {
       "type": "list",
@@ -93,7 +93,7 @@
       ]
     }
 
-## get_metadata recursive
+# get_metadata recursive
 
     {
       "type": "list",
