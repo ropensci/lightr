@@ -152,6 +152,9 @@ lr_get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
     final <- as.data.frame(do.call(cbind, lapply(tmp, function(x) x[, "processed"])))
 
     final <- cbind(tmp[[1]][, "wl"], final)
+
+    # This steps needs to be only run when !interp because it breaks altrep
+    final <- final[final[, 1] <= lim[2] & final[, 1] >= lim[1],]
   }
 
   colnames(final) <- c("wl", specnames)
