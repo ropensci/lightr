@@ -30,11 +30,11 @@ solution to read proprietary spectra file formats on all systems.
 install.packages("lightr")
 ```
 
-You can also install the development version from GitHub:
+You can also install the development version from rOpenSci's CRAN-like 
+repository:
 
 ```r
-# install.packages("remotes")
-remotes::install_github("ropensci/lightr")
+install.packages("lightr", repos = "https://dev.ropensci.org")
 ```
 
 ## 💻 Usage
