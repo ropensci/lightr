@@ -6,7 +6,7 @@ something you would like to contribute, but you are not sure how, please don't
 hesitate to reach out by opening an 
 [issue](https://github.com/ropensci/lightr/issues.) or sending me an email.
 
-## 🗣️ Spread the word
+## 🗣️ Spreading the word
 
 The easiest (and possibly one of the most useful) way you can contribute to 
 lightr is by spreading the word. Please 
@@ -45,12 +45,19 @@ Please also include your session info (e.g. via the R command
 Finally, if your issue relates to the parsing of a specific file, remember to
 include said file.
 
-## 🆕 Add or request new parser
+## 🆕 Adding or requesting new parser
 
 If you find a file that lightr cannot open yet, please open an issue or send
 me an email with an example file. Some file formats are very complex so I cannot
 guarantee that I will be able to quickly provide a parser for all of them but I
 will at the very least try.
+
+## 🗳️ Voting for new features
+
+Whenever I can, I open a new issue with the upcoming plans for lightr. If you 
+are particularly interested in a specific feature and you would like to help
+me prioritise my work, please use 
+[the GitHub reactions feature](https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/).
 
 ## 📖 Code of Conduct
 
