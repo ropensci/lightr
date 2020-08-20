@@ -4,7 +4,10 @@ test_that("Convert all", {
 
   exts <- c("TRM", "ttt", "jdx", "jaz", "JazIrrad", "txt", "Transmission")
 
-  converted_files <- lr_convert_tocsv(tdir, ext = exts, sep = ",")
+  converted_files <- expect_message(
+    lr_convert_tocsv(tdir, ext = exts, sep = ","),
+    "14 files"
+  )
 
   input_files <- tools::list_files_with_exts(tdir, exts)
 
@@ -30,7 +33,10 @@ test_that("Convert recursive", {
 
   tdir <- file.path(tempdir(), "test_convert")
 
-  lr_convert_tocsv(tdir, ext = "ProcSpec", subdir = TRUE)
+  expect_message(
+    lr_convert_tocsv(tdir, ext = "ProcSpec", subdir = TRUE),
+    "5 files"
+  )
 
   input_files <- tools::list_files_with_exts(file.path(tdir, "procspec_files"),
                                              "ProcSpec")
@@ -50,8 +56,9 @@ test_that("Convert csv", {
 
   tdir <- file.path(tempdir(), "test_convert")
 
-  expect_warning(lr_convert_tocsv(file.path(tdir, "csv"), ext = "csv",
-                                  sep = ","))
+  expect_warning(
+    expect_message(lr_convert_tocsv(file.path(tdir, "csv"), ext = "csv", sep = ","))
+  )
 
   output <- expect_message(
     lr_convert_tocsv(file.path(tdir, "csv"), ext = "csv", sep = ",",
@@ -69,13 +76,13 @@ test_that("Convert warn/error", {
   tdir <- file.path(tempdir(), "test_convert")
   # Total fail
   expect_warning(
-    expect_null(lr_convert_tocsv(tdir, ext = "fail")),
+    expect_message(expect_null(lr_convert_tocsv(tdir, ext = "fail"))),
     "File import failed"
   )
 
   # Partial fail
   output <- expect_warning(
-    lr_convert_tocsv(tdir, ext = c("fail", "jdx"), overwrite = TRUE),
+    expect_message(lr_convert_tocsv(tdir, ext = c("fail", "jdx"), overwrite = TRUE)),
     "Could not import one or more"
   )
 
