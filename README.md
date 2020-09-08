@@ -1,4 +1,4 @@
-# `lightr`: import spectral data in R
+# `lightr`: import spectral data in R <img src="man/figures/logo.gif" align="right" alt="" width="120" />
 
 <!-- badges: start -->
 [![CRAN version](https://www.r-pkg.org/badges/version-ago/lightr)](https://cran.r-project.org/package=lightr)
