@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg:svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1383.9086"
+   height="1598"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   sodipodi:docname="lightr4.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   version="1.0"
+   inkscape:export-filename="/home/hugo/Dropbox/PhD/pavo/inst/linear_visible_spectrum.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <script
+     id="custom-useragent-string" />
+  <script />
+  <svg:defs
+     id="defs4">
+    <svg:linearGradient
+       id="linearGradient3155">
+      <svg:stop
+         style="stop-color: rgb(0, 0, 0); stop-opacity: 1;"
+         offset="0"
+         id="stop3165" />
+      <svg:stop
+         id="stop3169"
+         offset="0.05"
+         style="stop-color:#2b0050;stop-opacity:1;" />
+      <svg:stop
+         style="stop-color:#0000aa;stop-opacity:1;"
+         offset="0.22"
+         id="stop3171" />
+      <svg:stop
+         id="stop3510"
+         offset="0.315"
+         style="stop-color:#007d7e;stop-opacity:1;" />
+      <svg:stop
+         id="stop3173"
+         offset="0.41"
+         style="stop-color:#00a600;stop-opacity:1;" />
+      <svg:stop
+         style="stop-color:#999700;stop-opacity:1;"
+         offset="0.55000001"
+         id="stop3175" />
+      <svg:stop
+         id="stop3177"
+         offset="0.61000001"
+         style="stop-color:#c46200;stop-opacity:1;" />
+      <svg:stop
+         style="stop-color:#c00000;stop-opacity:1;"
+         offset="0.73000002"
+         id="stop3179" />
+      <svg:stop
+         style="stop-color: rgb(0, 0, 0); stop-opacity: 1;"
+         offset="1"
+         id="stop3159" />
+    </svg:linearGradient>
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective10" />
+    <svg:linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3155"
+       id="linearGradient4974"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.31031,0,0,0.339394,-252.075,-49.3168)"
+       x1="192.78572"
+       y1="378.07645"
+       x2="652.92859"
+       y2="378.07645" />
+    <svg:linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3155"
+       id="linearGradient966"
+       x1="-129.72462"
+       y1="680.37964"
+       x2="672.08069"
+       y2="-92.55674"
+       gradientUnits="userSpaceOnUse" />
+    <svg:linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3155"
+       id="linearGradient972"
+       gradientUnits="userSpaceOnUse"
+       x1="-129.72462"
+       y1="680.37964"
+       x2="672.08069"
+       y2="-92.55674" />
+    <svg:linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3155"
+       id="linearGradient976"
+       gradientUnits="userSpaceOnUse"
+       x1="-129.72462"
+       y1="680.37964"
+       x2="672.08069"
+       y2="-92.55674" />
+    <svg:linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3155"
+       id="linearGradient980"
+       gradientUnits="userSpaceOnUse"
+       x1="-129.72462"
+       y1="680.37964"
+       x2="672.08069"
+       y2="-92.55674" />
+    <svg:linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3155"
+       id="linearGradient982"
+       gradientUnits="userSpaceOnUse"
+       x1="-129.72462"
+       y1="680.37964"
+       x2="672.08069"
+       y2="-92.55674" />
+    <svg:linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3155"
+       id="linearGradient988"
+       gradientUnits="userSpaceOnUse"
+       x1="-129.72462"
+       y1="680.37964"
+       x2="672.08069"
+       y2="-92.55674" />
+    <svg:linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3155"
+       id="linearGradient596"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.31031,0,0,0.339394,-252.075,-49.3168)"
+       x1="192.78572"
+       y1="378.07645"
+       x2="652.92859"
+       y2="378.07645" />
+    <svg:linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3155"
+       id="linearGradient598"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.31031,0,0,0.339394,-252.075,-49.3168)"
+       x1="192.78572"
+       y1="378.07645"
+       x2="652.92859"
+       y2="378.07645" />
+    <svg:linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3155"
+       id="linearGradient600"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.31031,0,0,0.339394,-252.075,-49.3168)"
+       x1="192.78572"
+       y1="378.07645"
+       x2="652.92859"
+       y2="378.07645" />
+    <svg:linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3155"
+       id="linearGradient602"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.31031,0,0,0.339394,-252.075,-49.3168)"
+       x1="192.78572"
+       y1="378.07645"
+       x2="652.92859"
+       y2="378.07645" />
+    <svg:linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3155"
+       id="linearGradient604"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.31031,0,0,0.339394,-252.075,-49.3168)"
+       x1="192.78572"
+       y1="378.07645"
+       x2="652.92859"
+       y2="378.07645" />
+  </svg:defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     gridtolerance="10000"
+     guidetolerance="10"
+     objecttolerance="10"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.61583336"
+     inkscape:cx="445.28625"
+     inkscape:cy="678.86019"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     inkscape:window-x="0"
+     inkscape:window-y="23"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-maximized="1" />
+  <svg:metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+        <dc:date>2008-Aug-27</dc:date>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>David Hall (gringer)</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <cc:license
+           rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+        <dc:description>A linear representation of the visible light spectrum.</dc:description>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>colour spectrum</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/publicdomain/zero/1.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </svg:metadata>
+  <svg:g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(389.95429,1379.9543)">
+    <svg:g
+       id="g220"
+       transform="translate(0,-1.3650119e-6)">
+      <svg:g
+         transform="rotate(90,302.00001,-580.9543)"
+         id="g925">
+        <svg:g
+           id="g4923">
+          <svg:rect
+             y="47"
+             x="2.5"
+             height="64"
+             width="599"
+             id="rect2383"
+             style="opacity:1;fill:url(#linearGradient596);fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0pt;stroke-opacity:1" />
+          <svg:rect
+             y="47"
+             x="593.78687"
+             height="64"
+             width="107.71313"
+             id="rect3799"
+             style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:7.84516048;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <svg:rect
+             y="92.915672"
+             x="625.4046"
+             height="0.86115843"
+             width="7.1763201"
+             id="rect4606"
+             style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:7.55905533;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <svg:rect
+             y="47"
+             x="-97.5"
+             height="64"
+             width="108.03748"
+             id="rect3799-7"
+             style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:7.85696363;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        </svg:g>
+        <svg:g
+           transform="matrix(-1,0,0,1,604,-1319.9086)"
+           id="g4923-4">
+          <svg:rect
+             y="47"
+             x="2.5"
+             height="64"
+             width="599"
+             id="rect2383-9"
+             style="opacity:1;fill:url(#linearGradient598);fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0pt;stroke-opacity:1" />
+          <svg:rect
+             y="47"
+             x="593.78687"
+             height="64"
+             width="107.71313"
+             id="rect3799-5"
+             style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:7.84516048;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <svg:rect
+             y="92.915672"
+             x="625.4046"
+             height="0.86115843"
+             width="7.1763201"
+             id="rect4606-0"
+             style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:7.55905533;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <svg:rect
+             y="47"
+             x="-97.5"
+             height="64"
+             width="108.03748"
+             id="rect3799-7-4"
+             style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:7.85696363;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        </svg:g>
+        <svg:g
+           id="g5138"
+           transform="translate(535.10002,-386.19961)">
+          <svg:g
+             id="g4923-4-1"
+             transform="rotate(60,-300.00868,-851.2647)">
+            <svg:rect
+               style="opacity:1;fill:url(#linearGradient600);fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0pt;stroke-opacity:1"
+               id="rect2383-9-0"
+               width="599"
+               height="64"
+               x="2.5"
+               y="47" />
+            <svg:rect
+               style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:7.84516048;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               id="rect3799-5-6"
+               width="107.71313"
+               height="64"
+               x="593.78687"
+               y="47" />
+            <svg:rect
+               style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:7.55905533;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               id="rect4606-0-1"
+               width="7.1763201"
+               height="0.86115843"
+               x="625.4046"
+               y="92.915672" />
+            <svg:rect
+               style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:7.85696363;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               id="rect3799-7-4-5"
+               width="108.03748"
+               height="64"
+               x="-97.5"
+               y="47" />
+          </svg:g>
+          <svg:g
+             id="g4923-4-1-1"
+             transform="rotate(120,-77.036232,-542.32456)">
+            <svg:rect
+               style="opacity:1;fill:url(#linearGradient602);fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0pt;stroke-opacity:1"
+               id="rect2383-9-0-5"
+               width="599"
+               height="64"
+               x="2.5"
+               y="47" />
+            <svg:rect
+               style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:7.84516048;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               id="rect3799-5-6-9"
+               width="107.71313"
+               height="64"
+               x="593.78687"
+               y="47" />
+            <svg:rect
+               style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:7.55905533;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               id="rect4606-0-1-7"
+               width="7.1763201"
+               height="0.86115843"
+               x="625.4046"
+               y="92.915672" />
+            <svg:rect
+               style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:7.85696363;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               id="rect3799-7-4-5-7"
+               width="108.03748"
+               height="64"
+               x="-97.5"
+               y="47" />
+          </svg:g>
+        </svg:g>
+        <svg:g
+           id="g5138-1"
+           transform="rotate(-180,34.449998,-387.8545)">
+          <svg:g
+             id="g4923-4-1-2"
+             transform="rotate(60,-300.00868,-851.2647)">
+            <svg:rect
+               style="opacity:1;fill:url(#linearGradient604);fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0pt;stroke-opacity:1"
+               id="rect2383-9-0-9"
+               width="599"
+               height="64"
+               x="2.5"
+               y="47" />
+            <svg:rect
+               style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:7.84516048;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               id="rect3799-5-6-3"
+               width="107.71313"
+               height="64"
+               x="593.78687"
+               y="47" />
+            <svg:rect
+               style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:7.55905533;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               id="rect4606-0-1-9"
+               width="7.1763201"
+               height="0.86115843"
+               x="625.4046"
+               y="92.915672" />
+            <svg:rect
+               style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:7.85696363;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               id="rect3799-7-4-5-0"
+               width="108.03748"
+               height="64"
+               x="-97.5"
+               y="47" />
+          </svg:g>
+          <svg:g
+             id="g4923-4-1-1-8"
+             transform="rotate(120,-77.036232,-542.32456)">
+            <svg:rect
+               style="opacity:1;fill:url(#linearGradient4974);fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0pt;stroke-opacity:1"
+               id="rect2383-9-0-5-8"
+               width="599"
+               height="64"
+               x="2.5"
+               y="47" />
+            <svg:rect
+               style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:7.84516048;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               id="rect3799-5-6-9-5"
+               width="107.71313"
+               height="64"
+               x="593.78687"
+               y="47" />
+            <svg:rect
+               style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:7.55905533;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               id="rect4606-0-1-7-0"
+               width="7.1763201"
+               height="0.86115843"
+               x="625.4046"
+               y="92.915672" />
+            <svg:rect
+               style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:7.85696363;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               id="rect3799-7-4-5-7-9"
+               width="108.03748"
+               height="64"
+               x="-97.5"
+               y="47" />
+          </svg:g>
+        </svg:g>
+      </svg:g>
+      <svg:path
+         sodipodi:nodetypes="ccccccc"
+         inkscape:connector-curvature="0"
+         id="path958"
+         d="m 922.9038,-941.22205 -621.33847,-357.46695 -620.64949,355.75164 -0.89161,720.22558 620.45273,358.80587 623.47074,-353.40114 c 0,0 -0.37608,-485.60983 -1.0439,-723.915 z"
+         style="fill:#000000;fill-opacity:0.99033813;stroke:#efefef;stroke-width:12.00530052;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </svg:g>
+    <svg:g
+       transform="matrix(1.5362447,0,0,1.1635215,-94.639167,-730.51955)"
+       id="g20"
+       style="fill:url(#linearGradient966);fill-opacity:1;stroke-width:0.7479673">
+      <svg:g
+         id="g18"
+         style="fill:url(#linearGradient988);fill-opacity:1;stroke-width:0.56242633">
+        <svg:rect
+           x="133.875"
+           y="420.75"
+           width="248.625"
+           height="19.125"
+           id="rect2"
+           style="fill:url(#linearGradient972);fill-opacity:1;stroke-width:0.7479673" />
+        <svg:rect
+           x="133.875"
+           y="363.375"
+           width="248.625"
+           height="19.125"
+           id="rect6"
+           style="fill:url(#linearGradient976);fill-opacity:1;stroke-width:0.7479673" />
+        <svg:path
+           inkscape:connector-curvature="0"
+           d="M 325.125,0 H 315.563 114.75 C 93.712,0 76.5,17.212 76.5,38.25 v 439.875 c 0,21.037 17.212,38.25 38.25,38.25 h 286.875 c 21.037,0 38.25,-17.213 38.25,-38.25 v -334.687 -9.562 z m 0,28.688 89.888,105.188 H 344.25 c -9.562,0 -19.125,-9.562 -19.125,-19.125 z m 95.625,449.437 c 0,9.562 -7.65,19.125 -19.125,19.125 H 114.75 c -9.562,0 -19.125,-7.65 -19.125,-19.125 V 38.25 c 0,-9.562 7.65,-19.125 19.125,-19.125 H 306 v 95.625 c 0,21.038 17.213,38.25 38.25,38.25 h 76.5 z"
+           id="path10"
+           style="fill:url(#linearGradient980);fill-opacity:1;stroke-width:0.7479673" />
+        <svg:rect
+           x="133.875"
+           y="306"
+           width="248.625"
+           height="19.125"
+           id="rect12"
+           style="fill:url(#linearGradient982);fill-opacity:1;stroke-width:0.7479673" />
+      </svg:g>
+    </svg:g>
+    <svg:text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:133.33332825px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none"
+       x="11.687527"
+       y="-870.11914"
+       id="text891"><svg:tspan
+         sodipodi:role="line"
+         id="tspan889"
+         x="11.687527"
+         y="-870.11914"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:213.33332825px;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff;fill-opacity:1">lightr</svg:tspan></svg:text>
+    <svg:text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none"
+       x="106.93337"
+       y="-571.62408"
+       id="text119"><svg:tspan
+         sodipodi:role="line"
+         id="tspan117"
+         x="106.93337"
+         y="-571.62408"
+         style="font-size:100px">0142</svg:tspan></svg:text>
+    <svg:text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none"
+       x="105.90798"
+       y="-440.45224"
+       id="text142"><svg:tspan
+         sodipodi:role="line"
+         id="tspan140"
+         x="105.90798"
+         y="-440.45224"
+         style="font-size:100px">356895</svg:tspan></svg:text>
+  </svg:g>
+</svg:svg>
