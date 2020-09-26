@@ -1,8 +1,8 @@
 # `lightr`: import spectral data in R <img src="man/figures/logo.gif" align="right" alt="" width="120" />
 
 <!-- badges: start -->
+[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
 [![CRAN version](https://www.r-pkg.org/badges/version-ago/lightr)](https://cran.r-project.org/package=lightr)
-[![Dependencies](https://tinyverse.netlify.com/badge/lightr)](https://cran.r-project.org/package=lightr)
 [![R build status](https://github.com/ropensci/lightr/workflows/R-CMD-check/badge.svg)](https://github.com/ropensci/lightr/actions)
 [![Coverage status](https://codecov.io/gh/ropensci/lightr/branch/master/graph/badge.svg)](https://codecov.io/github/ropensci/lightr?branch=master)
 [![Reviewed by rOpenSci](https://badges.ropensci.org/267_status.svg)](https://github.com/ropensci/software-review/issues/267)
