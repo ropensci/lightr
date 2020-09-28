@@ -30,6 +30,7 @@ template:
     image:
       src: man/figures/logo.gif
     twitter:
+      creator: "@grusonh"
       card: summary_large_image
 
 authors:
