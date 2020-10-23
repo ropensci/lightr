@@ -24,6 +24,16 @@ formats in a single line of code.
 Additionally, it provides for the first time a fully free and open source 
 solution to read proprietary spectra file formats on all systems.
 
+## 🗟 Citation
+
+To cite this package in publications, please use: 
+
+```
+Gruson H., White T.E., Maia R., (2019). lightr: import spectral data and
+metadata in R. Journal of Open Source Software, 4(43), 1857,
+https://doi.org/10.21105/joss.01857
+```
+
 ## 🔧 Installation
 
 ```r
