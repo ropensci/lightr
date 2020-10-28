@@ -54,7 +54,7 @@ Parse Avantes binary file (TRM, ABS, ROH, DRK, REF file extensions).
 }
 \details{
 'processed' column computed by lightr with the function
-\code{\link[=compute_processed]{compute_processed()}}.
+\code{\link[=lr_compute_processed]{lr_compute_processed()}}.
 }
 \examples{
 lr_parse_trm(system.file("testdata", "avantes_trans.TRM",

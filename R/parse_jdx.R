@@ -9,7 +9,7 @@
 #'
 #' @details
 #' 'processed' column computed by lightr with the function
-#' [compute_processed()].
+#' [lr_compute_processed()].
 #'
 #' @references McDonald RS, Wilks PA. JCAMP-DX: A Standard Form for Exchange of
 #' Infrared Spectra in Computer Readable Form. Applied Spectroscopy.
@@ -95,7 +95,7 @@ lr_parse_jdx <- function(filename) {
   storage.mode(data) <- "numeric"
   data <- as.data.frame(data)
 
-  data$processed <- compute_processed(data)
+  data$processed <- lr_compute_processed(data)
 
   return(list(data, metadata))
 

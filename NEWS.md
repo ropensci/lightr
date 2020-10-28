@@ -2,6 +2,8 @@
 
 ## Minor changes
 
+* (mostly internal) `compute_processed()` function is now named
+`lr_compute_processed()`
 * disable hash tests on Solaris (the output is still checked by other tests)
 
 # lightr 1.2

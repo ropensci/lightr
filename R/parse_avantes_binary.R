@@ -123,7 +123,7 @@ lr_parse_trm <- function(filename) {
 
   # Reorder columns
   data <- data[, c("wl", "dark", "white", "scope")]
-  data$processed <- compute_processed(data)
+  data$processed <- lr_compute_processed(data)
 
   author <- NA_character_
   specmodel <- NA_character_
@@ -274,7 +274,7 @@ lr_parse_rfl8 <- function(filename, specnum = 1L) {
                                 dark,
                                 "white" = reference,
                                 scope))
-    data$processed <- compute_processed(data)
+    data$processed <- lr_compute_processed(data)
 
     author <- NA_character_
     savetime <- NA_character_ # FIXME: extract this from SPCfiledate
