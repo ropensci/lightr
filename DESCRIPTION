@@ -30,7 +30,7 @@ Suggests:
     pavo,
     rmarkdown,
     spelling,
-    testthat (>= 2.99),
+    testthat (>= 3.0.0),
     withr
 URL: https://docs.ropensci.org/lightr, https://github.com/ropensci/lightr
 BugReports: https://github.com/ropensci/lightr/issues
@@ -40,5 +40,3 @@ Roxygen: list(markdown = TRUE)
 Language: en-GB
 VignetteBuilder: knitr
 Config/testthat/edition: 3
-Remotes:
-    r-lib/testthat
