@@ -20,7 +20,7 @@
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.0.2 (2020-06-22)",
+  "runtimePlatform": "R version 4.0.3 (2020-10-10)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -156,14 +156,26 @@
       "@type": "SoftwareApplication",
       "identifier": "testthat",
       "name": "testthat",
-      "version": ">= 2.99",
+      "version": ">= 3.0.0",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
         "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
       },
-      "sameAs": "https://github.com/r-lib/testthat"
+      "sameAs": "https://CRAN.R-project.org/package=testthat"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "withr",
+      "name": "withr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=withr"
     }
   ],
   "softwareRequirements": [
@@ -212,7 +224,7 @@
     }
   ],
   "releaseNotes": "https://github.com/ropensci/lightr/blob/master/NEWS.md",
-  "fileSize": "4626.661KB",
+  "fileSize": "5550.716KB",
   "contIntegration": "https://codecov.io/github/ropensci/lightr?branch=master",
   "keywords": [
     "r",
@@ -241,7 +253,7 @@
         },
         {
           "@type": "Person",
-          "givenName": ["Thomas", "E."],
+          "givenName": "Thomas",
           "familyName": "White"
         },
         {
@@ -252,6 +264,7 @@
       ],
       "name": "lightr: import spectral data and metadata in R",
       "identifier": "10.21105/joss.01857",
+      "url": "https://doi.org/10.21105/joss.01857",
       "pagination": "1857",
       "@id": "https://doi.org/10.21105/joss.01857",
       "sameAs": "https://doi.org/10.21105/joss.01857",
@@ -266,5 +279,7 @@
         }
       }
     }
-  ]
+  ],
+  "readme": "https://github.com/ropensci/lightr/blob/main/README.md",
+  "developmentStatus": "https://www.tidyverse.org/lifecycle/#stable"
 }
