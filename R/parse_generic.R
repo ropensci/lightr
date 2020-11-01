@@ -95,5 +95,7 @@ lr_parse_generic <- function(filename, decimal = ".", sep = NULL) {
                      "scope" = NA_real_,
                      "processed" = rawsplit[, dim(rawsplit)[2]])
 
+  data <- data[order(data$wl), ]
+
   return(list(data, metadata))
 }
