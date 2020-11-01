@@ -1,3 +1,10 @@
+# lightr 1.4
+
+## Minor changes and bug fixes
+
+* `lr_parse_generic()` now makes sure that the data is ordered by increasing 
+wavelengths, which fixes a bug reported by @itamshab
+
 # lightr 1.3
 
 ## Minor changes
