@@ -199,12 +199,12 @@ test_that("Generic", {
 
   expect_known_hash(
     expect_silent(lr_parse_generic(test.file("spec.csv"), sep = ",")),
-    "4fe5a89ddb"
+    "583d9c17d5"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_generic(test.file("RS-1.dpt"), sep = ",")),
-    "e9a4c7cf15"
+    "593a0aa370"
   )
 
   # Floating point precision issue on noLD platforms.
@@ -213,12 +213,12 @@ test_that("Generic", {
   # in parse_generic()
   expect_identical(
     digest::sha1(expect_silent(lr_parse_generic(test.file("irr_820_1941.IRR")))),
-    "7e182dc02c6f21dba8d1857c6e934ec1a3bbeca8"
+    "579acdfa1451280d4f2b222eb00081bfffeba5b9"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_generic(test.file("compare", "CRAIC", "CRAIC.txt"))),
-    "91f4cc5696"
+    "1dca1ee7d1"
   )
 
   # These files are better suited to more specific parsers but are dispatched
@@ -226,12 +226,12 @@ test_that("Generic", {
 
   expect_known_hash(
     expect_silent(lr_parse_generic(test.file("non_english", "OceanView_nonEN.txt"), decimal = ",")),
-    "d3d5283824"
+    "50797c7de5"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_generic(test.file("non_english", "OO_comma.txt"), decimal = ",")),
-    "7bb9eb694a"
+    "b7e7417156"
   )
 
 })
