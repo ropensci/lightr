@@ -37,7 +37,7 @@ Parse OceanInsight (formerly OceanOptics) JCAMP-DX (.jdx) file.
 \url{https://www.oceaninsight.com/}
 }
 \details{
-'processed' column computed by lightr with the function
+'processed' column computed by \pkg{lightr} with the function
 \code{\link[=lr_compute_processed]{lr_compute_processed()}}.
 }
 \examples{

@@ -53,7 +53,7 @@ Parse Avantes binary file (TRM, ABS, ROH, DRK, REF file extensions).
 \url{https://www.avantes.com/products/spectrometers}
 }
 \details{
-'processed' column computed by lightr with the function
+'processed' column computed by \pkg{lightr} with the function
 \code{\link[=lr_compute_processed]{lr_compute_processed()}}.
 }
 \examples{

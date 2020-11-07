@@ -8,7 +8,7 @@
 #' @inherit lr_parse_generic return
 #'
 #' @details
-#' 'processed' column computed by lightr with the function
+#' 'processed' column computed by \pkg{`r packageName()`} with the function
 #' [lr_compute_processed()].
 #'
 #' @references McDonald RS, Wilks PA. JCAMP-DX: A Standard Form for Exchange of
