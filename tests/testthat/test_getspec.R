@@ -69,4 +69,11 @@ test_that("get_spec warn/error", {
     "No files found"
   )
 
+  expect_warning(
+  expect_warning(
+    expect_null(lr_get_spec(test.file(), ext = "jdx", lim = c(10, 50), interpolate = TRUE)),
+    "wl range"
+  )
+  )
+
 })
