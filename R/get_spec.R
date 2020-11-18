@@ -113,13 +113,11 @@ lr_get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
     }
   }
 
-  with_progress({
   p <- progressor(along = files)
   tmp <- future_lapply(files, function(x) {
     p()
     tryCatch(gsp(x),
              error = function(e) NULL)
-    })
   })
 
   whichfailed <- which(vapply(tmp, is.null, logical(1)))

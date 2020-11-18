@@ -87,13 +87,11 @@ lr_get_metadata <- function(where = getwd(), ext = "ProcSpec", sep = NULL,
 
   }
 
-  with_progress({
-    p <- progressor(along = files)
-    tmp <- future_lapply(files, function(x) {
-      p()
-      tryCatch(gmd(x),
-               error = function(e) NULL)
-    })
+  p <- progressor(along = files)
+  tmp <- future_lapply(files, function(x) {
+    p()
+    tryCatch(gmd(x),
+             error = function(e) NULL)
   })
 
   whichfailed <- which(vapply(tmp, is.null, logical(1)))
