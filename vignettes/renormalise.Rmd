@@ -3,6 +3,7 @@ title: "Renormalise spectral data with a custom reference"
 author: "Hugo Gruson"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
+bibliography: lightr.bib
 vignette: >
   %\VignetteIndexEntry{Example with custom import}
   %\VignetteEngine{knitr::rmarkdown}
@@ -18,8 +19,8 @@ We don't recommend the use of those functions unless you absolutely have to.
 Most users should use `lr_get_spec()` and `lr_get_metadata()` instead.
 
 Here, we take the example of the method presented in 
-[Gruson *et al* (2018)](https://doi.org/10.1098/rsfs.2018.0049) where 
-reflectance spectra need to be normalised in an unusual way.
+@Gruson2019_QuantitativeCharacterizationIridescent where reflectance spectra 
+need to be normalised in an unusual way.
 
 Raw, un-normalised spectral data depends on both the spectrometer and the lamp
 as well as the conditions during the recording (including ambient light, 
@@ -99,8 +100,8 @@ But first, we verify that the integration times:
 We can now get rid of the metadata part and focus on the data only:
 
 ```{r}
-reflect_data = data.frame(reflect_data[[1]])
-white_data = data.frame(white_data[[1]])
+reflect_data <- data.frame(reflect_data[[1]])
+white_data <- data.frame(white_data[[1]])
 ```
 
 As a last step before being able to normalise the data, we also need to check

@@ -14,9 +14,10 @@ metadata:
 
 * `lr_get_spec()`
 * `lr_get_metadata()`
-* `lr_spec2csv()`
+* `lr_convert_tocsv()`
 
-Those three functions contain a loop and can directly be used to import/convert
+Those three functions contain an internal loop and can directly be used to 
+import/convert
 whole folders.
 
 They also allow for recursive search in the folder tree with the argument
@@ -36,7 +37,7 @@ They also allow for recursive search in the folder tree with the argument
 ```
 
 We first demonstrate these features on `lr_get_spec()` but they work in the same
-way for `lr_get_metadata()` and `lr_spec2csv()`
+way for `lr_get_metadata()` and `lr_convert_tocsv()`
 
 ```{r}
 library(lightr)
@@ -54,8 +55,8 @@ res <- lr_get_spec(where = "data", ext = "ttt", lim = c(300, 700))
 head(res)
 ```
 
-`lr_get_spec()` also supports setting multiple file extensions at once by passing
-a character vector to `ext`:
+`lr_get_spec()` also supports setting multiple file extensions at once by
+passing a character vector to `ext`:
 
 ```{r}
 res <- lr_get_spec(where = "data", ext = c("ttt", "trt"), lim = c(300, 700))
@@ -83,7 +84,7 @@ uninterpolated data, by changing the value of the `interpolate` boolean
 argument:
 
 ```{r}
-res <- lr_get_spec(where = "data/heliomaster", ext = "jdx", interpolate = FALSE)
+res <- lr_get_spec(where = "data/puffin", ext = "procspec", interpolate = FALSE)
 head(res)
 ```
 
@@ -105,7 +106,7 @@ head(res)
 
 ## Convert spectral data to csv: `lr_convert_tocsv()`
 
-`lr_convert_tocsv()` is designed for people that want to a machine readable 
+`lr_convert_tocsv()` is designed for people that want to an open format 
 version for each individual input file, possibly allowing them to carry on with
 their analysis using another programming language or software.
 
