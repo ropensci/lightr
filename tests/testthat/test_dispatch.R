@@ -61,6 +61,7 @@ test_that("Similar output for all parsers", {
   lapply(files, function(file) {
     res <- expect_silent(dispatch_parser(test.file(file), sep = ",", specnum = 1))
     expect_length(res, 2)
+    expect_named(res, c("data", "metadata"))
     expect_s3_class(res[[1]], "data.frame")
     expect_true(all(apply(res[[1]], 2, is.numeric)))
     expect_named(res[[1]], c("wl", "dark", "white", "scope", "processed"))

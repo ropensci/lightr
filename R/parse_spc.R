@@ -51,6 +51,6 @@ lr_parse_spc <- function(filename) {
 
   metadata <- rep(NA_character_, 13)
 
-  return(list(as.data.frame(data), metadata))
+  return(list("data" = as.data.frame(data), "metadata" = metadata))
 
 }

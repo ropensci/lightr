@@ -97,5 +97,5 @@ lr_parse_generic <- function(filename, decimal = ".", sep = NULL) {
 
   data <- data[order(data$wl), ]
 
-  return(list(data, metadata))
+  return(list("data" = data, "metadata" = metadata))
 }

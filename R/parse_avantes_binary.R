@@ -132,7 +132,7 @@ lr_parse_trm <- function(filename) {
                 dark_average, white_average, scope_average,
                 dark_boxcar, white_boxcar, scope_boxcar)
 
-  return(list(data, metadata))
+  return(list("data" = data, "metadata" = metadata))
 }
 
 #' @rdname lr_parse_trm
@@ -286,7 +286,7 @@ lr_parse_rfl8 <- function(filename, specnum = 1L) {
                                dark_boxcar, white_boxcar, scope_boxcar)
 
     if (specnum == i) {
-      return(list(data, metadata))
+      return(list("data" = data, "metadata" = metadata))
     }
 
   }
