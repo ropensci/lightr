@@ -2,7 +2,7 @@
 
 ## Minor changes and bug fixes
 
-* Output of the low-level parser `lr_parse_XXXX()` is now a named list with
+* Output of the low-level parsers `lr_parse_XXXX()` is now a named list with
 elements `data` and `metadata`
 * `lr_parse_raw8()` and `lr_parse_rfl8()` now explicitly mention the number 
 of spectra in the warnings instead of the generic "multiple spectra"
