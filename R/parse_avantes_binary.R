@@ -181,7 +181,7 @@ lr_parse_rfl8 <- function(filename, specnum = 1L) {
 
   if (numspectra > 1 && missing(specnum)) {
     warning(
-      "This file contains multiple spectra and 'specnum' argument is ",
+      "This file contains ", numspectra, " spectra and 'specnum' argument is ",
       "missing. Returning the first spectrum by default.",
       call. = FALSE
     )
