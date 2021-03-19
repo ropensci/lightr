@@ -10,13 +10,13 @@ Parse various reflectance/transmittance/absorbance spectra file
     formats to extract spectral data and metadata, as described in Gruson, White
     & Maia (2019) <doi:10.21105/joss.01857>. Among other formats, it can import
     files from 'Avantes' <https://www.avantes.com/>, 'CRAIC' 
-    <http://www.microspectra.com/>, and 'OceanInsight' (formerly 'OceanOptics') 
+    <https://www.microspectra.com/>, and 'OceanInsight' (formerly 'OceanOptics') 
     <https://www.oceaninsight.com/> brands.
 }
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://docs.ropensci.org/lightr}
+  \item \url{https://docs.ropensci.org/lightr/}
   \item \url{https://github.com/ropensci/lightr}
   \item Report bugs at \url{https://github.com/ropensci/lightr/issues}
 }

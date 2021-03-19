@@ -37,7 +37,7 @@ in that order
 }
 \description{
 Parse Avantes converted file.
-\url{https://www.avantes.com/products/spectrometers}
+\url{https://www.avantes.com/products/spectrometers/}
 }
 \details{
 'processed' column computed by official software and provided as is.

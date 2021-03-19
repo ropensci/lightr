@@ -1,7 +1,7 @@
 #' Parse Avantes binary file
 #'
 #' Parse Avantes binary file (TRM, ABS, ROH, DRK, REF file extensions).
-#' <https://www.avantes.com/products/spectrometers>
+#' <https://www.avantes.com/products/spectrometers/>
 #'
 #' @inheritParams lr_parse_generic
 #'

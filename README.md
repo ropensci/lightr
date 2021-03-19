@@ -1,12 +1,12 @@
 # `lightr`: import spectral data in R <img src="man/figures/logo.gif" align="right" alt="" width="120" />
 
 <!-- badges: start -->
-[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
+[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![CRAN version](https://www.r-pkg.org/badges/version-ago/lightr)](https://cran.r-project.org/package=lightr)
 [![R build status](https://github.com/ropensci/lightr/workflows/R-CMD-check/badge.svg)](https://github.com/ropensci/lightr/actions)
-[![Coverage status](https://codecov.io/gh/ropensci/lightr/branch/master/graph/badge.svg)](https://codecov.io/github/ropensci/lightr?branch=master)
+[![Coverage status](https://codecov.io/gh/ropensci/lightr/branch/main/graph/badge.svg)](https://codecov.io/github/ropensci/lightr?branch=main)
 [![Reviewed by rOpenSci](https://badges.ropensci.org/267_status.svg)](https://github.com/ropensci/software-review/issues/267)
-[![JOSS paper](https://joss.theoj.org/papers/7f76d78642d3dc72ea9d8c2597ef0e27/status.svg)](https://joss.theoj.org/papers/7f76d78642d3dc72ea9d8c2597ef0e27)
+[![JOSS paper](https://joss.theoj.org/papers/10.21105/joss.01857/status.svg)](https://joss.theoj.org/papers/10.21105/joss.01857)
 <!-- badges: end -->
 
 
@@ -108,14 +108,14 @@ on the extension in the tables to see an example of this file format):
   | [`jaz`]          | `lr_parse_jaz()`      |
   | [`JazIrrad`]     | `lr_parse_jazirrad()` |
   | [`Transmission`] | `lr_parse_jaz()`      |
-  | [`txt`](https://raw.githubusercontent.com/ropensci/lightr/master/inst/testdata/OceanView.txt) | `lr_parse_jaz()` |
+  | [`txt`](https://raw.githubusercontent.com/ropensci/lightr/main/inst/testdata/OceanView.txt) | `lr_parse_jaz()` |
 
-[`jdx`]: https://raw.githubusercontent.com/ropensci/lightr/master/inst/testdata/OceanOptics_period.jdx
-[`ProcSpec`]: https://github.com/ropensci/lightr/raw/master/inst/testdata/procspec_files/whiteref.ProcSpec
-[spc1]: https://github.com/ropensci/lightr/raw/master/inst/testdata/OceanOptics.spc
-[`jaz`]: https://raw.githubusercontent.com/ropensci/lightr/master/inst/testdata/jazspec.jaz
-[`JazIrrad`]: https://raw.githubusercontent.com/ropensci/lightr/master/inst/testdata/irrad.JazIrrad
-[`Transmission`]: https://raw.githubusercontent.com/ropensci/lightr/master/inst/testdata/FMNH6834.00000001.Master.Transmission
+[`jdx`]: https://raw.githubusercontent.com/ropensci/lightr/main/inst/testdata/OceanOptics_period.jdx
+[`ProcSpec`]: https://github.com/ropensci/lightr/raw/main/inst/testdata/procspec_files/whiteref.ProcSpec
+[spc1]: https://github.com/ropensci/lightr/raw/main/inst/testdata/OceanOptics.spc
+[`jaz`]: https://raw.githubusercontent.com/ropensci/lightr/main/inst/testdata/jazspec.jaz
+[`JazIrrad`]: https://raw.githubusercontent.com/ropensci/lightr/main/inst/testdata/irrad.JazIrrad
+[`Transmission`]: https://raw.githubusercontent.com/ropensci/lightr/main/inst/testdata/FMNH6834.00000001.Master.Transmission
 
 ### [Avantes](https://www.avantes.com/)
 
@@ -126,29 +126,29 @@ on the extension in the tables to see an example of this file format):
   | [`TRM`]          | `lr_parse_trm()`      |
   | [`trt`]          | `lr_parse_trt()`      |
   | [`ttt`]          | `lr_parse_ttt()`      |
-  | [`txt`](https://raw.githubusercontent.com/ropensci/lightr/master/inst/testdata/avasoft8.txt) | `lr_parse_generic()` |
+  | [`txt`](https://raw.githubusercontent.com/ropensci/lightr/main/inst/testdata/avasoft8.txt) | `lr_parse_generic()` |
   | [`DRK`]          | `lr_parse_trm()`      |
   | [`REF`]          | `lr_parse_trm()`      |
   | [`RFL8`]         | `lr_parse_rfl8()`     |
   | [`Raw8`]         | `lr_parse_raw8()`     |
   
-[`TRM`]: https://github.com/ropensci/lightr/raw/master/inst/testdata/avantes2.TRM
-[`ROH`]: https://github.com/ropensci/lightr/raw/master/inst/testdata/avantes_reflect.ROH
-[`trt`]: https://github.com/ropensci/lightr/raw/master/inst/testdata/avantes_export2.trt
-[`ttt`]: https://github.com/ropensci/lightr/raw/master/inst/testdata/avantes_export.ttt
-[`DRK`]: https://github.com/ropensci/lightr/raw/master/inst/testdata/1305084U1.DRK
-[`REF`]: https://github.com/ropensci/lightr/raw/master/inst/testdata/1305084U1.REF
-[`RFL8`]: https://github.com/ropensci/lightr/raw/master/inst/testdata/compare/Avantes/feather.RFL8
-[`Raw8`]: https://github.com/ropensci/lightr/raw/master/inst/testdata/1904090M1_0003.Raw8
+[`TRM`]: https://github.com/ropensci/lightr/raw/main/inst/testdata/avantes2.TRM
+[`ROH`]: https://github.com/ropensci/lightr/raw/main/inst/testdata/avantes_reflect.ROH
+[`trt`]: https://github.com/ropensci/lightr/raw/main/inst/testdata/avantes_export2.trt
+[`ttt`]: https://github.com/ropensci/lightr/raw/main/inst/testdata/avantes_export.ttt
+[`DRK`]: https://github.com/ropensci/lightr/raw/main/inst/testdata/1305084U1.DRK
+[`REF`]: https://github.com/ropensci/lightr/raw/main/inst/testdata/1305084U1.REF
+[`RFL8`]: https://github.com/ropensci/lightr/raw/main/inst/testdata/compare/Avantes/feather.RFL8
+[`Raw8`]: https://github.com/ropensci/lightr/raw/main/inst/testdata/1904090M1_0003.Raw8
 
-### [CRAIC](http://www.microspectra.com/)
+### [CRAIC](https://www.microspectra.com/)
 
   | Extension | Parser               |
   |:----------|:---------------------|
-  | [`txt`](https://raw.githubusercontent.com/ropensci/lightr/master/inst/testdata/CRAIC_export.txt) | `lr_parse_generic()` |
+  | [`txt`](https://raw.githubusercontent.com/ropensci/lightr/main/inst/testdata/CRAIC_export.txt) | `lr_parse_generic()` |
   | [`spc`]   | `lr_parse_spc()`     |
   
-[`spc`]: https://github.com/ropensci/lightr/raw/master/inst/testdata/compare/CRAIC/CRAIC.spc
+[`spc`]: https://github.com/ropensci/lightr/raw/main/inst/testdata/compare/CRAIC/CRAIC.spc
   
 ### Others
 
@@ -158,8 +158,8 @@ on the extension in the tables to see an example of this file format):
   | [`dpt`]   | `lr_parse_generic(sep = ",")` |
 
 #  
-[`csv`]: https://raw.githubusercontent.com/ropensci/lightr/master/inst/testdata/spec.csv
-[`dpt`]: https://raw.githubusercontent.com/ropensci/lightr/master/inst/testdata/RS-1.dpt
+[`csv`]: https://raw.githubusercontent.com/ropensci/lightr/main/inst/testdata/spec.csv
+[`dpt`]: https://raw.githubusercontent.com/ropensci/lightr/main/inst/testdata/RS-1.dpt
 ## Others
 
 As a fallback, you should always try `lr_parse_generic()` which offers a

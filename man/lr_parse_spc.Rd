@@ -33,7 +33,7 @@ in that order
 }
 }
 \description{
-Parse SPC binary file. (Used by CRAIC \url{http://www.microspectra.com} and
+Parse SPC binary file. (Used by CRAIC \url{https://www.microspectra.com/} and
 OceanInsight \url{https://www.oceaninsight.com/})
 }
 \details{

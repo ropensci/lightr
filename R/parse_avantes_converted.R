@@ -1,7 +1,7 @@
 #' Parse Avantes converted file
 #'
 #' Parse Avantes converted file.
-#' <https://www.avantes.com/products/spectrometers>
+#' <https://www.avantes.com/products/spectrometers/>
 #'
 #' @inheritParams lr_parse_generic
 #'

@@ -50,7 +50,7 @@ in that order
 }
 \description{
 Parse Avantes binary file (TRM, ABS, ROH, DRK, REF file extensions).
-\url{https://www.avantes.com/products/spectrometers}
+\url{https://www.avantes.com/products/spectrometers/}
 }
 \details{
 'processed' column computed by \pkg{lightr} with the function
