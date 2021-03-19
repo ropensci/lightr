@@ -5,22 +5,23 @@
   ],
   "@type": "SoftwareSourceCode",
   "identifier": "lightr",
-  "description": "Parse various reflectance/transmittance/absorbance spectra file\n    formats to extract spectral data and metadata, as described in Gruson, White\n    & Maia (2019) <doi:10.21105/joss.01857>. Among other formats, it can import\n    files from 'Avantes' <https://www.avantes.com/>, 'CRAIC' \n    <http://www.microspectra.com/>, and 'OceanInsight' (formerly 'OceanOptics') \n    <https://www.oceaninsight.com/> brands.",
+  "description": "Parse various reflectance/transmittance/absorbance spectra file\n    formats to extract spectral data and metadata, as described in Gruson, White\n    & Maia (2019) <doi:10.21105/joss.01857>. Among other formats, it can import\n    files from 'Avantes' <https://www.avantes.com/>, 'CRAIC' \n    <https://www.microspectra.com/>, and 'OceanInsight' (formerly 'OceanOptics') \n    <https://www.oceaninsight.com/> brands.",
   "name": "lightr: Read Spectrometric Data and Metadata",
   "codeRepository": "https://github.com/ropensci/lightr",
   "relatedLink": [
     "https://docs.ropensci.org/lightr",
-    "https://CRAN.R-project.org/package=lightr"
+    "https://CRAN.R-project.org/package=lightr",
+    "https://docs.ropensci.org/lightr/"
   ],
   "issueTracker": "https://github.com/ropensci/lightr/issues",
   "license": "https://spdx.org/licenses/GPL-2.0",
-  "version": "1.3",
+  "version": "1.4",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.0.3 (2020-10-10)",
+  "runtimePlatform": "R version 4.0.4 (2021-02-15)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -224,8 +225,8 @@
     }
   ],
   "releaseNotes": "https://github.com/ropensci/lightr/blob/master/NEWS.md",
-  "fileSize": "5550.716KB",
-  "contIntegration": "https://codecov.io/github/ropensci/lightr?branch=master",
+  "fileSize": "5558.912KB",
+  "contIntegration": "https://codecov.io/github/ropensci/lightr?branch=main",
   "keywords": [
     "r",
     "spectroscopy",
@@ -281,5 +282,5 @@
     }
   ],
   "readme": "https://github.com/ropensci/lightr/blob/main/README.md",
-  "developmentStatus": "https://www.tidyverse.org/lifecycle/#stable"
+  "developmentStatus": "https://lifecycle.r-lib.org/articles/stages.html"
 }
