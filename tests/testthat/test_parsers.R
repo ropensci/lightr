@@ -8,34 +8,34 @@ test_that("OceanOptics ProcSpec", {
 
     expect_known_hash(
       expect_silent(lr_parse_procspec(test.file("procspec_files", "OceanOptics_Linux.ProcSpec"))),
-      "9857e34c56"
+      "128a552b69"
     )
 
     expect_known_hash(
       expect_silent(lr_parse_procspec(test.file("procspec_files", "OceanOptics_Windows.ProcSpec"))),
-      "aec42324ce"
+      "16d70d5c7f"
     )
 
     expect_known_hash(
       expect_silent(lr_parse_procspec(test.file("procspec_files", "OceanOptics_badencode.ProcSpec"))),
-      "c97d6dff94"
+      "31b89193ee"
     )
 
   } else {
 
     expect_known_hash(
       expect_silent(lr_parse_procspec(test.file("procspec_files", "OceanOptics_Linux.ProcSpec"))),
-      "d5f01aa034"
+      "f924939002"
     )
 
     expect_known_hash(
       expect_silent(lr_parse_procspec(test.file("procspec_files", "OceanOptics_Windows.ProcSpec"))),
-      "4edd67616f"
+      "1d8a001c4f"
     )
 
     expect_known_hash(
       expect_silent(lr_parse_procspec(test.file("procspec_files", "OceanOptics_badencode.ProcSpec"))),
-      "11d9c12a82"
+      "f9d5b3198c"
     )
 
   }
@@ -51,7 +51,7 @@ test_that("OceanOptics others", {
   # storage.mode(data) <- "numeric"
   expect_identical(
     digest::sha1(expect_silent(lr_parse_jdx(test.file("OceanOptics_period.jdx")))),
-    "4523bce41eec487fb528937c521f3cc62b11315a"
+    "34745a6112ef7679fbf0bc694d952c6eecdb347a"
   )
 
   # Floating point precision issue on noLD platforms.
@@ -59,17 +59,17 @@ test_that("OceanOptics others", {
   # storage.mode(data) <- "numeric"
   expect_identical(
     digest::sha1(expect_silent(lr_parse_jdx(test.file("non_english", "OceanOptics_comma.jdx")))),
-    "46f5a54cb1ce04a382b5fa20bbf90206d80f4da0"
+    "7c17148cb62abe1053048eb0ca1c3c55b43b482b"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_spc(test.file("OceanOptics.spc"))),
-    "6f8bbc1429"
+    "eb91187641"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_jaz(test.file("jazspec.jaz"))),
-    "3e6a201559"
+    "a268386ddd"
   )
 
   # Floating point precision issue on noLD platforms.
@@ -77,22 +77,22 @@ test_that("OceanOptics others", {
   # storage.mode(data) <- "numeric"
   expect_identical(
     digest::sha1(expect_silent(lr_parse_jazirrad(test.file("irrad.JazIrrad")))),
-    "288e60c411353ade756c9984b98d25f439b68789"
+    "2b7d576f7864e6a3c1f0615e841c9bcca25762ab"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_jaz(test.file("FMNH6834.00000001.Master.Transmission"))),
-    "2d53e6819"
+    "f82027e4f"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_jaz(test.file("UK5.txt"))),
-    "f9ccc67ccc"
+    "0356f9d8c"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_jaz(test.file("non_english", "OO_comma.txt"))),
-    "077c3dc851"
+    "2e75a585dc"
   )
 
 })
@@ -103,51 +103,51 @@ test_that("Avantes", {
 
   expect_known_hash(
     expect_silent(lr_parse_roh(test.file("avantes_reflect.ROH"))),
-    "21c61378d7"
+    "1b71c9b6df"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_trm(test.file("avantes_trans.TRM"))),
-    "ab3f3cf76d"
+    "e0e679afb0"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_trm(test.file("avantes2.TRM"))),
-    "6d59fbc34a"
+    "e507434490"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_ttt(test.file("avantes_export.ttt"))),
-    "25aaf7dc77"
+    "4731f9e00c"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_ttt(test.file("avantes_export_long.ttt"))),
-    "116b0ae4dc"
+    "08df8af0db"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_trt(test.file("avantes_export2.trt"))),
-    "207b9bc5eb"
+    "c87bdb9f0d"
   )
 
   expect_known_hash(
     expect_silent(
       lr_parse_ttt(test.file("non_english", "J_MUR_MARS_17_0001.ttt"))
     ),
-    "6a7d0bd119"
+    "d062e2e4a1"
   )
 
   # Dark reference file
   expect_known_hash(
     expect_silent(lr_parse_trm(test.file("1305084U1.DRK"))),
-    "6364c89723"
+    "e27a0199ae"
   )
 
   # White reference file
   expect_known_hash(
     expect_silent(lr_parse_trm(test.file("1305084U1.REF"))),
-    "5d322b7d10"
+    "8a4b93655f"
   )
 
   rfl8_1_implicit <- expect_warning(
@@ -160,12 +160,12 @@ test_that("Avantes", {
 
   expect_identical(rfl8_1_implicit, rfl8_1)
 
-  expect_known_hash(rfl8_1, "f844ad5fb5")
+  expect_known_hash(rfl8_1, "9bf9f003dd")
 
   expect_known_hash(
     expect_silent(lr_parse_rfl8(test.file("compare", "Avantes", "feather.RFL8"),
                                 specnum = 2)),
-    "29e0a49aed"
+    "6012c0aa1c"
   )
 
   expect_error(
@@ -175,7 +175,7 @@ test_that("Avantes", {
 
   expect_known_hash(
     expect_silent(lr_parse_raw8(test.file("1904090M1_0003.Raw8"))),
-    "45de5251ee"
+    "7ff3a7ed7a"
   )
 
 })
@@ -186,7 +186,7 @@ test_that("CRAIC", {
 
   expect_known_hash(
     expect_silent(lr_parse_spc(test.file("compare", "CRAIC", "CRAIC.spc"))),
-    "4fb2c8a868"
+    "12780a7f0d"
   )
 
 })
@@ -199,12 +199,12 @@ test_that("Generic", {
 
   expect_known_hash(
     expect_silent(lr_parse_generic(test.file("spec.csv"), sep = ",")),
-    "583d9c17d5"
+    "1e246ba044"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_generic(test.file("RS-1.dpt"), sep = ",")),
-    "593a0aa370"
+    "43350b3bd5"
   )
 
   # Floating point precision issue on noLD platforms.
@@ -213,12 +213,12 @@ test_that("Generic", {
   # in parse_generic()
   expect_identical(
     digest::sha1(expect_silent(lr_parse_generic(test.file("irr_820_1941.IRR")))),
-    "579acdfa1451280d4f2b222eb00081bfffeba5b9"
+    "55a511f366b3ec370ef32b7ca64ab06bebd4ce63"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_generic(test.file("compare", "CRAIC", "CRAIC.txt"))),
-    "1dca1ee7d1"
+    "8b82d5108d"
   )
 
   # These files are better suited to more specific parsers but are dispatched
@@ -226,12 +226,12 @@ test_that("Generic", {
 
   expect_known_hash(
     expect_silent(lr_parse_generic(test.file("non_english", "OceanView_nonEN.txt"), decimal = ",")),
-    "50797c7de5"
+    "ca6a058368"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_generic(test.file("non_english", "OO_comma.txt"), decimal = ",")),
-    "b7e7417156"
+    "c061c4395f"
   )
 
 })
