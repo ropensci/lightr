@@ -1,5 +1,6 @@
 test_that("get_spec all", {
 
+  # Tolerance is required for tests on Solaris
   expect_snapshot_value(
     expect_message(
       lr_get_spec(test.file(),
@@ -8,21 +9,23 @@ test_that("get_spec all", {
                   sep = ","),
       "16 files"),
     style = "serialize",
-    cran = TRUE
+    cran = TRUE,
+    tolerance = 1e-10
   )
 
 })
 
 test_that("get_spec recursive", {
 
-  # Recursive
+  # Tolerance is required for tests on Solaris
   expect_snapshot_value(
     expect_message(
       lr_get_spec(test.file(), ext = "ProcSpec", subdir = TRUE),
       "5 files"
     ),
     style = "serialize",
-    cran = TRUE
+    cran = TRUE,
+    tolerance = 1e-10
   )
 
 })
