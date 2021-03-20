@@ -1,17 +1,17 @@
 ## Test environments
 
-* local Ubuntu 20.04, R 4.0.2
-* local Raspbian buster (ARM/noLD), R 3.5.2
+* local Ubuntu 20.04, R 4.0.4
 
-* Ubuntu 16.04.6 LTS (on GitHub actions), R 3.6, R 3.5,
-  R 4.0 (with two different locales)
-* macOS (on GitHub actions), R 4.0 and R-devel
-* Windows (on GitHub actions), R 4.0
+* Ubuntu 20.04 LTS (on GitHub actions), R 3.6, R 3.5,
+  R release (with two different locales), R-devel
+* macOS (on GitHub actions), R release
+* Windows (on GitHub actions), R release
 
 * win-builder (R release and devel)
 
 * rhub::check_for_cran()
 * rhub::check_on_solaris()
+* rhub::check(platform = "debian-gcc-devel-nold")
 
 ## R CMD check results
 
@@ -19,5 +19,3 @@
 
 ## Comments
 
-Resubmission as required by Prof Brian Ripley after the latest changes uncovered
-precision issues on Solaris that cause the hash tests to fail.
