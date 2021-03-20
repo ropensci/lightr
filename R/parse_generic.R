@@ -6,10 +6,10 @@
 #' @param sep Column delimiting characters to be considered in addition to the
 #' default (which are: tab, space, and ";")
 #'
-#' @return A list of two elements:
-#'   * a dataframe with columns "wl", "dark", "white", "scope" and "processed",
-#'     in that order
-#'   * a character vector with metadata including:
+#' @return A named list of two elements:
+#'   * `data`: a dataframe with columns "wl", "dark", "white", "scope" and
+#'     "processed", in this order.
+#'   * `metadata`: a character vector with metadata including:
 #'     - `user`: Name of the spectrometer operator
 #'     - `date`: Timestamp of the recording (ISO 8601 format)
 #'     - `spec_model`: Model of the spectrometer

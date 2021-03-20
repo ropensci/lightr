@@ -14,11 +14,11 @@ the file. This option only makes sense for AvaSoft8 files and is ignored
 in the other cases.}
 }
 \value{
-A list of two elements:
+A named list of two elements:
 \itemize{
-\item a dataframe with columns "wl", "dark", "white", "scope" and "processed",
-in that order
-\item a character vector with metadata including:
+\item \code{data}: a dataframe with columns "wl", "dark", "white", "scope" and
+"processed", in this order.
+\item \code{metadata}: a character vector with metadata including:
 \itemize{
 \item \code{user}: Name of the spectrometer operator
 \item \code{date}: Timestamp of the recording (ISO 8601 format)
