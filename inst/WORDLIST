@@ -18,6 +18,7 @@ ORCID
 OceanInsight
 OceanOptics
 ProcSpec
+RFL
 RL
 ROH
 RS
@@ -39,7 +40,6 @@ endians
 etc
 jdx
 lr
-metadadata
 microspectra
 noLD
 oceaninsight
@@ -48,6 +48,5 @@ rOpenSci
 rOpenSci's
 un
 uninterpolated
-unnormalised
 wl
 www
