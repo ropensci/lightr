@@ -4,6 +4,7 @@ test.file <- function(...) {
 
 release_bullets <- function() {
   c(
-    '`rhub::check(platform = "debian-gcc-devel-nold")`'
+    '`rhub::check(platform = "debian-gcc-devel-nold")`',
+    '`rhub::check_on_solaris()`'
   )
 }
