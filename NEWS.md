@@ -1,3 +1,5 @@
+# lightr (development version)
+
 # lightr 1.4
 
 ## Minor changes and bug fixes
