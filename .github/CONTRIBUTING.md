@@ -40,7 +40,7 @@ Please try to create a [reprex](https://reprex.tidyverse.org/) with the minimal
 amount of code required to reproduce the bug you encountered.
 
 Please also include your session info (e.g. via the R command 
-`utils::sessionInfo()`).
+`sessioninfo::session_info()`).
 
 Finally, if your issue relates to the parsing of a specific file, remember to
 include said file.
