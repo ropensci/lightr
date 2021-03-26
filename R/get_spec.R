@@ -16,8 +16,6 @@
 #' the search? (defaults to `FALSE`).
 #' @param subdir.names Should subdirectory path be included in the name of the
 #' spectra? (defaults to `FALSE`).
-#' @param cores deprecated. See [future::plan()] for more details on how to
-#' customise your parallelisation strategy.
 #' @param ignore.case Should the extension search be case insensitive? (defaults
 #' to `TRUE`)
 #' @param interpolate Boolean indicated whether spectral data should be
@@ -48,14 +46,8 @@
 #'
 lr_get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
                         decimal = ".", sep = NULL, subdir = FALSE,
-                        subdir.names = FALSE, cores = NULL, ignore.case = TRUE,
+                        subdir.names = FALSE, ignore.case = TRUE,
                         interpolate = TRUE) {
-
-  if (!missing(cores)) {
-    warning("'cores' argument is deprecated. See ?future::plan for more info ",
-            "about how you can choose your parallelisation strategy.",
-            call. = FALSE)
-  }
 
   extension <- paste0("\\.", ext, "$", collapse = "|")
 
