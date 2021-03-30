@@ -1,10 +1,10 @@
 ---
-title: "Batch import with lr_get_spec() and lr_get_metadata()"
+title: "Batch import with `lr_get_spec()` and `lr_get_metadata()`"
 author: "Hugo Gruson"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Batch import}
+  %\VignetteIndexEntry{Batch import with `lr_get_spec()` and `lr_get_metadata()`}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -106,7 +106,7 @@ head(res)
 
 ## Convert spectral data to csv: `lr_convert_tocsv()`
 
-`lr_convert_tocsv()` is designed for people that want to an open format 
+`lr_convert_tocsv()` is designed for users who want an open format 
 version for each individual input file, possibly allowing them to carry on with
 their analysis using another programming language or software.
 

@@ -11,13 +11,13 @@ home:
 
 reference:
   - title: High-level functions
-    desc: These functions offers an intuitive and user-friendly way to import (and possibly) transform multiple files at once in a given location.
+    desc: These functions offers an intuitive and user-friendly way to import (and possibly) transform multiple files at once in a given location. Please refer to the [*Batch import with `lr_get_spec()` and `lr_get_metadata()`* vignette](../articles/batch_import.html).
     contents:
     - lr_get_spec
     - lr_get_metadata
     - lr_convert_tocsv
   - title: Low-level parsers
-    desc: These functions are destined to advanced users that want a more flexible way to import spectral data. They can only read a single file at a time and users are responsible for writing a loop if necessary.
+    desc: These functions are destined to advanced users that want a more flexible way to import spectral data. They can only read a single file at a time and users are responsible for writing a loop if necessary. . Please refer to the [*Renormalise spectral data with a custom reference* vignette](../articles/batch_import.html).
     contents:
     - starts_with("lr_parse_")
 

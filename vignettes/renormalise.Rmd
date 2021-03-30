@@ -5,7 +5,7 @@ date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 bibliography: lightr.bib
 vignette: >
-  %\VignetteIndexEntry{Example with custom import}
+  %\VignetteIndexEntry{Renormalise spectral data with a custom reference}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
