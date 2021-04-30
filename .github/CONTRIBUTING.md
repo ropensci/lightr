@@ -4,13 +4,13 @@ There are many ways you can contribute to lightr. All contributions are very
 much welcome and only some of them require technical knowledge. If you have 
 something you would like to contribute, but you are not sure how, please don't
 hesitate to reach out by opening an 
-[issue](https://github.com/ropensci/lightr/issues.) or sending me an email.
+[issue](https://github.com/ropensci/lightr/issues) or sending me an email.
 
 ## 🗣️ Spreading the word
 
 The easiest (and possibly one of the most useful) way you can contribute to 
 lightr is by spreading the word. Please 
-[cite it](https://docs.ropensci.org/lightr/CONTRIBUTING.html) in your 
+[cite it](https://docs.ropensci.org/lightr/authors.html) in your 
 publications and tell your friends and colleagues about it!
 
 ## ✍️ Fixing typos
@@ -19,7 +19,7 @@ Small typos or grammatical errors in documentation may be edited directly using
 the GitHub web interface, so long as the changes are made in the _source_ file.
 In other words, please edit a `.R` file in the `R/` folder, and not the `.Rd`
 files in the `man/` folder. This is because this package uses 
-[roxygen2](https://github.com/r-lib/roxygen2) to automatically rebuild the `.Rd`
+[roxygen2](https://roxygen2.r-lib.org/) to automatically rebuild the `.Rd`
 files.
 
 ## 📄 Contributing test files
