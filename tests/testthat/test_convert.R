@@ -4,15 +4,16 @@ test_that("Convert all", {
 
   exts <- c("TRM", "ttt", "jdx", "jaz", "JazIrrad", "txt", "Transmission")
 
-  converted_files <- expect_message(
-    lr_convert_tocsv(tdir, ext = exts, sep = ","),
+  expect_message(
+    converted_files <- lr_convert_tocsv(tdir, ext = exts, sep = ","),
     "14 files"
   )
 
   input_files <- tools::list_files_with_exts(tdir, exts)
 
-  output_data_files <- list.files(tdir, "[^metadata]\\.csv$")
-  output_metadata_files <- list.files(tdir, "_metadata\\.csv$")
+  output_files <- list.files(tdir, "\\.csv$", full.names = TRUE)
+  output_data_files <- output_files[!endsWith(output_files, "_metadata.csv")]
+  output_metadata_files <- output_files[endsWith(output_files, "_metadata.csv")]
 
   # File names are kept
   expect_setequal(!!tools::file_path_sans_ext(input_files),
@@ -22,7 +23,7 @@ test_that("Convert all", {
   expect_setequal(!!basename(converted_files),
                   !!basename(output_data_files))
 
-  expect_true(all(do.call(output_metadata_files, file.exists)))
+  expect_true(all(file.exists(output_metadata_files)))
 
   # It doesn't change the behaviour of getspec
 #  expect_equal(getspec("conversion_test", exts),
@@ -44,12 +45,12 @@ test_that("Convert recursive", {
   input_files <- tools::list_files_with_exts(file.path(tdir, "procspec_files"),
                                              "ProcSpec")
 
-  output_files <- tools::list_files_with_exts(file.path(tdir, "procspec_files"),
-                                              "csv")
-
+  output_files <- list.files(file.path(tdir, "procspec_files"), "\\.csv$", full.names = TRUE)
+  output_data_files <- output_files[!endsWith(output_files, "_metadata.csv")]
+  output_metadata_files <- output_files[endsWith(output_files, "_metadata.csv")]
 
   expect_setequal(tools::file_path_sans_ext(input_files),
-                  tools::file_path_sans_ext(output_files))
+                  tools::file_path_sans_ext(output_data_files))
 
   unlink(output_files)
 
