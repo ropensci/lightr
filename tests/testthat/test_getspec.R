@@ -1,16 +1,18 @@
 test_that("get_spec all", {
 
   # Tolerance is required for tests on Solaris
-  expect_snapshot_value(
-    expect_message(
+  expect_message(
+    expect_snapshot_value(
       lr_get_spec(test.file(),
                   ext = c("TRM", "ttt", "jdx", "jaz", "JazIrrad", "csv", "txt",
                           "Transmission", "spc"),
                   sep = ","),
-      "16 files"),
-    style = "serialize",
-    cran = TRUE,
-    tolerance = 1e-10
+
+      style = "serialize",
+      cran = TRUE,
+      tolerance = 1e-10
+    ),
+    "16 files"
   )
 
 })
@@ -18,21 +20,21 @@ test_that("get_spec all", {
 test_that("get_spec recursive", {
 
   # Tolerance is required for tests on Solaris
-  expect_snapshot_value(
-    expect_message(
+  expect_message(
+    expect_snapshot_value(
       lr_get_spec(test.file(), ext = "ProcSpec", subdir = TRUE),
-      "5 files"
+      style = "serialize",
+      cran = TRUE,
+      tolerance = 1e-10
     ),
-    style = "serialize",
-    cran = TRUE,
-    tolerance = 1e-10
+    "5 files"
   )
 
 })
 
 test_that("get_spec range", {
-  res <- expect_message(
-    lr_get_spec(test.file(), "ttt", lim = c(400,500)),
+  expect_message(
+    res <- lr_get_spec(test.file(), "ttt", lim = c(400,500)),
     "2 files"
   )
   expect_identical(nrow(res), 101L)
@@ -45,8 +47,8 @@ test_that("get_spec interpolate", {
     "'interpolate = FALSE' can only work"
   )
 
-  res <- expect_message(
-    lr_get_spec(test.file("heliomaster"), ext = "jdx", interpolate = FALSE),
+  expect_message(
+    res <- lr_get_spec(test.file("heliomaster"), ext = "jdx", interpolate = FALSE),
     "4 files"
   )
 

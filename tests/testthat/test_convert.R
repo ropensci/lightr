@@ -11,15 +11,18 @@ test_that("Convert all", {
 
   input_files <- tools::list_files_with_exts(tdir, exts)
 
-  output_files <- tools::list_files_with_exts(tdir, "csv")
+  output_data_files <- list.files(tdir, "[^metadata]\\.csv$")
+  output_metadata_files <- list.files(tdir, "_metadata\\.csv$")
 
   # File names are kept
   expect_setequal(!!tools::file_path_sans_ext(input_files),
-                  !!tools::file_path_sans_ext(output_files))
+                  !!tools::file_path_sans_ext(output_data_files))
 
   # Output file names are invisibly returned
   expect_setequal(!!basename(converted_files),
-                  !!basename(output_files))
+                  !!basename(output_data_files))
+
+  expect_true(all(do.call(output_metadata_files, file.exists)))
 
   # It doesn't change the behaviour of getspec
 #  expect_equal(getspec("conversion_test", exts),
