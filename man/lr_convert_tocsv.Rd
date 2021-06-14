@@ -11,7 +11,8 @@ lr_convert_tocsv(
   sep = NULL,
   subdir = FALSE,
   ignore.case = TRUE,
-  overwrite = FALSE
+  overwrite = FALSE,
+  metadata = TRUE
 )
 }
 \arguments{
@@ -36,6 +37,9 @@ to \code{TRUE})}
 
 \item{overwrite}{logical. Should the function overwrite existing files with
 the same name? (defaults to \code{FALSE}).}
+
+\item{metadata}{logical (defaults to \code{TRUE}). Should metadata be exported as
+well? They will be exported in csv files will the \verb{_metadata.csv} suffix.}
 }
 \value{
 Convert input files to csv and invisibly return the list of created
@@ -54,8 +58,7 @@ the way progress is shown with the \code{\link[progressr:handlers]{progressr::ha
 \section{Warning}{
 
 
-This step loses all metadata associated to the spectra. This metadata is
-critical to ensure reproducibility. We recommended you use
-\code{\link[=lr_get_metadata]{lr_get_metadata()}} to extract this information from your raw data.
+When \code{metadata = TRUE}, if \strong{either} the data \strong{or} metadata export fails,
+nothing will be returned for this file.
 }
 
