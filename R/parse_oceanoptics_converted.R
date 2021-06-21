@@ -38,9 +38,9 @@ lr_parse_jaz <- function(filename) {
   on.exit(Sys.setlocale("LC_TIME", orig_locale))
   Sys.setlocale("LC_TIME", "C")
 
-  savetime <- as.character(as.Date(savetime,
-                                   tryFormats = c("%c", "%+"),
-                                   optional = TRUE))
+  savetime <- as.character(as.POSIXct(savetime,
+                                      tryFormats = c("%c", "%+"),
+                                      optional = TRUE))
 
   specmodel <- NA_character_
 
