@@ -6,7 +6,7 @@
         "names": {
           "type": "character",
           "attributes": {},
-          "value": ["name", "user", "date", "spec_model", "spec_ID", "white_inttime", "dark_inttime", "sample_inttime", "white_avgs", "dark_avgs", "sample_avgs", "white_boxcar", "dark_boxcar", "sample_boxcar"]
+          "value": ["name", "user", "datetime", "spec_model", "spec_ID", "white_inttime", "dark_inttime", "sample_inttime", "white_avgs", "dark_avgs", "sample_avgs", "white_boxcar", "dark_boxcar", "sample_boxcar"]
         },
         "row.names": {
           "type": "integer",
@@ -31,9 +31,20 @@
           "value": ["hugo", null, null, null, null, null, null, "jaz", "jaz"]
         },
         {
-          "type": "character",
-          "attributes": {},
-          "value": [null, null, null, null, null, null, null, "2013-09-16", "2011-08-29"]
+          "type": "double",
+          "attributes": {
+            "class": {
+              "type": "character",
+              "attributes": {},
+              "value": ["POSIXct", "POSIXt"]
+            },
+            "tzone": {
+              "type": "character",
+              "attributes": {},
+              "value": [""]
+            }
+          },
+          "value": ["NA", "NA", "NA", "NA", "NA", "NA", "NA", 1379290543, 1314627793]
         },
         {
           "type": "character",
@@ -101,7 +112,7 @@
         "names": {
           "type": "character",
           "attributes": {},
-          "value": ["name", "user", "date", "spec_model", "spec_ID", "white_inttime", "dark_inttime", "sample_inttime", "white_avgs", "dark_avgs", "sample_avgs", "white_boxcar", "dark_boxcar", "sample_boxcar"]
+          "value": ["name", "user", "datetime", "spec_model", "spec_ID", "white_inttime", "dark_inttime", "sample_inttime", "white_avgs", "dark_avgs", "sample_avgs", "white_boxcar", "dark_boxcar", "sample_boxcar"]
         },
         "row.names": {
           "type": "integer",
@@ -126,9 +137,20 @@
           "value": ["Adminlocal", "hugo", "doutrelant", "user", "gomez"]
         },
         {
-          "type": "character",
-          "attributes": {},
-          "value": ["2006-06-23", "2016-03-16", "2015-12-04", "2016-12-02", "2018-08-02"]
+          "type": "double",
+          "attributes": {
+            "class": {
+              "type": "character",
+              "attributes": {},
+              "value": ["POSIXct", "POSIXt"]
+            },
+            "tzone": {
+              "type": "character",
+              "attributes": {},
+              "value": [""]
+            }
+          },
+          "value": [1151055549, 1458134311, 1449224954, 1480711152, 1533225379]
         },
         {
           "type": "character",
