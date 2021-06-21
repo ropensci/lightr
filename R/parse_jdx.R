@@ -25,7 +25,7 @@ lr_parse_jdx <- function(filename) {
   content <- readLines(filename)
   author <- grep("^##OWNER=", content, value = TRUE)
   author <- gsub("^##OWNER= ", "", author)[1]
-  savetime <- NA_character_
+  savetime <- NA_character_ # Not available in jdx files
   specmodel <- NA_character_
   specID <- NA_character_
 

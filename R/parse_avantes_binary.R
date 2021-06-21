@@ -68,6 +68,9 @@ lr_parse_trm <- function(filename) {
     laserwidth <- readBin(f, "numeric", 1, 4, endian = "little")
     strobercontrol <- readBin(f, "numeric", 1, 4, endian = "little")
     dummy2 <- readBin(f, "numeric", 2, 4, endian = "little")
+    # FIXME: from what I understand, this "timestamp" is arbitrary since it
+    # represents the 10*microsecond units since last reset and we don't know
+    # when last reset occurred
     timestamp <- readBin(f, "numeric", 1, 4, endian = "little")
     dyndarkcorrection <- readBin(f, "numeric", 1, 4, endian = "little")
 
