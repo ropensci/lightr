@@ -67,7 +67,7 @@ test_that("Similar output for all parsers", {
     expect_named(res[[1]], c("wl", "dark", "white", "scope", "processed"))
     expect_length(res[[2]], 13)
     expect_type(res[[2]], "character")
-    expect_true(is.na(res[[2]][2]) || grepl("^\\d{4}\\-[01]\\d-[0123]\\d$", res[[2]][2]))
+    expect_true(is.na(res[[2]][2]) || grepl("^\\d{4}\\-[01]\\d-[0123]\\d [012]\\d:[0-5]\\d:[0-5]\\d$", res[[2]][2]))
   })
 
 })
