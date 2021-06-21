@@ -25,17 +25,17 @@ test_that("OceanOptics ProcSpec", {
 
     expect_known_hash(
       expect_silent(lr_parse_procspec(test.file("procspec_files", "OceanOptics_Linux.ProcSpec"))),
-      "f924939002"
+      "c937c66868"
     )
 
     expect_known_hash(
       expect_silent(lr_parse_procspec(test.file("procspec_files", "OceanOptics_Windows.ProcSpec"))),
-      "1d8a001c4f"
+      "5751112645"
     )
 
     expect_known_hash(
       expect_silent(lr_parse_procspec(test.file("procspec_files", "OceanOptics_badencode.ProcSpec"))),
-      "f9d5b3198c"
+      "78c84f7e93"
     )
 
   }
