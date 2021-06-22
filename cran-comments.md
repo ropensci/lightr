@@ -3,7 +3,7 @@
 * local Ubuntu 20.04, R 4.1.0
 
 * Ubuntu 20.04 LTS (on GitHub actions), R 4.0, R 3.6, R 3.5,
-  R release (with two different locales), R-devel
+  R release (with different locales and different timezones), R-devel
 * macOS (on GitHub actions), R release
 * Windows (on GitHub actions), R release
 
