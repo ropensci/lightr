@@ -94,12 +94,12 @@ test_that("OceanOptics others", {
   # ?as.POSIXct, "invalid values are most commonly treated as UTC, on some
   # platforms with a warning."
   expect_known_hash(
-    lr_parse_jaz(test.file("non_english", "OO_comma.txt")),
+    suppressWarnings(lr_parse_jaz(test.file("non_english", "OO_comma.txt"))),
     "5035522e53"
   )
 
   expect_known_hash(
-    expect_silent(lr_parse_jaz(test.file("non_english", "OceanView_nonEN.txt"))),
+    suppressWarnings(lr_parse_jaz(test.file("non_english", "OceanView_nonEN.txt"))),
     "81391ae27d"
   )
 
