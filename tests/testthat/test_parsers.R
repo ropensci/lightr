@@ -8,17 +8,17 @@ test_that("OceanOptics ProcSpec", {
 
     expect_known_hash(
       expect_silent(lr_parse_procspec(test.file("procspec_files", "OceanOptics_Linux.ProcSpec"))),
-      "fca79d8f14"
+      "f98109a490"
     )
 
     expect_known_hash(
       expect_silent(lr_parse_procspec(test.file("procspec_files", "OceanOptics_Windows.ProcSpec"))),
-      "8faf70c1fa"
+      "38f10dbdc7"
     )
 
     expect_known_hash(
       expect_silent(lr_parse_procspec(test.file("procspec_files", "OceanOptics_badencode.ProcSpec"))),
-      "876850b0f2"
+      "04cb771bd7"
     )
 
   } else {
@@ -82,17 +82,17 @@ test_that("OceanOptics others", {
 
   expect_known_hash(
     expect_silent(lr_parse_jaz(test.file("FMNH6834.00000001.Master.Transmission"))),
-    "f82027e4f"
+    "b96dd6783"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_jaz(test.file("UK5.txt"))),
-    "0356f9d8c"
+    "737473e8b"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_jaz(test.file("non_english", "OO_comma.txt"))),
-    "2e75a585dc"
+    "5035522e53"
   )
 
 })
