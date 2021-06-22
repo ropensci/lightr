@@ -10,6 +10,10 @@ The column name in `lr_get_metadata()` has been updated from `date` to
 to Hao Ye, Laura DeCicco and Elin Waring for helpful comments about timezones
 and datetime formatting for reproducibility.
 
+## Minor changes
+
+* datetime parsing is supported for more formats
+
 # lightr 1.5.0
 
 ## Major breaking changes
