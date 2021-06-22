@@ -13,6 +13,8 @@ and datetime formatting for reproducibility.
 ## Minor changes
 
 * datetime parsing is supported for more formats
+* Files produced by OceanInsight software (such as SpectraSuite) in Spanish
+can now be parsed)
 
 # lightr 1.5.0
 

@@ -98,6 +98,11 @@ test_that("OceanOptics others", {
     "5035522e53"
   )
 
+  expect_known_hash(
+    expect_silent(lr_parse_jaz(test.file("non_english", "OceanView_nonEN.txt"))),
+    "81391ae27d"
+  )
+
 })
 
 test_that("Avantes", {

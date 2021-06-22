@@ -52,5 +52,7 @@ lr_parse_jazirrad(system.file("testdata", "irrad.JazIrrad",
 lr_parse_jaz(system.file("testdata", "OOusb4000.txt", package = "lightr"))
 lr_parse_jaz(system.file("testdata", "FMNH6834.00000001.Master.Transmission",
                          package = "lightr"))
+lr_parse_jaz(system.file("testdata", "non_english", "OceanView_nonEN.txt",
+                         package = "lightr"))
 
 }
