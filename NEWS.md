@@ -1,5 +1,15 @@
 # lightr (development version)
 
+## Major breaking changes
+
+* The date returned in metadata (by `lr_get_metadata()`, 
+`lr_convert_tocsv(metadata = TRUE)` and `lr_parse_XXXX()`) is now a datetime
+(with UTC as timezone and format `%Y-%m-%d %H:%M:%S`). 
+The column name in `lr_get_metadata()` has been updated from `date` to 
+`datetime` to reflect this. Thanks to Giancarlo Chiarenza for the report, and
+to Hao Ye, Laura DeCicco and Elin Waring for helpful comments about timezones
+and datetime formatting for reproducibility.
+
 # lightr 1.5.0
 
 ## Major breaking changes
