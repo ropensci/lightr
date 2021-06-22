@@ -69,7 +69,7 @@ test_that("OceanOptics others", {
 
   expect_known_hash(
     expect_silent(lr_parse_jaz(test.file("jazspec.jaz"))),
-    "b6f0c7ce2a"
+    "4e9fdd1a25"
   )
 
   # Floating point precision issue on noLD platforms.
@@ -77,22 +77,22 @@ test_that("OceanOptics others", {
   # storage.mode(data) <- "numeric"
   expect_identical(
     digest::sha1(expect_silent(lr_parse_jazirrad(test.file("irrad.JazIrrad")))),
-    "1b9332350a2d1ef29efafce8cc3c514c316f12d0"
+    "ff4b1833ee0fceac1370914678aeba240ea1da03"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_jaz(test.file("FMNH6834.00000001.Master.Transmission"))),
-    "a163eb85d"
+    "f82027e4f"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_jaz(test.file("UK5.txt"))),
-    "07dda6707"
+    "0356f9d8c"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_jaz(test.file("non_english", "OO_comma.txt"))),
-    "4f20e8df51"
+    "2e75a585dc"
   )
 
 })
