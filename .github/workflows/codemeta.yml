@@ -1,5 +1,7 @@
 on:
   push:
+    branches:
+      - main
     paths:
       - DESCRIPTION
       - .github/workflows/codemeta.yml
