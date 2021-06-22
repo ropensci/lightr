@@ -21,7 +21,6 @@ Description: Parse various reflectance/transmittance/absorbance spectra file
 Depends:
     R (>= 3.5.0)
 Imports:
-    anytime,
     future.apply,
     progressr,
     xml2 (>= 1.0.0)
