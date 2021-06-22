@@ -90,8 +90,11 @@ test_that("OceanOptics others", {
     "737473e8b"
   )
 
+  # No expect_silent() here because 'CST' is not a valid timezone and per
+  # ?as.POSIXct, "invalid values are most commonly treated as UTC, on some
+  # platforms with a warning."
   expect_known_hash(
-    expect_silent(lr_parse_jaz(test.file("non_english", "OO_comma.txt"))),
+    lr_parse_jaz(test.file("non_english", "OO_comma.txt")),
     "5035522e53"
   )
 
