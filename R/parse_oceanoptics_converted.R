@@ -31,7 +31,8 @@ lr_parse_jaz <- function(filename) {
   savetime <- grep("^Date: .*", content, value = TRUE)
   savetime <- gsub("^Date: ", "", savetime)
 
-  savetime <- as.character(anytime::anytime(savetime))
+  has_tz <- grepl("^\\w{3} \\w{3} \\d{2} \\d{2}:\\d{2}:\\d{2} \\w+ \\d{4}", savetime)
+  savetime <- as.character(anytime::anytime(savetime), tz = "UTC", asUTC = !has_tz)
 
   specmodel <- NA_character_
 

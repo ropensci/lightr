@@ -11,7 +11,8 @@
 #'     "processed", in this order.
 #'   * `metadata`: a character vector with metadata including:
 #'     - `user`: Name of the spectrometer operator
-#'     - `datetime`: Timestamp of the recording (ISO 8601 format)
+#'     - `datetime`: Timestamp of the recording (ISO 8601 format). If time zone
+#'     is absent from the source file, it is assumed to be UTC.
 #'     - `spec_model`: Model of the spectrometer
 #'     - `spec_ID`: Unique ID of the spectrometer
 #'     - `white_inttime`: Integration time of the white reference (in ms)
