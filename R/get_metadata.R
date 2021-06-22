@@ -9,7 +9,7 @@
 #' @return A data.frame containing one file per row and the following columns:
 #'   * `name`: File name (without the extension)
 #'   * `user`: Name of the spectrometer operator
-#'   * `date`: Timestamp of the recording (ISO 8601 format)
+#'   * `datetime`: Timestamp of the recording (ISO 8601 format)
 #'   * `spec_model`: Model of the spectrometer
 #'   * `spec_ID`: Unique ID of the spectrometer
 #'   * `white_inttime`: Integration time of the white reference (in ms)
@@ -111,7 +111,7 @@ lr_get_metadata <- function(where = getwd(), ext = "ProcSpec", sep = NULL,
   res <- cbind(specnames, res, stringsAsFactors = FALSE)
 
   colnames(res) <- c(
-    "name", "user", "date", "spec_model", "spec_ID",
+    "name", "user", "datetime", "spec_model", "spec_ID",
     paste(c("white", "dark", "sample"), "inttime", sep = "_"),
     paste(c("white", "dark", "sample"), "avgs", sep = "_"),
     paste(c("white", "dark", "sample"), "boxcar", sep = "_")
@@ -120,6 +120,7 @@ lr_get_metadata <- function(where = getwd(), ext = "ProcSpec", sep = NULL,
   res[, c(6,7,8,9,10,11,12,13,14)] <- vapply(res[, c(6,7,8,9,10,11,12,13,14)],
                                              as.numeric,
                                              numeric(nrow(res)))
+  res$datetime <- as.POSIXct(res$datetime)
 
   return(res)
 }

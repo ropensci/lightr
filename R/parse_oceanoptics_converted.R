@@ -11,6 +11,9 @@
 #' lr_parse_jaz(system.file("testdata", "jazspec.jaz", package = "lightr"))
 #' lr_parse_jazirrad(system.file("testdata", "irrad.JazIrrad",
 #'                   package = "lightr"))
+#' lr_parse_jaz(system.file("testdata", "OOusb4000.txt", package = "lightr"))
+#' lr_parse_jaz(system.file("testdata", "FMNH6834.00000001.Master.Transmission",
+#'                          package = "lightr"))
 #'
 #' @export
 #'
@@ -31,16 +34,31 @@ lr_parse_jaz <- function(filename) {
   savetime <- grep("^Date: .*", content, value = TRUE)
   savetime <- gsub("^Date: ", "", savetime)
 
-  # OceanOptics files use locale-dependant date formats but it looks like they
+  oo_savetime_regex <- "^(\\w{3} \\w{3} \\d{2} \\d{2}:\\d{2}:\\d{2}) (\\w+ )?(\\d{4})$"
+  tz <- ""
+
+  if (grepl(oo_savetime_regex, savetime)) {
+    tz <- trimws(gsub(oo_savetime_regex, "\\2", savetime))
+    savetime <- gsub(oo_savetime_regex, "\\1 \\3", savetime)
+  }
+
+  if (tz == "") {
+    tz = "UTC"
+  }
+
+  # OceanOptics files use locale-dependent date formats but it looks like they
   # are always using English for this, even when the locale is not set to
   # English
   orig_locale <- Sys.getlocale("LC_TIME")
   on.exit(Sys.setlocale("LC_TIME", orig_locale))
   Sys.setlocale("LC_TIME", "C")
 
-  savetime <- as.character(as.Date(savetime,
-                                   tryFormats = c("%c", "%+"),
-                                   optional = TRUE))
+  savetime <- as.POSIXct(
+    savetime,
+    tz = tz,
+    tryFormats = c("%c", "%m-%d-%Y, %H:%M:%S")
+  )
+  savetime <- format(savetime, tz = "UTC")
 
   specmodel <- NA_character_
 

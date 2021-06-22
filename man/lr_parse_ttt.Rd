@@ -20,7 +20,10 @@ A named list of two elements:
 \item \code{metadata}: a character vector with metadata including:
 \itemize{
 \item \code{user}: Name of the spectrometer operator
-\item \code{date}: Timestamp of the recording (ISO 8601 format)
+\item \code{datetime}: Timestamp of the recording in format '\%Y-\%m-\%d \%H:\%M:\%S'
+and UTC timezone. If timezone is missing in source file, UTC time will
+be assumed (for reproducibility purposes across computers with different
+localtimes).
 \item \code{spec_model}: Model of the spectrometer
 \item \code{spec_ID}: Unique ID of the spectrometer
 \item \code{white_inttime}: Integration time of the white reference (in ms)

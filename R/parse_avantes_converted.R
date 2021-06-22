@@ -23,7 +23,7 @@ lr_parse_ttt <- function(filename) {
 
   author <- NA_character_
 
-  # FIXME: from what I undertand, this "timestamp" is abritrary since it
+  # FIXME: from what I understand, this "timestamp" is arbitrary since it
   # represents the 10*microsecond units since last reset and we don't know
   # when last reset occurred
   #

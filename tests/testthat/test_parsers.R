@@ -8,34 +8,34 @@ test_that("OceanOptics ProcSpec", {
 
     expect_known_hash(
       expect_silent(lr_parse_procspec(test.file("procspec_files", "OceanOptics_Linux.ProcSpec"))),
-      "128a552b69"
+      "f98109a490"
     )
 
     expect_known_hash(
       expect_silent(lr_parse_procspec(test.file("procspec_files", "OceanOptics_Windows.ProcSpec"))),
-      "16d70d5c7f"
+      "38f10dbdc7"
     )
 
     expect_known_hash(
       expect_silent(lr_parse_procspec(test.file("procspec_files", "OceanOptics_badencode.ProcSpec"))),
-      "31b89193ee"
+      "04cb771bd7"
     )
 
   } else {
 
     expect_known_hash(
       expect_silent(lr_parse_procspec(test.file("procspec_files", "OceanOptics_Linux.ProcSpec"))),
-      "f924939002"
+      "c937c66868"
     )
 
     expect_known_hash(
       expect_silent(lr_parse_procspec(test.file("procspec_files", "OceanOptics_Windows.ProcSpec"))),
-      "1d8a001c4f"
+      "5751112645"
     )
 
     expect_known_hash(
       expect_silent(lr_parse_procspec(test.file("procspec_files", "OceanOptics_badencode.ProcSpec"))),
-      "f9d5b3198c"
+      "78c84f7e93"
     )
 
   }
@@ -69,7 +69,7 @@ test_that("OceanOptics others", {
 
   expect_known_hash(
     expect_silent(lr_parse_jaz(test.file("jazspec.jaz"))),
-    "a268386ddd"
+    "4e9fdd1a25"
   )
 
   # Floating point precision issue on noLD platforms.
@@ -77,22 +77,22 @@ test_that("OceanOptics others", {
   # storage.mode(data) <- "numeric"
   expect_identical(
     digest::sha1(expect_silent(lr_parse_jazirrad(test.file("irrad.JazIrrad")))),
-    "2b7d576f7864e6a3c1f0615e841c9bcca25762ab"
+    "ff4b1833ee0fceac1370914678aeba240ea1da03"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_jaz(test.file("FMNH6834.00000001.Master.Transmission"))),
-    "f82027e4f"
+    "b96dd6783"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_jaz(test.file("UK5.txt"))),
-    "0356f9d8c"
+    "737473e8b"
   )
 
   expect_known_hash(
     expect_silent(lr_parse_jaz(test.file("non_english", "OO_comma.txt"))),
-    "2e75a585dc"
+    "5035522e53"
   )
 
 })
