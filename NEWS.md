@@ -1,4 +1,4 @@
-# lightr (development version)
+# lightr 1.6.0
 
 ## Major breaking changes
 
