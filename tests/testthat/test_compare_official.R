@@ -33,7 +33,7 @@ test_that("compare trm/ttt", {
   # only test the first 200 rows until now.
   expect_equal(spec1[seq_len(200), c("wl", "processed")],
                spec1_avasoft[seq_len(200), c("wl", "processed")],
-               tol = 1e-4)
+               tolerance = 1e-4)
 
   spec2_avasoft <- lr_parse_generic(test.file("compare", "Avantes", "feather_2.TXT"))[[1]]
   spec2 <- lr_parse_rfl8(test.file("compare", "Avantes", "feather.RFL8"), specnum = 2)[[1]]
