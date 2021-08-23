@@ -56,9 +56,13 @@ lr_convert_tocsv <- function(where = NULL, ext = "txt", decimal = ".",
     p <- progressor(along = files)
     tmp <- future_lapply(files, function(x) {
       p()
-      tryCatch(spec2csv_single(x, decimal = decimal, sep = sep,
-                               overwrite = overwrite, metadata = metadata),
-               error = function(e) NULL)
+      tryCatch(
+        spec2csv_single(x, decimal = decimal, sep = sep,
+                        overwrite = overwrite, metadata = metadata),
+        error = function(e) {
+          warning(conditionMessage(e))
+          return(NULL)
+        })
     })
   })
 

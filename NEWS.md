@@ -18,6 +18,11 @@
 
 * fix failing tests on CRAN caused by non UTF-8 files
 
+## Major changes
+
+* Errors in low-level parsers are now passed as warnings in high-level 
+`lr_get_XXX()` functions instead of being completely silenced
+
 # lightr 1.6.0
 
 ## Major breaking changes
