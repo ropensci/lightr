@@ -1,5 +1,10 @@
 # lightr (development version)
 
+## Major changes
+
+* Errors in low-level parsers are now passed as warnings in high-level 
+`lr_get_XXX()` functions instead of being completely silenced
+
 # lightr 1.6.0
 
 ## Major breaking changes
