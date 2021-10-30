@@ -60,18 +60,31 @@ extensions). \url{https://www.avantes.com/products/spectrometers/}
 \code{\link[=lr_compute_processed]{lr_compute_processed()}}.
 }
 \examples{
-lr_parse_trm(system.file("testdata", "avantes_trans.TRM",
-                         package = "lightr"))
-lr_parse_roh(system.file("testdata", "avantes_reflect.ROH",
-                         package = "lightr"))
+res_trm <- lr_parse_trm(
+  system.file("testdata", "avantes_trans.TRM", package = "lightr")
+)
+head(res_trm$data)
+res_trm$metadata
 
-lr_parse_rfl8(system.file("testdata", "compare", "Avantes",
-                          "feather.RFL8",
-                          package = "lightr"),
-              specnum = 1)
-lr_parse_rfl8(system.file("testdata", "compare", "Avantes",
-                          "feather.RFL8",
-                          package = "lightr"),
-              specnum = 2)
+res_roh <- lr_parse_roh(
+  system.file("testdata", "avantes_reflect.ROH", package = "lightr")
+)
+head(res_roh$data)
+res_roh$metadata
+
+# This parser has a unique `specnum` argument
+res_rfl8_1 <- lr_parse_rfl8(
+  system.file("testdata", "compare", "Avantes", "feather.RFL8", package = "lightr"),
+  specnum = 1
+)
+head(res_rfl8_1$data)
+res_rfl8_1$metadata
+
+res_rfl8_2 <- lr_parse_rfl8(
+  system.file("testdata", "compare", "Avantes", "feather.RFL8", package = "lightr"),
+  specnum = 2
+)
+head(res_rfl8_2$data)
+res_rfl8_2$metadata
 
 }

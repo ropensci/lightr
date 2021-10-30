@@ -42,7 +42,8 @@
 #' @seealso [pavo::getspec()]
 #'
 #' @examples
-#' lr_get_spec(system.file("testdata", package = "lightr"), ext = "jdx")
+#' spcs <- lr_get_spec(system.file("testdata", package = "lightr"), ext = "jdx")
+#' head(spcs)
 #'
 lr_get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
                         decimal = ".", sep = NULL, subdir = FALSE,

@@ -8,10 +8,17 @@
 #' @inherit lr_parse_generic return details
 #'
 #' @examples
-#' lr_parse_ttt(system.file("testdata", "avantes_export.ttt",
-#'                          package = "lightr"))
-#' lr_parse_trt(system.file("testdata", "avantes_export2.trt",
-#'                          package = "lightr"))
+#' res_ttt <- lr_parse_ttt(
+#'   system.file("testdata", "avantes_export.ttt", package = "lightr")
+#' )
+#' head(res_ttt$data)
+#' res_ttt$metadata
+#'
+#' res_trt <- lr_parse_trt(
+#'   system.file("testdata", "avantes_export2.trt", package = "lightr")
+#' )
+#' head(res_trt$data)
+#' res_trt$metadata
 #'
 #' @export
 #'

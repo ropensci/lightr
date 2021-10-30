@@ -12,9 +12,11 @@
 #' @references <https://www.oceaninsight.com/support/faqs/software/>
 #'
 #' @examples
-#' lr_parse_procspec(system.file("testdata", "procspec_files",
-#'                               "OceanOptics_Linux.ProcSpec",
-#'                               package = "lightr"))
+#' res <- lr_parse_procspec(system.file("testdata", "procspec_files",
+#'                                      "OceanOptics_Linux.ProcSpec",
+#'                                      package = "lightr"))
+#' head(res$data)
+#' res$metadata
 #'
 #' @export
 #'

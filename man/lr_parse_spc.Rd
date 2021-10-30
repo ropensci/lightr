@@ -48,7 +48,9 @@ Metadata parsing has not yet been implemented for this file format.
 }
 
 \examples{
-lr_parse_spc(system.file("testdata", "compare", "CRAIC", "CRAIC.spc",
-                         package = "lightr"))
+res <- lr_parse_spc(system.file("testdata", "compare", "CRAIC", "CRAIC.spc",
+                                package = "lightr"))
+head(res$data)
+res$metadata
 
 }

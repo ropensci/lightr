@@ -48,9 +48,19 @@ Generic function to parse spectra files that don't have a specific parser
 'processed' column computed by official software and provided as is.
 }
 \examples{
-lr_parse_generic(system.file("testdata", "spec.csv", package = "lightr"),
-                 sep = ",")
-lr_parse_generic(system.file("testdata", "CRAIC_export.txt",
-                             package = "lightr"))
+res_csv <- lr_parse_generic(
+  system.file("testdata", "spec.csv", package = "lightr"),
+  sep = ","
+)
+head(res_csv$data)
+# No metadata is extracted with this parser
+res_csv$metadata
+
+res_craic <- lr_parse_generic(
+  system.file("testdata", "CRAIC_export.txt", package = "lightr")
+)
+head(res_craic$data)
+# No metadata is extracted with this parser
+res_craic$metadata
 
 }

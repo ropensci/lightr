@@ -35,7 +35,7 @@ Suggests:
 URL: https://docs.ropensci.org/lightr/, https://github.com/ropensci/lightr
 BugReports: https://github.com/ropensci/lightr/issues
 License: GPL (>=2)
-RoxygenNote: 7.1.1.9001
+RoxygenNote: 7.1.2.9000
 Roxygen: list(markdown = TRUE)
 Language: en-GB
 VignetteBuilder: knitr

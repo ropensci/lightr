@@ -44,8 +44,10 @@ Parse OceanInsight (formerly OceanOptics) JCAMP-DX (.jdx) file.
 \code{\link[=lr_compute_processed]{lr_compute_processed()}}.
 }
 \examples{
-lr_parse_jdx(system.file("testdata", "OceanOptics_period.jdx",
-                         package = "lightr"))
+res_jdx <- lr_parse_jdx(system.file("testdata", "OceanOptics_period.jdx",
+                                    package = "lightr"))
+head(res_jdx$data)
+res_jdx$metadata
 
 }
 \references{

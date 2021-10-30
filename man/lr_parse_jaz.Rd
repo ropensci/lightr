@@ -46,13 +46,32 @@ Parse OceanInsight (formerly OceanOptics) converted file.
 'processed' column computed by official software and provided as is.
 }
 \examples{
-lr_parse_jaz(system.file("testdata", "jazspec.jaz", package = "lightr"))
-lr_parse_jazirrad(system.file("testdata", "irrad.JazIrrad",
-                  package = "lightr"))
-lr_parse_jaz(system.file("testdata", "OOusb4000.txt", package = "lightr"))
-lr_parse_jaz(system.file("testdata", "FMNH6834.00000001.Master.Transmission",
-                         package = "lightr"))
-lr_parse_jaz(system.file("testdata", "non_english", "OceanView_nonEN.txt",
-                         package = "lightr"))
+res_jaz <- lr_parse_jaz(system.file("testdata", "jazspec.jaz",
+                        package = "lightr"))
+head(res_jaz$data)
+res_jaz$metadata
+
+res_jazirrad <- lr_parse_jazirrad(system.file("testdata", "irrad.JazIrrad",
+                                  package = "lightr"))
+head(res_jazirrad$data)
+res_jazirrad$metadata
+
+res_usb4000 <- lr_parse_jaz(system.file("testdata", "OOusb4000.txt",
+                            package = "lightr"))
+head(res_usb4000$data)
+res_usb4000$metadata
+
+res_transmission <- lr_parse_jaz(
+  system.file("testdata", "FMNH6834.00000001.Master.Transmission",
+               package = "lightr")
+)
+head(res_transmission$data)
+res_transmission$metadata
+
+res_nonEN <- lr_parse_jaz(system.file("testdata", "non_english",
+                          "OceanView_nonEN.txt",
+                          package = "lightr"))
+head(res_nonEN$data)
+res_nonEN$metadata
 
 }

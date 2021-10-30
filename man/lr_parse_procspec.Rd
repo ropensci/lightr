@@ -43,9 +43,11 @@ Parse OceanInsight (formerly OceanOptics) ProcSpec file.
 'processed' column computed by official software and provided as is.
 }
 \examples{
-lr_parse_procspec(system.file("testdata", "procspec_files",
-                              "OceanOptics_Linux.ProcSpec",
-                              package = "lightr"))
+res <- lr_parse_procspec(system.file("testdata", "procspec_files",
+                                     "OceanOptics_Linux.ProcSpec",
+                                     package = "lightr"))
+head(res$data)
+res$metadata
 
 }
 \references{

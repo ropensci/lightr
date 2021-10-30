@@ -62,7 +62,8 @@ the way progress is shown with the \code{\link[progressr:handlers]{progressr::ha
 (progress bar, acoustic feedback, nothing, etc.)
 }
 \examples{
-lr_get_spec(system.file("testdata", package = "lightr"), ext = "jdx")
+spcs <- lr_get_spec(system.file("testdata", package = "lightr"), ext = "jdx")
+head(spcs)
 
 }
 \seealso{
