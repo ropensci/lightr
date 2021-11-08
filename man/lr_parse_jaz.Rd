@@ -68,10 +68,4 @@ res_transmission <- lr_parse_jaz(
 head(res_transmission$data)
 res_transmission$metadata
 
-res_nonEN <- lr_parse_jaz(system.file("testdata", "non_english",
-                          "OceanView_nonEN.txt",
-                          package = "lightr"))
-head(res_nonEN$data)
-res_nonEN$metadata
-
 }
