@@ -91,7 +91,7 @@ lr_parse_jaz <- function(filename) {
 
   inttime_unit <- gsub("^(Integration Time|Tiempo de integraci.n) \\((.+)\\):.*", "\\2", int)
 
-  if (identical(inttime_unit, "usec")) {
+  if (identical(unname(inttime_unit), "usec")) {
     inttime <- as.numeric(inttime) / 1000
   }
 
