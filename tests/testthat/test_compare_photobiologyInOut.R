@@ -1,5 +1,8 @@
 test_that("pio_lightr_jaz", {
   skip_if_not_installed("photobiologyInOut")
+  skip_on_cran()
+
+  attachNamespace("photobiologyInOut", include.only = "read_oo_jazirrad")
 
   file <- test.file("irrad.JazIrrad")
 
