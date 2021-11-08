@@ -1,3 +1,5 @@
+# lightr 1.6.2
+
 # lightr 1.6.1
 
 ## Minor changes
