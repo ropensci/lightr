@@ -100,7 +100,7 @@ test_that("OceanOptics others", {
 
   expect_known_hash(
     suppressWarnings(lr_parse_jaz(test.file("non_english", "OceanView_nonEN.txt"))),
-    "81391ae27d"
+    "4e7b424f6d"
   )
 
 })
