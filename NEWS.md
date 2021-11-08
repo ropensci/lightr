@@ -1,5 +1,9 @@
 # lightr 1.6.2
 
+## Minor changes
+
+* fix failing tests on CRAN due to unattached dependency
+
 # lightr 1.6.1
 
 ## Minor changes
