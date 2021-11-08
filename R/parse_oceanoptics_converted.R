@@ -38,6 +38,9 @@ lr_parse_jaz <- function(filename) {
 
   content <- readLines(filename, skipNul = TRUE)
 
+  # Convert to ASCII
+  content <- vapply(content, iconv, to = "ASCII", sub = "", character(1))
+
   # Can be:
   # - Spectrometer
   # - Spectrometers
