@@ -1,6 +1,6 @@
 Package: lightr
 Title: Read Spectrometric Data and Metadata
-Version: 1.6.2
+Version: 1.6.2.9000
 Authors@R: c(
     person("Hugo", "Gruson", role = c("cre", "aut", "cph"),
     email = "hugo.gruson+R@normalesup.org",

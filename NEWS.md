@@ -1,3 +1,5 @@
+# lightr (development version)
+
 # lightr 1.6.2
 
 ## Minor changes
