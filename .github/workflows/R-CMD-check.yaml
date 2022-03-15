@@ -59,7 +59,7 @@ jobs:
         with:
           extra-packages: |
             rcmdcheck
-            photobiologyInOut
+            photobiologyInOut=?ignore-before-r=3.6.0
 
       - uses: r-lib/actions/check-r-package@v2
         with:
