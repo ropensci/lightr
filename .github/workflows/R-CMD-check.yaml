@@ -55,9 +55,9 @@ jobs:
 
       - uses: r-lib/actions/setup-pandoc@master
 
-      - uses: r-lib/actions/setup-r-dependencies@v1
+      - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: |
+          extra-packages:
             rcmdcheck
             photobiologyInOut=?ignore-before-r=3.6.0
 
