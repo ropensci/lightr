@@ -25,6 +25,8 @@ jobs:
 
       - uses: r-lib/actions/setup-pandoc@v2
 
+      - run: echo "/opt/R-devel/bin" >> $GITHUB_PATH
+
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages:
