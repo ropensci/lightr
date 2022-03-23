@@ -3,6 +3,7 @@ local_edition(2)
 test_that("OceanOptics ProcSpec", {
 
   skip_on_os("solaris")
+  skip_if_not(capabilities(what = "long.double"))
 
   if (capabilities(what = "long.double")) {
 
