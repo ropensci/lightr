@@ -32,7 +32,7 @@ jobs:
       # https://github.com/r-lib/pak/blob/5d826700dba8146c639d41e406ae287d0f06dd3c/R/system-requirements.R#L159
       - name: Install system dependencies
         run: |
-          apt install libcurl4-openssl-dev libssl-dev imagemagick libmagick++-dev gsfonts libxml2-dev
+          apt-get install -y libcurl4-openssl-dev libssl-dev imagemagick libmagick++-dev gsfonts libxml2-dev
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
