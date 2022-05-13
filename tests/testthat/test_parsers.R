@@ -186,6 +186,11 @@ test_that("Avantes", {
     "7ff3a7ed7a"
   )
 
+  expect_known_hash(
+    expect_silent(lr_parse_irr8(test.file("eg.IRR8"))),
+    "671498666d"
+  )
+
 })
 
 test_that("CRAIC", {

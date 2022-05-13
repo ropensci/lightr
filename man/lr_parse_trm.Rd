@@ -6,6 +6,7 @@
 \alias{lr_parse_roh}
 \alias{lr_parse_rfl8}
 \alias{lr_parse_raw8}
+\alias{lr_parse_irr8}
 \title{Parse Avantes binary file}
 \usage{
 lr_parse_trm(filename)
@@ -17,6 +18,8 @@ lr_parse_roh(filename)
 lr_parse_rfl8(filename, specnum = 1L)
 
 lr_parse_raw8(filename, specnum = 1L)
+
+lr_parse_irr8(filename, specnum = 1L)
 }
 \arguments{
 \item{filename}{Path of the file to parse}

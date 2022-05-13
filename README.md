@@ -129,6 +129,7 @@ on the extension in the tables to see an example of this file format):
   | [`txt`](https://raw.githubusercontent.com/ropensci/lightr/main/inst/testdata/avasoft8.txt) | `lr_parse_generic()` |
   | [`DRK`]          | `lr_parse_trm()`      |
   | [`REF`]          | `lr_parse_trm()`      |
+  | [`IRR8`]         | `lr_parse_irr8()`     |
   | [`RFL8`]         | `lr_parse_rfl8()`     |
   | [`Raw8`]         | `lr_parse_raw8()`     |
   
