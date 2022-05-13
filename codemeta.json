@@ -8,13 +8,13 @@
   "codeRepository": "https://github.com/ropensci/lightr",
   "issueTracker": "https://github.com/ropensci/lightr/issues",
   "license": "https://spdx.org/licenses/GPL-2.0",
-  "version": "1.6.2.9000",
+  "version": "1.7.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.1.3 (2022-03-10)",
+  "runtimePlatform": "R version 4.2.0 (2022-04-22)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -217,7 +217,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "5263.688KB",
+  "fileSize": "5294.332KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
