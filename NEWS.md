@@ -1,4 +1,4 @@
-# lightr (development version)
+# lightr 1.7.0
 
 ## Minor changes
 
