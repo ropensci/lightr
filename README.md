@@ -139,6 +139,7 @@ on the extension in the tables to see an example of this file format):
 [`ttt`]: https://github.com/ropensci/lightr/raw/main/inst/testdata/avantes_export.ttt
 [`DRK`]: https://github.com/ropensci/lightr/raw/main/inst/testdata/1305084U1.DRK
 [`REF`]: https://github.com/ropensci/lightr/raw/main/inst/testdata/1305084U1.REF
+[`IRR8`]: https://github.com/ropensci/lightr/raw/main/inst/testdata/eg.IRR8
 [`RFL8`]: https://github.com/ropensci/lightr/raw/main/inst/testdata/compare/Avantes/feather.RFL8
 [`Raw8`]: https://github.com/ropensci/lightr/raw/main/inst/testdata/1904090M1_0003.Raw8
 
@@ -158,10 +159,8 @@ on the extension in the tables to see an example of this file format):
   | [`csv`]   | `lr_parse_generic(sep = ",")` |
   | [`dpt`]   | `lr_parse_generic(sep = ",")` |
 
-#  
 [`csv`]: https://raw.githubusercontent.com/ropensci/lightr/main/inst/testdata/spec.csv
 [`dpt`]: https://raw.githubusercontent.com/ropensci/lightr/main/inst/testdata/RS-1.dpt
-## Others
 
 As a fallback, you should always try `lr_parse_generic()` which offers a
 flexible and general algorithm that manages to extract data from most files.
