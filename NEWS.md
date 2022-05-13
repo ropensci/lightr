@@ -2,6 +2,9 @@
 
 ## Minor changes
 
+* Errors in low-level parsers are now passed as warnings in high-level 
+`lr_get_XXX()` functions instead of being completely silenced
+
 * IRR8 (irradiance files produced by AvaSoft 8) are now explicitly supported by 
 `lr_get_spec()`. An alias has been added for the low-level parser: 
 `lr_parse_irr8()`.
@@ -17,11 +20,6 @@
 ## Minor changes
 
 * fix failing tests on CRAN caused by non UTF-8 files
-
-## Major changes
-
-* Errors in low-level parsers are now passed as warnings in high-level 
-`lr_get_XXX()` functions instead of being completely silenced
 
 # lightr 1.6.0
 
