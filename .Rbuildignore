@@ -17,3 +17,4 @@
 ^man/figures/logo_sources$
 ^pkgdown$
 ^revdep$
+^CRAN-SUBMISSION$
