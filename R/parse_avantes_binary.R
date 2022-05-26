@@ -222,6 +222,15 @@ lr_parse_rfl8 <- function(filename, specnum = 1L) {
 
     seqnum <- readBin(f, "integer", size = 1, signed = FALSE, endian = "little")
 
+    # Measurement mode
+    # - 0:scope
+    # - 1: absorbance
+    # - 2: scope corrected for dark
+    # - 3: transmission
+    # - 4: reflectance
+    # - 5: irradiance
+    # - 6: relative irradiance
+    # - 7: temperature
     measmode <- readBin(f, "integer", size = 1, signed = FALSE, endian = "little")
 
     bitness <- readBin(f, "integer", size = 1, signed = FALSE, endian = "little")
