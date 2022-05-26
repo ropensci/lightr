@@ -31,9 +31,10 @@ test_that("compare trm/ttt", {
 
   # FIXME: Avasoft sets "processed" to 0 when "dark" > "white". Hence why we
   # only test the first 200 rows until now.
-  expect_equal(spec1[seq_len(200), c("wl", "processed")],
-               spec1_avasoft[seq_len(200), c("wl", "processed")],
-               tolerance = 1e-4)
+  spec1[spec1$dark > spec1$white,] <- 0
+  expect_equal(spec1$processed,
+               spec1_avasoft$processed,
+               tolerance = 1e-7)
 
   spec2_avasoft <- lr_parse_generic(test.file("compare", "Avantes", "feather_2.TXT"))[[1]]
   spec2 <- lr_parse_rfl8(test.file("compare", "Avantes", "feather.RFL8"), specnum = 2)[[1]]
