@@ -1,5 +1,11 @@
 # lightr (development version)
 
+# lightr 1.8.0
+
+* `lr_parse_irr8()`, `lr_parse_rfl8()` and `lr_parse_raw8()` now error if you 
+provide a file not produced by AvaSoft 8.2 as they have not been tested properly
+with other versions of AvaSoft 8.
+
 # lightr 1.7.0
 
 ## Minor changes

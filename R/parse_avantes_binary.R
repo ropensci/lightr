@@ -189,8 +189,15 @@ lr_parse_rfl8 <- function(filename, specnum = 1L) {
   on.exit(close(f))
 
   # HEADER
-  # always 'AVS82'
-  marker <- rawToChar(readBin(f, "raw", n = 5, endian = "little"))
+  version <- rawToChar(readBin(f, "raw", n = 5, endian = "little"))
+
+  if (version != "AVS82") {
+    stop(
+      "This parser has only been tested properly with files produced by ",
+      "AvaSoft 8.2.\nIf you're seeing this error message and would like us to ",
+      "support your files, please get in touch with an example.", call. = FALSE
+    )
+  }
 
   # number of spectra in file
   numspectra <- readBin(f, "integer", size = 1, signed = FALSE, endian = "little")
