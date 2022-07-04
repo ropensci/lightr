@@ -14,3 +14,4 @@ lr_compute_processed(spdata)
 Compute processed spectral data, from the raw count/scope data, counts from
 a dark reference, and from a white reference.
 }
+\keyword{internal}

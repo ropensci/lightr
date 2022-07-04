@@ -6,6 +6,8 @@
 #' @param spdata data.frame containing the spectral data with the columns
 #'   'scope', 'dark', and 'white'
 #'
+#' @keywords internal
+#'
 lr_compute_processed <- function(spdata) {
 
   with(spdata, (scope - dark) / (white - dark) * 100)
