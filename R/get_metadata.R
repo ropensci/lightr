@@ -121,9 +121,7 @@ lr_get_metadata <- function(where = getwd(), ext = "ProcSpec", sep = NULL,
     paste(c("white", "dark", "sample"), "boxcar", sep = "_")
   )
 
-  res[, c(6,7,8,9,10,11,12,13,14)] <- vapply(res[, c(6,7,8,9,10,11,12,13,14)],
-                                             as.numeric,
-                                             numeric(nrow(res)))
+  res[, 6:14] <- vapply(res[, 6:14], as.numeric, numeric(nrow(res)))
   res$datetime <- as.POSIXct(res$datetime, tz = "UTC")
 
   return(res)
