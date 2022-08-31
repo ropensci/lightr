@@ -66,9 +66,9 @@ lr_parse_ttt <- function(filename) {
   data <- do.call(rbind, data)
 
   # Fix decimal for non-English files
-  data <- gsub(",", ".", data)
+  data <- gsub(",", ".", data, fixed = TRUE)
 
-  colnames(data) <- strsplit(content[data_ind[1]-2], ";")[[1]]
+  colnames(data) <- strsplit(content[data_ind[1]-2], ";", fixed = TRUE)[[1]]
 
   # Remove trailing whitespaces in names
   colnames(data) <- gsub("[[:space:]]*$", "", colnames(data))

@@ -129,12 +129,12 @@ lr_parse_jaz <- function(filename) {
                       data_end-1)]
 
   # Depending on the user locale, some files might use ',' as a decimal sep
-  data <- gsub(",", ".", data)
+  data <- gsub(",", ".", data, fixed = TRUE)
 
-  data <- do.call(rbind, strsplit(data, "\t"))
+  data <- do.call(rbind, strsplit(data, "\t", fixed = TRUE))
 
   if (has_header) {
-    colnames(data) <- strsplit(content[data_start+1], "\t")[[1]]
+    colnames(data) <- strsplit(content[data_start+1], "\t", fixed = TRUE)[[1]]
 
 
   } else {
