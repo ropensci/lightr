@@ -75,7 +75,7 @@ lr_convert_tocsv <- function(where = NULL, ext = "txt", decimal = ".",
   } else if (length(whichfailed) > 0) {
 
     warning("Could not import one or more files:\n",
-            paste0(files[whichfailed], "\n"),
+            paste0(files[whichfailed], collapse = "\n"),
             call. = FALSE
     )
   }

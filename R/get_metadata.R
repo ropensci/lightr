@@ -103,7 +103,7 @@ lr_get_metadata <- function(where = getwd(), ext = "ProcSpec", sep = NULL,
   } else if (length(whichfailed) > 0) {
 
     warning("Could not import one or more files:\n",
-            paste0(files[whichfailed], "\n"),
+            paste0(files[whichfailed], collapse = "\n"),
             call. = FALSE
     )
 

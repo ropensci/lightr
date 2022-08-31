@@ -128,7 +128,7 @@ lr_get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
   } else if (length(whichfailed) > 0) {
 
     warning("Could not import one or more files:\n",
-      paste0(files[whichfailed], "\n"),
+      paste0(files[whichfailed], collapse = "\n"),
       call. = FALSE
     )
 
