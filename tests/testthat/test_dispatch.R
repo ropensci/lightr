@@ -41,8 +41,8 @@ test_that("Fallback", {
   )
 
   expect_identical(
-    lr_parse_spc(test.file("compare/CRAIC/CRAIC.spc")),
-    dispatch_parser(test.file("compare/CRAIC/CRAIC.spc"))
+    lr_parse_spc(test.file("compare", "CRAIC", "CRAIC.spc")),
+    dispatch_parser(test.file("compare", "CRAIC", "CRAIC.spc"))
   )
 
   expect_identical(

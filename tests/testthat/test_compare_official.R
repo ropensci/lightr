@@ -1,11 +1,11 @@
 test_that("compare procspec/spectrasuite", {
 
   # Compare result from custom parser (lr_parse_procspec) and official parser
-  specs <- lr_get_spec(test.file("compare/OceanInsight"),
+  specs <- lr_get_spec(test.file("compare", "OceanInsight"),
                        ext = "ProcSpec",
                        lim = c(100, 1000),
                        interpolate = FALSE)
-  specs_spectrasuite <- lr_get_spec(test.file("compare/OceanInsight"),
+  specs_spectrasuite <- lr_get_spec(test.file("compare", "OceanInsight"),
                                     ext = "txt",
                                     lim = c(100, 1000),
                                     interpolate = FALSE)
@@ -21,8 +21,8 @@ test_that("compare trm/ttt", {
 
   # FIXME: for some reason, the conversion from the official parser skips some
   # wl... Figure out why?
-  specs <- lr_get_spec(test.file("compare/Avantes"), ext = "TRM")
-  specs_avasoft <- lr_get_spec(test.file("compare/Avantes"), ext = "ttt")
+  specs <- lr_get_spec(test.file("compare", "Avantes"), ext = "TRM")
+  specs_avasoft <- lr_get_spec(test.file("compare", "Avantes"), ext = "ttt")
 
   expect_equal(specs, specs_avasoft, tolerance = 1e-4)
 
@@ -47,11 +47,11 @@ test_that("compare trm/ttt", {
 
 test_that("compare spc/craic", {
 
-  specs <- lr_get_spec(test.file("compare/CRAIC"),
+  specs <- lr_get_spec(test.file("compare", "CRAIC"),
                        ext = "spc",
                        lim = c(100, 1000),
                        interpolate = FALSE)
-  specs_craic <- lr_get_spec(test.file("compare/CRAIC"),
+  specs_craic <- lr_get_spec(test.file("compare", "CRAIC"),
                              ext = "txt",
                              lim = c(100, 1000),
                              interpolate = FALSE)
