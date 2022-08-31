@@ -41,7 +41,7 @@ lr_parse_procspec <- function(filename) {
   # Convert to ASCII
   clean_text <- iconv(plain_text, to = "ASCII", sub = "")
   # Remove extra broken character
-  clean_text <- gsub("\\\001", "", clean_text, fixed = TRUE)
+  clean_text <- gsub("\001", "", clean_text, fixed = TRUE)
 
   clean_text <- paste(clean_text, collapse = "\n")
 
