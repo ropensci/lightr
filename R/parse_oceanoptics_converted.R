@@ -66,7 +66,7 @@ lr_parse_jaz <- function(filename) {
   }
 
   if (tz == "") {
-    tz = "UTC"
+    tz <- "UTC"
   }
 
   # OceanOptics files use locale-dependent date formats but it looks like they
