@@ -113,7 +113,6 @@ all.equal(reflect_data$wl, white_data$wl)
 ```
 
 ```{r}
-res <- (reflect_data$scope - reflect_data$dark) / 
-       (white_data$white - white_data$dark)
+res <- (reflect_data$scope - reflect_data$dark) / (white_data$white - white_data$dark)
 head(res)
 ```

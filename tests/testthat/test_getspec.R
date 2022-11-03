@@ -34,7 +34,7 @@ test_that("get_spec recursive", {
 
 test_that("get_spec range", {
   expect_message(
-    res <- lr_get_spec(test.file(), "ttt", lim = c(400,500)),
+    res <- lr_get_spec(test.file(), "ttt", lim = c(400, 500)),
     "2 files"
   )
   expect_identical(nrow(res), 101L)
@@ -55,7 +55,7 @@ test_that("get_spec interpolate", {
   expect_identical(nrow(res), 1992L)
 })
 
-test_that("get_spec warn/error", {
+test_that("get_spec warn & error", {
   # Total fail
   expect_warning(
     expect_message(expect_null(lr_get_spec(test.file(), ext = "fail"))),
@@ -75,10 +75,10 @@ test_that("get_spec warn/error", {
   )
 
   expect_warning(
-  expect_warning(
-    expect_null(lr_get_spec(test.file(), ext = "jdx", lim = c(10, 50), interpolate = TRUE)),
-    "wl range"
-  )
+    expect_warning(
+      expect_null(lr_get_spec(test.file(), ext = "jdx", lim = c(10, 50), interpolate = TRUE)),
+      "wl range"
+    )
   )
 
 })

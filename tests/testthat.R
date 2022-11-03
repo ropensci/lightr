@@ -1,9 +1,8 @@
-library(lightr)
+library(lightr) # nolint
 
-if (requireNamespace("testthat", quietly=TRUE)) {
+if (requireNamespace("testthat", quietly = TRUE)) {
 
   library(testthat)
   test_check("lightr")
 
 }
-

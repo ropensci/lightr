@@ -26,7 +26,7 @@ test_that("get_metadata recursive", {
 
 })
 
-test_that("get_metadata warn/error", {
+test_that("get_metadata warn & error", {
   # Total fail
   expect_warning(
     expect_message(expect_null(lr_get_metadata(test.file(), ext = "fail"))),

@@ -47,8 +47,8 @@ So, let's start by comparing the `.ProcSpec` spectra imported by `lightr` and
 the `.txt` files produced by OceanOptics.
 
 ```{r}
-raw_files <- lr_get_spec("data/puffin", ext = "ProcSpec")
-txt_files <- lr_get_spec("data/puffin", ext = "txt")
+raw_files <- lr_get_spec(file.path("data", "puffin"), ext = "ProcSpec")
+txt_files <- lr_get_spec(file.path("data", "puffin"), ext = "txt")
 ```
 
 We can visually inspect these two file using the dedicated S3 function 

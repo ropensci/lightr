@@ -84,7 +84,7 @@ uninterpolated data, by changing the value of the `interpolate` boolean
 argument:
 
 ```{r}
-res <- lr_get_spec(where = "data/puffin", ext = "procspec", interpolate = FALSE)
+res <- lr_get_spec(where = file.path("data", "puffin"), ext = "procspec", interpolate = FALSE)
 head(res)
 ```
 

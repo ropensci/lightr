@@ -54,14 +54,14 @@ lr_parse_procspec <- function(filename) {
 
   scope_node <- xml_find_first(xml_source, ".//pixelValues")
   scope_values <- xml_find_all(scope_node, ".//double")
-  scope_inttime <- xml_double(xml_find_first(xml_source, ".//integrationTime"))/1000
+  scope_inttime <- xml_double(xml_find_first(xml_source, ".//integrationTime")) / 1000
   scope_average <- xml_text(xml_find_first(xml_source, ".//scansToAverage"))
   scope_boxcar <- xml_text(xml_find_first(xml_source, ".//boxcarWidth"))
   scope <- xml_double(scope_values)
 
   white_node <- xml_find_all(xml_source, ".//referenceSpectrum")
   white_values <- xml_find_all(white_node, ".//double")
-  white_inttime <- xml_double(xml_find_all(white_node, ".//integrationTime"))/1000
+  white_inttime <- xml_double(xml_find_all(white_node, ".//integrationTime")) / 1000
   white_average <- xml_text(xml_find_all(white_node, ".//scansToAverage"))
   white_boxcar <- xml_text(xml_find_all(white_node, ".//boxcarWidth"))
   # Get rid of the XML tags.
@@ -69,7 +69,7 @@ lr_parse_procspec <- function(filename) {
 
   dark_node <- xml_find_all(xml_source, ".//darkSpectrum")
   dark_values <- xml_find_all(dark_node, ".//double")
-  dark_inttime <- xml_double(xml_find_all(dark_node, ".//integrationTime"))/1000
+  dark_inttime <- xml_double(xml_find_all(dark_node, ".//integrationTime")) / 1000
   dark_average <- xml_text(xml_find_all(dark_node, ".//scansToAverage"))
   dark_boxcar <- xml_text(xml_find_all(dark_node, ".//boxcarWidth"))
   # Get rid of the XML tags.
@@ -84,7 +84,7 @@ lr_parse_procspec <- function(filename) {
 
   author <- xml_text(xml_find_first(xml_source, ".//userName"))
   savetime <- xml_double(xml_find_first(xml_source, "//milliTime"))
-  savetime <- as.POSIXct(savetime/1000, origin = "1970-01-01", tz = "UTC")
+  savetime <- as.POSIXct(savetime / 1000, origin = "1970-01-01", tz = "UTC")
   savetime <- format(savetime, tz = "UTC")
   specclass <- xml_text(xml_find_first(xml_source, ".//spectrometerClass"))
   specmodel <- gsub(".+\\.([[:alnum:]]+)$", "\\1", specclass)

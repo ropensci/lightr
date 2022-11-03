@@ -102,9 +102,10 @@ lr_get_metadata <- function(where = getwd(), ext = "ProcSpec", sep = NULL,
     return(NULL)
   } else if (length(whichfailed) > 0) {
 
-    warning("Could not import one or more files:\n",
-            paste0(files[whichfailed], collapse = "\n"),
-            call. = FALSE
+    warning(
+      "Could not import one or more files:\n",
+      paste0(files[whichfailed], collapse = "\n"),
+      call. = FALSE
     )
 
     specnames <- specnames[-whichfailed]

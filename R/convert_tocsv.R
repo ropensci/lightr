@@ -36,9 +36,10 @@ lr_convert_tocsv <- function(where = NULL, ext = "txt", decimal = ".",
 
   extension <- paste0("\\.", ext, "$", collapse = "|")
 
-  file_names <- list.files(where,
-                           pattern = extension, ignore.case = ignore.case,
-                           recursive = subdir, include.dirs = subdir
+  file_names <- list.files(
+    where,
+    pattern = extension, ignore.case = ignore.case,
+    recursive = subdir, include.dirs = subdir
   )
   nb_files <- length(file_names)
 
@@ -57,8 +58,10 @@ lr_convert_tocsv <- function(where = NULL, ext = "txt", decimal = ".",
     tmp <- future_lapply(files, function(x) {
       p()
       tryCatch(
-        spec2csv_single(x, decimal = decimal, sep = sep,
-                        overwrite = overwrite, metadata = metadata),
+        spec2csv_single(
+          x, decimal = decimal, sep = sep,
+          overwrite = overwrite, metadata = metadata
+        ),
         error = function(e) {
           warning(conditionMessage(e))
           return(NULL)
@@ -72,11 +75,14 @@ lr_convert_tocsv <- function(where = NULL, ext = "txt", decimal = ".",
     warning("File import failed.\n",
             "Check input files and function arguments.", call. = FALSE)
     return(NULL)
-  } else if (length(whichfailed) > 0) {
+  }
 
-    warning("Could not import one or more files:\n",
-            paste0(files[whichfailed], collapse = "\n"),
-            call. = FALSE
+  if (length(whichfailed) > 0) {
+
+    warning(
+      "Could not import one or more files:\n",
+      paste0(files[whichfailed], collapse = "\n"),
+      call. = FALSE
     )
   }
 

@@ -90,7 +90,7 @@ lr_parse_trm <- function(filename) {
     # onboard temp in degrees Celsius
     NTC1 <- readBin(f, "numeric", 1, 4, endian = "little")
     # NTC2 in Volt (not connected)
-    NTC2 <- readBin(f, "numeric",1, 4, endian = "little")
+    NTC2 <- readBin(f, "numeric", 1, 4, endian = "little")
     # detector temp in degr Celsius (only TEC, NIR)
     Thermistor <- readBin(f, "numeric", 1, 4, endian = "little")
     dummy3 <- readBin(f, "numeric", 1, 4, endian = "little")
@@ -98,7 +98,7 @@ lr_parse_trm <- function(filename) {
 
   # Data
   if (grepl("\\.(abs|trm)$", filename, ignore.case = TRUE)) {
-    data <- readBin(f, "numeric", 3*(ipixlast - ipixfirst + 1), 4, endian = "little")
+    data <- readBin(f, "numeric", 3 * (ipixlast - ipixfirst + 1), 4, endian = "little")
     data <- setNames(as.data.frame(matrix(data, ncol = 3, byrow = TRUE)),
                      c("scope", "white", "dark"))
   } else {# scope mode
