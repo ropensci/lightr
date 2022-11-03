@@ -112,21 +112,27 @@ lr_parse_jaz <- function(filename) {
 
   # SPECTRA
 
-  data_start <- grep("^(>>>>>Begin (Processed )?Spectral Data<<<<<|>>>>> Comienza Data<<<<< Espectral Procesado Del EL)$", content)
-  data_end <- grep("^(>>>>>End (Processed )?Spectral Data<<<<<|>>>>> Data<<<<< Espectral Procesado Extremo)$", content)
+  data_start <- grep(
+    "^(>>>>>Begin (Processed )?Spectral Data<<<<<|>>>>> Comienza Data<<<<< Espectral Procesado Del EL)$",
+    content
+  )
+  data_end <- grep(
+    "^(>>>>>End (Processed )?Spectral Data<<<<<|>>>>> Data<<<<< Espectral Procesado Extremo)$",
+    content
+  )
 
   # Some files are missing the ending "tag". Let's then assume that data go to
   # the end of file.
-  if (length(data_end)==0) {
+  if (length(data_end) == 0) {
     data_end <- length(content)
   }
 
   # Some files have an extra header for the data, some don't...
   # If they do, it looks like this header will always start with W
-  has_header <- startsWith(content[data_start+1], "W")
+  has_header <- startsWith(content[data_start + 1], "W")
 
-  data <- content[seq(ifelse(has_header, data_start+2, data_start+1),
-                      data_end-1)]
+  data <- content[seq(ifelse(has_header, data_start + 2, data_start + 1),
+                      data_end - 1)]
 
   # Depending on the user locale, some files might use ',' as a decimal sep
   data <- gsub(",", ".", data, fixed = TRUE)
@@ -134,7 +140,7 @@ lr_parse_jaz <- function(filename) {
   data <- do.call(rbind, strsplit(data, "\t", fixed = TRUE))
 
   if (has_header) {
-    colnames(data) <- strsplit(content[data_start+1], "\t", fixed = TRUE)[[1]]
+    colnames(data) <- strsplit(content[data_start + 1], "\t", fixed = TRUE)[[1]]
 
 
   } else {

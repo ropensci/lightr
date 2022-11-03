@@ -45,9 +45,9 @@ lr_parse_jdx <- function(filename) {
     inttime <- gsub("^##\\.ACQUISITION TIME= ", "", inttime)
   }
 
-  scope_inttime <- get_inttime(which(blocktype=="processed"))
-  dark_inttime <- get_inttime(which(blocktype=="dark"))
-  white_inttime <- get_inttime(which(blocktype=="reference"))
+  scope_inttime <- get_inttime(which(blocktype == "processed"))
+  dark_inttime <- get_inttime(which(blocktype == "dark"))
+  white_inttime <- get_inttime(which(blocktype == "reference"))
 
   get_avg <- function(index) {
     avg <- grep("^##\\.AVERAGES=",
@@ -56,9 +56,9 @@ lr_parse_jdx <- function(filename) {
     avg <- gsub("^##\\.AVERAGES= ", "", avg)
   }
 
-  scope_average <- get_avg(which(blocktype=="processed"))
-  dark_average <- get_avg(which(blocktype=="dark"))
-  white_average <- get_avg(which(blocktype=="reference"))
+  scope_average <- get_avg(which(blocktype == "processed"))
+  dark_average <- get_avg(which(blocktype == "dark"))
+  white_average <- get_avg(which(blocktype == "reference"))
 
   get_boxcar <- function(index) {
     boxcar <- grep("^##DATA PROCESSING= BOXCAR:",
@@ -67,9 +67,9 @@ lr_parse_jdx <- function(filename) {
     boxcar <- gsub("^##DATA PROCESSING= BOXCAR:([[:digit:]]+).*", "\\1", boxcar)
   }
 
-  scope_boxcar <- get_boxcar(which(blocktype=="processed"))
-  dark_boxcar <- get_boxcar(which(blocktype=="dark"))
-  white_boxcar <- get_boxcar(which(blocktype=="reference"))
+  scope_boxcar <- get_boxcar(which(blocktype == "processed"))
+  dark_boxcar <- get_boxcar(which(blocktype == "dark"))
+  white_boxcar <- get_boxcar(which(blocktype == "reference"))
 
   metadata <- c(author, savetime, specmodel, specID,
                 dark_inttime, white_inttime, scope_inttime,
@@ -87,11 +87,11 @@ lr_parse_jdx <- function(filename) {
     data <- gsub(",", ".", data, fixed = TRUE)
   }
 
-  scope_data <- get_data(which(blocktype=="processed"))
-  dark_data <- get_data(which(blocktype=="dark"))
-  white_data <- get_data(which(blocktype=="reference"))
+  scope_data <- get_data(which(blocktype == "processed"))
+  dark_data <- get_data(which(blocktype == "dark"))
+  white_data <- get_data(which(blocktype == "reference"))
 
-  data <- cbind(scope_data[,1], dark_data[,2], white_data[,2], scope_data[,2])
+  data <- cbind(scope_data[, 1], dark_data[, 2], white_data[, 2], scope_data[, 2])
   colnames(data) <- c("wl", "dark", "white", "scope")
 
   storage.mode(data) <- "numeric"

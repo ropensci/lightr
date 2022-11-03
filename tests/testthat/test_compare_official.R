@@ -1,4 +1,4 @@
-test_that("compare procspec/spectrasuite", {
+test_that("compare procspec & spectrasuite", {
 
   # Compare result from custom parser (lr_parse_procspec) and official parser
   specs <- lr_get_spec(test.file("compare", "OceanInsight"),
@@ -13,7 +13,7 @@ test_that("compare procspec/spectrasuite", {
   expect_equal(specs, specs_spectrasuite, tolerance = 1e-4)
 })
 
-test_that("compare trm/ttt", {
+test_that("compare trm & ttt", {
 
   # Compare result from custom parser (lr_parse_trm) and official parser
   # - J_PIR_AVRIL2016_0001 uses Avasoft 6.0
@@ -31,7 +31,7 @@ test_that("compare trm/ttt", {
 
   # FIXME: Avasoft sets "processed" to 0 when "dark" > "white". Hence why we
   # only test the first 200 rows until now.
-  spec1[spec1$dark > spec1$white,] <- 0
+  spec1[spec1$dark > spec1$white, ] <- 0
   expect_equal(spec1$processed,
                spec1_avasoft$processed,
                tolerance = 1e-7)
@@ -45,7 +45,7 @@ test_that("compare trm/ttt", {
 
 })
 
-test_that("compare spc/craic", {
+test_that("compare spc & craic", {
 
   specs <- lr_get_spec(test.file("compare", "CRAIC"),
                        ext = "spc",

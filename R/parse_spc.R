@@ -48,7 +48,7 @@ lr_parse_spc <- function(filename) {
   data <- cbind(wl,
                 "dark" = NA_real_,
                 "white" = NA_real_,
-                "scope"= NA_real_,
+                "scope" = NA_real_,
                 processed)
 
   metadata <- rep(NA_character_, 13)

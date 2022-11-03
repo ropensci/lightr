@@ -26,8 +26,8 @@ test_that("Convert all", {
   expect_true(all(file.exists(output_metadata_files)))
 
   # It doesn't change the behaviour of getspec
-#  expect_equal(getspec("conversion_test", exts),
-#               getspec("conversion_test", "csv", sep = ","))
+  # expect_equal(getspec("conversion_test", exts),
+  #              getspec("conversion_test", "csv", sep = ","))
 
   unlink(output_files)
 
@@ -75,7 +75,7 @@ test_that("Convert csv", {
 })
 
 
-test_that("Convert warn/error", {
+test_that("Convert warn & error", {
 
   tdir <- file.path(tempdir(), "test_convert")
   # Total fail

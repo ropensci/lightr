@@ -99,7 +99,7 @@ lr_get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
         return(NULL)
       }
 
-      df <- df[c(min(bounds)-1, bounds, max(bounds)+1), ]
+      df <- df[c(min(bounds) - 1, bounds, max(bounds) + 1), ]
 
       approx(df[, "wl"], df[, "processed"],
              xout = range, ties = "ordered")$y
@@ -107,15 +107,16 @@ lr_get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
   }
 
   with_progress({
-  p <- progressor(along = files)
-  tmp <- future_lapply(files, function(x) {
-    p()
-    tryCatch(
-      gsp(x),
-      error = function(e) {
-       warning(conditionMessage(e))
-       return(NULL)
-      })
+    p <- progressor(along = files)
+    tmp <- future_lapply(files, function(x) {
+      p()
+      tryCatch(
+        gsp(x),
+        error = function(e) {
+          warning(conditionMessage(e))
+          return(NULL)
+        }
+      )
     })
   })
 
@@ -142,16 +143,18 @@ lr_get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
 
     final <- cbind(range, tmp)
   } else {
-    if (length(unique(lapply(tmp, function(x) x[, "wl"])))!=1) {
+    if (length(unique(lapply(tmp, function(x) x[, "wl"]))) != 1) {
       stop("'interpolate = FALSE' can only work if all input files sample the ",
            "same wavelengths.", call. = FALSE)
     }
-    final <- as.data.frame(do.call(cbind, lapply(tmp, function(x) x[, "processed"])))
+    final <- as.data.frame(
+      do.call(cbind, lapply(tmp, function(x) x[, "processed"]))
+    )
 
     final <- cbind(tmp[[1]][, "wl"], final)
 
     # This steps needs to be only run when !interp because it breaks altrep
-    final <- final[final[, 1] <= lim[2] & final[, 1] >= lim[1],]
+    final <- final[final[, 1] <= lim[2] & final[, 1] >= lim[1], ]
   }
 
   colnames(final) <- c("wl", specnames)

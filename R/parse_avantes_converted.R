@@ -30,6 +30,7 @@ lr_parse_ttt <- function(filename) {
 
   author <- NA_character_
 
+  # nolint start
   # FIXME: from what I understand, this "timestamp" is arbitrary since it
   # represents the 10*microsecond units since last reset and we don't know
   # when last reset occurred
@@ -39,6 +40,7 @@ lr_parse_ttt <- function(filename) {
   # if (length(savetime)==0) {
   #   savetime <- NA_character_
   # }
+  # nolint end
   savetime <- NA_character_
 
   specmodel <- NA_character_
@@ -62,13 +64,13 @@ lr_parse_ttt <- function(filename) {
                 dark_boxcar, white_boxcar, scope_boxcar)
 
   data_ind <- grep("^([[:digit:];.,-])+$", content)
-  data <- strsplit(content[data_ind], ";")
+  data <- strsplit(content[data_ind], ";", fixed = TRUE)
   data <- do.call(rbind, data)
 
   # Fix decimal for non-English files
   data <- gsub(",", ".", data, fixed = TRUE)
 
-  colnames(data) <- strsplit(content[data_ind[1]-2], ";", fixed = TRUE)[[1]]
+  colnames(data) <- strsplit(content[data_ind[1] - 2], ";", fixed = TRUE)[[1]]
 
   # Remove trailing whitespaces in names
   colnames(data) <- gsub("[[:space:]]*$", "", colnames(data))
