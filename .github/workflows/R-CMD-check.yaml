@@ -1,10 +1,10 @@
+# Workflow derived from https://github.com/r-lib/actions/tree/v2/examples
+# Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
 on:
   push:
-    branches:
-      - main
+    branches: [main, master]
   pull_request:
-    branches:
-      - main
+    branches: [main, master]
 
 name: R-CMD-check
 
@@ -29,17 +29,14 @@ jobs:
           - {os: ubuntu-20.04,   r: '3.5'}
 
     env:
-      R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
       LANG: ${{ matrix.config.lang }}
       LC_ALL: ${{ matrix.config.lang }}
       TZ: ${{ matrix.config.tz }}
-      _R_CHECK_FORCE_SUGGESTS_: false
-      _R_CHECK_LENGTH_1_CONDITION_: true
-      _R_CHECK_LENGTH_1_LOGIC2_: true
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      R_KEEP_PKG_SOURCE: yes
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Install lang package
         if: runner.os == 'Linux'
@@ -47,13 +44,13 @@ jobs:
           sudo apt-get update
           sudo apt-get install locales language-pack-fr
 
-      - uses: r-lib/actions/setup-r@v1
+      - uses: r-lib/actions/setup-pandoc@v2
+
+      - uses: r-lib/actions/setup-r@v2
         with:
           r-version: ${{ matrix.config.r }}
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
-
-      - uses: r-lib/actions/setup-pandoc@master
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
