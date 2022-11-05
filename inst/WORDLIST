@@ -1,5 +1,6 @@
 AvaSoft
 Avantes
+CMD
 CRAIC
 Chiarenza
 DRK
@@ -40,17 +41,15 @@ arctica
 atlantic
 avantes
 coloration
-com
 csv
 datetime
 doi
 endians
 etc
 jdx
+lintr
 localtimes
-microspectra
 noLD
-oceaninsight
 pavo's
 rOpenSci
 rOpenSci's
@@ -59,4 +58,3 @@ timezones
 un
 uninterpolated
 wl
-www
