@@ -18,3 +18,4 @@
 ^pkgdown$
 ^revdep$
 ^CRAN-SUBMISSION$
+^\.lintr$
