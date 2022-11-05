@@ -1,5 +1,10 @@
 # lightr (development version)
 
+## Internal changes
+
+* this project now uses lintr to ensure the code is always following the current
+best coding practices in the R community
+
 # lightr 1.8.0
 
 * `lr_parse_irr8()`, `lr_parse_rfl8()` and `lr_parse_raw8()` now error if you 
