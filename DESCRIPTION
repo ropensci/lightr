@@ -27,6 +27,7 @@ Imports:
 Suggests:
     digest,
     knitr,
+    lintr,
     pavo,
     rmarkdown,
     spelling,
