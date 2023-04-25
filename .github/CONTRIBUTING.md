@@ -72,5 +72,5 @@ folder](https://drive.google.com/drive/folders/1GSGi0p4dDT7_fFJiWTJ_i_BEEvStcONE
 that contains documents shared in confidence by spectrometer manufacturers, and
 that we cannot make public. If you are an author and you'd like to get access to
 the drive, please email the current package maintainer
-(<hugo.gruson@normalesup.org>) or rOpenSci staff.
+(<hugo.gruson@normalesup.org>) or rOpenSci staff (<info@ropensci.org>).
 
