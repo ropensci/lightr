@@ -87,7 +87,7 @@ lr_parse_generic <- function(filename, decimal = ".", sep = NULL) {
 
   rawsplit <- do.call(rbind, rawsplit)
 
-  if (dim(rawsplit)[2] < 2) {
+  if (is.null(rawsplit) || dim(rawsplit)[2] < 2) {
     stop("Parsing failed.\n",
          "Please a different value for 'sep' argument", call. = FALSE)
   }
