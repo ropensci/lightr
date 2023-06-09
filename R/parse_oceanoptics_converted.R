@@ -32,7 +32,7 @@
 #'
 #' @export
 #'
-lr_parse_jaz <- function(filename) {
+lr_parse_jaz <- function(filename, ...) {
   # METADATA
 
   content <- readLines(filename, skipNul = TRUE)

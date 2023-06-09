@@ -26,12 +26,11 @@
 lr_convert_tocsv <- function(
   where = NULL,
   ext = "txt",
-  decimal = ".",
-  sep = NULL,
   subdir = FALSE,
   ignore.case = TRUE,
   overwrite = FALSE,
-  metadata = TRUE
+  metadata = TRUE,
+  ...
 ) {
   if (is.null(where)) {
     warning(
@@ -71,10 +70,9 @@ lr_convert_tocsv <- function(
       tryCatch(
         spec2csv_single(
           x,
-          decimal = decimal,
-          sep = sep,
           overwrite = overwrite,
-          metadata = metadata
+          metadata = metadata,
+          ...
         ),
         error = function(e) {
           warning(conditionMessage(e), call. = FALSE)
@@ -107,8 +105,8 @@ lr_convert_tocsv <- function(
 }
 
 #' @noRd
-spec2csv_single <- function(filename, decimal, sep, overwrite, metadata) {
-  exported <- dispatch_parser(filename, decimal = decimal, sep = sep)
+spec2csv_single <- function(filename, overwrite, metadata, ...) {
+  exported <- dispatch_parser(filename, ...)
 
   csv_name_data <- paste0(file_path_sans_ext(filename), ".csv")
   csv_name_metadata <- paste0(file_path_sans_ext(filename), "_metadata.csv")

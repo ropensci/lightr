@@ -23,7 +23,7 @@
 #'
 #' @export
 #'
-lr_parse_jdx <- function(filename) {
+lr_parse_jdx <- function(filename, ...) {
   content <- readLines(filename)
   author <- grep("^##OWNER=", content, value = TRUE)
   author <- gsub("^##OWNER= ", "", author)[1]

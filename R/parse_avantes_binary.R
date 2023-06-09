@@ -26,7 +26,7 @@
 #'
 #' @export
 #'
-lr_parse_trm <- function(filename) {
+lr_parse_trm <- function(filename, ...) {
   # Modified from a matlab script by:
   # Copyright: (cc-by) Kotya Karapetyan, 2011.
   # kotya.karapetyan@gmail.com
@@ -233,7 +233,7 @@ lr_parse_roh <- lr_parse_trm
 #' head(res_rfl8_2$data)
 #' res_rfl8_2$metadata
 #'
-lr_parse_rfl8 <- function(filename, specnum = 1L) {
+lr_parse_rfl8 <- function(filename, specnum = 1L, ...) {
   # File structure information provided courtesy of Avantes
 
   f <- file(filename, "rb")
