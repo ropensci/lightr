@@ -19,7 +19,7 @@
 #' @export
 #'
 
-lr_parse_spc <- function(filename) {
+lr_parse_spc <- function(filename, ...) {
   f <- file(filename, "rb")
   on.exit(close(f))
 

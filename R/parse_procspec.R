@@ -20,7 +20,7 @@
 #'
 #' @export
 #'
-lr_parse_procspec <- function(filename) {
+lr_parse_procspec <- function(filename, ...) {
   # We let R find the suitable tmp folder to extract files
   tmp <- tempdir()
 

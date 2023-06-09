@@ -5,6 +5,7 @@
 #' (defaults to `.`).
 #' @param sep Column delimiting characters to be considered in addition to the
 #' default (which are: tab, space, and ";")
+#' @param ... ignored
 #'
 #' @return A named list of two elements:
 #'   * `data`: a dataframe with columns "wl", "dark", "white", "scope" and
@@ -49,7 +50,7 @@
 #' @export
 #'
 
-lr_parse_generic <- function(filename, decimal = ".", sep = NULL) {
+lr_parse_generic <- function(filename, decimal = ".", sep = NULL, ...) {
   seps <- paste(c("[[:blank:]]", sep), collapse = "|\\")
 
   # Code from pavo::getspec

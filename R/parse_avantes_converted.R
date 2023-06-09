@@ -22,7 +22,7 @@
 #'
 #' @export
 #'
-lr_parse_ttt <- function(filename) {
+lr_parse_ttt <- function(filename, ...) {
   # FIXME: grep to find appropriate lines instead of relying on fixed indices
 
   content <- readLines(filename, skipNul = TRUE)
