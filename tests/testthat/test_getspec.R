@@ -58,14 +58,20 @@ test_that("get_spec interpolate", {
 test_that("get_spec warn & error", {
   # Total fail
   expect_warning(
-    expect_message(expect_null(lr_get_spec(test.file(), ext = "fail"))),
-    "File import failed"
+    expect_warning(
+      expect_message(expect_null(lr_get_spec(test.file(), ext = "fail"))),
+      "File import failed"
+    ),
+    "different value for 'sep'"
   )
 
   # Partial fail
   expect_warning(
-    expect_message(lr_get_spec(test.file(), ext = c("fail", "jdx"))),
-    "Could not import one or more"
+    expect_warning(
+      expect_message(lr_get_spec(test.file(), ext = c("fail", "jdx"))),
+      "Could not import one or more"
+    ),
+    "different value for 'sep'"
   )
 
   # Missing
