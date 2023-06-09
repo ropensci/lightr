@@ -24,6 +24,7 @@ dispatch_parser <- function(filename, ...) {
     jaz = lr_parse_jaz(filename, ...),
     jazirrad = lr_parse_jazirrad(filename, ...),
     spc = lr_parse_spc(filename, ...),
+    csv = lr_parse_csv(filename, ...),
     lr_parse_generic(filename, ...)
   )
 }
