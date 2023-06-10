@@ -55,6 +55,7 @@ test_that("Fallback", {
 
 test_that("Similar output for all parsers", {
   files <- list.files(test.file(), recursive = TRUE, include.dirs = TRUE)
+  files <- files[!startsWith(files, "compare/")]
   files <- files[
     !tools::file_ext(files) %in% c("", "fail", "DRK", "REF", "Raw8", "IRR8")
   ]

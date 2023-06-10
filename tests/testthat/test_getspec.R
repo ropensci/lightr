@@ -69,6 +69,26 @@ test_that("get_spec interpolate", {
   expect_identical(nrow(res), 1992L)
 })
 
+test_that("get_spec mixed csv and tabular format", {
+  tdir <- file.path(tempdir(), "csv_mixed")
+
+  expect_warning(expect_warning(expect_warning(
+    expect_message(
+      spec <- lr_get_spec(
+        tdir,
+        ext = c(
+          "txt",
+          "csv"
+        )
+      ),
+      "files found"
+    ),
+    "Could not import"
+  )))
+
+  expect_identical(dim(spec), c(401L, 2L))
+})
+
 test_that("get_spec warn & error", {
   # Total fail
   expect_warning(
