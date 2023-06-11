@@ -7,12 +7,11 @@
 lr_convert_tocsv(
   where = NULL,
   ext = "txt",
-  decimal = ".",
-  sep = NULL,
   subdir = FALSE,
   ignore.case = TRUE,
   overwrite = FALSE,
-  metadata = TRUE
+  metadata = TRUE,
+  ...
 )
 }
 \arguments{
@@ -22,12 +21,6 @@ directory).}
 \item{ext}{File extension to be searched for, without the "." (defaults to
 \code{txt}). You can also use a character vector to specify multiple file
 extensions.}
-
-\item{decimal}{Character to be used to identify decimal plates
-(defaults to \code{.}).}
-
-\item{sep}{Column delimiting characters to be considered in addition to the
-default (which are: tab, space, and ";")}
 
 \item{subdir}{Should subdirectories within the \code{where} folder be included in
 the search? (defaults to \code{FALSE}).}
@@ -40,6 +33,8 @@ the same name? (defaults to \code{FALSE}).}
 
 \item{metadata}{logical (defaults to \code{TRUE}). Should metadata be exported as
 well? They will be exported in csv files will the \verb{_metadata.csv} suffix.}
+
+\item{...}{Arguments passed to individual parsers.}
 }
 \value{
 Convert input files to csv and invisibly return the list of created

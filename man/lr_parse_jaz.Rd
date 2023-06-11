@@ -5,12 +5,14 @@
 \alias{lr_parse_jazirrad}
 \title{Parse OceanOptics converted file}
 \usage{
-lr_parse_jaz(filename)
+lr_parse_jaz(filename, ...)
 
-lr_parse_jazirrad(filename)
+lr_parse_jazirrad(filename, ...)
 }
 \arguments{
 \item{filename}{Path of the file to parse}
+
+\item{...}{ignored}
 }
 \value{
 A named list of two elements:

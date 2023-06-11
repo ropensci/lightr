@@ -7,10 +7,10 @@
 lr_get_metadata(
   where = getwd(),
   ext = "ProcSpec",
-  sep = NULL,
   subdir = FALSE,
   subdir.names = FALSE,
-  ignore.case = TRUE
+  ignore.case = TRUE,
+  ...
 )
 }
 \arguments{
@@ -21,9 +21,6 @@ directory).}
 \code{txt}). You can also use a character vector to specify multiple file
 extensions.}
 
-\item{sep}{Column delimiting characters to be considered in addition to the
-default (which are: tab, space, and ";")}
-
 \item{subdir}{Should subdirectories within the \code{where} folder be included in
 the search? (defaults to \code{FALSE}).}
 
@@ -32,6 +29,8 @@ spectra? (defaults to \code{FALSE}).}
 
 \item{ignore.case}{Should the extension search be case insensitive? (defaults
 to \code{TRUE})}
+
+\item{...}{Arguments passed to individual parsers.}
 }
 \value{
 A data.frame containing one file per row and the following columns:

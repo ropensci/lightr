@@ -4,10 +4,12 @@
 \alias{lr_parse_spc}
 \title{Parse SPC binary file}
 \usage{
-lr_parse_spc(filename)
+lr_parse_spc(filename, ...)
 }
 \arguments{
 \item{filename}{Path of the file to parse}
+
+\item{...}{ignored}
 }
 \value{
 A named list of two elements:

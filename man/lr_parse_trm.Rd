@@ -9,20 +9,22 @@
 \alias{lr_parse_irr8}
 \title{Parse Avantes binary file}
 \usage{
-lr_parse_trm(filename)
+lr_parse_trm(filename, ...)
 
-lr_parse_abs(filename)
+lr_parse_abs(filename, ...)
 
-lr_parse_roh(filename)
+lr_parse_roh(filename, ...)
 
-lr_parse_rfl8(filename, specnum = 1L)
+lr_parse_rfl8(filename, specnum = 1L, ...)
 
-lr_parse_raw8(filename, specnum = 1L)
+lr_parse_raw8(filename, specnum = 1L, ...)
 
-lr_parse_irr8(filename, specnum = 1L)
+lr_parse_irr8(filename, specnum = 1L, ...)
 }
 \arguments{
 \item{filename}{Path of the file to parse}
+
+\item{...}{ignored}
 
 \item{specnum}{Integer representing the position of the spectrum to read in
 the file. This option only makes sense for AvaSoft8 files and is ignored
