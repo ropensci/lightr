@@ -4,7 +4,7 @@
 \alias{lr_parse_generic}
 \title{Generic function to parse spectra files that don't have a specific parser}
 \usage{
-lr_parse_generic(filename, decimal = ".", sep = NULL)
+lr_parse_generic(filename, decimal = ".", sep = NULL, ...)
 }
 \arguments{
 \item{filename}{Path of the file to parse}
@@ -14,6 +14,8 @@ lr_parse_generic(filename, decimal = ".", sep = NULL)
 
 \item{sep}{Column delimiting characters to be considered in addition to the
 default (which are: tab, space, and ";")}
+
+\item{...}{ignored}
 }
 \value{
 A named list of two elements:

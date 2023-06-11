@@ -4,10 +4,12 @@
 \alias{lr_parse_procspec}
 \title{Parse OceanOptics ProcSpec file}
 \usage{
-lr_parse_procspec(filename)
+lr_parse_procspec(filename, ...)
 }
 \arguments{
 \item{filename}{Path of the file to parse}
+
+\item{...}{ignored}
 }
 \value{
 A named list of two elements:

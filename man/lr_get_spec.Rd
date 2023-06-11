@@ -8,12 +8,11 @@ lr_get_spec(
   where = getwd(),
   ext = "txt",
   lim = c(300, 700),
-  decimal = ".",
-  sep = NULL,
   subdir = FALSE,
   subdir.names = FALSE,
   ignore.case = TRUE,
-  interpolate = TRUE
+  interpolate = TRUE,
+  ...
 )
 }
 \arguments{
@@ -27,12 +26,6 @@ extensions.}
 \item{lim}{A vector with two numbers determining the wavelength limits to be
 considered (defaults to \code{c(300, 700)}).}
 
-\item{decimal}{Character to be used to identify decimal plates
-(defaults to \code{.}).}
-
-\item{sep}{Column delimiting characters to be considered in addition to the
-default (which are: tab, space, and ";")}
-
 \item{subdir}{Should subdirectories within the \code{where} folder be included in
 the search? (defaults to \code{FALSE}).}
 
@@ -45,6 +38,8 @@ to \code{TRUE})}
 \item{interpolate}{Boolean indicated whether spectral data should be
 interpolated and pruned at every nanometre. Note that this option can only
 work if all input data samples the same wavelengths. Defaults to \code{TRUE}.}
+
+\item{...}{Arguments passed to individual parsers.}
 }
 \value{
 A data.frame, containing the wavelengths in the first column and

@@ -5,12 +5,14 @@
 \alias{lr_parse_trt}
 \title{Parse Avantes converted file}
 \usage{
-lr_parse_ttt(filename)
+lr_parse_ttt(filename, ...)
 
-lr_parse_trt(filename)
+lr_parse_trt(filename, ...)
 }
 \arguments{
 \item{filename}{Path of the file to parse}
+
+\item{...}{ignored}
 }
 \value{
 A named list of two elements:
