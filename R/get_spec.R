@@ -113,7 +113,7 @@ lr_get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
       tryCatch(
         gsp(x),
         error = function(e) {
-          warning(conditionMessage(e))
+          warning(conditionMessage(e), call. = FALSE)
           return(NULL)
         }
       )

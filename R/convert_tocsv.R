@@ -63,7 +63,7 @@ lr_convert_tocsv <- function(where = NULL, ext = "txt", decimal = ".",
           overwrite = overwrite, metadata = metadata
         ),
         error = function(e) {
-          warning(conditionMessage(e))
+          warning(conditionMessage(e), call. = FALSE)
           return(NULL)
         })
     })

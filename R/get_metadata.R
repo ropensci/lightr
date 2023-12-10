@@ -88,7 +88,7 @@ lr_get_metadata <- function(where = getwd(), ext = "ProcSpec", sep = NULL,
       tryCatch(
         gmd(x),
         error = function(e) {
-          warning(conditionMessage(e))
+          warning(conditionMessage(e), call. = FALSE)
           return(NULL)
         })
     })
