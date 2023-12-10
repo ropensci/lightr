@@ -54,8 +54,8 @@ We manually import the data using the appropriate low-level parser:
 ```{r}
 reflect_data <- lr_parse_procspec(
   system.file("testdata", "procspec_files", "OceanOptics_Linux.ProcSpec",
-               package = "lightr")
-  )
+              package = "lightr")
+)
 length(reflect_data)
 ```
 
@@ -75,7 +75,7 @@ We import that white reference in the same way:
 ```{r}
 white_data <- lr_parse_procspec(
   system.file("testdata", "procspec_files", "whiteref.ProcSpec",
-               package = "lightr")
+              package = "lightr")
 )
 ```
 
