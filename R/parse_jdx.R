@@ -99,6 +99,6 @@ lr_parse_jdx <- function(filename) {
 
   data$processed <- lr_compute_processed(data)
 
-  return(list("data" = data, "metadata" = metadata))
+  return(list(data = data, metadata = metadata))
 
 }

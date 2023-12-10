@@ -95,5 +95,5 @@ lr_parse_procspec <- function(filename) {
                 dark_average, white_average, scope_average,
                 dark_boxcar, white_boxcar, scope_boxcar)
 
-  return(list("data" = as.data.frame(specdf), "metadata" = metadata))
+  return(list(data = as.data.frame(specdf), metadata = metadata))
 }

@@ -150,11 +150,11 @@ lr_parse_jaz <- function(filename) {
   }
   storage.mode(data) <- "numeric"
 
-  cornames <- c("wl" = "W",
-                "dark" = "D",
-                "white" = "R",
-                "scope" = "S",
-                "processed" = "P")
+  cornames <- c(wl = "W",
+                dark = "D",
+                white = "R",
+                scope = "S",
+                processed = "P")
 
   data_final <- setNames(
     as.data.frame(matrix(NA_real_, nrow = nrow(data), ncol = 5)),
@@ -163,7 +163,7 @@ lr_parse_jaz <- function(filename) {
 
   data_final[match(colnames(data), cornames)] <- data
 
-  return(list("data" = data_final, "metadata" = unname(metadata)))
+  return(list(data = data_final, metadata = unname(metadata)))
 }
 
 #' @rdname lr_parse_jaz
