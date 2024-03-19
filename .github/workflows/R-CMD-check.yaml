@@ -21,13 +21,14 @@ jobs:
           - {os: macOS-latest,   r: 'release'}
           - {os: macos-14,       r: 'release'}
           - {os: windows-latest, r: 'release'}
-          - {os: ubuntu-20.04,   r: 'devel'}
-          - {os: ubuntu-20.04,   r: 'release'}
-          - {os: ubuntu-20.04,   r: 'release', lang: fr_FR.UTF-8}
-          - {os: ubuntu-20.04,   r: 'release', tz: EST}
-          - {os: ubuntu-20.04,   r: '4.0'}
-          - {os: ubuntu-20.04,   r: '3.6'}
-          - {os: ubuntu-20.04,   r: '3.5'}
+          - {os: ubuntu-latest,  r: 'devel'}
+          - {os: ubuntu-test,    r: 'release'}
+          - {os: ubuntu-latest,  r: 'release', lang: fr_FR.UTF-8}
+          - {os: ubuntu-latest,  r: 'release', tz: EST}
+          - {os: ubuntu-latest,  r: '4.2'}
+          - {os: ubuntu-latest,  r: '4.1'}
+          - {os: ubuntu-latest,  r: '4.0'}
+          - {os: ubuntu-latest,  r: '3.6'}
 
     env:
       LANG: ${{ matrix.config.lang }}
