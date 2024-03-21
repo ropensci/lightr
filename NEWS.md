@@ -4,6 +4,7 @@
 
 * this project now uses lintr to ensure the code is always following the current
 best coding practices in the R community
+* ensure floating precision issues are not causing tests to fail on CRAN (@Bisaloon, #156)
 
 # lightr 1.8.0
 
