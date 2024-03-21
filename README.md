@@ -4,7 +4,7 @@
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![CRAN version](https://www.r-pkg.org/badges/version-ago/lightr)](https://cran.r-project.org/package=lightr)
 [![R build status](https://github.com/ropensci/lightr/workflows/R-CMD-check/badge.svg)](https://github.com/ropensci/lightr/actions)
-[![Coverage status](https://codecov.io/gh/ropensci/lightr/branch/main/graph/badge.svg)](https://codecov.io/github/ropensci/lightr?branch=main)
+[![Coverage status](https://codecov.io/gh/ropensci/lightr/branch/main/graph/badge.svg)](https://app.codecov.io/github/ropensci/lightr?branch=main)
 [![Reviewed by rOpenSci](https://badges.ropensci.org/267_status.svg)](https://github.com/ropensci/software-review/issues/267)
 [![JOSS paper](https://joss.theoj.org/papers/10.21105/joss.01857/status.svg)](https://joss.theoj.org/papers/10.21105/joss.01857)
 <!-- badges: end -->
