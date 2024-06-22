@@ -51,7 +51,7 @@
 
 lr_parse_generic <- function(filename, decimal = ".", sep = NULL) {
 
-  seps <- paste0(c("[[:blank:]]", sep), collapse = "|\\")
+  seps <- paste(c("[[:blank:]]", sep), collapse = "|\\")
 
   # Code from pavo::getspec
 
@@ -102,13 +102,13 @@ lr_parse_generic <- function(filename, decimal = ".", sep = NULL) {
 
   metadata <- rep(NA_character_, 13)
 
-  data <- data.frame("wl" = rawsplit[, 1],
-                     "dark" = NA_real_,
-                     "white" = NA_real_,
-                     "scope" = NA_real_,
-                     "processed" = rawsplit[, dim(rawsplit)[2]])
+  data <- data.frame(wl = rawsplit[, 1],
+                     dark = NA_real_,
+                     white = NA_real_,
+                     scope = NA_real_,
+                     processed = rawsplit[, dim(rawsplit)[2]])
 
   data <- data[order(data$wl), ]
 
-  return(list("data" = data, "metadata" = metadata))
+  return(list(data = data, metadata = metadata))
 }

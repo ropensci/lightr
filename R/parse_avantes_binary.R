@@ -103,9 +103,9 @@ lr_parse_trm <- function(filename) {
                      c("scope", "white", "dark"))
   } else {# scope mode
     data <- data.frame(
-      "scope" = readBin(f, "numeric", ipixlast - ipixfirst + 1, 4, endian = "little"),
-      "white" = NA_real_,
-      "dark"  = NA_real_
+      scope = readBin(f, "numeric", ipixlast - ipixfirst + 1, 4, endian = "little"),
+      white = NA_real_,
+      dark  = NA_real_
     )
   }
 
@@ -142,7 +142,7 @@ lr_parse_trm <- function(filename) {
                 dark_average, white_average, scope_average,
                 dark_boxcar, white_boxcar, scope_boxcar)
 
-  return(list("data" = data, "metadata" = metadata))
+  return(list(data = data, metadata = metadata))
 }
 
 #' @rdname lr_parse_trm
@@ -302,9 +302,9 @@ lr_parse_rfl8 <- function(filename, specnum = 1L) {
 
     mergegroup <- intToUtf8(readBin(f, "raw", n = 10, endian = "little"))
 
-    data <- as.data.frame(cbind("wl" = xcoord,
+    data <- as.data.frame(cbind(wl = xcoord,
                                 dark,
-                                "white" = reference,
+                                white = reference,
                                 scope))
     data$processed <- lr_compute_processed(data)
 

@@ -88,7 +88,7 @@ lr_get_metadata <- function(where = getwd(), ext = "ProcSpec", sep = NULL,
       tryCatch(
         gmd(x),
         error = function(e) {
-          warning(conditionMessage(e))
+          warning(conditionMessage(e), call. = FALSE)
           return(NULL)
         })
     })
@@ -104,7 +104,7 @@ lr_get_metadata <- function(where = getwd(), ext = "ProcSpec", sep = NULL,
 
     warning(
       "Could not import one or more files:\n",
-      paste0(files[whichfailed], collapse = "\n"),
+      paste(files[whichfailed], collapse = "\n"),
       call. = FALSE
     )
 

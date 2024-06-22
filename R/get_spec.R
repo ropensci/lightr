@@ -113,7 +113,7 @@ lr_get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
       tryCatch(
         gsp(x),
         error = function(e) {
-          warning(conditionMessage(e))
+          warning(conditionMessage(e), call. = FALSE)
           return(NULL)
         }
       )
@@ -129,7 +129,7 @@ lr_get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
   } else if (length(whichfailed) > 0) {
 
     warning("Could not import one or more files:\n",
-      paste0(files[whichfailed], collapse = "\n"),
+      paste(files[whichfailed], collapse = "\n"),
       call. = FALSE
     )
 

@@ -77,11 +77,11 @@ lr_parse_ttt <- function(filename) {
 
   storage.mode(data) <- "numeric"
 
-  cornames <- c("wl" = "Wave",
-                "dark" = "Dark",
-                "white" = "Ref",
-                "scope" = "Sample",
-                "processed" = "Transmittance")
+  cornames <- c(wl = "Wave",
+                dark = "Dark",
+                white = "Ref",
+                scope = "Sample",
+                processed = "Transmittance")
 
   data_final <- setNames(
     as.data.frame(matrix(NA_real_, nrow = nrow(data), ncol = 5)),

@@ -63,7 +63,7 @@ lr_convert_tocsv <- function(where = NULL, ext = "txt", decimal = ".",
           overwrite = overwrite, metadata = metadata
         ),
         error = function(e) {
-          warning(conditionMessage(e))
+          warning(conditionMessage(e), call. = FALSE)
           return(NULL)
         })
     })
@@ -81,7 +81,7 @@ lr_convert_tocsv <- function(where = NULL, ext = "txt", decimal = ".",
 
     warning(
       "Could not import one or more files:\n",
-      paste0(files[whichfailed], collapse = "\n"),
+      paste(files[whichfailed], collapse = "\n"),
       call. = FALSE
     )
   }
