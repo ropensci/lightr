@@ -1,5 +1,9 @@
 # lightr (development version)
 
+## Minor changes
+
+* lightr now depends on R >= 4.0.0, following the tidyverse recommendation
+
 # lightr 1.7.1
 
 ## Internal changes
