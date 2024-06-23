@@ -80,11 +80,7 @@ lr_get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
 
   message(nb_files, " files found; importing spectra:")
 
-  if (!interpolate) {
-    gsp <- function(f) {
-      dispatch_parser(f, decimal = decimal, sep = sep)[[1]]
-    }
-  } else {
+  if (interpolate) {
     gsp <- function(f) {
       df <- dispatch_parser(f, decimal = decimal, sep = sep)[[1]]
 
@@ -98,11 +94,14 @@ lr_get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
                 call. = FALSE)
         return(NULL)
       }
-
       df <- df[c(min(bounds) - 1, bounds, max(bounds) + 1), ]
 
       approx(df[, "wl"], df[, "processed"],
              xout = range, ties = "ordered")$y
+    }
+  } else {
+    gsp <- function(f) {
+      dispatch_parser(f, decimal = decimal, sep = sep)[[1]]
     }
   }
 
