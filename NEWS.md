@@ -3,6 +3,8 @@
 ## Minor changes
 
 * lightr now depends on R >= 4.0.0, following the tidyverse recommendation
+* the future package is now explicitly listed as a dependency, removing an `R CMD check` `NOTE` and thus removing the strain on CRAN reviewers. 
+  The future package was already a indirect dependency via the future.apply package.
 
 # lightr 1.7.1
 
@@ -10,7 +12,7 @@
 
 * this project now uses lintr to ensure the code is always following the current
 best coding practices in the R community
-* ensure floating precision issues are not causing tests to fail on CRAN (@Bisaloon, #156)
+* ensure floating precision issues are not causing tests to fail on CRAN (@Bisaloo, #156)
 
 # lightr 1.8.0
 
