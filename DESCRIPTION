@@ -26,6 +26,7 @@ Imports:
     xml2 (>= 1.0.0)
 Suggests:
     digest,
+    future,
     knitr,
     lintr,
     pavo,
