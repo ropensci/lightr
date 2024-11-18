@@ -61,6 +61,8 @@ lr_parse_jaz <- function(filename) {
   tz <- ""
 
   if (grepl(oo_savetime_regex, savetime)) {
+    # The value we extract here might not follow the official naming and could
+    # not be recognized by tzdata.
     tz <- trimws(gsub(oo_savetime_regex, "\\2", savetime))
     savetime <- gsub(oo_savetime_regex, "\\1 \\3", savetime)
   }
