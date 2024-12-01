@@ -70,6 +70,7 @@ lr_parse_jaz <- function(filename) {
   if (tz == "") {
     tz <- "UTC"
   }
+  tz <- convert_backward_tzdata(tz)
 
   # OceanOptics files use locale-dependent date formats but it looks like they
   # are always using English for this, even when the locale is not set to
