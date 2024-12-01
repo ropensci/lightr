@@ -2,6 +2,10 @@
 
 ## Minor changes
 
+* timezones for converted OceanOptics files are now handled differently internally (@Bisaloo, #64), 
+  to handle changes in upstream tzdata 2024b, which removed for example the CET and EST timezone codes.
+  This may result in some other deprecated timezone codes not being handled correctly.
+  Please report any bugs or discrepancies you may notice in the `datetime` field of metadata.
 * lightr now depends on R >= 4.0.0, following the tidyverse recommendation
 * the future package is now explicitly listed as a dependency, removing an `R CMD check` `NOTE` and thus removing the strain on CRAN reviewers. 
   The future package was already a indirect dependency via the future.apply package.
