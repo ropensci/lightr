@@ -1,7 +1,7 @@
-#' Parse OceanInsight ProcSpec file
+#' Parse OceanOptics ProcSpec file
 #'
-#' Parse OceanInsight (formerly OceanOptics) ProcSpec file.
-#' <https://www.oceaninsight.com/>
+#' Parse OceanOptics/OceanInsight ProcSpec file.
+#' <https://www.oceanoptics.com/>
 #'
 #' @inheritParams lr_parse_generic
 #'
@@ -9,7 +9,7 @@
 #'
 #' @importFrom xml2 read_xml xml_find_all xml_find_first xml_text xml_double
 #'
-#' @references <https://www.oceaninsight.com/support/faqs/software/>
+#' @references <https://www.oceanoptics.com/software/>
 #'
 #' @examples
 #' res <- lr_parse_procspec(system.file("testdata", "procspec_files",

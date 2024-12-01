@@ -2,7 +2,7 @@
 % Please edit documentation in R/parse_procspec.R
 \name{lr_parse_procspec}
 \alias{lr_parse_procspec}
-\title{Parse OceanInsight ProcSpec file}
+\title{Parse OceanOptics ProcSpec file}
 \usage{
 lr_parse_procspec(filename)
 }
@@ -36,8 +36,8 @@ localtimes).
 }
 }
 \description{
-Parse OceanInsight (formerly OceanOptics) ProcSpec file.
-\url{https://www.oceaninsight.com/}
+Parse OceanOptics/OceanInsight ProcSpec file.
+\url{https://www.oceanoptics.com/}
 }
 \details{
 'processed' column computed by official software and provided as is.
@@ -51,5 +51,5 @@ res$metadata
 
 }
 \references{
-\url{https://www.oceaninsight.com/support/faqs/software/}
+\url{https://www.oceanoptics.com/software/}
 }

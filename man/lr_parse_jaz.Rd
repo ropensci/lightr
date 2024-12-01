@@ -3,7 +3,7 @@
 \name{lr_parse_jaz}
 \alias{lr_parse_jaz}
 \alias{lr_parse_jazirrad}
-\title{Parse OceanInsight converted file}
+\title{Parse OceanOptics converted file}
 \usage{
 lr_parse_jaz(filename)
 
@@ -39,8 +39,8 @@ localtimes).
 }
 }
 \description{
-Parse OceanInsight (formerly OceanOptics) converted file.
-\url{https://www.oceaninsight.com/}
+Parse OceanOptics/OceanInsight converted file.
+\url{https://www.oceanoptics.com/}
 }
 \details{
 'processed' column computed by official software and provided as is.

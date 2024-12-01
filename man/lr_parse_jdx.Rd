@@ -2,7 +2,7 @@
 % Please edit documentation in R/parse_jdx.R
 \name{lr_parse_jdx}
 \alias{lr_parse_jdx}
-\title{Parse OceanInsight JCAMP-DX (.jdx) file}
+\title{Parse OceanOptics JCAMP-DX (.jdx) file}
 \usage{
 lr_parse_jdx(filename)
 }
@@ -36,8 +36,8 @@ localtimes).
 }
 }
 \description{
-Parse OceanInsight (formerly OceanOptics) JCAMP-DX (.jdx) file.
-\url{https://www.oceaninsight.com/}
+Parse OceanOptics/OceanInsight JCAMP-DX (.jdx) file.
+\url{https://www.oceanoptics.com/}
 }
 \details{
 'processed' column computed by \pkg{lightr} with the function

@@ -37,7 +37,7 @@ localtimes).
 }
 \description{
 Parse SPC binary file. (Used by CRAIC \url{https://www.microspectra.com/} and
-OceanInsight \url{https://www.oceaninsight.com/})
+OceanOptics \url{https://www.oceanoptics.com/})
 }
 \details{
 'processed' column computed by official software and provided as is.

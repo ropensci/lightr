@@ -1,7 +1,7 @@
-#' Parse OceanInsight converted file
+#' Parse OceanOptics converted file
 #'
-#' Parse OceanInsight (formerly OceanOptics) converted file.
-#' <https://www.oceaninsight.com/>
+#' Parse OceanOptics/OceanInsight converted file.
+#' <https://www.oceanoptics.com/>
 #'
 #' @inheritParams lr_parse_generic
 #'

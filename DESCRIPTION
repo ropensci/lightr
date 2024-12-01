@@ -16,8 +16,8 @@ Description: Parse various reflectance/transmittance/absorbance spectra file
     formats to extract spectral data and metadata, as described in Gruson, White
     & Maia (2019) <doi:10.21105/joss.01857>. Among other formats, it can import
     files from 'Avantes' <https://www.avantes.com/>, 'CRAIC' 
-    <https://www.microspectra.com/>, and 'OceanInsight' (formerly 'OceanOptics') 
-    <https://www.oceaninsight.com/> brands.
+    <https://www.microspectra.com/>, and 'OceanOptics'/'OceanInsight'
+    <https://www.oceanoptics.com/> brands.
 Depends:
     R (>= 4.0.0)
 Imports:
@@ -37,7 +37,7 @@ Suggests:
 URL: https://docs.ropensci.org/lightr/, https://github.com/ropensci/lightr
 BugReports: https://github.com/ropensci/lightr/issues
 License: GPL (>=2)
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2
 Roxygen: list(markdown = TRUE)
 Language: en-GB
 VignetteBuilder: knitr
