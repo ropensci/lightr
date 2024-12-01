@@ -90,7 +90,7 @@ lr_parse_ttt <- function(filename) {
 
   data_final[match(colnames(data), cornames)] <- data
 
-  return(list("data" = data_final, "metadata" = metadata))
+  return(list(data = data_final, metadata = metadata))
 }
 
 #' @rdname lr_parse_ttt

@@ -12,8 +12,8 @@ convert_backward_tzdata <- function(tz) {
   # new test files.
   switch(
     tz,
-    "EST" = "America/Panama",
-    "CET" = "Europe/Brussels",
+    EST = "America/Panama",
+    CET = "Europe/Brussels",
     tz
   )
 

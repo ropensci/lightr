@@ -166,7 +166,7 @@ lr_parse_jaz <- function(filename) {
 
   data_final[match(colnames(data), cornames)] <- data
 
-  return(list("data" = data_final, "metadata" = unname(metadata)))
+  return(list(data = data_final, metadata = unname(metadata)))
 }
 
 #' @rdname lr_parse_jaz

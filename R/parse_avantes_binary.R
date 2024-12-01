@@ -318,7 +318,7 @@ lr_parse_rfl8 <- function(filename, specnum = 1L) {
                                dark_boxcar, white_boxcar, scope_boxcar)
 
     if (specnum == i) {
-      return(list("data" = data, "metadata" = metadata))
+      return(list(data = data, metadata = metadata))
     }
 
   }
