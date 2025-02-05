@@ -36,8 +36,8 @@ lr_parse_procspec <- function(filename, check = FALSE, ...) {
   data_file <- grep(pattern = "ps_\\d+\\.xml", extracted_files, value = TRUE)
 
   if (check) {
-    if (!requireNamespace("openssl")) {
-      warning("The openssl package is required for check = TRUE. ",
+    if (!requireNamespace("digest")) {
+      warning("The digest package is required for check = TRUE. ",
               "Skipping integrity check...", call. = FALSE)
     } else {
       sig <- read_xml(grep(pattern = "OOISignatures\\.xml$", extracted_files, value = TRUE))
@@ -45,7 +45,7 @@ lr_parse_procspec <- function(filename, check = FALSE, ...) {
       saved_hash <- gsub(" ", "", saved_hash)
       algo <- xml_text(xml_find_first(sig, ".//hashAlgorithm"))
       if (algo == "SHA-512") {
-        actual_hash <- as.character(openssl::sha512(file(data_file)))
+        actual_hash <- digest::digest(data_file, algo = "sha512", file = TRUE)
       } else {
         warning("Unknown hash in signature. Skipping.", call. = FALSE)
         actual_hash <- saved_hash
