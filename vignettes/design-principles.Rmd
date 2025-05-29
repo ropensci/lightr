@@ -29,13 +29,15 @@ This package has two-level of functions:
 - low-level parsers to parse spectral data and metadata from a single file, for which the appropriate parser is known. Users have to create their own loops to parse multiple files, as described in `vignette("renormalise", package = "lightr")`.
 - high-level parsers which automatically identify the relevant parser(s) (via the `dispatch_parser()` internal function) for a collection of files and consolidate all the data or metadata in a single rectangular data.frame.
 
-```{mermaid}
+```{comment, echo = FALSE}
 flowchart TD
     A(["lr_get_spec()"]) --> D["dispatch_parser"]
     B(["lr_get_metadata()"]) --> D
     C(["lr_convert_tocsv()"]) --> D
     D --> E["lr_parse_procspec"] & F["lr_parse_ttt"] & G["lr_parse_trt"] & H["lr_parse_jdx"] & I["lr_parse_trm"]
 ```
+
+![Package architecture diagram](architecture.svg)
 
 ## Naming conventions
 
