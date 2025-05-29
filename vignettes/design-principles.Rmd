@@ -1,0 +1,43 @@
+---
+title: "Design Principles for lightr"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Design Principles for lightr}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+This vignette outlines the design decisions that have been taken during the development of the `{lightr}` R package, and provides some of the reasoning, and possible pros and cons of each decision.
+
+This document is primarily intended to be read by those interested in understanding the code within the package and for potential package contributors.
+
+## Scope
+
+This package focuses on files produced by UV/VIS spectrophotometers.
+
+## Architecture
+
+This package has two-level of functions:
+
+- low-level parsers to parse spectral data and metadata from a single file, for which the appropriate parser is known. Users have to create their own loops to parse multiple files, as described in `vignette("renormalise", package = "lightr")`.
+- high-level parsers which automatically identify the relevant parser(s) (via the `dispatch_parser()` internal function) for a collection of files and consolidate all the data or metadata in a single rectangular data.frame.
+
+```{mermaid}
+flowchart TD
+    A(["lr_get_spec()"]) --> D["dispatch_parser"]
+    B(["lr_get_metadata()"]) --> D
+    C(["lr_convert_tocsv()"]) --> D
+    D --> E["lr_parse_procspec"] & F["lr_parse_ttt"] & G["lr_parse_trt"] & H["lr_parse_jdx"] & I["lr_parse_trm"]
+```
+
+## Naming conventions
+
+- All exported functions start with the prefix `lr_`
+- All low-level parsers are named as `lr_parse_<fileext>`
