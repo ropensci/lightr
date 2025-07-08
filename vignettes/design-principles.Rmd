@@ -37,7 +37,9 @@ flowchart TD
     D --> E["lr_parse_procspec"] & F["lr_parse_ttt"] & G["lr_parse_trt"] & H["lr_parse_jdx"] & I["lr_parse_trm"]
 ```
 
-![Package architecture diagram](architecture.svg)
+```{r, fig.cap = "Package architecture diagram", fig.alt = "The high-level functions (lr_get_spec(), lr_get_metadata() and lr_convert_tocsv()) feed individual files to the internal dispatch function (dispatch_parser()), which then passes each file to the relevant low-level parser."}
+knitr::include_graphics("architecture.svg")
+```
 
 ## Naming conventions
 
