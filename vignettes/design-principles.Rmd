@@ -7,7 +7,8 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, include = FALSE}
+```{r}
+#| include: false
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -29,7 +30,8 @@ This package has two-level of functions:
 - low-level parsers to parse spectral data and metadata from a single file, for which the appropriate parser is known. Users have to create their own loops to parse multiple files, as described in `vignette("renormalise", package = "lightr")`.
 - high-level parsers which automatically identify the relevant parser(s) (via the `dispatch_parser()` internal function) for a collection of files and consolidate all the data or metadata in a single rectangular data.frame.
 
-```{comment, echo = FALSE}
+```{comment}
+#| echo: false
 flowchart TD
     A(["lr_get_spec()"]) --> D["dispatch_parser"]
     B(["lr_get_metadata()"]) --> D
@@ -37,7 +39,11 @@ flowchart TD
     D --> E["lr_parse_procspec"] & F["lr_parse_ttt"] & G["lr_parse_trt"] & H["lr_parse_jdx"] & I["lr_parse_trm"]
 ```
 
-```{r, fig.cap = "Package architecture diagram", fig.alt = "The high-level functions (lr_get_spec(), lr_get_metadata() and lr_convert_tocsv()) feed individual files to the internal dispatch function (dispatch_parser()), which then passes each file to the relevant low-level parser."}
+```{r}
+#| fig-cap: Package architecture diagram
+#| fig-alt: The high-level functions (lr_get_spec(), lr_get_metadata() and lr_convert_tocsv())
+#|   feed individual files to the internal dispatch function (dispatch_parser()), which
+#|   then passes each file to the relevant low-level parser.
 knitr::include_graphics("architecture.svg")
 ```
 

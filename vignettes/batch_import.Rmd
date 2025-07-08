@@ -113,6 +113,7 @@ their analysis using another programming language or software.
 It works in a very similar way to `lr_get_spec()` and will create `csv` files 
 with the same file names as the input files (but a different extension).
 
-```{r eval = FALSE}
+```{r}
+#| eval: false
 lr_convert_tocsv(where = "data", ext = "procspec", subdir = TRUE)
 ```
