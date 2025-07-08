@@ -48,13 +48,13 @@ test_that("get_spec range", {
 })
 
 test_that("get_spec interpolate", {
-  expect_error(
-    expect_message(lr_get_spec(
+  expect_snapshot(
+    lr_get_spec(
       test.file("procspec_files"),
       ext = "ProcSpec",
       interpolate = FALSE
-    )),
-    "'interpolate = FALSE' can only work"
+    ),
+    error = TRUE
   )
 
   expect_message(

@@ -1329,3 +1329,13 @@
     AQAEAAkAAAAFY2xhc3MAAAAQAAAAAgAEAAkAAAAFcnNwZWMABAAJAAAACmRhdGEuZnJhbWUA
     AAQCAAAAAQAEAAkAAAAJcm93Lm5hbWVzAAAADQAAAAKAAAAA///+bwAAAP4=
 
+# get_spec interpolate
+
+    Code
+      lr_get_spec(test.file("procspec_files"), ext = "ProcSpec", interpolate = FALSE)
+    Message
+      4 files found; importing spectra:
+    Condition
+      Error:
+      ! 'interpolate = FALSE' can only work if all input files sample the same wavelengths.
+

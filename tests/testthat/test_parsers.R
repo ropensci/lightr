@@ -1,5 +1,3 @@
-local_edition(2)
-
 test_that("OceanOptics ProcSpec", {
   # We have mismatches that can't be reproduced from CRAN M1 machine
   skip_on_cran()
@@ -178,8 +176,12 @@ test_that("Avantes", {
     "8a4b93655f"
   )
 
-  rfl8_1_implicit <- expect_warning(
-    lr_parse_rfl8(test.file("compare", "Avantes", "feather.RFL8")),
+  expect_warning(
+    rfl8_1_implicit <- lr_parse_rfl8(test.file(
+      "compare",
+      "Avantes",
+      "feather.RFL8"
+    )),
     "argument is missing"
   )
   rfl8_1 <- expect_silent(
@@ -198,9 +200,9 @@ test_that("Avantes", {
     "6012c0aa1c"
   )
 
-  expect_error(
+  expect_snapshot(
     lr_parse_rfl8(test.file("compare", "Avantes", "feather.RFL8"), specnum = 5),
-    "'specnum' is larger"
+    error = TRUE
   )
 
   # expect_known_hash(
@@ -221,7 +223,10 @@ test_that("CRAIC", {
 test_that("Generic", {
   skip_on_os("solaris")
 
-  expect_error(lr_parse_generic(test.file("spec.csv")), "Parsing failed.")
+  expect_snapshot(
+    lr_parse_generic(test.file("spec.csv")),
+    error = TRUE
+  )
 
   expect_known_hash(
     expect_silent(lr_parse_generic(test.file("spec.csv"), sep = ",")),
