@@ -10,6 +10,10 @@ linters: linters_with_tags(
     commented_code_linter = NULL,
     indentation_linter = NULL,
     nonportable_path_linter = NULL,
+    object_overwrite_linter = NULL,
+    return_linter = NULL,
+    library_call_linter = NULL,
+    implicit_assignment_linter = NULL,
     endian_linter = lightr:::endian_linter()
   )
 
