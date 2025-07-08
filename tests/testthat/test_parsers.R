@@ -1,57 +1,70 @@
 local_edition(2)
 
 test_that("OceanOptics ProcSpec", {
-
   # We have mismatches that can't be reproduced from CRAN M1 machine
   skip_on_cran()
 
   if (capabilities(what = "long.double")) {
-
     expect_known_hash(
-      expect_silent(lr_parse_procspec(test.file("procspec_files", "OceanOptics_Linux.ProcSpec"))),
+      expect_silent(lr_parse_procspec(test.file(
+        "procspec_files",
+        "OceanOptics_Linux.ProcSpec"
+      ))),
       "f98109a490"
     )
 
     expect_known_hash(
-      expect_silent(lr_parse_procspec(test.file("procspec_files", "OceanOptics_Windows.ProcSpec"))),
+      expect_silent(lr_parse_procspec(test.file(
+        "procspec_files",
+        "OceanOptics_Windows.ProcSpec"
+      ))),
       "38f10dbdc7"
     )
 
     expect_known_hash(
-      expect_silent(lr_parse_procspec(test.file("procspec_files", "OceanOptics_badencode.ProcSpec"))),
+      expect_silent(lr_parse_procspec(test.file(
+        "procspec_files",
+        "OceanOptics_badencode.ProcSpec"
+      ))),
       "04cb771bd7"
     )
-
   } else {
-
     expect_known_hash(
-      expect_silent(lr_parse_procspec(test.file("procspec_files", "OceanOptics_Linux.ProcSpec"))),
+      expect_silent(lr_parse_procspec(test.file(
+        "procspec_files",
+        "OceanOptics_Linux.ProcSpec"
+      ))),
       "c937c66868"
     )
 
     expect_known_hash(
-      expect_silent(lr_parse_procspec(test.file("procspec_files", "OceanOptics_Windows.ProcSpec"))),
+      expect_silent(lr_parse_procspec(test.file(
+        "procspec_files",
+        "OceanOptics_Windows.ProcSpec"
+      ))),
       "5751112645"
     )
 
     expect_known_hash(
-      expect_silent(lr_parse_procspec(test.file("procspec_files", "OceanOptics_badencode.ProcSpec"))),
+      expect_silent(lr_parse_procspec(test.file(
+        "procspec_files",
+        "OceanOptics_badencode.ProcSpec"
+      ))),
       "78c84f7e93"
     )
-
   }
-
 })
 
 test_that("OceanOptics others", {
-
   skip_on_os("solaris")
 
   # Floating point precision issue on noLD platforms.
   # This is caused by the conversion to "numeric":
   # storage.mode(data) <- "numeric"
   expect_identical(
-    digest::sha1(expect_silent(lr_parse_jdx(test.file("OceanOptics_period.jdx")))),
+    digest::sha1(expect_silent(lr_parse_jdx(test.file(
+      "OceanOptics_period.jdx"
+    )))),
     "34745a6112ef7679fbf0bc694d952c6eecdb347a"
   )
 
@@ -59,7 +72,10 @@ test_that("OceanOptics others", {
   # This is caused by the conversion to "numeric":
   # storage.mode(data) <- "numeric"
   expect_identical(
-    digest::sha1(expect_silent(lr_parse_jdx(test.file("non_english", "OceanOptics_comma.jdx")))),
+    digest::sha1(expect_silent(lr_parse_jdx(test.file(
+      "non_english",
+      "OceanOptics_comma.jdx"
+    )))),
     "7c17148cb62abe1053048eb0ca1c3c55b43b482b"
   )
 
@@ -82,7 +98,9 @@ test_that("OceanOptics others", {
   )
 
   expect_known_hash(
-    expect_silent(lr_parse_jaz(test.file("FMNH6834.00000001.Master.Transmission"))),
+    expect_silent(lr_parse_jaz(test.file(
+      "FMNH6834.00000001.Master.Transmission"
+    ))),
     "b96dd6783"
   )
 
@@ -100,14 +118,15 @@ test_that("OceanOptics others", {
   )
 
   expect_known_hash(
-    suppressWarnings(lr_parse_jaz(test.file("non_english", "OceanView_nonEN.txt"))),
+    suppressWarnings(lr_parse_jaz(test.file(
+      "non_english",
+      "OceanView_nonEN.txt"
+    ))),
     "4e7b424f6d"
   )
-
 })
 
 test_that("Avantes", {
-
   skip_on_os("solaris")
 
   expect_known_hash(
@@ -172,8 +191,10 @@ test_that("Avantes", {
   expect_known_hash(rfl8_1, "9bf9f003dd")
 
   expect_known_hash(
-    expect_silent(lr_parse_rfl8(test.file("compare", "Avantes", "feather.RFL8"),
-                                specnum = 2)),
+    expect_silent(lr_parse_rfl8(
+      test.file("compare", "Avantes", "feather.RFL8"),
+      specnum = 2
+    )),
     "6012c0aa1c"
   )
 
@@ -186,22 +207,18 @@ test_that("Avantes", {
   #   expect_silent(lr_parse_raw8(test.file("1904090M1_0003.Raw8"))),
   #   "7ff3a7ed7a"
   # )
-
 })
 
 test_that("CRAIC", {
-
   skip_on_os("solaris")
 
   expect_known_hash(
     expect_silent(lr_parse_spc(test.file("compare", "CRAIC", "CRAIC.spc"))),
     "12780a7f0d"
   )
-
 })
 
 test_that("Generic", {
-
   skip_on_os("solaris")
 
   expect_error(lr_parse_generic(test.file("spec.csv")), "Parsing failed.")
@@ -221,7 +238,9 @@ test_that("Generic", {
   # storage.mode(rawsplit) <- "numeric"
   # in parse_generic()
   expect_identical(
-    digest::sha1(expect_silent(lr_parse_generic(test.file("irr_820_1941.IRR")))),
+    digest::sha1(expect_silent(lr_parse_generic(test.file(
+      "irr_820_1941.IRR"
+    )))),
     "55a511f366b3ec370ef32b7ca64ab06bebd4ce63"
   )
 
@@ -234,13 +253,18 @@ test_that("Generic", {
   # here by default
 
   expect_known_hash(
-    expect_silent(lr_parse_generic(test.file("non_english", "OceanView_nonEN.txt"), decimal = ",")),
+    expect_silent(lr_parse_generic(
+      test.file("non_english", "OceanView_nonEN.txt"),
+      decimal = ","
+    )),
     "ca6a058368"
   )
 
   expect_known_hash(
-    expect_silent(lr_parse_generic(test.file("non_english", "OO_comma.txt"), decimal = ",")),
+    expect_silent(lr_parse_generic(
+      test.file("non_english", "OO_comma.txt"),
+      decimal = ","
+    )),
     "c061c4395f"
   )
-
 })

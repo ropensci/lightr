@@ -45,16 +45,25 @@
 #' spcs <- lr_get_spec(system.file("testdata", package = "lightr"), ext = "jdx")
 #' head(spcs)
 #'
-lr_get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
-                        decimal = ".", sep = NULL, subdir = FALSE,
-                        subdir.names = FALSE, ignore.case = TRUE,
-                        interpolate = TRUE) {
-
+lr_get_spec <- function(
+  where = getwd(),
+  ext = "txt",
+  lim = c(300, 700),
+  decimal = ".",
+  sep = NULL,
+  subdir = FALSE,
+  subdir.names = FALSE,
+  ignore.case = TRUE,
+  interpolate = TRUE
+) {
   extension <- paste0("\\.", ext, "$", collapse = "|")
 
-  file_names <- list.files(where,
-    pattern = extension, ignore.case = ignore.case,
-    recursive = subdir, include.dirs = subdir
+  file_names <- list.files(
+    where,
+    pattern = extension,
+    ignore.case = ignore.case,
+    recursive = subdir,
+    include.dirs = subdir
   )
 
   # This step is needed to ensure reproducibility between locales and platforms
@@ -63,8 +72,10 @@ lr_get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
   nb_files <- length(file_names)
 
   if (nb_files == 0) {
-    warning('No files found. Try a different value for argument "ext".',
-            call. = FALSE)
+    warning(
+      'No files found. Try a different value for argument "ext".',
+      call. = FALSE
+    )
     return(NULL)
   }
 
@@ -90,14 +101,16 @@ lr_get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
       bounds <- which(df$wl >= lim[1] & df$wl <= lim[2])
 
       if (length(bounds) == 0) {
-        warning(f, " does not contain spectral data over the provided wl range",
-                call. = FALSE)
+        warning(
+          f,
+          " does not contain spectral data over the provided wl range",
+          call. = FALSE
+        )
         return(NULL)
       }
       df <- df[c(min(bounds) - 1, bounds, max(bounds) + 1), ]
 
-      approx(df[, "wl"], df[, "processed"],
-             xout = range, ties = "ordered")$y
+      approx(df[, "wl"], df[, "processed"], xout = range, ties = "ordered")$y
     }
   } else {
     gsp <- function(f) {
@@ -122,12 +135,15 @@ lr_get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
   whichfailed <- which(vapply(tmp, is.null, logical(1)))
 
   if (length(whichfailed) == nb_files) {
-    warning("File import failed.\n",
-            "Check input files and function arguments.", call. = FALSE)
+    warning(
+      "File import failed.\n",
+      "Check input files and function arguments.",
+      call. = FALSE
+    )
     return(NULL)
   } else if (length(whichfailed) > 0) {
-
-    warning("Could not import one or more files:\n",
+    warning(
+      "Could not import one or more files:\n",
       paste(files[whichfailed], collapse = "\n"),
       call. = FALSE
     )
@@ -146,8 +162,11 @@ lr_get_spec <- function(where = getwd(), ext = "txt", lim = c(300, 700),
     final <- cbind(range, tmp)
   } else {
     if (length(unique(lapply(tmp, function(x) x[, "wl"]))) != 1) {
-      stop("'interpolate = FALSE' can only work if all input files sample the ",
-           "same wavelengths.", call. = FALSE)
+      stop(
+        "'interpolate = FALSE' can only work if all input files sample the ",
+        "same wavelengths.",
+        call. = FALSE
+      )
     }
 
     # Errors have created NULL elements that we need to remove

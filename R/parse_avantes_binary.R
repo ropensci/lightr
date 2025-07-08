@@ -27,7 +27,6 @@
 #' @export
 #'
 lr_parse_trm <- function(filename) {
-
   # Modified from a matlab script by:
   # Copyright: (cc-by) Kotya Karapetyan, 2011.
   # kotya.karapetyan@gmail.com
@@ -43,13 +42,22 @@ lr_parse_trm <- function(filename) {
   versionID <- readBin(f, "numeric", n = 1, size = 4, endian = "little")
 
   if (!versionID %in% c(60, 70)) {
-    stop("parsing for this file type has not yet been implemented. ",
-         "Please open an issue with the problematic file.", call. = FALSE)
+    stop(
+      "parsing for this file type has not yet been implemented. ",
+      "Please open an issue with the problematic file.",
+      call. = FALSE
+    )
   }
 
   if (versionID == 70) {
     specID <- intToUtf8(readBin(f, "numeric", 9, 4, endian = "little"))
-    userfriendlyname <- intToUtf8(readBin(f, "numeric", 64, 4, endian = "little"))
+    userfriendlyname <- intToUtf8(readBin(
+      f,
+      "numeric",
+      64,
+      4,
+      endian = "little"
+    ))
   }
 
   # Coefficients for the polynome controlling wavelength sampling
@@ -98,28 +106,61 @@ lr_parse_trm <- function(filename) {
 
   # Data
   if (grepl("\\.(abs|trm)$", filename, ignore.case = TRUE)) {
-    data <- readBin(f, "numeric", 3 * (ipixlast - ipixfirst + 1), 4, endian = "little")
-    data <- setNames(as.data.frame(matrix(data, ncol = 3, byrow = TRUE)),
-                     c("scope", "white", "dark"))
-  } else {# scope mode
+    data <- readBin(
+      f,
+      "numeric",
+      3 * (ipixlast - ipixfirst + 1),
+      4,
+      endian = "little"
+    )
+    data <- setNames(
+      as.data.frame(matrix(data, ncol = 3, byrow = TRUE)),
+      c("scope", "white", "dark")
+    )
+  } else {
+    # scope mode
     data <- data.frame(
-      scope = readBin(f, "numeric", ipixlast - ipixfirst + 1, 4, endian = "little"),
+      scope = readBin(
+        f,
+        "numeric",
+        ipixlast - ipixfirst + 1,
+        4,
+        endian = "little"
+      ),
       white = NA_real_,
-      dark  = NA_real_
+      dark = NA_real_
     )
   }
 
   # integration time [ms] during file-save
-  dark_inttime <- white_inttime <- scope_inttime <- readBin(f, "numeric", 1, 4, endian = "little")
+  dark_inttime <- white_inttime <- scope_inttime <- readBin(
+    f,
+    "numeric",
+    1,
+    4,
+    endian = "little"
+  )
 
   # nr of average during file-save
-  dark_average <- white_average <- scope_average <- readBin(f, "numeric", 1, 4, endian = "little")
+  dark_average <- white_average <- scope_average <- readBin(
+    f,
+    "numeric",
+    1,
+    4,
+    endian = "little"
+  )
 
   if (versionID == 70) {
     integrationdelay <- readBin(f, "numeric", 1, 4, endian = "little")
   }
   if (versionID == 60) {
-    dark_boxcar <- white_boxcar <- scope_boxcar <- readBin(f, "numeric", 1, 4, endian = "little")
+    dark_boxcar <- white_boxcar <- scope_boxcar <- readBin(
+      f,
+      "numeric",
+      1,
+      4,
+      endian = "little"
+    )
   }
   savetime <- NA_character_
 
@@ -137,10 +178,21 @@ lr_parse_trm <- function(filename) {
 
   author <- NA_character_
   specmodel <- NA_character_
-  metadata <- c(author, savetime, specmodel, specID,
-                dark_inttime, white_inttime, scope_inttime,
-                dark_average, white_average, scope_average,
-                dark_boxcar, white_boxcar, scope_boxcar)
+  metadata <- c(
+    author,
+    savetime,
+    specmodel,
+    specID,
+    dark_inttime,
+    white_inttime,
+    scope_inttime,
+    dark_average,
+    white_average,
+    scope_average,
+    dark_boxcar,
+    white_boxcar,
+    scope_boxcar
+  )
 
   return(list(data = data, metadata = metadata))
 }
@@ -182,7 +234,6 @@ lr_parse_roh <- lr_parse_trm
 #' res_rfl8_2$metadata
 #'
 lr_parse_rfl8 <- function(filename, specnum = 1L) {
-
   # File structure information provided courtesy of Avantes
 
   f <- file(filename, "rb")
@@ -195,23 +246,34 @@ lr_parse_rfl8 <- function(filename, specnum = 1L) {
     stop(
       "This parser has only been tested properly with files produced by ",
       "AvaSoft 8.2.\nIf you're seeing this error message and would like us to ",
-      "support your files, please get in touch with an example.", call. = FALSE
+      "support your files, please get in touch with an example.",
+      call. = FALSE
     )
   }
 
   # number of spectra in file
-  numspectra <- readBin(f, "integer", size = 1, signed = FALSE, endian = "little")
+  numspectra <- readBin(
+    f,
+    "integer",
+    size = 1,
+    signed = FALSE,
+    endian = "little"
+  )
 
   if (numspectra > 1 && missing(specnum)) {
     warning(
-      "This file contains ", numspectra, " spectra and 'specnum' argument is ",
+      "This file contains ",
+      numspectra,
+      " spectra and 'specnum' argument is ",
       "missing. Returning the first spectrum by default.",
       call. = FALSE
     )
   }
   if (specnum > numspectra) {
-    stop("'specnum' is larger than the number of spectra in the input file",
-         call. = FALSE)
+    stop(
+      "'specnum' is larger than the number of spectra in the input file",
+      call. = FALSE
+    )
   }
 
   for (i in seq_len(numspectra)) {
@@ -231,11 +293,29 @@ lr_parse_rfl8 <- function(filename, specnum = 1L) {
     # - 5: irradiance
     # - 6: relative irradiance
     # - 7: temperature
-    measmode <- readBin(f, "integer", size = 1, signed = FALSE, endian = "little")
+    measmode <- readBin(
+      f,
+      "integer",
+      size = 1,
+      signed = FALSE,
+      endian = "little"
+    )
 
-    bitness <- readBin(f, "integer", size = 1, signed = FALSE, endian = "little")
+    bitness <- readBin(
+      f,
+      "integer",
+      size = 1,
+      signed = FALSE,
+      endian = "little"
+    )
 
-    SDmarker <- readBin(f, "integer", size = 1, signed = FALSE, endian = "little")
+    SDmarker <- readBin(
+      f,
+      "integer",
+      size = 1,
+      signed = FALSE,
+      endian = "little"
+    )
 
     # AvsIdentityType (75 bytes)
     specID <- rawToChar(readBin(f, "raw", n = 10, endian = "little"))
@@ -243,9 +323,26 @@ lr_parse_rfl8 <- function(filename, specnum = 1L) {
     status <- readBin(f, "integer", size = 1, signed = FALSE, endian = "little")
 
     # MeasConfigType (41 bytes)
-    m_startpixel <- readBin(f, "integer", size = 2, signed = FALSE, endian = "little")
-    m_stoppixel <- readBin(f, "integer", size = 2, signed = FALSE, endian = "little")
-    dark_inttime <- white_inttime <- scope_inttime <- readBin(f, "numeric", size = 4, endian = "little")
+    m_startpixel <- readBin(
+      f,
+      "integer",
+      size = 2,
+      signed = FALSE,
+      endian = "little"
+    )
+    m_stoppixel <- readBin(
+      f,
+      "integer",
+      size = 2,
+      signed = FALSE,
+      endian = "little"
+    )
+    dark_inttime <- white_inttime <- scope_inttime <- readBin(
+      f,
+      "numeric",
+      size = 4,
+      endian = "little"
+    )
     m_integrationdelay <- int32_to_uint32(
       readBin(f, "integer", size = 4, endian = "little")
     )
@@ -254,22 +351,70 @@ lr_parse_rfl8 <- function(filename, specnum = 1L) {
     )
 
     ## DarkCorrectionType
-    m_enable <- readBin(f, "integer", size = 1, signed = FALSE, endian = "little")
-    m_forgetpercentage <- readBin(f, "integer", size = 1, signed = FALSE, endian = "little")
+    m_enable <- readBin(
+      f,
+      "integer",
+      size = 1,
+      signed = FALSE,
+      endian = "little"
+    )
+    m_forgetpercentage <- readBin(
+      f,
+      "integer",
+      size = 1,
+      signed = FALSE,
+      endian = "little"
+    )
 
     ## SmoothingType
-    dark_boxcar <- white_boxcar <- scope_boxcar <- readBin(f, "integer", size = 2, signed = FALSE, endian = "little")
-    m_smoothmodel <- readBin(f, "integer", size = 1, signed = FALSE, endian = "little")
+    dark_boxcar <- white_boxcar <- scope_boxcar <- readBin(
+      f,
+      "integer",
+      size = 2,
+      signed = FALSE,
+      endian = "little"
+    )
+    m_smoothmodel <- readBin(
+      f,
+      "integer",
+      size = 1,
+      signed = FALSE,
+      endian = "little"
+    )
 
-    m_saturationdetection <- readBin(f, "integer", size = 1, signed = FALSE, endian = "little")
+    m_saturationdetection <- readBin(
+      f,
+      "integer",
+      size = 1,
+      signed = FALSE,
+      endian = "little"
+    )
 
     ## TriggerType
     m_mode <- readBin(f, "integer", size = 1, signed = FALSE, endian = "little")
-    m_source <- readBin(f, "integer", size = 1, signed = FALSE, endian = "little")
-    m_sourcetype <- readBin(f, "integer", size = 1, signed = FALSE, endian = "little")
+    m_source <- readBin(
+      f,
+      "integer",
+      size = 1,
+      signed = FALSE,
+      endian = "little"
+    )
+    m_sourcetype <- readBin(
+      f,
+      "integer",
+      size = 1,
+      signed = FALSE,
+      endian = "little"
+    )
 
     ## ControlSettingsType
-    m_strobecontrol <- readBin(f, "integer", size = 2, signed = FALSE, endian = "little")
+    m_strobecontrol <- readBin(
+      f,
+      "integer",
+      size = 2,
+      signed = FALSE,
+      endian = "little"
+    )
     m_laserdelay <- int32_to_uint32(
       readBin(f, "integer", size = 4, endian = "little")
     )
@@ -277,7 +422,13 @@ lr_parse_rfl8 <- function(filename, specnum = 1L) {
       readBin(f, "integer", size = 4, endian = "little")
     )
     m_laserwavelength <- readBin(f, "numeric", size = 4, endian = "little")
-    m_storetoram <- readBin(f, "integer", size = 2, signed = FALSE, endian = "little")
+    m_storetoram <- readBin(
+      f,
+      "integer",
+      size = 2,
+      signed = FALSE,
+      endian = "little"
+    )
 
     timestamp <- readBin(f, "raw", n = 4, endian = "little")
     SPCfiledate <- readBin(f, "raw", n = 4, endian = "little")
@@ -302,25 +453,32 @@ lr_parse_rfl8 <- function(filename, specnum = 1L) {
 
     mergegroup <- intToUtf8(readBin(f, "raw", n = 10, endian = "little"))
 
-    data <- as.data.frame(cbind(wl = xcoord,
-                                dark,
-                                white = reference,
-                                scope))
+    data <- as.data.frame(cbind(wl = xcoord, dark, white = reference, scope))
     data$processed <- lr_compute_processed(data)
 
     author <- NA_character_
     savetime <- NA_character_ # FIXME: extract this from SPCfiledate
     specmodel <- NA_character_
 
-    metadata <-  metadata <- c(author, savetime, specmodel, specID,
-                               dark_inttime, white_inttime, scope_inttime,
-                               dark_average, white_average, scope_average,
-                               dark_boxcar, white_boxcar, scope_boxcar)
+    metadata <- metadata <- c(
+      author,
+      savetime,
+      specmodel,
+      specID,
+      dark_inttime,
+      white_inttime,
+      scope_inttime,
+      dark_average,
+      white_average,
+      scope_average,
+      dark_boxcar,
+      white_boxcar,
+      scope_boxcar
+    )
 
     if (specnum == i) {
       return(list(data = data, metadata = metadata))
     }
-
   }
 }
 
