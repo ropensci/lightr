@@ -20,7 +20,6 @@
 #'
 
 lr_parse_spc <- function(filename) {
-
   f <- file(filename, "rb")
   on.exit(close(f))
 
@@ -45,14 +44,15 @@ lr_parse_spc <- function(filename) {
 
   processed <- readBin(f, "numeric", n = dat_len, size = 4, endian = "little")
 
-  data <- cbind(wl,
-                dark = NA_real_,
-                white = NA_real_,
-                scope = NA_real_,
-                processed)
+  data <- cbind(
+    wl,
+    dark = NA_real_,
+    white = NA_real_,
+    scope = NA_real_,
+    processed
+  )
 
   metadata <- rep(NA_character_, 13)
 
   return(list(data = as.data.frame(data), metadata = metadata))
-
 }

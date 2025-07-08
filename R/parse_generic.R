@@ -50,14 +50,16 @@
 #'
 
 lr_parse_generic <- function(filename, decimal = ".", sep = NULL) {
-
   seps <- paste(c("[[:blank:]]", sep), collapse = "|\\")
 
   # Code from pavo::getspec
 
   raw <- scan(
-    file = filename, what = character(), quiet = TRUE,
-    sep = "\n", skipNul = TRUE
+    file = filename,
+    what = character(),
+    quiet = TRUE,
+    sep = "\n",
+    skipNul = TRUE
   )
 
   # Convert to ASCII
@@ -88,8 +90,11 @@ lr_parse_generic <- function(filename, decimal = ".", sep = NULL) {
   rawsplit <- do.call(rbind, rawsplit)
 
   if (is.null(rawsplit) || dim(rawsplit)[2] < 2) {
-    stop("Parsing failed.\n",
-         "Please a different value for 'sep' argument", call. = FALSE)
+    stop(
+      "Parsing failed.\n",
+      "Please a different value for 'sep' argument",
+      call. = FALSE
+    )
   }
 
   # convert to numeric, check for NA
@@ -102,11 +107,13 @@ lr_parse_generic <- function(filename, decimal = ".", sep = NULL) {
 
   metadata <- rep(NA_character_, 13)
 
-  data <- data.frame(wl = rawsplit[, 1],
-                     dark = NA_real_,
-                     white = NA_real_,
-                     scope = NA_real_,
-                     processed = rawsplit[, dim(rawsplit)[2]])
+  data <- data.frame(
+    wl = rawsplit[, 1],
+    dark = NA_real_,
+    white = NA_real_,
+    scope = NA_real_,
+    processed = rawsplit[, dim(rawsplit)[2]]
+  )
 
   data <- data[order(data$wl), ]
 

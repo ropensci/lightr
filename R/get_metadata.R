@@ -43,15 +43,22 @@
 #'                 ext = "ProcSpec")
 #' }
 
-lr_get_metadata <- function(where = getwd(), ext = "ProcSpec", sep = NULL,
-                            subdir = FALSE, subdir.names = FALSE,
-                            ignore.case = TRUE) {
-
+lr_get_metadata <- function(
+  where = getwd(),
+  ext = "ProcSpec",
+  sep = NULL,
+  subdir = FALSE,
+  subdir.names = FALSE,
+  ignore.case = TRUE
+) {
   extension <- paste0("\\.", ext, "$", collapse = "|")
 
-  file_names <- list.files(where,
-    pattern = extension, ignore.case = ignore.case,
-    recursive = subdir, include.dirs = subdir
+  file_names <- list.files(
+    where,
+    pattern = extension,
+    ignore.case = ignore.case,
+    recursive = subdir,
+    include.dirs = subdir
   )
 
   # This step is needed to ensure reproducibility between locales and platforms
@@ -60,8 +67,10 @@ lr_get_metadata <- function(where = getwd(), ext = "ProcSpec", sep = NULL,
   nb_files <- length(file_names)
 
   if (nb_files == 0) {
-    warning('No files found. Try a different value for argument "ext".',
-            call. = FALSE)
+    warning(
+      'No files found. Try a different value for argument "ext".',
+      call. = FALSE
+    )
     return(NULL)
   }
 
@@ -76,9 +85,7 @@ lr_get_metadata <- function(where = getwd(), ext = "ProcSpec", sep = NULL,
   message(nb_files, " files found; importing metadata:")
 
   gmd <- function(ff) {
-
     dispatch_parser(ff, sep = sep)[[2]]
-
   }
 
   with_progress({
@@ -90,18 +97,21 @@ lr_get_metadata <- function(where = getwd(), ext = "ProcSpec", sep = NULL,
         error = function(e) {
           warning(conditionMessage(e), call. = FALSE)
           return(NULL)
-        })
+        }
+      )
     })
   })
 
   whichfailed <- which(vapply(tmp, is.null, logical(1)))
 
   if (length(whichfailed) == nb_files) {
-    warning("File import failed.\n",
-            "Check input files and function arguments.", call. = FALSE)
+    warning(
+      "File import failed.\n",
+      "Check input files and function arguments.",
+      call. = FALSE
+    )
     return(NULL)
   } else if (length(whichfailed) > 0) {
-
     warning(
       "Could not import one or more files:\n",
       paste(files[whichfailed], collapse = "\n"),
@@ -116,7 +126,11 @@ lr_get_metadata <- function(where = getwd(), ext = "ProcSpec", sep = NULL,
   res <- cbind(specnames, res, stringsAsFactors = FALSE)
 
   colnames(res) <- c(
-    "name", "user", "datetime", "spec_model", "spec_ID",
+    "name",
+    "user",
+    "datetime",
+    "spec_model",
+    "spec_ID",
     paste(c("white", "dark", "sample"), "inttime", sep = "_"),
     paste(c("white", "dark", "sample"), "avgs", sep = "_"),
     paste(c("white", "dark", "sample"), "boxcar", sep = "_")

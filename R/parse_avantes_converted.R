@@ -23,7 +23,6 @@
 #' @export
 #'
 lr_parse_ttt <- function(filename) {
-
   # FIXME: grep to find appropriate lines instead of relying on fixed indices
 
   content <- readLines(filename, skipNul = TRUE)
@@ -57,11 +56,21 @@ lr_parse_ttt <- function(filename) {
   dark_average <- white_average <- scope_average <- average
   dark_boxcar <- white_boxcar <- scope_boxcar <- boxcar
 
-
-  metadata <- c(author, savetime, specmodel, specID,
-                dark_inttime, white_inttime, scope_inttime,
-                dark_average, white_average, scope_average,
-                dark_boxcar, white_boxcar, scope_boxcar)
+  metadata <- c(
+    author,
+    savetime,
+    specmodel,
+    specID,
+    dark_inttime,
+    white_inttime,
+    scope_inttime,
+    dark_average,
+    white_average,
+    scope_average,
+    dark_boxcar,
+    white_boxcar,
+    scope_boxcar
+  )
 
   data_ind <- grep("^([[:digit:];.,-])+$", content)
   data <- strsplit(content[data_ind], ";", fixed = TRUE)
@@ -77,11 +86,13 @@ lr_parse_ttt <- function(filename) {
 
   storage.mode(data) <- "numeric"
 
-  cornames <- c(wl = "Wave",
-                dark = "Dark",
-                white = "Ref",
-                scope = "Sample",
-                processed = "Transmittance")
+  cornames <- c(
+    wl = "Wave",
+    dark = "Dark",
+    white = "Ref",
+    scope = "Sample",
+    processed = "Transmittance"
+  )
 
   data_final <- setNames(
     as.data.frame(matrix(NA_real_, nrow = nrow(data), ncol = 5)),

@@ -1,5 +1,4 @@
 test_that("Fallback", {
-
   expect_identical(
     lr_parse_generic(test.file("spec.csv"), sep = ","),
     dispatch_parser(test.file("spec.csv"), sep = ",")
@@ -47,19 +46,25 @@ test_that("Fallback", {
 
   expect_identical(
     lr_parse_rfl8(test.file("compare", "Avantes", "feather.RFL8"), specnum = 1),
-    dispatch_parser(test.file("compare", "Avantes", "feather.RFL8"), specnum = 1)
+    dispatch_parser(
+      test.file("compare", "Avantes", "feather.RFL8"),
+      specnum = 1
+    )
   )
-
 })
 
 test_that("Similar output for all parsers", {
-
-  files <- list.files(test.file(),
-                      recursive = TRUE, include.dirs = TRUE)
-  files <- files[!tools::file_ext(files) %in% c("", "fail", "DRK", "REF", "Raw8", "IRR8")]
+  files <- list.files(test.file(), recursive = TRUE, include.dirs = TRUE)
+  files <- files[
+    !tools::file_ext(files) %in% c("", "fail", "DRK", "REF", "Raw8", "IRR8")
+  ]
 
   lapply(files, function(file) {
-    res <- expect_silent(dispatch_parser(test.file(file), sep = ",", specnum = 1))
+    res <- expect_silent(dispatch_parser(
+      test.file(file),
+      sep = ",",
+      specnum = 1
+    ))
     expect_length(res, 2)
     expect_named(res, c("data", "metadata"))
     expect_s3_class(res[[1]], "data.frame")
@@ -68,7 +73,12 @@ test_that("Similar output for all parsers", {
     expect_length(res[[2]], 13)
     expect_type(res[[2]], "character")
     expect_named(res[[2]], NULL)
-    expect_true(is.na(res[[2]][2]) || grepl("^\\d{4}\\-[01]\\d-[0123]\\d [012]\\d:[0-5]\\d:[0-5]\\d$", res[[2]][2]))
+    expect_true(
+      is.na(res[[2]][2]) ||
+        grepl(
+          "^\\d{4}\\-[01]\\d-[0123]\\d [012]\\d:[0-5]\\d:[0-5]\\d$",
+          res[[2]][2]
+        )
+    )
   })
-
 })

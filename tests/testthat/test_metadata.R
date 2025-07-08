@@ -1,5 +1,4 @@
 test_that("get_metadata all", {
-
   expect_message(
     expect_snapshot_value(
       lr_get_metadata(
@@ -10,11 +9,9 @@ test_that("get_metadata all", {
     ),
     "9 files"
   )
-
 })
 
 test_that("get_metadata recursive", {
-
   # Recursive
   expect_message(
     expect_snapshot_value(
@@ -23,7 +20,6 @@ test_that("get_metadata recursive", {
     ),
     "5 files"
   )
-
 })
 
 test_that("get_metadata warn & error", {
@@ -50,5 +46,4 @@ test_that("get_metadata warn & error", {
     expect_null(lr_get_metadata(ext = "missing")),
     "No files found"
   )
-
 })

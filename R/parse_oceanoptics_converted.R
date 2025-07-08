@@ -33,7 +33,6 @@
 #' @export
 #'
 lr_parse_jaz <- function(filename) {
-
   # METADATA
 
   content <- readLines(filename, skipNul = TRUE)
@@ -46,10 +45,16 @@ lr_parse_jaz <- function(filename) {
   # - Spectrometers
   # - Spectrometer Serial Number
   # - Espectr?metros
-  specID <- grep("^(Spectrometers?( Serial Number)?|Espectr.metros): [[:graph:]]+$",
-                 content,
-                 value = TRUE)
-  specID <- gsub("^(Spectrometers?( Serial Number)?|Espectr.metros): ", "", specID)
+  specID <- grep(
+    "^(Spectrometers?( Serial Number)?|Espectr.metros): [[:graph:]]+$",
+    content,
+    value = TRUE
+  )
+  specID <- gsub(
+    "^(Spectrometers?( Serial Number)?|Espectr.metros): ",
+    "",
+    specID
+  )
 
   author <- grep("^(User|Usuario): [[:print:]]*$", content, value = TRUE)
   author <- gsub("^(User|Usuario): ", "", author)
@@ -89,29 +94,68 @@ lr_parse_jaz <- function(filename) {
   specmodel <- NA_character_
 
   # For those, be careful, the line ends with '(specID)' so no $
-  int <- grep("^(Integration Time|Tiempo de integraci.n) (.+): [[:digit:]]+", content, value = TRUE)
-  inttime <- gsub("^(Integration Time|Tiempo de integraci.n) \\(.+\\): ([[:digit:]]+).*", "\\2", int)
+  int <- grep(
+    "^(Integration Time|Tiempo de integraci.n) (.+): [[:digit:]]+",
+    content,
+    value = TRUE
+  )
+  inttime <- gsub(
+    "^(Integration Time|Tiempo de integraci.n) \\(.+\\): ([[:digit:]]+).*",
+    "\\2",
+    int
+  )
 
-  inttime_unit <- gsub("^(Integration Time|Tiempo de integraci.n) \\((.+)\\):.*", "\\2", int)
+  inttime_unit <- gsub(
+    "^(Integration Time|Tiempo de integraci.n) \\((.+)\\):.*",
+    "\\2",
+    int
+  )
 
   if (identical(unname(inttime_unit), "usec")) {
     inttime <- as.numeric(inttime) / 1000
   }
 
-  average <- grep("^(Spectra Averaged|Promedio de Espectros Hechos un): [[:digit:]]+", content, value = TRUE)
-  average <- gsub("^(Spectra Averaged|Promedio de Espectros Hechos un): ([[:digit:]]+).*", "\\2", average)
+  average <- grep(
+    "^(Spectra Averaged|Promedio de Espectros Hechos un): [[:digit:]]+",
+    content,
+    value = TRUE
+  )
+  average <- gsub(
+    "^(Spectra Averaged|Promedio de Espectros Hechos un): ([[:digit:]]+).*",
+    "\\2",
+    average
+  )
 
-  boxcar <- grep("^(Boxcar Smoothing|El Alisar Del Furg.n): [[:digit:]]+", content, value = TRUE)
-  boxcar <- gsub("^(Boxcar Smoothing|El Alisar Del Furg.n): ([[:digit:]]+).*", "\\2", boxcar)
+  boxcar <- grep(
+    "^(Boxcar Smoothing|El Alisar Del Furg.n): [[:digit:]]+",
+    content,
+    value = TRUE
+  )
+  boxcar <- gsub(
+    "^(Boxcar Smoothing|El Alisar Del Furg.n): ([[:digit:]]+).*",
+    "\\2",
+    boxcar
+  )
 
   dark_inttime <- white_inttime <- scope_inttime <- inttime
   dark_average <- white_average <- scope_average <- average
   dark_boxcar <- white_boxcar <- scope_boxcar <- boxcar
 
-  metadata <- c(author, savetime, specmodel, specID,
-                dark_inttime, white_inttime, scope_inttime,
-                dark_average, white_average, scope_average,
-                dark_boxcar, white_boxcar, scope_boxcar)
+  metadata <- c(
+    author,
+    savetime,
+    specmodel,
+    specID,
+    dark_inttime,
+    white_inttime,
+    scope_inttime,
+    dark_average,
+    white_average,
+    scope_average,
+    dark_boxcar,
+    white_boxcar,
+    scope_boxcar
+  )
 
   # SPECTRA
 
@@ -134,8 +178,10 @@ lr_parse_jaz <- function(filename) {
   # If they do, it looks like this header will always start with W
   has_header <- startsWith(content[data_start + 1], "W")
 
-  data <- content[seq(ifelse(has_header, data_start + 2, data_start + 1),
-                      data_end - 1)]
+  data <- content[seq(
+    ifelse(has_header, data_start + 2, data_start + 1),
+    data_end - 1
+  )]
 
   # Depending on the user locale, some files might use ',' as a decimal sep
   data <- gsub(",", ".", data, fixed = TRUE)
@@ -144,20 +190,12 @@ lr_parse_jaz <- function(filename) {
 
   if (has_header) {
     colnames(data) <- strsplit(content[data_start + 1], "\t", fixed = TRUE)[[1]]
-
-
   } else {
-
     colnames(data) <- c("W", "P")
-
   }
   storage.mode(data) <- "numeric"
 
-  cornames <- c(wl = "W",
-                dark = "D",
-                white = "R",
-                scope = "S",
-                processed = "P")
+  cornames <- c(wl = "W", dark = "D", white = "R", scope = "S", processed = "P")
 
   data_final <- setNames(
     as.data.frame(matrix(NA_real_, nrow = nrow(data), ncol = 5)),

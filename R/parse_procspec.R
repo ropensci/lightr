@@ -24,8 +24,7 @@ lr_parse_procspec <- function(filename) {
   # We let R find the suitable tmp folder to extract files
   tmp <- tempdir()
 
-  extracted_files <- utils::unzip(zipfile = filename,
-                                  exdir = tmp)
+  extracted_files <- utils::unzip(zipfile = filename, exdir = tmp)
   on.exit(unlink(extracted_files))
 
   # According to OceanOptics FAQ, each procspec archive will only contain
@@ -54,14 +53,19 @@ lr_parse_procspec <- function(filename) {
 
   scope_node <- xml_find_first(xml_source, ".//pixelValues")
   scope_values <- xml_find_all(scope_node, ".//double")
-  scope_inttime <- xml_double(xml_find_first(xml_source, ".//integrationTime")) / 1000
+  scope_inttime <- xml_double(xml_find_first(
+    xml_source,
+    ".//integrationTime"
+  )) /
+    1000
   scope_average <- xml_text(xml_find_first(xml_source, ".//scansToAverage"))
   scope_boxcar <- xml_text(xml_find_first(xml_source, ".//boxcarWidth"))
   scope <- xml_double(scope_values)
 
   white_node <- xml_find_all(xml_source, ".//referenceSpectrum")
   white_values <- xml_find_all(white_node, ".//double")
-  white_inttime <- xml_double(xml_find_all(white_node, ".//integrationTime")) / 1000
+  white_inttime <- xml_double(xml_find_all(white_node, ".//integrationTime")) /
+    1000
   white_average <- xml_text(xml_find_all(white_node, ".//scansToAverage"))
   white_boxcar <- xml_text(xml_find_all(white_node, ".//boxcarWidth"))
   # Get rid of the XML tags.
@@ -69,7 +73,8 @@ lr_parse_procspec <- function(filename) {
 
   dark_node <- xml_find_all(xml_source, ".//darkSpectrum")
   dark_values <- xml_find_all(dark_node, ".//double")
-  dark_inttime <- xml_double(xml_find_all(dark_node, ".//integrationTime")) / 1000
+  dark_inttime <- xml_double(xml_find_all(dark_node, ".//integrationTime")) /
+    1000
   dark_average <- xml_text(xml_find_all(dark_node, ".//scansToAverage"))
   dark_boxcar <- xml_text(xml_find_all(dark_node, ".//boxcarWidth"))
   # Get rid of the XML tags.
@@ -90,10 +95,21 @@ lr_parse_procspec <- function(filename) {
   specmodel <- gsub(".+\\.([[:alnum:]]+)$", "\\1", specclass)
   specID <- xml_text(xml_find_first(xml_source, ".//spectrometerSerialNumber"))
 
-  metadata <- c(author, savetime, specmodel, specID,
-                dark_inttime, white_inttime, scope_inttime,
-                dark_average, white_average, scope_average,
-                dark_boxcar, white_boxcar, scope_boxcar)
+  metadata <- c(
+    author,
+    savetime,
+    specmodel,
+    specID,
+    dark_inttime,
+    white_inttime,
+    scope_inttime,
+    dark_average,
+    white_average,
+    scope_average,
+    dark_boxcar,
+    white_boxcar,
+    scope_boxcar
+  )
 
   return(list(data = as.data.frame(specdf), metadata = metadata))
 }

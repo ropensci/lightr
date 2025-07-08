@@ -9,7 +9,5 @@
 #' @keywords internal
 #'
 lr_compute_processed <- function(spdata) {
-
   with(spdata, (scope - dark) / (white - dark) * 100)
-
 }
