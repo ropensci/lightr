@@ -42,3 +42,4 @@ Roxygen: list(markdown = TRUE)
 Language: en-GB
 VignetteBuilder: knitr
 Config/testthat/edition: 3
+Config/usethis/last-upkeep: 2025-07-08
