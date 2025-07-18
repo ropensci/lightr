@@ -28,7 +28,7 @@ test_that("OceanOptics ProcSpec", {
     )
   } else {
     expect_known_hash(
-      expect_silent(lr_parse_procspec(test.file(
+      expect_silent(lr_parse_oceanoptics_procspec(test.file(
         "procspec_files",
         "OceanOptics_Linux.ProcSpec"
       ))),
@@ -36,7 +36,7 @@ test_that("OceanOptics ProcSpec", {
     )
 
     expect_known_hash(
-      expect_silent(lr_parse_procspec(test.file(
+      expect_silent(lr_parse_oceanoptics_procspec(test.file(
         "procspec_files",
         "OceanOptics_Windows.ProcSpec"
       ))),
@@ -44,7 +44,7 @@ test_that("OceanOptics ProcSpec", {
     )
 
     expect_known_hash(
-      expect_silent(lr_parse_procspec(test.file(
+      expect_silent(lr_parse_oceanoptics_procspec(test.file(
         "procspec_files",
         "OceanOptics_badencode.ProcSpec"
       ))),
@@ -60,7 +60,7 @@ test_that("OceanOptics others", {
   # This is caused by the conversion to "numeric":
   # storage.mode(data) <- "numeric"
   expect_identical(
-    digest::sha1(expect_silent(lr_parse_jdx(test.file(
+    digest::sha1(expect_silent(lr_parse_oceanoptics_jdx(test.file(
       "OceanOptics_period.jdx"
     )))),
     "34745a6112ef7679fbf0bc694d952c6eecdb347a"
@@ -70,7 +70,7 @@ test_that("OceanOptics others", {
   # This is caused by the conversion to "numeric":
   # storage.mode(data) <- "numeric"
   expect_identical(
-    digest::sha1(expect_silent(lr_parse_jdx(test.file(
+    digest::sha1(expect_silent(lr_parse_oceanoptics_jdx(test.file(
       "non_english",
       "OceanOptics_comma.jdx"
     )))),
@@ -83,7 +83,7 @@ test_that("OceanOptics others", {
   )
 
   expect_known_hash(
-    expect_silent(lr_parse_jaz(test.file("jazspec.jaz"))),
+    expect_silent(lr_parse_oceanoptics_jaz(test.file("jazspec.jaz"))),
     "4e9fdd1a25"
   )
 
@@ -91,19 +91,19 @@ test_that("OceanOptics others", {
   # This is caused by the conversion to "numeric":
   # storage.mode(data) <- "numeric"
   expect_identical(
-    digest::sha1(expect_silent(lr_parse_jazirrad(test.file("irrad.JazIrrad")))),
+    digest::sha1(expect_silent(lr_parse_oceanoptics_jazirrad(test.file("irrad.JazIrrad")))),
     "ff4b1833ee0fceac1370914678aeba240ea1da03"
   )
 
   expect_known_hash(
-    expect_silent(lr_parse_jaz(test.file(
+    expect_silent(lr_parse_oceanoptics_jaz(test.file(
       "FMNH6834.00000001.Master.Transmission"
     ))),
     "b96dd6783"
   )
 
   expect_known_hash(
-    expect_silent(lr_parse_jaz(test.file("UK5.txt"))),
+    expect_silent(lr_parse_oceanoptics_jaz(test.file("UK5.txt"))),
     "737473e8b"
   )
 
@@ -111,12 +111,12 @@ test_that("OceanOptics others", {
   # ?as.POSIXct, "invalid values are most commonly treated as UTC, on some
   # platforms with a warning."
   expect_known_hash(
-    suppressWarnings(lr_parse_jaz(test.file("non_english", "OO_comma.txt"))),
+    suppressWarnings(lr_parse_oceanoptics_jaz(test.file("non_english", "OO_comma.txt"))),
     "5035522e53"
   )
 
   expect_known_hash(
-    suppressWarnings(lr_parse_jaz(test.file(
+    suppressWarnings(lr_parse_oceanoptics_jaz(test.file(
       "non_english",
       "OceanView_nonEN.txt"
     ))),
@@ -128,56 +128,56 @@ test_that("Avantes", {
   skip_on_os("solaris")
 
   expect_known_hash(
-    expect_silent(lr_parse_roh(test.file("avantes_reflect.ROH"))),
+    expect_silent(lr_parse_avantes_roh(test.file("avantes_reflect.ROH"))),
     "1b71c9b6df"
   )
 
   expect_known_hash(
-    expect_silent(lr_parse_trm(test.file("avantes_trans.TRM"))),
+    expect_silent(lr_parse_avantes_trm(test.file("avantes_trans.TRM"))),
     "e0e679afb0"
   )
 
   expect_known_hash(
-    expect_silent(lr_parse_trm(test.file("avantes2.TRM"))),
+    expect_silent(lr_parse_avantes_trm(test.file("avantes2.TRM"))),
     "e507434490"
   )
 
   expect_known_hash(
-    expect_silent(lr_parse_ttt(test.file("avantes_export.ttt"))),
+    expect_silent(lr_parse_avantes_ttt(test.file("avantes_export.ttt"))),
     "4731f9e00c"
   )
 
   expect_known_hash(
-    expect_silent(lr_parse_ttt(test.file("avantes_export_long.ttt"))),
+    expect_silent(lr_parse_avantes_ttt(test.file("avantes_export_long.ttt"))),
     "08df8af0db"
   )
 
   expect_known_hash(
-    expect_silent(lr_parse_trt(test.file("avantes_export2.trt"))),
+    expect_silent(lr_parse_avantes_trt(test.file("avantes_export2.trt"))),
     "c87bdb9f0d"
   )
 
   expect_known_hash(
     expect_silent(
-      lr_parse_ttt(test.file("non_english", "J_MUR_MARS_17_0001.ttt"))
+      lr_parse_avantes_ttt(test.file("non_english", "J_MUR_MARS_17_0001.ttt"))
     ),
     "d062e2e4a1"
   )
 
   # Dark reference file
   expect_known_hash(
-    expect_silent(lr_parse_trm(test.file("1305084U1.DRK"))),
+    expect_silent(lr_parse_avantes_trm(test.file("1305084U1.DRK"))),
     "e27a0199ae"
   )
 
   # White reference file
   expect_known_hash(
-    expect_silent(lr_parse_trm(test.file("1305084U1.REF"))),
+    expect_silent(lr_parse_avantes_trm(test.file("1305084U1.REF"))),
     "8a4b93655f"
   )
 
   expect_warning(
-    rfl8_1_implicit <- lr_parse_rfl8(test.file(
+    rfl8_1_implicit <- lr_parse_avantes_rfl8(test.file(
       "compare",
       "Avantes",
       "feather.RFL8"
@@ -185,7 +185,7 @@ test_that("Avantes", {
     "argument is missing"
   )
   rfl8_1 <- expect_silent(
-    lr_parse_rfl8(test.file("compare", "Avantes", "feather.RFL8"), specnum = 1)
+    lr_parse_avantes_rfl8(test.file("compare", "Avantes", "feather.RFL8"), specnum = 1)
   )
 
   expect_identical(rfl8_1_implicit, rfl8_1)
@@ -193,7 +193,7 @@ test_that("Avantes", {
   expect_known_hash(rfl8_1, "9bf9f003dd")
 
   expect_known_hash(
-    expect_silent(lr_parse_rfl8(
+    expect_silent(lr_parse_avantes_rfl8(
       test.file("compare", "Avantes", "feather.RFL8"),
       specnum = 2
     )),
@@ -201,7 +201,7 @@ test_that("Avantes", {
   )
 
   expect_snapshot(
-    lr_parse_rfl8(test.file("compare", "Avantes", "feather.RFL8"), specnum = 5),
+    lr_parse_avantes_rfl8(test.file("compare", "Avantes", "feather.RFL8"), specnum = 5),
     error = TRUE
   )
 
