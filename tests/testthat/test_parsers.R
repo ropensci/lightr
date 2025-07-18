@@ -4,7 +4,7 @@ test_that("OceanOptics ProcSpec", {
 
   if (capabilities(what = "long.double")) {
     expect_known_hash(
-      expect_silent(lr_parse_procspec(test.file(
+      expect_silent(lr_parse_oceanoptics_procspec(test.file(
         "procspec_files",
         "OceanOptics_Linux.ProcSpec"
       ))),
@@ -12,7 +12,7 @@ test_that("OceanOptics ProcSpec", {
     )
 
     expect_known_hash(
-      expect_silent(lr_parse_procspec(test.file(
+      expect_silent(lr_parse_oceanoptics_procspec(test.file(
         "procspec_files",
         "OceanOptics_Windows.ProcSpec"
       ))),
@@ -20,7 +20,7 @@ test_that("OceanOptics ProcSpec", {
     )
 
     expect_known_hash(
-      expect_silent(lr_parse_procspec(test.file(
+      expect_silent(lr_parse_oceanoptics_procspec(test.file(
         "procspec_files",
         "OceanOptics_badencode.ProcSpec"
       ))),
