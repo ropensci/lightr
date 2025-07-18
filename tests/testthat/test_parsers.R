@@ -273,3 +273,9 @@ test_that("Generic", {
     "c061c4395f"
   )
 })
+
+test_that("csv parser", {
+  expect_snapshot(
+    lr_parse_csv(test.file("spec.csv"))
+  )
+})
