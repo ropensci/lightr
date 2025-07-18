@@ -36,14 +36,14 @@ test_that("OceanOptics others", {
   # This is caused by the conversion to "numeric":
   # storage.mode(data) <- "numeric"
   expect_snapshot(
-    lr_parse_jdx(test.file("OceanOptics_period.jdx"))
+    lr_parse_oceanoptics_jdx(test.file("OceanOptics_period.jdx"))
   )
 
   # Floating point precision issue on noLD platforms.
   # This is caused by the conversion to "numeric":
   # storage.mode(data) <- "numeric"
   expect_snapshot(
-    lr_parse_jdx(test.file("non_english", "OceanOptics_comma.jdx"))
+    lr_parse_oceanoptics_jdx(test.file("non_english", "OceanOptics_comma.jdx"))
   )
 
   expect_snapshot(
@@ -51,74 +51,74 @@ test_that("OceanOptics others", {
   )
 
   expect_snapshot(
-    lr_parse_jaz(test.file("jazspec.jaz"))
+    lr_parse_orceanoptics_jaz(test.file("jazspec.jaz"))
   )
 
   # Floating point precision issue on noLD platforms.
   # This is caused by the conversion to "numeric":
   # storage.mode(data) <- "numeric"
   expect_snapshot(
-    lr_parse_jazirrad(test.file("irrad.JazIrrad"))
+    lr_parse_oceanoptics_jazirrad(test.file("irrad.JazIrrad"))
   )
 
   expect_snapshot(
-    lr_parse_jaz(test.file("FMNH6834.00000001.Master.Transmission"))
+    lr_parse_oceanoptics_jaz(test.file("FMNH6834.00000001.Master.Transmission"))
   )
 
   expect_snapshot(
-    lr_parse_jaz(test.file("UK5.txt"))
+    lr_parse_oceanoptics_jaz(test.file("UK5.txt"))
   )
 
   expect_snapshot(
-    lr_parse_jaz(test.file("non_english", "OO_comma.txt"))
+    lr_parse_oceanoptics_jaz(test.file("non_english", "OO_comma.txt"))
   )
 
   expect_snapshot(
-    lr_parse_jaz(test.file("non_english", "OceanView_nonEN.txt"))
+    lr_parse_oceanoptics_jaz(test.file("non_english", "OceanView_nonEN.txt"))
   )
 })
 
 test_that("Avantes", {
   expect_snapshot(
-    lr_parse_roh(test.file("avantes_reflect.ROH"))
+    lr_parse_avantes_roh(test.file("avantes_reflect.ROH"))
   )
 
   expect_snapshot(
-    lr_parse_trm(test.file("avantes_trans.TRM"))
+    lr_parse_avantes_trm(test.file("avantes_trans.TRM"))
   )
 
   expect_snapshot(
-    lr_parse_trm(test.file("avantes2.TRM"))
+    lr_parse_avantes_trm(test.file("avantes2.TRM"))
   )
 
   expect_snapshot(
-    lr_parse_ttt(test.file("avantes_export.ttt"))
+    lr_parse_avantes_ttt(test.file("avantes_export.ttt"))
   )
 
   expect_snapshot(
-    lr_parse_ttt(test.file("avantes_export_long.ttt"))
+    lr_parse_avantes_ttt(test.file("avantes_export_long.ttt"))
   )
 
   expect_snapshot(
-    lr_parse_trt(test.file("avantes_export2.trt"))
+    lr_parse_avantes_trt(test.file("avantes_export2.trt"))
   )
 
   expect_snapshot(
-    lr_parse_ttt(test.file("non_english", "J_MUR_MARS_17_0001.ttt"))
+    lr_parse_avantes_ttt(test.file("non_english", "J_MUR_MARS_17_0001.ttt"))
   )
 
   # Dark reference file
   expect_snapshot(
-    lr_parse_trm(test.file("1305084U1.DRK"))
+    lr_parse_avantes_trm(test.file("1305084U1.DRK"))
   )
 
   # White reference file
   expect_snapshot(
-    lr_parse_trm(test.file("1305084U1.REF"))
+    lr_parse_avanates_trm(test.file("1305084U1.REF"))
   )
 
   expect_warning(
-    rfl8_1_implicit <- lr_parse_rfl8(test.file(
+    rfl8_1_implicit <- lr_parse_avantes_rfl8(test.file(
       "compare",
       "Avantes",
       "feather.RFL8"
@@ -126,7 +126,10 @@ test_that("Avantes", {
     "argument is missing"
   )
   rfl8_1 <- expect_silent(
-    lr_parse_rfl8(test.file("compare", "Avantes", "feather.RFL8"), specnum = 1)
+    lr_parse_avantes_rfl8(
+      test.file("compare", "Avantes", "feather.RFL8"),
+      specnum = 1
+    )
   )
 
   expect_identical(rfl8_1_implicit, rfl8_1)
@@ -134,11 +137,17 @@ test_that("Avantes", {
   expect_snapshot(rfl8_1)
 
   expect_snapshot(
-    lr_parse_rfl8(test.file("compare", "Avantes", "feather.RFL8"), specnum = 2)
+    lr_parse_avantes_rfl8(
+      test.file("compare", "Avantes", "feather.RFL8"),
+      specnum = 2
+    )
   )
 
   expect_snapshot(
-    lr_parse_rfl8(test.file("compare", "Avantes", "feather.RFL8"), specnum = 5),
+    lr_parse_avantes_rfl8(
+      test.file("compare", "Avantes", "feather.RFL8"),
+      specnum = 5
+    ),
     error = TRUE
   )
 
