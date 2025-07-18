@@ -3,7 +3,7 @@ test_that("OceanOptics ProcSpec", {
   skip_on_cran()
 
   expect_snapshot(
-    lr_parse_procspec(
+    lr_parse_oceanoptics_procspec(
       test.file("tampered_procspec.zip"),
       verify_checksum = TRUE
     ),
@@ -11,21 +11,21 @@ test_that("OceanOptics ProcSpec", {
   )
 
   expect_snapshot(
-    lr_parse_procspec(
+    lr_parse_oceanoptics_procspec(
       test.file("procspec_files", "OceanOptics_Linux.ProcSpec"),
       verify_checksum = TRUE
     )
   )
 
   expect_snapshot(
-    lr_parse_procspec(
+    lr_parse_oceanoptics_procspec(
       test.file("procspec_files", "OceanOptics_Windows.ProcSpec"),
       verify_checksum = TRUE
     )
   )
 
   expect_snapshot(
-    lr_parse_procspec(
+    lr_parse_oceanoptics_procspec(
       test.file("procspec_files", "OceanOptics_badencode.ProcSpec")
     )
   )

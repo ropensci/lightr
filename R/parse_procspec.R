@@ -15,7 +15,7 @@
 #' @references <https://www.oceanoptics.com/software/>
 #'
 #' @examples
-#' res <- lr_parse_procspec(system.file("testdata", "procspec_files",
+#' res <- lr_parse_oceanoptics_procspec(system.file("testdata", "procspec_files",
 #'                                      "OceanOptics_Linux.ProcSpec",
 #'                                      package = "lightr"),
 #'                          verify_checksum = TRUE)
@@ -24,7 +24,11 @@
 #'
 #' @export
 #'
-lr_parse_procspec <- function(filename, verify_checksum = FALSE, ...) {
+lr_parse_oceanoptics_procspec <- function(
+  filename,
+  verify_checksum = FALSE,
+  ...
+) {
   # We let R find the suitable tmp folder to extract files
   tmp <- tempdir()
 
@@ -149,3 +153,7 @@ lr_parse_procspec <- function(filename, verify_checksum = FALSE, ...) {
 
   return(list(data = as.data.frame(specdf), metadata = metadata))
 }
+
+#' @rdname lr_parse_oceanoptics_procspec
+#' @export
+lr_parse_procspec <- lr_parse_oceanoptics_procspec

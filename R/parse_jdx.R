@@ -16,14 +16,14 @@
 #' 1988;42(1):151-62.
 #'
 #' @examples
-#' res_jdx <- lr_parse_jdx(system.file("testdata", "OceanOptics_period.jdx",
+#' res_jdx <- lr_parse_oceanoptics_jdx(system.file("testdata", "OceanOptics_period.jdx",
 #'                                     package = "lightr"))
 #' head(res_jdx$data)
 #' res_jdx$metadata
 #'
 #' @export
 #'
-lr_parse_jdx <- function(filename, ...) {
+lr_parse_oceanoptics_jdx <- function(filename, ...) {
   content <- readLines(filename)
   author <- grep("^##OWNER=", content, value = TRUE)
   author <- gsub("^##OWNER= ", "", author)[1]
@@ -126,3 +126,7 @@ lr_parse_jdx <- function(filename, ...) {
 
   return(list(data = data, metadata = metadata))
 }
+
+#' @rdname lr_parse_oceanoptics_jdx
+#' @export
+lr_parse_jdx <- lr_parse_oceanoptics_jdx

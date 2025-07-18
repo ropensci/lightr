@@ -8,22 +8,22 @@
 #' @inherit lr_parse_generic return details
 #'
 #' @examples
-#' res_jaz <- lr_parse_jaz(system.file("testdata", "jazspec.jaz",
+#' res_jaz <- lr_parse_oceanoptics_jaz(system.file("testdata", "jazspec.jaz",
 #'                         package = "lightr"))
 #' head(res_jaz$data)
 #' res_jaz$metadata
 #'
-#' res_jazirrad <- lr_parse_jazirrad(system.file("testdata", "irrad.JazIrrad",
+#' res_jazirrad <- lr_parse_oceanoptics_jazirrad(system.file("testdata", "irrad.JazIrrad",
 #'                                   package = "lightr"))
 #' head(res_jazirrad$data)
 #' res_jazirrad$metadata
 #'
-#' res_usb4000 <- lr_parse_jaz(system.file("testdata", "OOusb4000.txt",
+#' res_usb4000 <- lr_parse_oceanoptics_jaz(system.file("testdata", "OOusb4000.txt",
 #'                             package = "lightr"))
 #' head(res_usb4000$data)
 #' res_usb4000$metadata
 #'
-#' res_transmission <- lr_parse_jaz(
+#' res_transmission <- lr_parse_oceanoptics_jaz(
 #'   system.file("testdata", "FMNH6834.00000001.Master.Transmission",
 #'                package = "lightr")
 #' )
@@ -32,7 +32,7 @@
 #'
 #' @export
 #'
-lr_parse_jaz <- function(filename, ...) {
+lr_parse_oceanoptics_jaz <- function(filename, ...) {
   # METADATA
 
   content <- readLines(filename, skipNul = TRUE)
@@ -207,8 +207,16 @@ lr_parse_jaz <- function(filename, ...) {
   return(list(data = data_final, metadata = unname(metadata)))
 }
 
-#' @rdname lr_parse_jaz
+#' @rdname lr_parse_oceanoptics_jaz
 #'
 #' @export
 #'
-lr_parse_jazirrad <- lr_parse_jaz
+lr_parse_oceanoptics_jazirrad <- lr_parse_oceanoptics_jaz
+
+#' @rdname lr_parse_oceanoptics_jaz
+#' @export
+lr_parse_jaz <- lr_parse_oceanoptics_jaz
+
+#' @rdname lr_parse_oceanoptics_jaz
+#' @export
+lr_parse_jazirrad <- lr_parse_oceanoptics_jazirrad
