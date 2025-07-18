@@ -5,37 +5,37 @@ test_that("Fallback", {
   )
 
   expect_identical(
-    lr_parse_jdx(test.file("OceanOptics_period.jdx")),
+    lr_parse_oceanoptics_jdx(test.file("OceanOptics_period.jdx")),
     dispatch_parser(test.file("OceanOptics_period.jdx"))
   )
 
   expect_identical(
-    lr_parse_jaz(test.file("jazspec.jaz")),
+    lr_parse_oceanoptics_jaz(test.file("jazspec.jaz")),
     dispatch_parser(test.file("jazspec.jaz"))
   )
 
   expect_identical(
-    lr_parse_jazirrad(test.file("irrad.JazIrrad")),
+    lr_parse_oceanoptics_jazirrad(test.file("irrad.JazIrrad")),
     dispatch_parser(test.file("irrad.JazIrrad"))
   )
 
   expect_identical(
-    lr_parse_roh(test.file("avantes_reflect.ROH")),
+    lr_parse_avantes_roh(test.file("avantes_reflect.ROH")),
     dispatch_parser(test.file("avantes_reflect.ROH"))
   )
 
   expect_identical(
-    lr_parse_trm(test.file("avantes_trans.TRM")),
+    lr_parse_avantes_trm(test.file("avantes_trans.TRM")),
     dispatch_parser(test.file("avantes_trans.TRM"))
   )
 
   expect_identical(
-    lr_parse_ttt(test.file("avantes_export.ttt")),
+    lr_parse_avantes_ttt(test.file("avantes_export.ttt")),
     dispatch_parser(test.file("avantes_export.ttt"))
   )
 
   expect_identical(
-    lr_parse_trt(test.file("avantes_export2.trt")),
+    lr_parse_avantes_trt(test.file("avantes_export2.trt")),
     dispatch_parser(test.file("avantes_export2.trt"))
   )
 
@@ -45,7 +45,7 @@ test_that("Fallback", {
   )
 
   expect_identical(
-    lr_parse_rfl8(test.file("compare", "Avantes", "feather.RFL8"), specnum = 1),
+    lr_parse_avantes_rfl8(test.file("compare", "Avantes", "feather.RFL8"), specnum = 1),
     dispatch_parser(
       test.file("compare", "Avantes", "feather.RFL8"),
       specnum = 1
