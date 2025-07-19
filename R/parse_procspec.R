@@ -4,8 +4,9 @@
 #' <https://www.oceanoptics.com/>
 #'
 #' @inheritParams lr_parse_generic
-#' @param check Logical (defaults to `FALSE`). Should we check if the file has
-#' been modified since its creation by the spectrometer?
+#' @param verify_checksum Logical (defaults to `FALSE`). Should we check if the
+#' file has been modified since its creation by the spectrometer? An error will
+#' be returned if the check fails.
 #'
 #' @inherit lr_parse_generic return details
 #'
@@ -16,13 +17,14 @@
 #' @examples
 #' res <- lr_parse_procspec(system.file("testdata", "procspec_files",
 #'                                      "OceanOptics_Linux.ProcSpec",
-#'                                      package = "lightr"))
+#'                                      package = "lightr"),
+#'                          verify_checksum = TRUE)
 #' head(res$data)
 #' res$metadata
 #'
 #' @export
 #'
-lr_parse_procspec <- function(filename, check = FALSE, ...) {
+lr_parse_procspec <- function(filename, verify_checksum = FALSE, ...) {
   # We let R find the suitable tmp folder to extract files
   tmp <- tempdir()
 
@@ -35,7 +37,7 @@ lr_parse_procspec <- function(filename, check = FALSE, ...) {
   # Data files have the format ps_\d+.xml
   data_file <- grep(pattern = "ps_\\d+\\.xml", extracted_files, value = TRUE)
 
-  if (check) {
+  if (verify_checksum) {
     if (!requireNamespace("digest")) {
       warning(
         "The digest package is required for check = TRUE. ",
@@ -44,7 +46,7 @@ lr_parse_procspec <- function(filename, check = FALSE, ...) {
       )
     } else {
       sig <- read_xml(
-        extracted_files[endsWith(extracted_file, "OOISignatures.xml")]
+        extracted_files[endsWith(extracted_files, "OOISignatures.xml")]
       )
       saved_hash <- xml_text(xml_find_first(sig, ".//hashValue"))
       saved_hash <- gsub(" ", "", saved_hash, fixed = TRUE)
