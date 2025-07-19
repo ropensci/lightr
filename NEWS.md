@@ -1,11 +1,14 @@
 # lightr (development version)
 
-## Minor changes
+## New features
 
 * cases where a mix of `.csv` and other 'csv-like but not quite csv' format are
   passed to `lr_get_spec()` are now handled better, after a report from @bittonp
   (@Bisaloo, #58). This also means that it's no longer necessary to explicitly
   set `sep = ","` when trying to parse csv files (#15).
+* `lr_parse_procspec()` gains a new argument `verify_checksum` to verify if the
+  data has been tampered with since its creation by the official OceanView
+  software (@Bisaloo, #29).
 
 # lightr 1.8.0
 
