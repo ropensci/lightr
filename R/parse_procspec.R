@@ -38,13 +38,7 @@ lr_parse_procspec <- function(filename, verify_checksum = FALSE, ...) {
   data_file <- grep(pattern = "ps_\\d+\\.xml", extracted_files, value = TRUE)
 
   if (verify_checksum) {
-    if (!requireNamespace("digest")) {
-      warning(
-        "The digest package is required for check = TRUE. ",
-        "Skipping integrity check...",
-        call. = FALSE
-      )
-    } else {
+    if (requireNamespace("digest")) {
       sig <- read_xml(
         extracted_files[endsWith(extracted_files, "OOISignatures.xml")]
       )
@@ -66,6 +60,12 @@ lr_parse_procspec <- function(filename, verify_checksum = FALSE, ...) {
           call. = FALSE
         )
       }
+    } else {
+      warning(
+        "The digest package is required for check = TRUE. ",
+        "Skipping integrity check...",
+        call. = FALSE
+      )
     }
   }
 
