@@ -2,52 +2,76 @@ test_that("OceanOptics ProcSpec", {
   # We have mismatches that can't be reproduced from CRAN M1 machine
   skip_on_cran()
 
+  expect_snapshot(
+    lr_parse_procspec(
+      test.file("tampered_procspec.zip"),
+      verify_checksum = TRUE
+    ),
+    error = TRUE
+  )
+
   if (capabilities(what = "long.double")) {
     expect_known_hash(
-      expect_silent(lr_parse_procspec(test.file(
-        "procspec_files",
-        "OceanOptics_Linux.ProcSpec"
-      ))),
+      expect_silent(lr_parse_procspec(
+        test.file(
+          "procspec_files",
+          "OceanOptics_Linux.ProcSpec"
+        ),
+        verify_checksum = TRUE
+      )),
       "f98109a490"
     )
 
     expect_known_hash(
-      expect_silent(lr_parse_procspec(test.file(
-        "procspec_files",
-        "OceanOptics_Windows.ProcSpec"
-      ))),
+      expect_silent(lr_parse_procspec(
+        test.file(
+          "procspec_files",
+          "OceanOptics_Windows.ProcSpec"
+        ),
+        verify_checksum = TRUE
+      )),
       "38f10dbdc7"
     )
 
     expect_known_hash(
-      expect_silent(lr_parse_procspec(test.file(
-        "procspec_files",
-        "OceanOptics_badencode.ProcSpec"
-      ))),
+      expect_silent(lr_parse_procspec(
+        test.file(
+          "procspec_files",
+          "OceanOptics_badencode.ProcSpec"
+        )
+      )),
       "04cb771bd7"
     )
   } else {
     expect_known_hash(
-      expect_silent(lr_parse_procspec(test.file(
-        "procspec_files",
-        "OceanOptics_Linux.ProcSpec"
-      ))),
+      expect_silent(lr_parse_procspec(
+        test.file(
+          "procspec_files",
+          "OceanOptics_Linux.ProcSpec"
+        ),
+        verify_checksum = TRUE
+      )),
       "c937c66868"
     )
 
     expect_known_hash(
-      expect_silent(lr_parse_procspec(test.file(
-        "procspec_files",
-        "OceanOptics_Windows.ProcSpec"
-      ))),
+      expect_silent(lr_parse_procspec(
+        test.file(
+          "procspec_files",
+          "OceanOptics_Windows.ProcSpec"
+        ),
+        verify_checksum = TRUE
+      )),
       "5751112645"
     )
 
     expect_known_hash(
-      expect_silent(lr_parse_procspec(test.file(
-        "procspec_files",
-        "OceanOptics_badencode.ProcSpec"
-      ))),
+      expect_silent(lr_parse_procspec(
+        test.file(
+          "procspec_files",
+          "OceanOptics_badencode.ProcSpec"
+        )
+      )),
       "78c84f7e93"
     )
   }

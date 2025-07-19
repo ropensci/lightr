@@ -4,6 +4,9 @@
 #' <https://www.oceanoptics.com/>
 #'
 #' @inheritParams lr_parse_generic
+#' @param verify_checksum Logical (defaults to `FALSE`). Should we check if the
+#' file has been modified since its creation by the spectrometer? An error will
+#' be returned if the check fails.
 #'
 #' @inherit lr_parse_generic return details
 #'
@@ -14,13 +17,14 @@
 #' @examples
 #' res <- lr_parse_procspec(system.file("testdata", "procspec_files",
 #'                                      "OceanOptics_Linux.ProcSpec",
-#'                                      package = "lightr"))
+#'                                      package = "lightr"),
+#'                          verify_checksum = TRUE)
 #' head(res$data)
 #' res$metadata
 #'
 #' @export
 #'
-lr_parse_procspec <- function(filename, ...) {
+lr_parse_procspec <- function(filename, verify_checksum = FALSE, ...) {
   # We let R find the suitable tmp folder to extract files
   tmp <- tempdir()
 
@@ -32,6 +36,38 @@ lr_parse_procspec <- function(filename, ...) {
 
   # Data files have the format ps_\d+.xml
   data_file <- grep(pattern = "ps_\\d+\\.xml", extracted_files, value = TRUE)
+
+  if (verify_checksum) {
+    if (requireNamespace("digest")) {
+      sig <- read_xml(
+        extracted_files[endsWith(extracted_files, "OOISignatures.xml")]
+      )
+      saved_hash <- xml_text(xml_find_first(sig, ".//hashValue"))
+      saved_hash <- gsub(" ", "", saved_hash, fixed = TRUE)
+      algo <- xml_text(xml_find_first(sig, ".//hashAlgorithm"))
+      if (algo == "SHA-512") {
+        actual_hash <- digest::digest(file = data_file, algo = "sha512")
+      } else {
+        warning("Unknown hash in signature. Skipping.", call. = FALSE)
+        actual_hash <- saved_hash
+      }
+      if (actual_hash != saved_hash) {
+        stop(
+          "The file has been modified since its creation by the spectrometer. ",
+          "This means data integrity may be compromised ",
+          "and it is unclear how much you can trust your results.\n",
+          "To bypass the warning, use 'check = FALSE'",
+          call. = FALSE
+        )
+      }
+    } else {
+      warning(
+        "The digest package is required for check = TRUE. ",
+        "Skipping integrity check...",
+        call. = FALSE
+      )
+    }
+  }
 
   # OceanOptics softwares produce badly encoded characters. The only fix is to
   # strip them before feeding the xml file to read_xml.

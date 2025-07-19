@@ -4,10 +4,14 @@
 \alias{lr_parse_procspec}
 \title{Parse OceanOptics ProcSpec file}
 \usage{
-lr_parse_procspec(filename, ...)
+lr_parse_procspec(filename, verify_checksum = FALSE, ...)
 }
 \arguments{
 \item{filename}{Path of the file to parse}
+
+\item{verify_checksum}{Logical (defaults to \code{FALSE}). Should we check if the
+file has been modified since its creation by the spectrometer? An error will
+be returned if the check fails.}
 
 \item{...}{ignored}
 }
@@ -47,7 +51,8 @@ Parse OceanOptics/OceanInsight ProcSpec file.
 \examples{
 res <- lr_parse_procspec(system.file("testdata", "procspec_files",
                                      "OceanOptics_Linux.ProcSpec",
-                                     package = "lightr"))
+                                     package = "lightr"),
+                         verify_checksum = TRUE)
 head(res$data)
 res$metadata
 
