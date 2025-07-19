@@ -1,41 +1,27 @@
 test_that("get_spec all", {
-  # Tolerance is required for tests on Solaris
-  expect_message(
-    expect_snapshot_value(
-      lr_get_spec(
-        test.file(),
-        ext = c(
-          "TRM",
-          "ttt",
-          "jdx",
-          "jaz",
-          "JazIrrad",
-          "csv",
-          "txt",
-          "Transmission",
-          "spc"
-        ),
-        sep = ","
-      ),
-
-      style = "serialize",
-      cran = TRUE,
-      tolerance = 1e-10
+  expect_snapshot(
+    lr_get_spec(
+      test.file(),
+      ext = c(
+        "TRM",
+        "ttt",
+        "jdx",
+        "jaz",
+        "JazIrrad",
+        "csv",
+        "txt",
+        "Transmission",
+        "spc"
+      )
     ),
-    "16 files"
+    cran = TRUE
   )
 })
 
 test_that("get_spec recursive", {
-  # Tolerance is required for tests on Solaris
-  expect_message(
-    expect_snapshot_value(
-      lr_get_spec(test.file(), ext = "ProcSpec", subdir = TRUE),
-      style = "serialize",
-      cran = TRUE,
-      tolerance = 1e-10
-    ),
-    "5 files"
+  expect_snapshot(
+    lr_get_spec(test.file(), ext = "ProcSpec", subdir = TRUE),
+    cran = TRUE
   )
 })
 

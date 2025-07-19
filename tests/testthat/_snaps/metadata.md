@@ -1,212 +1,65 @@
 # get_metadata all
 
-    {
-      "type": "list",
-      "attributes": {
-        "names": {
-          "type": "character",
-          "attributes": {},
-          "value": ["name", "user", "datetime", "spec_model", "spec_ID", "white_inttime", "dark_inttime", "sample_inttime", "white_avgs", "dark_avgs", "sample_avgs", "white_boxcar", "dark_boxcar", "sample_boxcar"]
-        },
-        "row.names": {
-          "type": "integer",
-          "attributes": {},
-          "value": [1, 2, 3, 4, 5, 6, 7, 8, 9]
-        },
-        "class": {
-          "type": "character",
-          "attributes": {},
-          "value": ["data.frame"]
-        }
-      },
-      "value": [
-        {
-          "type": "character",
-          "attributes": {},
-          "value": ["OceanOptics_period", "avantes2", "avantes_export", "avantes_export2", "avantes_export_long", "avantes_reflect", "avantes_trans", "irrad", "jazspec"]
-        },
-        {
-          "type": "character",
-          "attributes": {},
-          "value": ["hugo", null, null, null, null, null, null, "jaz", "jaz"]
-        },
-        {
-          "type": "double",
-          "attributes": {
-            "class": {
-              "type": "character",
-              "attributes": {},
-              "value": ["POSIXct", "POSIXt"]
-            },
-            "tzone": {
-              "type": "character",
-              "attributes": {},
-              "value": ["UTC"]
-            }
-          },
-          "value": ["NA", "NA", "NA", "NA", "NA", "NA", "NA", 1379297743, 1314634993]
-        },
-        {
-          "type": "character",
-          "attributes": {},
-          "value": [null, null, null, null, null, null, null, null, null]
-        },
-        {
-          "type": "character",
-          "attributes": {},
-          "value": [null, "1305084U1", "0804016U1", "1305084U1", "1305084U1", "1305084U1", "0804016U1", "JAZA2517", "JAZA1479"]
-        },
-        {
-          "type": "double",
-          "attributes": {},
-          "value": [400, 150, 100, 95, 150, 95, 100, 495, 24]
-        },
-        {
-          "type": "double",
-          "attributes": {},
-          "value": [400, 150, 100, 95, 150, 95, 100, 495, 24]
-        },
-        {
-          "type": "double",
-          "attributes": {},
-          "value": [400, 150, 100, 95, 150, 95, 100, 495, 24]
-        },
-        {
-          "type": "double",
-          "attributes": {},
-          "value": [5, 10, 20, 20, 10, 20, 20, 3, 1]
-        },
-        {
-          "type": "double",
-          "attributes": {},
-          "value": [5, 10, 20, 20, 10, 20, 20, 3, 1]
-        },
-        {
-          "type": "double",
-          "attributes": {},
-          "value": [5, 10, 20, 20, 10, 20, 20, 3, 1]
-        },
-        {
-          "type": "double",
-          "attributes": {},
-          "value": [0, 1, 0, 1, 1, 1, 0, 5, 0]
-        },
-        {
-          "type": "double",
-          "attributes": {},
-          "value": [0, 1, 0, 1, 1, 1, 0, 5, 0]
-        },
-        {
-          "type": "double",
-          "attributes": {},
-          "value": [0, 1, 0, 1, 1, 1, 0, 5, 0]
-        }
-      ]
-    }
+    Code
+      lr_get_metadata(test.file(), ext = c("TRM", "ROH", "ttt", "trt", "jdx", "jaz",
+        "JazIrrad"))
+    Message
+      9 files found; importing metadata:
+    Output
+                       name user            datetime spec_model   spec_ID
+      1  OceanOptics_period hugo                <NA>       <NA>      <NA>
+      2            avantes2 <NA>                <NA>       <NA> 1305084U1
+      3      avantes_export <NA>                <NA>       <NA> 0804016U1
+      4     avantes_export2 <NA>                <NA>       <NA> 1305084U1
+      5 avantes_export_long <NA>                <NA>       <NA> 1305084U1
+      6     avantes_reflect <NA>                <NA>       <NA> 1305084U1
+      7       avantes_trans <NA>                <NA>       <NA> 0804016U1
+      8               irrad  jaz 2013-09-16 02:15:43       <NA>  JAZA2517
+      9             jazspec  jaz 2011-08-29 16:23:13       <NA>  JAZA1479
+        white_inttime dark_inttime sample_inttime white_avgs dark_avgs sample_avgs
+      1           400          400            400          5         5           5
+      2           150          150            150         10        10          10
+      3           100          100            100         20        20          20
+      4            95           95             95         20        20          20
+      5           150          150            150         10        10          10
+      6            95           95             95         20        20          20
+      7           100          100            100         20        20          20
+      8           495          495            495          3         3           3
+      9            24           24             24          1         1           1
+        white_boxcar dark_boxcar sample_boxcar
+      1            0           0             0
+      2            1           1             1
+      3            0           0             0
+      4            1           1             1
+      5            1           1             1
+      6            1           1             1
+      7            0           0             0
+      8            5           5             5
+      9            0           0             0
 
 # get_metadata recursive
 
-    {
-      "type": "list",
-      "attributes": {
-        "names": {
-          "type": "character",
-          "attributes": {},
-          "value": ["name", "user", "datetime", "spec_model", "spec_ID", "white_inttime", "dark_inttime", "sample_inttime", "white_avgs", "dark_avgs", "sample_avgs", "white_boxcar", "dark_boxcar", "sample_boxcar"]
-        },
-        "row.names": {
-          "type": "integer",
-          "attributes": {},
-          "value": [1, 2, 3, 4, 5]
-        },
-        "class": {
-          "type": "character",
-          "attributes": {},
-          "value": ["data.frame"]
-        }
-      },
-      "value": [
-        {
-          "type": "character",
-          "attributes": {},
-          "value": ["BB_PF21_4", "OceanOptics_Linux", "OceanOptics_Windows", "OceanOptics_badencode", "whiteref"]
-        },
-        {
-          "type": "character",
-          "attributes": {},
-          "value": ["Adminlocal", "hugo", "doutrelant", "user", "gomez"]
-        },
-        {
-          "type": "double",
-          "attributes": {
-            "class": {
-              "type": "character",
-              "attributes": {},
-              "value": ["POSIXct", "POSIXt"]
-            },
-            "tzone": {
-              "type": "character",
-              "attributes": {},
-              "value": ["UTC"]
-            }
-          },
-          "value": [1151055549, 1458134311, 1449224954, 1480711152, 1533225379]
-        },
-        {
-          "type": "character",
-          "attributes": {},
-          "value": ["USB4000", "USB4000", "JazUSB", "USB2000Plus", "USB4000"]
-        },
-        {
-          "type": "character",
-          "attributes": {},
-          "value": ["USB4C00008", "USB4C00008", "JAZA2982", "USB2+H06330", "USB4C00008"]
-        },
-        {
-          "type": "double",
-          "attributes": {},
-          "value": [10, 200, 60, 20, 500]
-        },
-        {
-          "type": "double",
-          "attributes": {},
-          "value": [10, 200, 60, 20, 500]
-        },
-        {
-          "type": "double",
-          "attributes": {},
-          "value": [10, 200, 60, 20, 500]
-        },
-        {
-          "type": "double",
-          "attributes": {},
-          "value": [40, 5, 15, 100, 5]
-        },
-        {
-          "type": "double",
-          "attributes": {},
-          "value": [40, 5, 15, 100, 5]
-        },
-        {
-          "type": "double",
-          "attributes": {},
-          "value": [40, 5, 15, 100, 5]
-        },
-        {
-          "type": "double",
-          "attributes": {},
-          "value": [10, 0, 0, 5, 0]
-        },
-        {
-          "type": "double",
-          "attributes": {},
-          "value": [10, 0, 0, 5, 0]
-        },
-        {
-          "type": "double",
-          "attributes": {},
-          "value": [10, 0, 0, 5, 0]
-        }
-      ]
-    }
+    Code
+      lr_get_metadata(test.file(), ext = "ProcSpec", subdir = TRUE)
+    Message
+      5 files found; importing metadata:
+    Output
+                         name       user            datetime  spec_model     spec_ID
+      1             BB_PF21_4 Adminlocal 2006-06-23 09:39:09     USB4000  USB4C00008
+      2     OceanOptics_Linux       hugo 2016-03-16 13:18:31     USB4000  USB4C00008
+      3   OceanOptics_Windows doutrelant 2015-12-04 10:29:14      JazUSB    JAZA2982
+      4 OceanOptics_badencode       user 2016-12-02 20:39:12 USB2000Plus USB2+H06330
+      5              whiteref      gomez 2018-08-02 15:56:19     USB4000  USB4C00008
+        white_inttime dark_inttime sample_inttime white_avgs dark_avgs sample_avgs
+      1            10           10             10         40        40          40
+      2           200          200            200          5         5           5
+      3            60           60             60         15        15          15
+      4            20           20             20        100       100         100
+      5           500          500            500          5         5           5
+        white_boxcar dark_boxcar sample_boxcar
+      1           10          10            10
+      2            0           0             0
+      3            0           0             0
+      4            5           5             5
+      5            0           0             0
 
