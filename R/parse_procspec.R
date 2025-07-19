@@ -52,7 +52,7 @@ lr_parse_procspec <- function(filename, verify_checksum = FALSE, ...) {
       saved_hash <- gsub(" ", "", saved_hash, fixed = TRUE)
       algo <- xml_text(xml_find_first(sig, ".//hashAlgorithm"))
       if (algo == "SHA-512") {
-        actual_hash <- digest::digest(data_file, algo = "sha512", file = TRUE)
+        actual_hash <- digest::digest(file = data_file, algo = "sha512")
       } else {
         warning("Unknown hash in signature. Skipping.", call. = FALSE)
         actual_hash <- saved_hash
