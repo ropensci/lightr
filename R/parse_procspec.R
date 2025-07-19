@@ -43,13 +43,11 @@ lr_parse_procspec <- function(filename, check = FALSE, ...) {
         call. = FALSE
       )
     } else {
-      sig <- read_xml(grep(
-        pattern = "OOISignatures\\.xml$",
-        extracted_files,
-        value = TRUE
-      ))
+      sig <- read_xml(
+        extracted_files[endsWith(extracted_file, "OOISignatures.xml")]
+      )
       saved_hash <- xml_text(xml_find_first(sig, ".//hashValue"))
-      saved_hash <- gsub(" ", "", saved_hash)
+      saved_hash <- gsub(" ", "", saved_hash, fixed = TRUE)
       algo <- xml_text(xml_find_first(sig, ".//hashAlgorithm"))
       if (algo == "SHA-512") {
         actual_hash <- digest::digest(data_file, algo = "sha512", file = TRUE)
