@@ -37,10 +37,17 @@ lr_parse_procspec <- function(filename, check = FALSE, ...) {
 
   if (check) {
     if (!requireNamespace("digest")) {
-      warning("The digest package is required for check = TRUE. ",
-              "Skipping integrity check...", call. = FALSE)
+      warning(
+        "The digest package is required for check = TRUE. ",
+        "Skipping integrity check...",
+        call. = FALSE
+      )
     } else {
-      sig <- read_xml(grep(pattern = "OOISignatures\\.xml$", extracted_files, value = TRUE))
+      sig <- read_xml(grep(
+        pattern = "OOISignatures\\.xml$",
+        extracted_files,
+        value = TRUE
+      ))
       saved_hash <- xml_text(xml_find_first(sig, ".//hashValue"))
       saved_hash <- gsub(" ", "", saved_hash)
       algo <- xml_text(xml_find_first(sig, ".//hashAlgorithm"))
@@ -53,8 +60,11 @@ lr_parse_procspec <- function(filename, check = FALSE, ...) {
       if (actual_hash != saved_hash) {
         stop(
           "The file has been modified since its creation by the spectrometer. ",
-          "This can have serious consequences!\n",
-          "To bypass the warning, use 'check = FALSE'", call. = FALSE)
+          "This means data integrity may be compromised ",
+          "and it is unclear how much you can trust your results.\n",
+          "To bypass the warning, use 'check = FALSE'",
+          call. = FALSE
+        )
       }
     }
   }
