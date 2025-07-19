@@ -40,7 +40,8 @@ test_that("get_spec interpolate", {
       ext = "ProcSpec",
       interpolate = FALSE
     ),
-    error = TRUE
+    error = TRUE,
+    cran = TRUE
   )
 
   expect_message(
