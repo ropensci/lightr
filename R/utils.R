@@ -11,6 +11,9 @@ convert_backward_tzdata <- function(tz) {
     tz,
     EST = "America/Panama",
     CET = "Europe/Brussels",
+    CEST = "Europe/Brussels",
+    CST = "America/Chicago",
+    CDT = "America/Chicago",
     tz
   )
 }
