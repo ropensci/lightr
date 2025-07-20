@@ -44,16 +44,10 @@ test_that("get_spec interpolate", {
     cran = TRUE
   )
 
-  expect_message(
-    res <- lr_get_spec(
-      test.file("heliomaster"),
-      ext = "jdx",
-      interpolate = FALSE
-    ),
-    "4 files"
+  expect_snapshot(
+    lr_get_spec(test.file("heliomaster"), ext = "jdx", interpolate = FALSE),
+    cran = TRUE
   )
-
-  expect_identical(nrow(res), 1992L)
 })
 
 test_that("get_spec mixed csv and tabular format", {
