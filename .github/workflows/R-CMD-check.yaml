@@ -5,8 +5,6 @@ on:
     branches: [main, master]
   pull_request:
     branches: [main, master]
-  schedule:
-    - cron: '36 3 3 * *'
 
 name: R-CMD-check
 
@@ -29,7 +27,6 @@ jobs:
           - {os: ubuntu-latest,  r: 'release', tz: EST}
           - {os: ubuntu-latest,  r: '4.2'}
           - {os: ubuntu-latest,  r: '4.1'}
-          - {os: ubuntu-latest,  r: '4.0'}
 
     env:
       LANG: ${{ matrix.config.lang }}
