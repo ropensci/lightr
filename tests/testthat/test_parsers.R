@@ -69,9 +69,6 @@ test_that("OceanOptics others", {
     lr_parse_jaz(test.file("UK5.txt"))
   )
 
-  # No expect_silent() here because 'CST' is not a valid timezone and per
-  # ?as.POSIXct, "invalid values are most commonly treated as UTC, on some
-  # platforms with a warning."
   expect_snapshot(
     lr_parse_jaz(test.file("non_english", "OO_comma.txt"))
   )
