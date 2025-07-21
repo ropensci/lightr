@@ -102,7 +102,11 @@ lr_parse_spc <- function(filename, ...) {
     processed
   )
 
-  metadata <- rep(NA_character_, 13)
+  metadata <- c(
+    NA_character_,
+    uncompress_spc_date(compressed_date),
+    rep(NA_character_, 11)
+  )
 
   return(list(data = as.data.frame(data), metadata = metadata))
 }
