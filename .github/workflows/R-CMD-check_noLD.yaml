@@ -11,7 +11,7 @@ name: R-CMD-check
 jobs:
   R-CMD-check_noLD:
     runs-on: ubuntu-20.04
-    container: rhub/debian-gcc-devel-nold
+    container: ghcr.io/r-hub/containers/nold:latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
 
