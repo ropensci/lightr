@@ -2,7 +2,16 @@ test_that("get_metadata all", {
   expect_snapshot(
     lr_get_metadata(
       test.file(),
-      ext = c("TRM", "ROH", "ttt", "trt", "jdx", "jaz", "JazIrrad")
+      ext = c(
+        "TRM",
+        "ROH",
+        "ttt",
+        "trt",
+        "jdx",
+        "jaz",
+        "JazIrrad",
+        "spc"
+      )
     ),
     cran = TRUE
   )
@@ -11,7 +20,11 @@ test_that("get_metadata all", {
 test_that("get_metadata recursive", {
   # Recursive
   expect_snapshot(
-    lr_get_metadata(test.file(), ext = "ProcSpec", subdir = TRUE),
+    lr_get_metadata(
+      test.file(),
+      ext = c("ProcSpec", "spc", "RFL8", "TRM"),
+      subdir = TRUE
+    ),
     cran = TRUE
   )
 })
