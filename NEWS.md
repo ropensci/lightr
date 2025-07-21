@@ -9,6 +9,11 @@
 * `lr_parse_procspec()` gains a new argument `verify_checksum` to verify if the
   data has been tampered with since its creation by the official OceanView
   software (@Bisaloo, #29).
+* `lr_parse_spc()` (OceanOptics, CRAIC) and
+  `lr_parse_rfl8()`/`lr_parse_raw8()`/`lr_parse_irr8()` (Avantes) now return the
+  measurement date & time in the metadata elements (@Bisaloo, #75). In other
+  words, `lr_get_metadata()` now return `savetime` for `.spc`, `.RFL8`, `.RAW8`,
+  `IRR8` files.
 
 # lightr 1.8.0
 
