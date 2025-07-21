@@ -2,7 +2,7 @@
 
 ## New features
 
-* cases where a mix of `.csv` and other 'csv-like but not quite csv' format are
+* cases where a mix of `.csv` and other 'csv-like but not quite csv' formats are
   passed to `lr_get_spec()` are now handled better, after a report from @bittonp
   (@Bisaloo, #58). This also means that it's no longer necessary to explicitly
   set `sep = ","` when trying to parse csv files (#15).
