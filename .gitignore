@@ -6,3 +6,8 @@ docs/
 AvaSoft8_File_Formats\.pdf
 local
 revdep/library/
+
+# revdepcheck
+revdep/library
+revdep/data.sqlite
+revdep/checks
