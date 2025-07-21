@@ -60,6 +60,7 @@ lr_parse_spc <- function(filename, ...) {
   peak_point_number <- readBin(f, "raw", n = 2, endian = "little")
   spare <- readBin(f, "double", n = 8, size = 4, endian = "little")
 
+  # SPC from CRAIC contains additional info here. But not those from OceanOptics
   comment <- intToUtf8(readBin(f, "raw", n = 130, endian = "little"))
   custom_axis_strings <- intToUtf8(readBin(f, "raw", 30, endian = "little"))
 
