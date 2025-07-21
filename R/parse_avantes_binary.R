@@ -431,7 +431,7 @@ lr_parse_rfl8 <- function(filename, specnum = 1L, ...) {
     )
 
     timestamp <- readBin(f, "raw", n = 4, endian = "little")
-    SPCfiledate <- readBin(f, "raw", n = 4, endian = "little")
+    SPCfiledate <- readBin(f, "integer", size = 4, endian = "little")
 
     detectortemp <- readBin(f, "numeric", size = 4, endian = "little")
     boardtemp <- readBin(f, "numeric", size = 4, endian = "little")
@@ -457,7 +457,7 @@ lr_parse_rfl8 <- function(filename, specnum = 1L, ...) {
     data$processed <- lr_compute_processed(data)
 
     author <- NA_character_
-    savetime <- NA_character_ # FIXME: extract this from SPCfiledate
+    savetime <- uncompress_spc_date(SPCfiledate)
     specmodel <- NA_character_
 
     metadata <- metadata <- c(
