@@ -1,18 +1,17 @@
 endian_linter <- function() {
-  xpath <- "
-    //SYMBOL_FUNCTION_CALL[text() = 'readBin' or text() = 'writeBin']
-      /parent::expr
-      /parent::expr[not(SYMBOL_SUB[text() = 'endian'])]
-  "
+  lintr::Linter(linter_level = "expression", function(source_expression) {
+    xml_calls <- source_expression$xml_find_function_calls(c(
+      "readBin",
+      "writeBin"
+    ))
 
-  lintr::Linter(function(source_expression) {
-    if (!lintr::is_lint_level(source_expression, "expression")) {
-      return(list())
-    }
-
-    xml <- source_expression$xml_parsed_content
-
-    bad_expr <- xml2::xml_find_all(xml, xpath)
+    bad_expr <- xml2::xml_find_all(
+      xml_calls,
+      "parent::expr[
+        not(SYMBOL_SUB[text() = 'endian']) and
+        SYMBOL_SUB[text() = 'size']/following-sibling::expr[1]/NUM_CONST > 1
+      ]"
+    )
 
     lintr::xml_nodes_to_lints(
       bad_expr,
