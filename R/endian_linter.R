@@ -5,12 +5,12 @@ endian_linter <- function() {
       "writeBin"
     ))
 
+    # 'endian=' is only relevant for size > 1 but it is difficult to determine
+    # this statically since the default is to use natural size, which depends on
+    # 'what='
     bad_expr <- xml2::xml_find_all(
       xml_calls,
-      "parent::expr[
-        not(SYMBOL_SUB[text() = 'endian']) and
-        SYMBOL_SUB[text() = 'size']/following-sibling::expr[1]/NUM_CONST > 1
-      ]"
+      "parent::expr[not(SYMBOL_SUB[text() = 'endian'])]"
     )
 
     lintr::xml_nodes_to_lints(
