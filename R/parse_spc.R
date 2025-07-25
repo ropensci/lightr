@@ -11,15 +11,19 @@
 #' Metadata parsing has not yet been implemented for this file format.
 #'
 #' @examples
-#' res <- lr_parse_spc(system.file("testdata", "compare", "CRAIC", "CRAIC.spc",
-#'                                 package = "lightr"))
+#' res <- lr_parse_craic_spc(
+#'   system.file(
+#'     "testdata", "compare", "CRAIC", "CRAIC.spc",
+#'     package = "lightr"
+#'   )
+#' )
 #' head(res$data)
 #' res$metadata
 #'
 #' @export
 #'
 
-lr_parse_spc <- function(filename, ...) {
+lr_parse_craic_spc <- function(filename, ...) {
   f <- file(filename, "rb")
   on.exit(close(f))
 
@@ -110,4 +114,24 @@ lr_parse_spc <- function(filename, ...) {
   )
 
   return(list(data = as.data.frame(data), metadata = metadata))
+}
+
+#' @rdname lr_parse_craic_spc
+#' @export
+lr_parse_oceanoptics_spc <- lr_parse_craic_spc
+
+#' @rdname lr_parse_craic_spc
+#' @export
+lr_parse_spc <- function(filename, ...) {
+  lifecycle::deprecate_warn(
+    when = "2.0.0",
+    what = "lr_parse_spc()",
+    details = paste(
+      "lr_parse_spc() should be replaced by ",
+      "lr_parse_oceanoptics_spc() or lr_parse_craic_spc() ",
+      "depending on the manufacturer of the spectrometer ",
+      "which created this file."
+    )
+  )
+  lr_parse_oceanoptics_spc(filename = filename, ...)
 }
