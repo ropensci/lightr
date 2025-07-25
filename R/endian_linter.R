@@ -16,11 +16,16 @@ endian_linter <- function() {
       ]"
     )
 
-    # FIXME: support specification by position
-    what <- lintr::get_r_string(
+    what_by_name <- lintr::get_r_string(
       bad_expr,
       "SYMBOL_SUB[text() = 'what']/following-sibling::expr[1]"
     )
+    what_by_position <- lintr::get_r_string(
+      bad_expr,
+      "expr[3]"
+    )
+
+    what <- ifelse(!is.na(what_by_name), what_by_name, what_by_position)
 
     lintr::xml_nodes_to_lints(
       bad_expr[is.na(what) || what != "raw"],
