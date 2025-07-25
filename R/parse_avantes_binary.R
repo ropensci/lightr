@@ -201,27 +201,13 @@ lr_parse_avantes_trm <- function(filename, ...) {
 #'
 #' @export
 #'
-lr_parse_abs <- function(filename, ...) {
-  lifecycle::deprecate_warn(
-    when = "2.0.0",
-    what = "lr_parse_abs()",
-    with = "lr_parse_avantes_trm()"
-  )
-  lr_parse_avantes_trm(filename = filename, ...)
-}
+lr_parse_avantes_abs <- lr_parse_avantes_trm
 
 #' @rdname lr_parse_avantes_trm
 #'
 #' @export
 #'
-lr_parse_roh <- function(filename, ...) {
-  lifecycle::deprecate_warn(
-    when = "2.0.0",
-    what = "lr_parse_roh()",
-    with = "lr_parse_avantes_trm()"
-  )
-  lr_parse_avantes_trm(filename = filename, ...)
-}
+lr_parse_avantes_roh <- lr_parse_avantes_trm
 
 #' @rdname lr_parse_avantes_trm
 #'
@@ -500,18 +486,6 @@ lr_parse_avantes_rfl8 <- function(filename, specnum = 1L, ...) {
 #'
 #' @export
 #'
-lr_parse_avantes_abs <- lr_parse_avantes_trm
-
-#' @rdname lr_parse_avantes_trm
-#'
-#' @export
-#'
-lr_parse_avantes_roh <- lr_parse_avantes_trm
-
-#' @rdname lr_parse_avantes_trm
-#'
-#' @export
-#'
 lr_parse_avantes_raw8 <- lr_parse_avantes_rfl8
 
 #' @rdname lr_parse_avantes_trm
@@ -530,6 +504,28 @@ lr_parse_trm <- function(filename, ...) {
     with = "lr_parse_avantes_trm()"
   )
   lr_parse_avantes_trm(filename = filename, ...)
+}
+
+#' @rdname lr_parse_avantes_trm
+#' @export
+lr_parse_abs <- function(filename, ...) {
+  lifecycle::deprecate_warn(
+    when = "2.0.0",
+    what = "lr_parse_abs()",
+    with = "lr_parse_avantes_abs()"
+  )
+  lr_parse_avantes_abs(filename = filename, ...)
+}
+
+#' @rdname lr_parse_avantes_trm
+#' @export
+lr_parse_roh <- function(filename, ...) {
+  lifecycle::deprecate_warn(
+    when = "2.0.0",
+    what = "lr_parse_roh()",
+    with = "lr_parse_avantes_roh()"
+  )
+  lr_parse_avantes_roh(filename = filename, ...)
 }
 
 #' @rdname lr_parse_avantes_trm
