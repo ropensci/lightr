@@ -2,14 +2,14 @@
 % Please edit documentation in R/parse_avantes_binary.R
 \name{lr_parse_avantes_trm}
 \alias{lr_parse_avantes_trm}
-\alias{lr_parse_abs}
-\alias{lr_parse_roh}
-\alias{lr_parse_avantes_rfl8}
 \alias{lr_parse_avantes_abs}
 \alias{lr_parse_avantes_roh}
+\alias{lr_parse_avantes_rfl8}
 \alias{lr_parse_avantes_raw8}
 \alias{lr_parse_avantes_irr8}
 \alias{lr_parse_trm}
+\alias{lr_parse_abs}
+\alias{lr_parse_roh}
 \alias{lr_parse_rfl8}
 \alias{lr_parse_raw8}
 \alias{lr_parse_irr8}
@@ -17,21 +17,21 @@
 \usage{
 lr_parse_avantes_trm(filename, ...)
 
-lr_parse_abs(filename, ...)
-
-lr_parse_roh(filename, ...)
-
-lr_parse_avantes_rfl8(filename, specnum = 1L, ...)
-
 lr_parse_avantes_abs(filename, ...)
 
 lr_parse_avantes_roh(filename, ...)
+
+lr_parse_avantes_rfl8(filename, specnum = 1L, ...)
 
 lr_parse_avantes_raw8(filename, specnum = 1L, ...)
 
 lr_parse_avantes_irr8(filename, specnum = 1L, ...)
 
 lr_parse_trm(filename, ...)
+
+lr_parse_abs(filename, ...)
+
+lr_parse_roh(filename, ...)
 
 lr_parse_rfl8(filename, specnum = 1L, ...)
 
