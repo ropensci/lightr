@@ -36,7 +36,7 @@ flowchart TD
     A(["lr_get_spec()"]) --> D["dispatch_parser"]
     B(["lr_get_metadata()"]) --> D
     C(["lr_convert_tocsv()"]) --> D
-    D --> E["lr_parse_procspec"] & F["lr_parse_ttt"] & G["lr_parse_trt"] & H["lr_parse_jdx"] & I["lr_parse_trm"]
+    D --> E["lr_parse_oceanoptics_procspec"] & F["lr_parse_avantes_ttt"] & G["lr_parse_avantes_trt"] & H["lr_parse_oceanoptics_jdx"] & I["lr_parse_avantes_trm"]
 ```
 
 ```{r}
@@ -50,4 +50,4 @@ knitr::include_graphics("architecture.svg")
 ## Naming conventions
 
 - All exported functions start with the prefix `lr_`
-- All low-level parsers are named as `lr_parse_<fileext>`
+- All low-level parsers are named as `lr_parse_<brand>_<fileext>`

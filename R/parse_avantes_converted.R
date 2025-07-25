@@ -8,13 +8,13 @@
 #' @inherit lr_parse_generic return details
 #'
 #' @examples
-#' res_ttt <- lr_parse_ttt(
+#' res_ttt <- lr_parse_avantes_ttt(
 #'   system.file("testdata", "avantes_export.ttt", package = "lightr")
 #' )
 #' head(res_ttt$data)
 #' res_ttt$metadata
 #'
-#' res_trt <- lr_parse_trt(
+#' res_trt <- lr_parse_avantes_trt(
 #'   system.file("testdata", "avantes_export2.trt", package = "lightr")
 #' )
 #' head(res_trt$data)
@@ -22,7 +22,7 @@
 #'
 #' @export
 #'
-lr_parse_ttt <- function(filename, ...) {
+lr_parse_avantes_ttt <- function(filename, ...) {
   # FIXME: grep to find appropriate lines instead of relying on fixed indices
 
   content <- readLines(filename, skipNul = TRUE)
@@ -104,8 +104,31 @@ lr_parse_ttt <- function(filename, ...) {
   return(list(data = data_final, metadata = metadata))
 }
 
-#' @rdname lr_parse_ttt
+#' @rdname lr_parse_avantes_ttt
 #'
 #' @export
 #'
-lr_parse_trt <- lr_parse_ttt
+lr_parse_avantes_trt <- lr_parse_avantes_ttt
+
+# Backward compatibility aliases
+#' @rdname lr_parse_avantes_ttt
+#' @export
+lr_parse_ttt <- function(filename, ...) {
+  lifecycle::deprecate_warn(
+    when = "2.0.0",
+    what = "lr_parse_ttt()",
+    with = "lr_parse_avantes_ttt()"
+  )
+  lr_parse_avantes_ttt(filename = filename, ...)
+}
+
+#' @rdname lr_parse_avantes_ttt
+#' @export
+lr_parse_trt <- function(filename, ...) {
+  lifecycle::deprecate_warn(
+    when = "2.0.0",
+    what = "lr_parse_trt()",
+    with = "lr_parse_avantes_trt()"
+  )
+  lr_parse_avantes_trt(filename = filename, ...)
+}

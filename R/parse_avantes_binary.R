@@ -7,18 +7,18 @@
 #'
 #' @inherit lr_parse_generic return
 #'
-#' @inherit lr_parse_jdx details
+#' @inherit lr_parse_oceanoptics_jdx details
 #'
 #' @importFrom stats setNames
 #'
 #' @examples
-#' res_trm <- lr_parse_trm(
+#' res_trm <- lr_parse_avantes_trm(
 #'   system.file("testdata", "avantes_trans.TRM", package = "lightr")
 #' )
 #' head(res_trm$data)
 #' res_trm$metadata
 #'
-#' res_roh <- lr_parse_roh(
+#' res_roh <- lr_parse_avantes_roh(
 #'   system.file("testdata", "avantes_reflect.ROH", package = "lightr")
 #' )
 #' head(res_roh$data)
@@ -26,7 +26,7 @@
 #'
 #' @export
 #'
-lr_parse_trm <- function(filename, ...) {
+lr_parse_avantes_trm <- function(filename, ...) {
   # Modified from a matlab script by:
   # Copyright: (cc-by) Kotya Karapetyan, 2011.
   # kotya.karapetyan@gmail.com
@@ -197,19 +197,19 @@ lr_parse_trm <- function(filename, ...) {
   return(list(data = data, metadata = metadata))
 }
 
-#' @rdname lr_parse_trm
+#' @rdname lr_parse_avantes_trm
 #'
 #' @export
 #'
-lr_parse_abs <- lr_parse_trm
+lr_parse_avantes_abs <- lr_parse_avantes_trm
 
-#' @rdname lr_parse_trm
+#' @rdname lr_parse_avantes_trm
 #'
 #' @export
 #'
-lr_parse_roh <- lr_parse_trm
+lr_parse_avantes_roh <- lr_parse_avantes_trm
 
-#' @rdname lr_parse_trm
+#' @rdname lr_parse_avantes_trm
 #'
 #' @param specnum Integer representing the position of the spectrum to read in
 #'   the file. This option only makes sense for AvaSoft8 files and is ignored
@@ -219,21 +219,21 @@ lr_parse_roh <- lr_parse_trm
 #'
 #' @examples
 #' # This parser has a unique `specnum` argument
-#' res_rfl8_1 <- lr_parse_rfl8(
+#' res_rfl8_1 <- lr_parse_avantes_rfl8(
 #'   system.file("testdata", "compare", "Avantes", "feather.RFL8", package = "lightr"),
 #'   specnum = 1
 #' )
 #' head(res_rfl8_1$data)
 #' res_rfl8_1$metadata
 #'
-#' res_rfl8_2 <- lr_parse_rfl8(
+#' res_rfl8_2 <- lr_parse_avantes_rfl8(
 #'   system.file("testdata", "compare", "Avantes", "feather.RFL8", package = "lightr"),
 #'   specnum = 2
 #' )
 #' head(res_rfl8_2$data)
 #' res_rfl8_2$metadata
 #'
-lr_parse_rfl8 <- function(filename, specnum = 1L, ...) {
+lr_parse_avantes_rfl8 <- function(filename, specnum = 1L, ...) {
   # File structure information provided courtesy of Avantes
 
   f <- file(filename, "rb")
@@ -482,14 +482,81 @@ lr_parse_rfl8 <- function(filename, specnum = 1L, ...) {
   }
 }
 
-#' @rdname lr_parse_trm
+#' @rdname lr_parse_avantes_trm
 #'
 #' @export
 #'
-lr_parse_raw8 <- lr_parse_rfl8
+lr_parse_avantes_raw8 <- lr_parse_avantes_rfl8
 
-#' @rdname lr_parse_trm
+#' @rdname lr_parse_avantes_trm
 #'
 #' @export
 #'
-lr_parse_irr8 <- lr_parse_rfl8
+lr_parse_avantes_irr8 <- lr_parse_avantes_rfl8
+
+# Backward compatibility aliases
+#' @rdname lr_parse_avantes_trm
+#' @export
+lr_parse_trm <- function(filename, ...) {
+  lifecycle::deprecate_warn(
+    when = "2.0.0",
+    what = "lr_parse_trm()",
+    with = "lr_parse_avantes_trm()"
+  )
+  lr_parse_avantes_trm(filename = filename, ...)
+}
+
+#' @rdname lr_parse_avantes_trm
+#' @export
+lr_parse_abs <- function(filename, ...) {
+  lifecycle::deprecate_warn(
+    when = "2.0.0",
+    what = "lr_parse_abs()",
+    with = "lr_parse_avantes_abs()"
+  )
+  lr_parse_avantes_abs(filename = filename, ...)
+}
+
+#' @rdname lr_parse_avantes_trm
+#' @export
+lr_parse_roh <- function(filename, ...) {
+  lifecycle::deprecate_warn(
+    when = "2.0.0",
+    what = "lr_parse_roh()",
+    with = "lr_parse_avantes_roh()"
+  )
+  lr_parse_avantes_roh(filename = filename, ...)
+}
+
+#' @rdname lr_parse_avantes_trm
+#' @export
+lr_parse_rfl8 <- function(filename, specnum = 1L, ...) {
+  lifecycle::deprecate_warn(
+    when = "2.0.0",
+    what = "lr_parse_rfl8()",
+    with = "lr_parse_avantes_rfl8()"
+  )
+  lr_parse_avantes_rfl8(filename = filename, specnum = specnum, ...)
+}
+
+#' @rdname lr_parse_avantes_trm
+#' @export
+lr_parse_raw8 <- function(filename, specnum = 1L, ...) {
+  lifecycle::deprecate_warn(
+    when = "2.0.0",
+    what = "lr_parse_raw8()",
+    with = "lr_parse_avantes_raw8()"
+  )
+  lr_parse_avantes_raw8(filename = filename, specnum = specnum, ...)
+}
+
+#' @rdname lr_parse_avantes_trm
+#' @export
+lr_parse_irr8 <- function(filename, specnum = 1L, ...) {
+  lifecycle::deprecate_warn(
+    when = "2.0.0",
+    what = "lr_parse_irr8()",
+    with = "lr_parse_avantes_irr8()"
+  )
+  lr_parse_avantes_irr8(filename = filename, specnum = specnum, ...)
+}

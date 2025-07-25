@@ -1,7 +1,8 @@
 # OceanOptics ProcSpec
 
     Code
-      lr_parse_procspec(test.file("tampered_procspec.zip"), verify_checksum = TRUE)
+      lr_parse_oceanoptics_procspec(test.file("tampered_procspec.zip"),
+      verify_checksum = TRUE)
     Condition
       Error:
       ! The file has been modified since its creation by the spectrometer. This means data integrity may be compromised and it is unclear how much you can trust your results.
@@ -10,8 +11,8 @@
 ---
 
     Code
-      lr_parse_procspec(test.file("procspec_files", "OceanOptics_Linux.ProcSpec"),
-      verify_checksum = TRUE)
+      lr_parse_oceanoptics_procspec(test.file("procspec_files",
+        "OceanOptics_Linux.ProcSpec"), verify_checksum = TRUE)
     Output
       $data
                wl    dark   white   scope  processed
@@ -3675,8 +3676,8 @@
 ---
 
     Code
-      lr_parse_procspec(test.file("procspec_files", "OceanOptics_Windows.ProcSpec"),
-      verify_checksum = TRUE)
+      lr_parse_oceanoptics_procspec(test.file("procspec_files",
+        "OceanOptics_Windows.ProcSpec"), verify_checksum = TRUE)
     Output
       $data
                wl      dark       white       scope  processed
@@ -5740,7 +5741,8 @@
 ---
 
     Code
-      lr_parse_procspec(test.file("procspec_files", "OceanOptics_badencode.ProcSpec"))
+      lr_parse_oceanoptics_procspec(test.file("procspec_files",
+        "OceanOptics_badencode.ProcSpec"))
     Output
       $data
                wl    dark white   scope   processed
@@ -7804,7 +7806,7 @@
 # OceanOptics others
 
     Code
-      lr_parse_jdx(test.file("OceanOptics_period.jdx"))
+      lr_parse_oceanoptics_jdx(test.file("OceanOptics_period.jdx"))
     Output
       $data
                wl    dark   white   scope   processed
@@ -11465,7 +11467,7 @@
 ---
 
     Code
-      lr_parse_jdx(test.file("non_english", "OceanOptics_comma.jdx"))
+      lr_parse_oceanoptics_jdx(test.file("non_english", "OceanOptics_comma.jdx"))
     Output
       $data
                wl    dark   white   scope   processed
@@ -18790,7 +18792,7 @@
 ---
 
     Code
-      lr_parse_jaz(test.file("jazspec.jaz"))
+      lr_parse_oceanoptics_jaz(test.file("jazspec.jaz"))
     Output
       $data
                wl   dark   white   scope   processed
@@ -20854,7 +20856,7 @@
 ---
 
     Code
-      lr_parse_jazirrad(test.file("irrad.JazIrrad"))
+      lr_parse_oceanoptics_jazirrad(test.file("irrad.JazIrrad"))
     Output
       $data
                wl        dark white      scope processed
@@ -22918,7 +22920,7 @@
 ---
 
     Code
-      lr_parse_jaz(test.file("FMNH6834.00000001.Master.Transmission"))
+      lr_parse_oceanoptics_jaz(test.file("FMNH6834.00000001.Master.Transmission"))
     Output
       $data
                wl dark white scope processed
@@ -26584,7 +26586,7 @@
 ---
 
     Code
-      lr_parse_jaz(test.file("UK5.txt"))
+      lr_parse_oceanoptics_jaz(test.file("UK5.txt"))
     Output
       $data
                 wl dark white scope processed
@@ -27643,7 +27645,7 @@
 ---
 
     Code
-      lr_parse_jaz(test.file("non_english", "OO_comma.txt"))
+      lr_parse_oceanoptics_jaz(test.file("non_english", "OO_comma.txt"))
     Output
       $data
                wl dark white scope processed
@@ -29707,7 +29709,7 @@
 ---
 
     Code
-      lr_parse_jaz(test.file("non_english", "OceanView_nonEN.txt"))
+      lr_parse_oceanoptics_jaz(test.file("non_english", "OceanView_nonEN.txt"))
     Output
       $data
                wl dark white scope processed
@@ -31768,7 +31770,7 @@
 # Avantes
 
     Code
-      lr_parse_roh(test.file("avantes_reflect.ROH"))
+      lr_parse_avantes_roh(test.file("avantes_reflect.ROH"))
     Output
       $data
                 wl dark white    scope processed
@@ -33224,7 +33226,7 @@
 ---
 
     Code
-      lr_parse_trm(test.file("avantes_trans.TRM"))
+      lr_parse_avantes_trm(test.file("avantes_trans.TRM"))
     Output
       $data
                 wl    dark    white   scope  processed
@@ -34861,7 +34863,7 @@
 ---
 
     Code
-      lr_parse_trm(test.file("avantes2.TRM"))
+      lr_parse_avantes_trm(test.file("avantes2.TRM"))
     Output
       $data
                 wl   dark    white   scope   processed
@@ -36317,7 +36319,7 @@
 ---
 
     Code
-      lr_parse_ttt(test.file("avantes_export.ttt"))
+      lr_parse_avantes_ttt(test.file("avantes_export.ttt"))
     Output
       $data
            wl dark white scope processed
@@ -36732,7 +36734,7 @@
 ---
 
     Code
-      lr_parse_ttt(test.file("avantes_export_long.ttt"))
+      lr_parse_avantes_ttt(test.file("avantes_export_long.ttt"))
     Output
       $data
                 wl   dark    white   scope processed
@@ -38188,7 +38190,7 @@
 ---
 
     Code
-      lr_parse_trt(test.file("avantes_export2.trt"))
+      lr_parse_avantes_trt(test.file("avantes_export2.trt"))
     Output
       $data
                 wl dark white    scope processed
@@ -39644,7 +39646,7 @@
 ---
 
     Code
-      lr_parse_ttt(test.file("non_english", "J_MUR_MARS_17_0001.ttt"))
+      lr_parse_avantes_ttt(test.file("non_english", "J_MUR_MARS_17_0001.ttt"))
     Output
       $data
                wl    dark   white   scope processed
@@ -41110,7 +41112,7 @@
 ---
 
     Code
-      lr_parse_trm(test.file("1305084U1.DRK"))
+      lr_parse_avantes_trm(test.file("1305084U1.DRK"))
     Output
       $data
                 wl dark white  scope processed
@@ -42566,7 +42568,7 @@
 ---
 
     Code
-      lr_parse_trm(test.file("1305084U1.REF"))
+      lr_parse_avantes_trm(test.file("1305084U1.REF"))
     Output
       $data
                 wl dark white    scope processed
@@ -44254,7 +44256,7 @@
 ---
 
     Code
-      lr_parse_rfl8(test.file("compare", "Avantes", "feather.RFL8"), specnum = 2)
+      lr_parse_avantes_rfl8(test.file("compare", "Avantes", "feather.RFL8"), specnum = 2)
     Output
       $data
                 wl        dark      white      scope processed
@@ -45880,7 +45882,7 @@
 ---
 
     Code
-      lr_parse_rfl8(test.file("compare", "Avantes", "feather.RFL8"), specnum = 5)
+      lr_parse_avantes_rfl8(test.file("compare", "Avantes", "feather.RFL8"), specnum = 5)
     Condition
       Error:
       ! 'specnum' is larger than the number of spectra in the input file
