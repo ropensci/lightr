@@ -2,7 +2,7 @@
 
 ## Major breaking changes
 
-* the low-level parsers to parse individual files has been renamed from the
+* the low-level parsers to parse individual files have been renamed from the
   previous naming scheme `lr_parse_<fileext>()` to
   `lr_parse_<brand>_<fileext>()` (#72). This gives us flexibility to use
   different parsers when two or more brands use the same file extension but
