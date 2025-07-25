@@ -51,7 +51,7 @@ test_that("OceanOptics others", {
   )
 
   expect_snapshot(
-    lr_parse_orceanoptics_jaz(test.file("jazspec.jaz"))
+    lr_parse_oceanoptics_jaz(test.file("jazspec.jaz"))
   )
 
   # Floating point precision issue on noLD platforms.
@@ -114,7 +114,7 @@ test_that("Avantes", {
 
   # White reference file
   expect_snapshot(
-    lr_parse_avanates_trm(test.file("1305084U1.REF"))
+    lr_parse_avantes_trm(test.file("1305084U1.REF"))
   )
 
   expect_warning(
