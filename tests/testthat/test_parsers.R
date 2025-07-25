@@ -47,7 +47,7 @@ test_that("OceanOptics others", {
   )
 
   expect_snapshot(
-    lr_parse_spc(test.file("OceanOptics.spc"))
+    lr_parse_oceanoptics_spc(test.file("OceanOptics.spc"))
   )
 
   expect_snapshot(
@@ -158,7 +158,7 @@ test_that("Avantes", {
 
 test_that("CRAIC", {
   expect_snapshot(
-    lr_parse_spc(test.file("compare", "CRAIC", "CRAIC.spc"))
+    lr_parse_craic_spc(test.file("compare", "CRAIC", "CRAIC.spc"))
   )
 })
 

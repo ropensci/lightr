@@ -15128,7 +15128,7 @@
 ---
 
     Code
-      lr_parse_spc(test.file("OceanOptics.spc"))
+      lr_parse_oceanoptics_spc(test.file("OceanOptics.spc"))
     Output
       $data
                wl dark white scope  processed
@@ -45890,7 +45890,7 @@
 # CRAIC
 
     Code
-      lr_parse_spc(test.file("compare", "CRAIC", "CRAIC.spc"))
+      lr_parse_craic_spc(test.file("compare", "CRAIC", "CRAIC.spc"))
     Output
       $data
                wl dark white scope processed

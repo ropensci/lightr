@@ -23,7 +23,7 @@ dispatch_parser <- function(filename, ...) {
     jdx = lr_parse_oceanoptics_jdx(filename, ...),
     jaz = lr_parse_oceanoptics_jaz(filename, ...),
     jazirrad = lr_parse_oceanoptics_jazirrad(filename, ...),
-    spc = lr_parse_spc(filename, ...),
+    spc = lr_parse_oceanoptics_spc(filename, ...),
     csv = lr_parse_csv(filename, ...),
     lr_parse_generic(filename, ...)
   )
