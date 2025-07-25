@@ -10,11 +10,20 @@ endian_linter <- function() {
     # 'what='
     bad_expr <- xml2::xml_find_all(
       xml_calls,
-      "parent::expr[not(SYMBOL_SUB[text() = 'endian'])]"
+      "parent::expr[
+        not(SYMBOL_SUB[text() = 'endian'])
+        and not(SYMBOL_SUB[text() = 'size']/following-sibling::expr[1]/NUM_CONST = 1)
+      ]"
+    )
+
+    # FIXME: support specification by position
+    what <- lintr::get_r_string(
+      bad_expr,
+      "SYMBOL_SUB[text() = 'what']/following-sibling::expr[1]"
     )
 
     lintr::xml_nodes_to_lints(
-      bad_expr,
+      bad_expr[is.na(what) || what != "raw"],
       source_expression = source_expression,
       lint_message = paste(
         xml2::xml_find_first(bad_expr, "string(.//SYMBOL_FUNCTION_CALL)"),
