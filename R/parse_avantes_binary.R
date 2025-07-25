@@ -201,13 +201,27 @@ lr_parse_avantes_trm <- function(filename, ...) {
 #'
 #' @export
 #'
-lr_parse_abs <- lr_parse_avantes_trm
+lr_parse_abs <- function(filename, ...) {
+  lifecycle::deprecate_warn(
+    when = "2.0.0",
+    what = "lr_parse_abs()",
+    with = "lr_parse_avantes_trm()"
+  )
+  lr_parse_avantes_trm(filename = filename, ...)
+}
 
 #' @rdname lr_parse_avantes_trm
 #'
 #' @export
 #'
-lr_parse_roh <- lr_parse_avantes_trm
+lr_parse_roh <- function(filename, ...) {
+  lifecycle::deprecate_warn(
+    when = "2.0.0",
+    what = "lr_parse_roh()",
+    with = "lr_parse_avantes_trm()"
+  )
+  lr_parse_avantes_trm(filename = filename, ...)
+}
 
 #' @rdname lr_parse_avantes_trm
 #'
@@ -509,16 +523,44 @@ lr_parse_avantes_irr8 <- lr_parse_avantes_rfl8
 # Backward compatibility aliases
 #' @rdname lr_parse_avantes_trm
 #' @export
-lr_parse_trm <- lr_parse_avantes_trm
+lr_parse_trm <- function(filename, ...) {
+  lifecycle::deprecate_warn(
+    when = "2.0.0",
+    what = "lr_parse_trm()",
+    with = "lr_parse_avantes_trm()"
+  )
+  lr_parse_avantes_trm(filename = filename, ...)
+}
 
 #' @rdname lr_parse_avantes_trm
 #' @export
-lr_parse_rfl8 <- lr_parse_avantes_rfl8
+lr_parse_rfl8 <- function(filename, specnum = 1L, ...) {
+  lifecycle::deprecate_warn(
+    when = "2.0.0",
+    what = "lr_parse_rfl8()",
+    with = "lr_parse_avantes_rfl8()"
+  )
+  lr_parse_avantes_rfl8(filename = filename, specnum = specnum, ...)
+}
 
 #' @rdname lr_parse_avantes_trm
 #' @export
-lr_parse_raw8 <- lr_parse_avantes_raw8
+lr_parse_raw8 <- function(filename, specnum = 1L, ...) {
+  lifecycle::deprecate_warn(
+    when = "2.0.0",
+    what = "lr_parse_raw8()",
+    with = "lr_parse_avantes_raw8()"
+  )
+  lr_parse_avantes_raw8(filename = filename, specnum = specnum, ...)
+}
 
 #' @rdname lr_parse_avantes_trm
 #' @export
-lr_parse_irr8 <- lr_parse_avantes_irr8
+lr_parse_irr8 <- function(filename, specnum = 1L, ...) {
+  lifecycle::deprecate_warn(
+    when = "2.0.0",
+    what = "lr_parse_irr8()",
+    with = "lr_parse_avantes_irr8()"
+  )
+  lr_parse_avantes_irr8(filename = filename, specnum = specnum, ...)
+}

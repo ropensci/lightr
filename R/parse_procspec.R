@@ -156,4 +156,11 @@ lr_parse_oceanoptics_procspec <- function(
 
 #' @rdname lr_parse_oceanoptics_procspec
 #' @export
-lr_parse_procspec <- lr_parse_oceanoptics_procspec
+lr_parse_procspec <- function(filename, verify_checksum = FALSE, ...) {
+  lifecycle::deprecate_warn(
+    when = "2.0.0",
+    what = "lr_parse_procspec()",
+    with = "lr_parse_oceanoptics_procspec()"
+  )
+  lr_parse_oceanoptics_procspec(filename = filename, verify_checksum = verify_checksum, ...)
+}
