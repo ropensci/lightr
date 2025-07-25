@@ -12,7 +12,7 @@ test_that("endian_linter skips allowed usages", {
 
 test_that("endian_linter blocks simple disallowed usages", {
   linter <- endian_linter()
-  lint_message <- rex::rex("endian")
+  lint_message <- "endian"
 
   lintr::expect_lint('readBin(x, "integer")', lint_message, linter)
   lintr::expect_lint('readBin(x, what = "integer")', lint_message, linter)
