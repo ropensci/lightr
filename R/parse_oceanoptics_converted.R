@@ -213,24 +213,4 @@ lr_parse_oceanoptics_jaz <- function(filename, ...) {
 #'
 lr_parse_oceanoptics_jazirrad <- lr_parse_oceanoptics_jaz
 
-#' @rdname lr_parse_oceanoptics_jaz
-#' @export
-lr_parse_jaz <- function(filename, ...) {
-  lifecycle::deprecate_warn(
-    when = "2.0.0",
-    what = "lr_parse_jaz()",
-    with = "lr_parse_oceanoptics_jaz()"
-  )
-  lr_parse_oceanoptics_jaz(filename = filename, ...)
-}
 
-#' @rdname lr_parse_oceanoptics_jaz
-#' @export
-lr_parse_jazirrad <- function(filename, ...) {
-  lifecycle::deprecate_warn(
-    when = "2.0.0",
-    what = "lr_parse_jazirrad()",
-    with = "lr_parse_oceanoptics_jazirrad()"
-  )
-  lr_parse_oceanoptics_jazirrad(filename = filename, ...)
-}

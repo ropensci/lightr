@@ -120,18 +120,4 @@ lr_parse_craic_spc <- function(filename, ...) {
 #' @export
 lr_parse_oceanoptics_spc <- lr_parse_craic_spc
 
-#' @rdname lr_parse_craic_spc
-#' @export
-lr_parse_spc <- function(filename, ...) {
-  lifecycle::deprecate_warn(
-    when = "2.0.0",
-    what = "lr_parse_spc()",
-    details = paste(
-      "lr_parse_spc() should be replaced by ",
-      "lr_parse_oceanoptics_spc() or lr_parse_craic_spc() ",
-      "depending on the manufacturer of the spectrometer ",
-      "which created this file."
-    )
-  )
-  lr_parse_oceanoptics_spc(filename = filename, ...)
-}
+
