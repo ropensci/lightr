@@ -126,14 +126,3 @@ lr_parse_oceanoptics_jdx <- function(filename, ...) {
 
   return(list(data = data, metadata = metadata))
 }
-
-#' @rdname lr_parse_oceanoptics_jdx
-#' @export
-lr_parse_jdx <- function(filename, ...) {
-  lifecycle::deprecate_warn(
-    when = "2.0.0",
-    what = "lr_parse_jdx()",
-    with = "lr_parse_oceanoptics_jdx()"
-  )
-  lr_parse_oceanoptics_jdx(filename = filename, ...)
-}
