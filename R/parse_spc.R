@@ -119,5 +119,3 @@ lr_parse_craic_spc <- function(filename, ...) {
 #' @rdname lr_parse_craic_spc
 #' @export
 lr_parse_oceanoptics_spc <- lr_parse_craic_spc
-
-

@@ -126,5 +126,3 @@ lr_parse_oceanoptics_jdx <- function(filename, ...) {
 
   return(list(data = data, metadata = metadata))
 }
-
-

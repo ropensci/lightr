@@ -153,5 +153,3 @@ lr_parse_oceanoptics_procspec <- function(
 
   return(list(data = as.data.frame(specdf), metadata = metadata))
 }
-
-

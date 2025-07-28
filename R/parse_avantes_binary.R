@@ -493,5 +493,3 @@ lr_parse_avantes_raw8 <- lr_parse_avantes_rfl8
 #' @export
 #'
 lr_parse_avantes_irr8 <- lr_parse_avantes_rfl8
-
-

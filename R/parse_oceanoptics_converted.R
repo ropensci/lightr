@@ -212,5 +212,3 @@ lr_parse_oceanoptics_jaz <- function(filename, ...) {
 #' @export
 #'
 lr_parse_oceanoptics_jazirrad <- lr_parse_oceanoptics_jaz
-
-

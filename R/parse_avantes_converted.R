@@ -109,5 +109,3 @@ lr_parse_avantes_ttt <- function(filename, ...) {
 #' @export
 #'
 lr_parse_avantes_trt <- lr_parse_avantes_ttt
-
-
