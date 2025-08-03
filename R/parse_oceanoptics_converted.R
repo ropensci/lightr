@@ -38,7 +38,7 @@ lr_parse_oceanoptics_jaz <- function(filename, ...) {
   content <- readLines(filename, skipNul = TRUE)
 
   # Convert to ASCII
-  content <- vapply(content, iconv, to = "ASCII", sub = "", character(1))
+  content <- iconv(content, to = "ASCII", sub = "")
 
   # Can be:
   # - Spectrometer
