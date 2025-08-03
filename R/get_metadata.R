@@ -102,7 +102,7 @@ lr_get_metadata <- function(
     })
   })
 
-  whichfailed <- which(vapply(tmp, is.null, logical(1)))
+  whichfailed <- which(lengths(tmp) == 0)
 
   if (length(whichfailed) == nb_files) {
     warning(
