@@ -145,16 +145,13 @@ lr_get_spec <- function(
       paste(files[whichfailed], collapse = "\n"),
       call. = FALSE
     )
-
+    tmp <- tmp[-whichfailed]
     specnames <- specnames[-whichfailed]
   }
 
   if (interpolate) {
     # We convert to data.frame before adding the wl to preserve wl class (int or
     # altrep)
-
-    # Errors have created NULL elements that we need to remove
-    tmp <- tmp[lengths(tmp) != 0]
     tmp <- list2DF(tmp)
 
     final <- cbind(range, tmp)
@@ -167,8 +164,6 @@ lr_get_spec <- function(
       )
     }
 
-    # Errors have created NULL elements that we need to remove
-    tmp <- tmp[lengths(tmp) != 0]
     final <- list2DF(lapply(tmp, function(x) x[, "processed"]))
     final <- cbind(tmp[[1]][, "wl"], final)
 
