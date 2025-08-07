@@ -11,3 +11,7 @@ revdep/library/
 revdep/library
 revdep/data.sqlite
 revdep/checks
+
+# Build artifacts
+*.Rcheck/
+*.tar.gz

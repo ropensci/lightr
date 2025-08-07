@@ -1,0 +1,194 @@
+# Copilot Instructions for lightr Package
+
+## Repository Overview
+
+**lightr** is a scientific R package that provides a unified interface for importing UV-VIS reflectance/transmittance/absorbance spectra files from various proprietary formats. It's part of the rOpenSci ecosystem and provides the first fully free and open-source solution to read proprietary spectra file formats across all systems.
+
+### Key Statistics
+- **Type**: R package (scientific/data import)
+- **Size**: ~30 R source files, ~2,100 lines of code
+- **Languages**: R (primary), with some YAML for CI/CD
+- **Dependencies**: xml2, future.apply, progressr, lifecycle
+- **Test data**: Extensive collection in `inst/testdata/` (>50 test files)
+
+## Build & Development Workflow
+
+### Prerequisites
+**Always ensure these system dependencies are installed before building:**
+```bash
+sudo apt update
+sudo apt install -y r-base r-base-dev r-cran-knitr r-cran-xml2 r-cran-testthat
+```
+
+### Essential Build Commands
+
+#### Package Build (Required before testing)
+```bash
+R CMD build .
+```
+- **Runtime**: ~30-60 seconds
+- **Prerequisites**: Must have `knitr` installed for vignette building
+- **Output**: Creates `lightr_VERSION.tar.gz` file
+- **Note**: Always run this before `R CMD check`
+
+#### Package Check (CI validation)
+```bash
+# Basic check (use for development) - skips missing suggested packages
+env R_CHECK_FORCE_SUGGESTS=FALSE R CMD check --no-manual lightr_*.tar.gz
+
+# Full check (matches CI, requires all suggested packages)
+R CMD check lightr_*.tar.gz
+```
+- **Runtime**: 3-5 minutes for basic, 10+ minutes for full
+- **Note**: Basic check skips suggested packages like 'pavo' which may not be available
+- **Important**: Use uppercase `FALSE` in environment variable
+
+#### Testing
+```bash
+# Load package for development
+R -e "devtools::load_all('.')"
+
+# Run tests (if testthat available)
+R -e "devtools::test()"
+```
+
+#### Linting
+```bash
+# Install lintr first if not available
+R -e "install.packages('lintr', repos='https://cloud.r-project.org')"
+
+# Run linter (uses custom config in .lintr)
+R -e "lintr::lint_package()"
+```
+
+### Common Build Issues & Solutions
+
+1. **"vignette builder 'knitr' not found"**
+   - Solution: `sudo apt install -y r-cran-knitr`
+
+2. **"Package suggested but not available: 'pavo'"**
+   - Solution: Use `env R_CHECK_FORCE_SUGGESTS=FALSE` with uppercase FALSE
+
+3. **Test failures with "could not find function 'test.file'"**
+   - This is a known issue in test setup; tests run fine via CI
+   - Use `devtools::test()` instead of direct testthat calls
+
+4. **Internet connectivity issues during package install**
+   - Some packages need apt installation: `sudo apt install r-cran-[package]`
+
+## GitHub Workflows & CI
+
+### Automated Checks (All trigger on push/PR)
+1. **R-CMD-check.yaml** - Comprehensive package checking
+   - Tests on: Ubuntu, macOS, Windows
+   - R versions: devel, release, 4.2, 4.1
+   - Special configurations: French locale, different timezone
+   - **Runtime**: 15-30 minutes per matrix job
+
+2. **test-coverage.yaml** - Code coverage analysis
+   - Uses `covr` package, uploads to Codecov
+   - **Runtime**: 10-15 minutes
+
+3. **lint-changed-files.yaml** - Lints only changed files in PRs
+   - Uses custom `.lintr` configuration
+   - **Runtime**: 2-5 minutes
+
+4. **rhub.yaml** - R-hub validation
+5. **codemeta.yml** - Metadata updates
+
+### Validation Steps for Changes
+1. Always test build: `R CMD build .`
+2. Run basic check: `env R_CHECK_FORCE_SUGGESTS=FALSE R CMD check --no-manual *.tar.gz`
+3. Test specific functionality: `R -e "devtools::load_all('.'); # test your changes"`
+4. Check linting: `R -e "lintr::lint_package()"`
+
+## Project Architecture
+
+### Core Directory Structure
+```
+lightr/
+├── R/                          # Main package code (18 files)
+│   ├── get_spec.R             # High-level batch import
+│   ├── get_metadata.R         # Metadata extraction
+│   ├── convert_tocsv.R        # CSV conversion utilities
+│   ├── parse_*.R              # Individual format parsers (10 files)
+│   ├── dispatch_parser.R      # Parser selection logic
+│   └── utils.R                # Helper functions
+├── tests/testthat/            # Test suite
+│   ├── test_*.R              # Test files (8 main test files)
+│   ├── setup.R               # Test environment setup
+│   └── _snaps/               # Test snapshots
+├── inst/testdata/            # Comprehensive test data (>50 files)
+│   ├── *.spc, *.ProcSpec     # Binary spectral files
+│   ├── *.txt, *.csv          # Text format files
+│   └── compare/              # Validation data
+├── man/                      # Generated documentation (do not edit)
+├── vignettes/               # Package documentation/tutorials
+├── .github/workflows/       # CI/CD configuration
+└── pkgdown/                 # Website configuration
+```
+
+### Key Configuration Files
+- **DESCRIPTION**: Package metadata, dependencies (edit this for version bumps)
+- **NAMESPACE**: Auto-generated by roxygen2 (do not edit manually)
+- **.lintr**: Custom linting rules (includes endian_linter)
+- **codecov.yml**: Coverage reporting configuration
+- **_pkgdown.yml**: Website generation settings
+
+### Main Functions (Entry Points)
+1. **`lr_get_spec()`** - Batch import returning rspec-compatible data frame
+2. **`lr_get_metadata()`** - Extract metadata from multiple files
+3. **`lr_convert_tocsv()`** - Convert proprietary formats to CSV
+4. **`lr_parse_*()`** - Individual parsers for specific formats
+
+### Parser Architecture
+- **Format support**: OceanOptics/OceanInsight, Avantes, CRAIC, CSV, generic
+- **Modular design**: Each manufacturer has dedicated parser files
+- **Fallback**: `lr_parse_generic()` handles unknown formats
+- **Binary handling**: Specialized parsers for binary formats (.spc, .ProcSpec, .Raw8)
+
+## Development Best Practices
+
+### For Code Changes
+1. **Documentation**: Use roxygen2 comments (`#'`) for all exported functions
+2. **Testing**: Add tests to appropriate `test_*.R` file in `tests/testthat/`
+3. **Linting**: Follow existing code style; check with `lintr::lint_package()`
+4. **Dependencies**: Minimize new dependencies; prefer base R solutions
+
+### For Parser Development
+1. **Test data**: Always include sample files in `inst/testdata/`
+2. **Validation**: Compare outputs with official software when possible
+3. **Error handling**: Provide clear error messages for unsupported files
+4. **Metadata**: Extract and preserve as much metadata as possible
+
+### For Testing
+1. **Snapshots**: Use `testthat::expect_snapshot()` for complex outputs
+2. **File tests**: Test with actual data files from `inst/testdata/`
+3. **Edge cases**: Test with corrupted/unusual files
+4. **Cross-validation**: Compare outputs between different parsers when applicable
+
+## Important Notes
+
+### Do Not Edit Manually
+- `man/*.Rd` files (generated by roxygen2)
+- `NAMESPACE` (generated by roxygen2)
+- Files in `inst/doc/` (generated from vignettes)
+
+### Required Environment Variables
+- Set `env R_CHECK_FORCE_SUGGESTS=FALSE` for development checks (uppercase FALSE)
+- Use `GITHUB_PAT` for authenticated GitHub operations in CI
+
+### Performance Considerations
+- Package uses `future.apply` for parallel processing
+- Large test datasets are included; be mindful of memory usage
+- Some parsers handle binary data and may be memory-intensive
+
+## Trust These Instructions
+
+These instructions are comprehensive and tested. Only search for additional information if:
+1. You encounter errors not covered in the "Common Build Issues" section
+2. You need to add support for a new file format
+3. Package dependencies have significantly changed
+4. You need specific details about the scientific/spectrometry domain
+
+For routine development tasks (building, testing, linting, adding features), follow these instructions exactly.
