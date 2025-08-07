@@ -1,0 +1,119 @@
+---
+title: "Batch import with `lr_get_spec()` and `lr_get_metadata()`"
+author: "Hugo Gruson"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Batch import with `lr_get_spec()` and `lr_get_metadata()`}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+`lightr` provides three main functions for patch import of spectral data and
+metadata:
+
+* `lr_get_spec()`
+* `lr_get_metadata()`
+* `lr_convert_tocsv()`
+
+Those three functions contain an internal loop and can directly be used to 
+import/convert
+whole folders.
+
+They also allow for recursive search in the folder tree with the argument
+`subdir`. In this example, the `data` that contains a subdirectory named 
+`procspec_files`, which contains :
+
+```
+└──+ data
+   ├── avantes_export.ttt
+   ├── avantes_export2.trt
+   ├── avantes_export_long.ttt
+   └──+ procspec_files
+      ├── OceanOptics_badencode.ProcSpec
+      ├── OceanOptics_Linux.ProcSpec
+      ├── OceanOptics_Windows.ProcSpec
+      └── whiteref.ProcSpec
+```
+
+We first demonstrate these features on `lr_get_spec()` but they work in the same
+way for `lr_get_metadata()` and `lr_convert_tocsv()`
+
+```{r}
+library(lightr)
+```
+
+## Import spectral data: `lr_get_spec()`
+
+`lr_get_spec()` is one the core functions of `lightr`. It finds spectral data 
+files, extract the reflectance / transmittance / absorbance data and returns a
+`data.frame` where the first column (named `wl`) contains the wavelengths and
+the subsequent columns contain the spectral data, interpolated every nanometre:
+
+```{r}
+res <- lr_get_spec(where = "data", ext = "ttt", lim = c(300, 700))
+head(res)
+```
+
+`lr_get_spec()` also supports setting multiple file extensions at once by
+passing a character vector to `ext`:
+
+```{r}
+res <- lr_get_spec(where = "data", ext = c("ttt", "trt"), lim = c(300, 700))
+head(res)
+```
+
+Finally, `lr_get_spec()` can also recursively search in your folder tree with 
+the `subdir` argument:
+
+```{r}
+res <- lr_get_spec(where = "data", ext = "procspec", lim = c(300, 700), subdir = TRUE)
+head(res)
+```
+
+As you may have noticed, `lr_get_spec()` does not care about the file extension
+case by default. This can be changed by using the `ignore.case` switch:
+
+```{r}
+res <- lr_get_spec(where = "data", ext = "procspec", subdir = TRUE, ignore.case = FALSE)
+```
+
+If all your input files sample the wavelengths (this would be the case if you
+use the same spectrometer model and same recording software), you can also get
+uninterpolated data, by changing the value of the `interpolate` boolean 
+argument:
+
+```{r}
+res <- lr_get_spec(where = file.path("data", "puffin"), ext = "procspec", interpolate = FALSE)
+head(res)
+```
+
+## Import spectral metadata: `lr_get_metadata()`
+
+`lr_get_metadata()` extracts metadata captured by the spectrophotometer during
+the recording. This metadata should be reported in your scientific articles to 
+ensure reproducibility of your measurements and ultimately of your findings. The
+amount of information strongly depends on the brand and model of the
+spectrometer.
+
+Similarly to `lr_get_spec()`, it can handle multiple extensions at once and 
+perform recursive searches:
+
+```{r}
+res <- lr_get_metadata(where = "data", ext = c("trt", "procspec"), subdir = TRUE)
+head(res)
+```
+
+## Convert spectral data to csv: `lr_convert_tocsv()`
+
+`lr_convert_tocsv()` is designed for users who want an open format 
+version for each individual input file, possibly allowing them to carry on with
+their analysis using another programming language or software.
+
+It works in a very similar way to `lr_get_spec()` and will create `csv` files 
+with the same file names as the input files (but a different extension).
+
+```{r}
+#| eval: false
+lr_convert_tocsv(where = "data", ext = "procspec", subdir = TRUE)
+```
