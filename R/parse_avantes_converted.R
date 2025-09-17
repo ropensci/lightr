@@ -73,18 +73,17 @@ lr_parse_avantes_ttt <- function(filename, ...) {
   )
 
   data_ind <- grep("^([[:digit:];.,-])+$", content)
-  data <- strsplit(content[data_ind], ";", fixed = TRUE)
-  data <- do.call(rbind, data)
+  data_lines <- content[data_ind]
 
   # Fix decimal for non-English files
-  data <- gsub(",", ".", data, fixed = TRUE)
+  data_lines <- gsub(",", ".", data_lines, fixed = TRUE)
+
+  data <- read.table(text = data_lines, sep = ";", colClasses = "numeric")
 
   colnames(data) <- strsplit(content[data_ind[1] - 2], ";", fixed = TRUE)[[1]]
 
   # Remove trailing whitespaces in names
   colnames(data) <- gsub("[[:space:]]*$", "", colnames(data))
-
-  storage.mode(data) <- "numeric"
 
   cornames <- c(
     wl = "Wave",

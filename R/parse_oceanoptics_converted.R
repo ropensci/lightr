@@ -179,21 +179,18 @@ lr_parse_oceanoptics_jaz <- function(filename, ...) {
   has_header <- startsWith(content[data_start + 1], "W")
 
   data <- content[seq(
-    ifelse(has_header, data_start + 2, data_start + 1),
+    data_start + 1,
     data_end - 1
   )]
 
   # Depending on the user locale, some files might use ',' as a decimal sep
   data <- gsub(",", ".", data, fixed = TRUE)
 
-  data <- do.call(rbind, strsplit(data, "\t", fixed = TRUE))
+  data <- read.table(text = data, header = has_header, colClasses = "numeric")
 
-  if (has_header) {
-    colnames(data) <- strsplit(content[data_start + 1], "\t", fixed = TRUE)[[1]]
-  } else {
+  if (!has_header) {
     colnames(data) <- c("W", "P")
   }
-  storage.mode(data) <- "numeric"
 
   cornames <- c(wl = "W", dark = "D", white = "R", scope = "S", processed = "P")
 
@@ -204,7 +201,7 @@ lr_parse_oceanoptics_jaz <- function(filename, ...) {
 
   data_final[match(colnames(data), cornames)] <- data
 
-  return(list(data = data_final, metadata = unname(metadata)))
+  return(list(data = data_final, metadata = metadata))
 }
 
 #' @rdname lr_parse_oceanoptics_jaz
