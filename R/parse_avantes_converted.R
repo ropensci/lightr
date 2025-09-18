@@ -43,13 +43,13 @@ lr_parse_avantes_ttt <- function(filename, ...) {
   savetime <- NA_character_
 
   specmodel <- NA_character_
-  inttime <- gsub("^Integration time: ([[:graph:]]+) ms$", "\\1", content[2])
-  average <- gsub("^Average: ([[:digit:]]+) scans$", "\\1", content[3])
-  boxcar <- gsub("^Nr of pixels used for smoothing: ", "", content[4])
+  inttime <- sub("^Integration time: ([[:graph:]]+) ms$", "\\1", content[2])
+  average <- sub("^Average: ([[:digit:]]+) scans$", "\\1", content[3])
+  boxcar <- sub("^Nr of pixels used for smoothing: ", "", content[4])
 
   # The ID is also sometimes included in the first line (comment line) but not
   # always so it's better not to rely on this.
-  specID <- gsub("^.*: ([[:alnum:]]{9}).*$", "\\1", content[5])
+  specID <- sub("^.*: ([[:alnum:]]{9}).*$", "\\1", content[5])
 
   # Avantes does not allow different values between measurements
   dark_inttime <- white_inttime <- scope_inttime <- inttime
@@ -83,7 +83,7 @@ lr_parse_avantes_ttt <- function(filename, ...) {
   colnames(data) <- strsplit(content[data_ind[1] - 2], ";", fixed = TRUE)[[1]]
 
   # Remove trailing whitespaces in names
-  colnames(data) <- gsub("[[:space:]]*$", "", colnames(data))
+  colnames(data) <- sub("[[:space:]]+$", "", colnames(data))
 
   cornames <- c(
     wl = "Wave",

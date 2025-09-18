@@ -26,7 +26,7 @@
 lr_parse_oceanoptics_jdx <- function(filename, ...) {
   content <- readLines(filename)
   author <- grep("^##OWNER=", content, value = TRUE)
-  author <- gsub("^##OWNER= ", "", author)[1]
+  author <- sub("^##OWNER= ", "", author)[1]
   savetime <- NA_character_ # Not available in jdx files
   specmodel <- NA_character_
   specID <- NA_character_
@@ -44,7 +44,7 @@ lr_parse_oceanoptics_jdx <- function(filename, ...) {
       content[blockstarts[index]:blockends[index]],
       value = TRUE
     )
-    inttime <- gsub("^##\\.ACQUISITION TIME= ", "", inttime)
+    inttime <- sub("^##\\.ACQUISITION TIME= ", "", inttime)
   }
 
   scope_inttime <- get_inttime(which(blocktype == "processed"))
@@ -57,7 +57,7 @@ lr_parse_oceanoptics_jdx <- function(filename, ...) {
       content[blockstarts[index]:blockends[index]],
       value = TRUE
     )
-    avg <- gsub("^##\\.AVERAGES= ", "", avg)
+    avg <- sub("^##\\.AVERAGES= ", "", avg)
   }
 
   scope_average <- get_avg(which(blocktype == "processed"))
@@ -70,7 +70,7 @@ lr_parse_oceanoptics_jdx <- function(filename, ...) {
       content[blockstarts[index]:blockends[index]],
       value = TRUE
     )
-    boxcar <- gsub("^##DATA PROCESSING= BOXCAR:([[:digit:]]+).*", "\\1", boxcar)
+    boxcar <- sub("^##DATA PROCESSING= BOXCAR:([[:digit:]]+).*", "\\1", boxcar)
   }
 
   scope_boxcar <- get_boxcar(which(blocktype == "processed"))
