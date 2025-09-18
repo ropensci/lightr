@@ -80,7 +80,7 @@ lr_parse_oceanoptics_procspec <- function(
   # Convert to ASCII
   clean_text <- iconv(plain_text, to = "ASCII", sub = "")
   # Remove extra broken character
-  clean_text <- gsub("\001", "", clean_text, fixed = TRUE)
+  clean_text <- sub("\001", "", clean_text, fixed = TRUE)
 
   clean_text <- paste(clean_text, collapse = "\n")
 
@@ -132,7 +132,7 @@ lr_parse_oceanoptics_procspec <- function(
   savetime <- as.POSIXct(savetime / 1000, origin = "1970-01-01", tz = "UTC")
   savetime <- format(savetime, tz = "UTC")
   specclass <- xml_text(xml_find_first(xml_source, ".//spectrometerClass"))
-  specmodel <- gsub(".+\\.([[:alnum:]]+)$", "\\1", specclass)
+  specmodel <- sub(".+\\.([[:alnum:]]+)$", "\\1", specclass)
   specID <- xml_text(xml_find_first(xml_source, ".//spectrometerSerialNumber"))
 
   metadata <- c(

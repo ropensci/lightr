@@ -50,17 +50,17 @@ lr_parse_oceanoptics_jaz <- function(filename, ...) {
     content,
     value = TRUE
   )
-  specID <- gsub(
+  specID <- sub(
     "^(Spectrometers?( Serial Number)?|Espectr.metros): ",
     "",
     specID
   )
 
   author <- grep("^(User|Usuario): [[:print:]]*$", content, value = TRUE)
-  author <- gsub("^(User|Usuario): ", "", author)
+  author <- sub("^(User|Usuario): ", "", author)
 
   savetime <- grep("^(Date|Fecha): .*", content, value = TRUE)
-  savetime <- gsub("^(Date|Fecha): ", "", savetime)
+  savetime <- sub("^(Date|Fecha): ", "", savetime)
 
   oo_savetime_regex <- "^(\\w{3} \\w{3} \\d{2} \\d{2}:\\d{2}:\\d{2}) (\\w+ )?(\\d{4})$"
   tz <- ""
@@ -68,8 +68,8 @@ lr_parse_oceanoptics_jaz <- function(filename, ...) {
   if (grepl(oo_savetime_regex, savetime)) {
     # The value we extract here might not follow the official naming and could
     # not be recognized by tzdata.
-    tz <- trimws(gsub(oo_savetime_regex, "\\2", savetime))
-    savetime <- gsub(oo_savetime_regex, "\\1 \\3", savetime)
+    tz <- trimws(sub(oo_savetime_regex, "\\2", savetime))
+    savetime <- sub(oo_savetime_regex, "\\1 \\3", savetime)
   }
 
   if (tz == "") {
@@ -99,13 +99,13 @@ lr_parse_oceanoptics_jaz <- function(filename, ...) {
     content,
     value = TRUE
   )
-  inttime <- gsub(
+  inttime <- sub(
     "^(Integration Time|Tiempo de integraci.n) \\(.+\\): ([[:digit:]]+).*",
     "\\2",
     int
   )
 
-  inttime_unit <- gsub(
+  inttime_unit <- sub(
     "^(Integration Time|Tiempo de integraci.n) \\((.+)\\):.*",
     "\\2",
     int
@@ -120,7 +120,7 @@ lr_parse_oceanoptics_jaz <- function(filename, ...) {
     content,
     value = TRUE
   )
-  average <- gsub(
+  average <- sub(
     "^(Spectra Averaged|Promedio de Espectros Hechos un): ([[:digit:]]+).*",
     "\\2",
     average
@@ -131,7 +131,7 @@ lr_parse_oceanoptics_jaz <- function(filename, ...) {
     content,
     value = TRUE
   )
-  boxcar <- gsub(
+  boxcar <- sub(
     "^(Boxcar Smoothing|El Alisar Del Furg.n): ([[:digit:]]+).*",
     "\\2",
     boxcar

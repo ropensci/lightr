@@ -67,7 +67,7 @@ lr_parse_generic <- function(filename, decimal = ".", sep = NULL, ...) {
   raw <- iconv(raw, to = "ASCII", sub = "")
 
   # Remove extra broken character
-  raw <- gsub("\001", "", raw, fixed = TRUE)
+  raw <- sub("\001", "", raw, fixed = TRUE)
 
   # substitute separators for a single value to be used in split
   raw <- gsub(seps, ";", raw)
