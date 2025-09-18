@@ -49,9 +49,8 @@
 #'
 #' @export
 #'
-
 lr_parse_generic <- function(filename, decimal = ".", sep = NULL, ...) {
-  seps <- paste(c("[[:blank:]]", sep), collapse = "|\\")
+  seps <- paste0("(", paste(c("[[:blank:]]", ";", sep), collapse = "|\\"), ")+")
 
   # Code from pavo::getspec
 
@@ -71,9 +70,6 @@ lr_parse_generic <- function(filename, decimal = ".", sep = NULL, ...) {
 
   # substitute separators for a single value to be used in split
   raw <- gsub(seps, ";", raw)
-
-  # remove multiply occuring split character
-  raw <- gsub(";+", ";", raw)
 
   # remove split character from first or last occurence
   raw <- gsub("^;|;$", "", raw)
