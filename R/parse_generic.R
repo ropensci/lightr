@@ -100,7 +100,8 @@ lr_parse_generic <- function(filename, decimal = ".", sep = NULL, ...) {
   storage.mode(rawsplit) <- "numeric"
 
   # remove columns where all values are NAs (due to poor tabulation)
-  rawsplit <- rawsplit[, !apply(rawsplit, 2, function(x) all(is.na(x)))]
+  nas <- !is.na(rawsplit)
+  rawsplit <- rawsplit[, colSums(nas) > 0]
 
   metadata <- rep(NA_character_, 13)
 
