@@ -65,21 +65,25 @@ lr_convert_tocsv <- function(
 
   with_progress({
     p <- progressor(along = files)
-    tmp <- future_lapply(files, function(x) {
-      p()
-      tryCatch(
-        spec2csv_single(
-          x,
-          overwrite = overwrite,
-          metadata = metadata,
-          ...
-        ),
-        error = function(e) {
-          warning(conditionMessage(e), call. = FALSE)
-          return(NULL)
-        }
-      )
-    })
+    tmp <- future_lapply(
+      files,
+      function(x) {
+        p()
+        tryCatch(
+          spec2csv_single(
+            x,
+            overwrite = overwrite,
+            metadata = metadata,
+            ...
+          ),
+          error = function(e) {
+            warning(conditionMessage(e), call. = FALSE)
+            return(NULL)
+          }
+        )
+      },
+      future.globals = FALSE
+    )
   })
 
   whichfailed <- which(lengths(tmp) == 0)
