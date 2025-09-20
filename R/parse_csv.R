@@ -19,7 +19,13 @@
 
 lr_parse_csv <- function(filename, decimal = ".", sep = ",", ...) {
   data <- setNames(
-    read.csv(filename, dec = decimal, sep = sep, header = FALSE),
+    read.csv(
+      filename,
+      dec = decimal,
+      sep = sep,
+      header = FALSE,
+      colClasses = "numeric"
+    ),
     c("wl", "processed")
   )
   data$dark <- data$white <- data$scope <- NA_real_
