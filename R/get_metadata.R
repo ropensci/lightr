@@ -90,16 +90,20 @@ lr_get_metadata <- function(
 
   with_progress({
     p <- progressor(along = files)
-    tmp <- future_lapply(files, function(x) {
-      p()
-      tryCatch(
-        gmd(x, ...),
-        error = function(e) {
-          warning(conditionMessage(e), call. = FALSE)
-          return(NULL)
-        }
-      )
-    })
+    tmp <- future_lapply(
+      files,
+      function(x) {
+        p()
+        tryCatch(
+          gmd(x, ...),
+          error = function(e) {
+            warning(conditionMessage(e), call. = FALSE)
+            return(NULL)
+          }
+        )
+      },
+      future.globals = FALSE
+    )
   })
 
   whichfailed <- which(lengths(tmp) == 0)
