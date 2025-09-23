@@ -21,3 +21,4 @@
 ^\.lintr$
 ^[\.]?air\.toml$
 ^\.vscode$
+^touchstone$
