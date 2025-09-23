@@ -37,7 +37,10 @@ touchstone::benchmark_run(
   generic = lr_parse_generic(test.file("CRAIC_export.txt")),
   jdx = lr_parse_oceanoptics_jdx(test.file("OceanOptics_period.jdx")),
   oceanoptics_convert = lr_parse_oceanoptics_jaz(test.file("jazspec.jaz")),
-  procspec = lr_parse_oceanoptics_procspec(test.file("procspec_files", "OceanOptics_Linux.ProcSpec"))
+  procspec = lr_parse_oceanoptics_procspec(test.file(
+    "procspec_files",
+    "OceanOptics_Linux.ProcSpec"
+  )),
   n = 20
 )
 
