@@ -32,3 +32,5 @@ touchstone::benchmark_run(
   ),
   n = 20
 )
+
+touchstone::benchmark_analyze()
