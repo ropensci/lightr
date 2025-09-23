@@ -53,6 +53,7 @@ jobs:
       - uses: lorenzwalthert/touchstone/actions/receive@c470b4489d6b553800657abcef5c28a46f1b49f5
         with:
           cache-version: 1
+          touchstone_ref: ${{ matrix.config.touchstone_ref }}
           benchmarking_repo: ${{ matrix.config.benchmarking_repo }}
           benchmarking_ref: ${{ matrix.config.benchmarking_ref }}
           benchmarking_path: ${{ matrix.config.benchmarking_path }}
