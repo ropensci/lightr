@@ -8,7 +8,6 @@
 # installs branches to benchmark
 touchstone::branch_install()
 
-# benchmark a function call from your package (two calls per branch)
 touchstone::benchmark_run(
   {
     library(lightr)
@@ -30,18 +29,78 @@ touchstone::benchmark_run(
       "spc"
     )
   ),
+  n = 10
+)
+
+touchstone::benchmark_run(
+  {
+    library(lightr)
+    test.file <- function(...) {
+      system.file("testdata", ..., package = "lightr")
+    }
+  },
   avantes_converted = lr_parse_avantes_ttt(
     test.file("avantes_export.ttt")
   ),
+  n = 50
+)
+
+touchstone::benchmark_run(
+  {
+    library(lightr)
+    test.file <- function(...) {
+      system.file("testdata", ..., package = "lightr")
+    }
+  },
   csv = lr_parse_csv(test.file("spec.csv")),
+  n = 50
+)
+
+touchstone::benchmark_run(
+  {
+    library(lightr)
+    test.file <- function(...) {
+      system.file("testdata", ..., package = "lightr")
+    }
+  },
   generic = lr_parse_generic(test.file("CRAIC_export.txt")),
+  n = 50
+)
+
+touchstone::benchmark_run(
+  {
+    library(lightr)
+    test.file <- function(...) {
+      system.file("testdata", ..., package = "lightr")
+    }
+  },
   jdx = lr_parse_oceanoptics_jdx(test.file("OceanOptics_period.jdx")),
+  n = 50
+)
+
+touchstone::benchmark_run(
+  {
+    library(lightr)
+    test.file <- function(...) {
+      system.file("testdata", ..., package = "lightr")
+    }
+  },
   oceanoptics_convert = lr_parse_oceanoptics_jaz(test.file("jazspec.jaz")),
+  n = 50
+)
+
+touchstone::benchmark_run(
+  {
+    library(lightr)
+    test.file <- function(...) {
+      system.file("testdata", ..., package = "lightr")
+    }
+  },
   procspec = lr_parse_oceanoptics_procspec(test.file(
     "procspec_files",
     "OceanOptics_Linux.ProcSpec"
   )),
-  n = 20
+  n = 50
 )
 
 touchstone::benchmark_analyze()
