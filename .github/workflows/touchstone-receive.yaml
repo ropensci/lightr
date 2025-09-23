@@ -6,6 +6,10 @@ concurrency:
 
 on:
   pull_request:
+    paths:
+      # Directories with source code and benchmarking code
+      - "R/**"
+      - "touchstone/**"
 
 permissions:
   contents: read
