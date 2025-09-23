@@ -11,6 +11,7 @@ touchstone::branch_install()
 # benchmark a function call from your package (two calls per branch)
 touchstone::benchmark_run(
   {
+    library(lightr)
     test.file <- function(...) {
       system.file("testdata", ..., package = "lightr")
     }
