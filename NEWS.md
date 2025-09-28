@@ -8,6 +8,11 @@
   different parsers when two or more brands use the same file extension but
   actually different formats.
 
+## Minor changes
+
+* Performance of high-level functions (`lr_get_spec()`, `lr_get_metadata()`) and
+  some low-level parsers (csv, ttt, trm, jaz, jazirrad) has been improved.
+
 # lightr 1.9.0
 
 ## New features
