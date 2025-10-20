@@ -18,6 +18,7 @@ dispatch_parser <- function(filename, ...) {
     trt = lr_parse_avantes_trt(filename, ...),
     ttt = lr_parse_avantes_ttt(filename, ...),
     rfl8 = lr_parse_avantes_rfl8(filename, ...),
+    rfl8x = lr_parse_avantes_rfl8(filename, ...),
     raw8 = lr_parse_avantes_raw8(filename, ...),
     irr8 = lr_parse_avantes_irr8(filename, ...),
     jdx = lr_parse_oceanoptics_jdx(filename, ...),
