@@ -278,6 +278,9 @@ lr_parse_avantes_rfl8 <- function(filename, specnum = 1L, ...) {
 
   for (i in seq_len(numspectra)) {
     # total length of the subfile
+    # If trying to read directly as unsigned, we get:
+    # In readBin() :
+    # 'signed = FALSE' is only valid for integers of sizes 1 and 2
     length <- int32_to_uint32(
       readBin(f, "integer", size = 4, n = 1, endian = "little")
     )
