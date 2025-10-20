@@ -33,7 +33,7 @@ test_that("compare trm & ttt", {
     "Avantes",
     "feather_1.TXT"
   ))[[1]]
-  spec1 <- lr_parse_rfl8(
+  spec1 <- lr_parse_avantes_rfl8(
     test.file("compare", "Avantes", "feather.RFL8"),
     specnum = 1
   )[[1]]
@@ -48,7 +48,7 @@ test_that("compare trm & ttt", {
     "Avantes",
     "feather_2.TXT"
   ))[[1]]
-  spec2 <- lr_parse_rfl8(
+  spec2 <- lr_parse_avantes_rfl8(
     test.file("compare", "Avantes", "feather.RFL8"),
     specnum = 2
   )[[1]]
