@@ -58,6 +58,22 @@ test_that("compare trm & ttt", {
     spec2_avasoft[, c("wl", "processed")],
     tolerance = 1e-4
   )
+
+  spec3_avasoft <- lr_parse_csv(test.file(
+    "compare",
+    "Avantes",
+    "30849.csv"
+  ))[[1]]
+  spec3 <- lr_parse_avantes_rfl8(
+    test.file("compare", "Avantes", "30849.RFL8"),
+    specnum = 1
+  )[[1]]
+
+  expect_equal(
+    spec3[, c("wl", "processed")],
+    spec3_avasoft[, c("wl", "processed")],
+    tolerance = 1e-6
+  )
 })
 
 test_that("compare spc & craic", {
@@ -75,4 +91,32 @@ test_that("compare spc & craic", {
   )
 
   expect_equal(specs, specs_craic, tolerance = 1e-4)
+})
+
+test_that("compare Rfl8x and Avasoft", {
+  # Before 300 nm, we see differences due to different normalization methods
+  # Beyond 950 nm, stitching starts and we get additional data point
+  specs_lightr_low <- lr_get_spec(
+    test.file("compare", "rfl8x"),
+    ext = "Rfl8x",
+    interpolate = FALSE,
+    specnum = 1,
+    lim = c(300, 950)
+  )
+  specs_lightr_high <- lr_get_spec(
+    test.file("compare", "rfl8x"),
+    ext = "Rfl8x",
+    interpolate = FALSE,
+    specnum = 2
+  )
+  specs_avasoft <- read.csv(
+    test.file("compare", "rfl8x", "official.csv")
+  )
+
+  expect_equal(
+    specs_lightr_low,
+    specs_avasoft |> subset(wl >= 300 & wl <= 950),
+    tolerance = 1e-6,
+    ignore_attr = "class"
+  )
 })
