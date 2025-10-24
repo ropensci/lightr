@@ -242,11 +242,11 @@ lr_parse_avantes_rfl8 <- function(filename, specnum = 1L, ...) {
   # HEADER
   version <- rawToChar(readBin(f, "raw", n = 5, endian = "little"))
 
-  if (version != "AVS82") {
+  if (!version %in% c("AVS82", "AVS84")) {
     stop(
       "This parser has only been tested properly with files produced by ",
-      "AvaSoft 8.2.\nIf you're seeing this error message and would like us to ",
-      "support your files, please get in touch with an example.",
+      "AvaSoft 8.2 and 8.4.\nIf you're seeing this error message and would ",
+      "like us to support your files, please get in touch with an example.",
       call. = FALSE
     )
   }
@@ -281,6 +281,8 @@ lr_parse_avantes_rfl8 <- function(filename, specnum = 1L, ...) {
     # If trying to read directly as unsigned, we get:
     # In readBin() :
     # 'signed = FALSE' is only valid for integers of sizes 1 and 2
+    # FIXME: we should in theory be able to use this to skip non-relevant
+    # subfiles
     length <- int32_to_uint32(
       readBin(f, "integer", size = 4, n = 1, endian = "little")
     )
@@ -464,6 +466,27 @@ lr_parse_avantes_rfl8 <- function(filename, specnum = 1L, ...) {
     reference <- readBin(f, "numeric", 4, n = len, endian = "little")
 
     mergegroup <- intToUtf8(readBin(f, "raw", n = 10, endian = "little"))
+
+    if (version == "AVS84") {
+      # Skip additional fields present in AVS84 files
+      straylightconf <- readBin(f, "raw", n = 1 + 1 + 4 + 1)
+      nonlinconf <- readBin(f, "raw", n = 1 + 1 + 1)
+      customreflectance <- readBin(f, "raw", n = 1)
+      customwhitevalue <- readBin(
+        f,
+        "numeric",
+        size = 4,
+        n = 471,
+        endian = "little"
+      )
+      customdarkrefvalue <- readBin(
+        f,
+        "numeric",
+        size = 4,
+        n = 471,
+        endian = "little"
+      )
+    }
 
     data <- as.data.frame(cbind(wl = xcoord, dark, white = reference, scope))
     data$processed <- lr_compute_processed(data)
