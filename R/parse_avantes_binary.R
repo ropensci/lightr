@@ -527,4 +527,12 @@ lr_parse_avantes_raw8 <- lr_parse_avantes_rfl8
 #'
 #' @export
 #'
-lr_parse_avantes_irr8 <- lr_parse_avantes_rfl8
+lr_parse_avantes_irr8 <- function(...) {
+  stop(
+    "Parsing for Avantes .IRR8 files has been disabled because it is unclear ",
+    "how Avantes normalizes them .",
+    "If you need us to re-enable this parser, please get in touch with ",
+    "an example file and its converted xlsx/csv counterpart.",
+    call. = FALSE
+  )
+}
