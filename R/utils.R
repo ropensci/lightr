@@ -45,5 +45,6 @@ uncompress_spc_date <- function(compressed_date) {
 }
 
 `%||%` <- function(a, b) {
+  # nolint next: coalesce_linter.
   if (!is.null(a)) a else b
 }
