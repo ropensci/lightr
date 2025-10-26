@@ -33,11 +33,11 @@ lr_parse_avantes_abs(filename, ...)
 
 lr_parse_avantes_roh(filename, ...)
 
-lr_parse_avantes_rfl8(filename, specnum = 1L, ...)
+lr_parse_avantes_rfl8(filename, specnum = NULL, ...)
 
-lr_parse_avantes_raw8(filename, specnum = 1L, ...)
+lr_parse_avantes_raw8(filename, specnum = NULL, ...)
 
-lr_parse_avantes_irr8(filename, specnum = 1L, ...)
+lr_parse_avantes_irr8(filename, specnum = NULL, ...)
 }
 \arguments{
 \item{filename}{Path of the file to parse}
