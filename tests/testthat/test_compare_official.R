@@ -107,7 +107,8 @@ test_that("compare Rfl8x and Avasoft", {
     test.file("compare", "rfl8x"),
     ext = "Rfl8x",
     interpolate = FALSE,
-    specnum = 2
+    specnum = 2,
+    lim = c(1101, 1600)
   )
   specs_avasoft <- read.csv(
     test.file("compare", "rfl8x", "official.csv")
@@ -115,8 +116,15 @@ test_that("compare Rfl8x and Avasoft", {
 
   expect_equal(
     specs_lightr_low,
-    specs_avasoft |> subset(wl >= 300 & wl <= 950),
+    subset(specs_avasoft, wl >= 300 & wl <= 950),
     tolerance = 1e-6,
     ignore_attr = "class"
+  )
+
+  expect_equal(
+    specs_lightr_high,
+    subset(specs_avasoft, wl >= 1101 & wl <= 1600),
+    tolerance = 1e-4,
+    ignore_attr = c("class", "row.names")
   )
 })
