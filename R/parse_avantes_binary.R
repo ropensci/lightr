@@ -233,7 +233,14 @@ lr_parse_avantes_roh <- lr_parse_avantes_trm
 #' head(res_rfl8_2$data)
 #' res_rfl8_2$metadata
 #'
-lr_parse_avantes_rfl8 <- function(filename, specnum = 1L, ...) {
+lr_parse_avantes_rfl8 <- function(filename, specnum = NULL, ...) {
+  res <- lr_parse_avasoft8(filename, specnum = specnum)
+  res$data$processed <- lr_compute_processed(res$data)
+  return(res)
+}
+
+#' @internal
+lr_parse_avasoft8 <- function(filename, specnum) {
   # File structure information provided courtesy of Avantes
 
   f <- file(filename, "rb")
@@ -260,15 +267,16 @@ lr_parse_avantes_rfl8 <- function(filename, specnum = 1L, ...) {
     endian = "little"
   )
 
-  if (numspectra > 1 && missing(specnum)) {
+  if (numspectra > 1 && is.null(specnum)) {
     warning(
       "This file contains ",
       numspectra,
-      " spectra and 'specnum' argument is ",
-      "missing. Returning the first spectrum by default.",
+      " spectra and 'specnum' argument is missing. ",
+      "Returning the first spectrum by default.",
       call. = FALSE
     )
   }
+  specnum <- specnum %||% 1
   if (specnum > numspectra) {
     stop(
       "'specnum' is larger than the number of spectra in the input file",
@@ -489,7 +497,7 @@ lr_parse_avantes_rfl8 <- function(filename, specnum = 1L, ...) {
     }
 
     data <- as.data.frame(cbind(wl = xcoord, dark, white = reference, scope))
-    data$processed <- lr_compute_processed(data)
+    data$processed <- NA_real_
 
     author <- NA_character_
     savetime <- uncompress_spc_date(SPCfiledate)
@@ -521,18 +529,19 @@ lr_parse_avantes_rfl8 <- function(filename, specnum = 1L, ...) {
 #'
 #' @export
 #'
-lr_parse_avantes_raw8 <- lr_parse_avantes_rfl8
+lr_parse_avantes_raw8 <- function(filename, specnum = NULL, ...) {
+  lr_parse_avasoft8(filename, specnum = specnum)
+}
 
 #' @rdname lr_parse_avantes_trm
 #'
 #' @export
 #'
-lr_parse_avantes_irr8 <- function(...) {
-  stop(
-    "Parsing for Avantes .IRR8 files has been disabled because it is unclear ",
-    "how Avantes normalizes them .",
-    "If you need us to re-enable this parser, please get in touch with ",
-    "an example file and its converted xlsx/csv counterpart.",
+lr_parse_avantes_irr8 <- function(filename, specnum = NULL, ...) {
+  warning(
+    "It is unclear how *.IRR8 irradiance files should be normalized.",
+    "The processed column is left to NA.",
     call. = FALSE
   )
+  lr_parse_avasoft8(filename, specnum = specnum)
 }
