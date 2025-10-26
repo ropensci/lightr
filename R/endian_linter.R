@@ -28,7 +28,7 @@ endian_linter <- function() {
     what <- ifelse(!is.na(what_by_name), what_by_name, what_by_position)
 
     lintr::xml_nodes_to_lints(
-      bad_expr[is.na(what) || what != "raw"],
+      bad_expr[is.na(what) | what != "raw"],
       source_expression = source_expression,
       lint_message = paste(
         xml2::xml_find_first(bad_expr, "string(.//SYMBOL_FUNCTION_CALL)"),
