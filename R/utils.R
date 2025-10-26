@@ -43,3 +43,7 @@ uncompress_spc_date <- function(compressed_date) {
 
   return(date)
 }
+
+`%||%` <- function(a, b) {
+  if (!is.null(a)) a else b
+}
