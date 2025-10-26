@@ -8,6 +8,15 @@
   different parsers when two or more brands use the same file extension but
   actually different formats.
 
+## New features
+
+* Parsing for binary files produced by Avantes AvaSoft 8.4 has been restored in
+  `lr_parse_avantes_rfl8()`, `lr_parse_avantes_irr8()`,
+  `lr_parse_avantes_raw8()`.
+  Thanks to Allison Shultz, Lindsey Swierk, Raphaël Scherrer, and Michaël
+  Nicolaï for providing feedback and test files.
+  Thanks to Avantes for providing the file format documentation.
+
 ## Minor changes
 
 * Performance of high-level functions (`lr_get_spec()`, `lr_get_metadata()`) and
