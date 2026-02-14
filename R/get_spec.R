@@ -143,7 +143,8 @@ lr_get_spec <- function(
       call. = FALSE
     )
     return(NULL)
-  } else if (length(whichfailed) > 0) {
+  }
+  if (length(whichfailed) > 0) {
     warning(
       "Could not import one or more files:\n",
       paste(files[whichfailed], collapse = "\n"),
