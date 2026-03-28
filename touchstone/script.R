@@ -39,6 +39,17 @@ touchstone::benchmark_run(
       system.file("testdata", ..., package = "lightr")
     }
   },
+  csv = lr_parse_avantes_trm(test.file("avantes_trans.TRM")),
+  n = 50
+)
+
+touchstone::benchmark_run(
+  {
+    library(lightr)
+    test.file <- function(...) {
+      system.file("testdata", ..., package = "lightr")
+    }
+  },
   avantes_converted = lr_parse_avantes_ttt(
     test.file("avantes_export.ttt")
   ),
