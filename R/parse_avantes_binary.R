@@ -35,7 +35,7 @@ lr_parse_avantes_trm <- function(filename, ...) {
 
   # Translation into R by Hugo Gruson
 
-  f <- rawConnection(readBin(filename, "raw", n = file.size(filename)), open = "r")
+  f <- file(filename, "rb")
   on.exit(close(f))
 
   # Header
@@ -244,7 +244,7 @@ lr_parse_avantes_rfl8 <- function(filename, specnum = NULL, ...) {
 lr_parse_avasoft8 <- function(filename, specnum) {
   # File structure information provided courtesy of Avantes
 
-  f <- rawConnection(readBin(filename, "raw", n = file.size(filename)), open = "r")
+  f <- file(filename, "rb")
   on.exit(close(f))
 
   # HEADER
