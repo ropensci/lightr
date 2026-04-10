@@ -30,6 +30,7 @@
 #' head(res_transmission$data)
 #' res_transmission$metadata
 #'
+#' @importFrom utils read.table
 #' @export
 #'
 lr_parse_oceanoptics_jaz <- function(filename, ...) {

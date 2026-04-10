@@ -20,6 +20,7 @@
 #' head(res_trt$data)
 #' res_trt$metadata
 #'
+#' @importFrom utils read.table
 #' @export
 #'
 lr_parse_avantes_ttt <- function(filename, ...) {
