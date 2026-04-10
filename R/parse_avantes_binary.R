@@ -239,7 +239,7 @@ lr_parse_avantes_rfl8 <- function(filename, specnum = NULL, ...) {
   return(res)
 }
 
-#' @internal
+#' @keywords internal
 lr_parse_avasoft8 <- function(filename, specnum) {
   # File structure information provided courtesy of Avantes
 
