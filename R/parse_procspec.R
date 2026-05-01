@@ -29,28 +29,27 @@ lr_parse_oceanoptics_procspec <- function(
   verify_checksum = FALSE,
   ...
 ) {
-  # We let R find the suitable tmp folder to extract files
-  tmp <- tempdir()
-
-  extracted_files <- utils::unzip(zipfile = filename, exdir = tmp)
-  on.exit(unlink(extracted_files))
+  files <- utils::unzip(zipfile = filename, list = TRUE)
 
   # According to OceanOptics FAQ, each procspec archive will only contain
   # one XML spectra file.
 
   # Data files have the format ps_\d+.xml
-  data_file <- grep(pattern = "ps_\\d+\\.xml", extracted_files, value = TRUE)
+  data_file <- grep(pattern = "ps_\\d+\\.xml", files$Name, value = TRUE)
 
   if (verify_checksum) {
-    if (requireNamespace("digest")) {
-      sig <- read_xml(
-        extracted_files[endsWith(extracted_files, "OOISignatures.xml")]
-      )
+    if (requireNamespace("openssl", quietly = TRUE)) {
+      sig_file <- files$Name[endsWith(files$Name, "OOISignatures.xml")]
+      sig_con <- unz(filename, sig_file)
+      sig <- read_xml(sig_con)
       saved_hash <- xml_text(xml_find_first(sig, ".//hashValue"))
       saved_hash <- gsub(" ", "", saved_hash, fixed = TRUE)
       algo <- xml_text(xml_find_first(sig, ".//hashAlgorithm"))
       if (algo == "SHA-512") {
-        actual_hash <- digest::digest(file = data_file, algo = "sha512")
+        data_con <- unz(filename, data_file)
+        actual_hash <- as.character(openssl::sha512(
+          data_con
+        ))
       } else {
         warning("Unknown hash in signature. Skipping.", call. = FALSE)
         actual_hash <- saved_hash
@@ -75,7 +74,9 @@ lr_parse_oceanoptics_procspec <- function(
 
   # OceanOptics softwares produce badly encoded characters. The only fix is to
   # strip them before feeding the xml file to read_xml.
-  plain_text <- scan(data_file, what = character(), sep = "\n", quiet = TRUE)
+  data_con <- unz(filename, data_file)
+  on.exit(close(data_con), add = TRUE)
+  plain_text <- scan(data_con, what = character(), sep = "\n", quiet = TRUE)
 
   # Convert to ASCII
   clean_text <- iconv(plain_text, to = "ASCII", sub = "")
