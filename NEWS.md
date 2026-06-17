@@ -1,3 +1,5 @@
+# lightr (development version)
+
 # lightr 2.0.0
 
 ## Major breaking changes
