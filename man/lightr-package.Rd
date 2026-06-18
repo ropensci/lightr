@@ -6,6 +6,8 @@
 \alias{lightr-package}
 \title{lightr: Read Spectrometric Data and Metadata}
 \description{
+\if{html}{\figure{logo.svg}{options: style='float: right' alt='logo' width='120'}}
+
 Parse various reflectance/transmittance/absorbance spectra file formats to extract spectral data and metadata, as described in Gruson, White & Maia (2019) \doi{10.21105/joss.01857}. Among other formats, it can import files from 'Avantes' \url{https://www.avantes.com/}, 'CRAIC' \url{https://www.microspectra.com/}, and 'OceanOptics'/'OceanInsight' \url{https://www.oceanoptics.com/} brands.
 }
 \seealso{
@@ -22,6 +24,7 @@ Useful links:
 
 Authors:
 \itemize{
+  \item Hugo Gruson \email{hugo.gruson+R@normalesup.org} (\href{https://orcid.org/0000-0002-4094-1476}{ORCID}) [copyright holder]
   \item Rafael Maia (\href{https://orcid.org/0000-0002-7563-9795}{ORCID}) [copyright holder]
   \item Thomas White (\href{https://orcid.org/0000-0002-3976-1734}{ORCID}) [copyright holder]
 }
