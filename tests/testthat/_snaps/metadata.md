@@ -93,3 +93,17 @@
       12            5           5             5
       13            0           0             0
 
+# get_metadata custom parser
+
+    Code
+      lr_get_metadata(test_dir, ext = "txt", parser = lr_parse_oceanoptics_jaz)
+    Message
+      1 files found; importing metadata:
+    Output
+             name    user            datetime spec_model    spec_ID white_inttime
+      1 OOusb4000 Liliane 2008-01-14 17:36:35       <NA> USB4A00428            20
+        dark_inttime sample_inttime white_avgs dark_avgs sample_avgs white_boxcar
+      1           20             20         50        50          50           30
+        dark_boxcar sample_boxcar
+      1          30            30
+
