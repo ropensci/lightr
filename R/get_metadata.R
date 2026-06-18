@@ -49,6 +49,7 @@ lr_get_metadata <- function(
   subdir = FALSE,
   subdir.names = FALSE,
   ignore.case = TRUE,
+  parser = NULL,
   ...
 ) {
   extension <- paste0("\\.", ext, "$", collapse = "|")
@@ -85,7 +86,8 @@ lr_get_metadata <- function(
   message(nb_files, " files found; importing metadata:")
 
   gmd <- function(ff, ...) {
-    dispatch_parser(ff, ...)[[2]]
+    parser <- parser %||% dispatch_parser
+    parser(ff, ...)[[2]]
   }
 
   with_progress({

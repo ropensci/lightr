@@ -19,14 +19,30 @@
 #' @param interpolate Boolean indicated whether spectral data should be
 #' interpolated and pruned at every nanometre. Note that this option can only
 #' work if all input data samples the same wavelengths. Defaults to `TRUE`.
+#' @param parser Optional function to specify the parser to be used. By default,
+#' the parser is automatically selected based on the file extension. This argument
+#' can be used to force the use of a specific parser, or to pass a custom parser.
+#' See details for more information on custom parsers. Please note that this
+#' argument can produce easily produce invalid results if used incorrectly and
+#' only advanced users should use it, with extra caution.
 #' @param ... Arguments passed to individual parsers.
 #'
 #' @details
+#' ## Parallel processing
+#'
 #' You can customise the type of parallel processing used by this function with
 #' the [future::plan()] function. This works on all operating systems, as well
 #' as high performance computing (HPC) environment. Similarly, you can customise
 #' the way progress is shown with the [progressr::handlers()] functions
 #' (progress bar, acoustic feedback, nothing, etc.)
+#'
+#' ## Custom parsers
+#' To create a custom parser to pass to the `parser` argument, you need to create
+#' with the following signature:
+#' - input: a file path (string) as a first argument, and optionally, any
+#'   additional arguments needed to parse the file. These arguments can be passed
+#'   to the `lr_get_spec()` function via the `...` argument.
+#' - output: a named list of two elements, as defined in `lr_parse_generic()`.
 #'
 #' @return A data.frame, containing the wavelengths in the first column and
 #' individual imported spectral files in the subsequent columns.
@@ -52,6 +68,7 @@ lr_get_spec <- function(
   subdir.names = FALSE,
   ignore.case = TRUE,
   interpolate = TRUE,
+  parser = NULL,
   ...
 ) {
   extension <- paste0("\\.", ext, "$", collapse = "|")
@@ -89,9 +106,11 @@ lr_get_spec <- function(
 
   message(nb_files, " files found; importing spectra:")
 
+  parser <- parser %||% dispatch_parser
+
   if (interpolate) {
     gsp <- function(f, ...) {
-      df <- dispatch_parser(f, ...)[[1]]
+      df <- parser(f, ...)[[1]]
 
       # Trim now because otherwise, approx() can fill the region of interest
       # with bogus data (e.g., if the data is complete between 200-300nm and
