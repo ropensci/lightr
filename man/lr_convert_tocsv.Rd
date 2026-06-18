@@ -11,6 +11,7 @@ lr_convert_tocsv(
   ignore.case = TRUE,
   overwrite = FALSE,
   metadata = TRUE,
+  parser = NULL,
   ...
 )
 }
@@ -34,6 +35,13 @@ the same name? (defaults to \code{FALSE}).}
 \item{metadata}{logical (defaults to \code{TRUE}). Should metadata be exported as
 well? They will be exported in csv files will the \verb{_metadata.csv} suffix.}
 
+\item{parser}{Optional function to specify the parser to be used. By default,
+the parser is automatically selected based on the file extension. This argument
+can be used to force the use of a specific parser, or to pass a custom parser.
+See details for more information on custom parsers. Please note that this
+argument can produce easily produce invalid results if used incorrectly and
+only advanced users should use it, with extra caution.}
+
 \item{...}{Arguments passed to individual parsers.}
 }
 \value{
@@ -44,11 +52,26 @@ file paths
 Convert spectral data files to csv files
 }
 \details{
+\subsection{Parallel processing}{
+
 You can customise the type of parallel processing used by this function with
 the \code{\link[future:plan]{future::plan()}} function. This works on all operating systems, as well
 as high performance computing (HPC) environment. Similarly, you can customise
 the way progress is shown with the \code{\link[progressr:handlers]{progressr::handlers()}} functions
 (progress bar, acoustic feedback, nothing, etc.)
+}
+
+\subsection{Custom parsers}{
+
+To create a custom parser to pass to the \code{parser} argument, you need to create
+with the following signature:
+\itemize{
+\item input: a file path (string) as a first argument, and optionally, any
+additional arguments needed to parse the file. These arguments can be passed
+to the \code{lr_get_spec()} function via the \code{...} argument.
+\item output: a named list of two elements, as defined in \code{lr_parse_generic()}.
+}
+}
 }
 \section{Warning}{
 
