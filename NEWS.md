@@ -1,5 +1,12 @@
 # lightr (development version)
 
+## New features
+
+* `lr_get_spec()`, `lr_get_metadata()` and `lr_convert_tocsv()` have a new
+  `parser` argument. This argument can be used to force the use of a 
+  specific parser defined in this package, or to pass a custom parser function
+  defined by the user (#3).
+
 # lightr 2.0.0
 
 ## Major breaking changes
