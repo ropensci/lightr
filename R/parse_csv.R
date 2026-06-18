@@ -6,7 +6,7 @@
 #'
 #' @examples
 #' res_csv <- lr_parse_csv(
-#'   system.file("testdata", "spec.csv", package = "lightr"),
+#'   system.file("testdata", "spec.csv", package = "lightr")
 #' )
 #' head(res_csv$data)
 #' # No metadata is extracted with this parser
