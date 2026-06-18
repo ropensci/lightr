@@ -29,6 +29,21 @@ test_that("get_metadata recursive", {
   )
 })
 
+test_that("get_metadata custom parser", {
+  test_dir <- withr::local_tempfile()
+  dir.create(test_dir)
+  file.copy(
+    test.file("OOusb4000.txt"),
+    test_dir
+  )
+
+  expect_snapshot(
+    lr_get_metadata(test_dir, ext = "txt", parser = lr_parse_oceanoptics_jaz),
+    cran = TRUE
+  )
+})
+
+
 test_that("get_metadata warn & error", {
   # Total fail
   expect_warning(
