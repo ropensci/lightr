@@ -30,6 +30,7 @@ lr_convert_tocsv <- function(
   ignore.case = TRUE,
   overwrite = FALSE,
   metadata = TRUE,
+  parser = NULL,
   ...
 ) {
   if (is.null(where)) {
@@ -109,8 +110,9 @@ lr_convert_tocsv <- function(
 }
 
 #' @noRd
-spec2csv_single <- function(filename, overwrite, metadata, ...) {
-  exported <- dispatch_parser(filename, ...)
+spec2csv_single <- function(filename, overwrite, metadata, parser = NULL, ...) {
+  parser <- parser %||% dispatch_parser
+  exported <- parser(filename, ...)
 
   csv_name_data <- paste0(file_path_sans_ext(filename), ".csv")
   csv_name_metadata <- paste0(file_path_sans_ext(filename), "_metadata.csv")
