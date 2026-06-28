@@ -82,7 +82,7 @@ lr_get_spec <- function(
   )
 
   # This step is needed to ensure reproducibility between locales and platforms
-  file_names <- sort(file_names, method = "radix")
+  file_names <- sort.int(file_names, method = "radix")
 
   nb_files <- length(file_names)
 
