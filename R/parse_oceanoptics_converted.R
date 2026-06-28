@@ -179,7 +179,7 @@ lr_parse_oceanoptics_jaz <- function(filename, ...) {
   # If they do, it looks like this header will always start with W
   has_header <- startsWith(content[data_start + 1], "W")
 
-  data <- content[seq(
+  data <- content[seq.int(
     data_start + 1,
     data_end - 1
   )]

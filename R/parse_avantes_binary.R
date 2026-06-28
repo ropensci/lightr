@@ -166,11 +166,12 @@ lr_parse_avantes_trm <- function(filename, ...) {
 
   len <- nrow(data)
 
-  data$wl <- rep_len(WLIntercept, len) +
-    WLX1 * seq(ipixfirst, ipixlast) +
-    WLX2 * seq(ipixfirst, ipixlast)^2 +
-    WLX3 * seq(ipixfirst, ipixlast)^3 +
-    WLX4 * seq(ipixfirst, ipixlast)^4
+  wl_x <- seq.int(ipixfirst, ipixlast)
+  data$wl <- WLIntercept +
+    WLX1 * wl_x +
+    WLX2 * wl_x^2 +
+    WLX3 * wl_x^3 +
+    WLX4 * wl_x^4
 
   # Reorder columns
   data <- data[, c("wl", "dark", "white", "scope")]

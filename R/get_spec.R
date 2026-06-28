@@ -102,7 +102,7 @@ lr_get_spec <- function(
 
   specnames <- file_path_sans_ext(file_names)
 
-  range <- seq(lim[1], lim[2])
+  range <- seq.int(lim[1], lim[2])
 
   message(nb_files, " files found; importing spectra:")
 
