@@ -37,50 +37,35 @@ lr_parse_oceanoptics_jdx <- function(filename, ...) {
   blocktype <- content[blockstarts]
   blocktype <- tolower(gsub(".+: ([[:alpha:]]+) SPECTRUM$", "\\1", blocktype))
 
-  get_inttime <- function(index) {
+  get_block_metadata <- function(index) {
     block <- content[blockstarts[index]:blockends[index]]
     inttime <- block[startsWith(block, "##.ACQUISITION TIME=")]
     inttime <- sub("^##\\.ACQUISITION TIME= ", "", inttime)
-  }
-
-  scope_inttime <- get_inttime(which(blocktype == "processed"))
-  dark_inttime <- get_inttime(which(blocktype == "dark"))
-  white_inttime <- get_inttime(which(blocktype == "reference"))
-
-  get_avg <- function(index) {
-    block <- content[blockstarts[index]:blockends[index]]
     avg <- block[startsWith(block, "##.AVERAGES=")]
     avg <- sub("^##\\.AVERAGES= ", "", avg)
-  }
-
-  scope_average <- get_avg(which(blocktype == "processed"))
-  dark_average <- get_avg(which(blocktype == "dark"))
-  white_average <- get_avg(which(blocktype == "reference"))
-
-  get_boxcar <- function(index) {
-    block <- content[blockstarts[index]:blockends[index]]
     boxcar <- block[startsWith(block, "##DATA PROCESSING= BOXCAR:")]
     boxcar <- sub("^##DATA PROCESSING= BOXCAR:([[:digit:]]+).*", "\\1", boxcar)
+    return(c(inttime, avg, boxcar))
   }
 
-  scope_boxcar <- get_boxcar(which(blocktype == "processed"))
-  dark_boxcar <- get_boxcar(which(blocktype == "dark"))
-  white_boxcar <- get_boxcar(which(blocktype == "reference"))
+  scope_meta <- get_block_metadata(which(blocktype == "processed"))
+  dark_meta <- get_block_metadata(which(blocktype == "dark"))
+  white_meta <- get_block_metadata(which(blocktype == "reference"))
 
   metadata <- c(
     author,
     savetime,
     specmodel,
     specID,
-    dark_inttime,
-    white_inttime,
-    scope_inttime,
-    dark_average,
-    white_average,
-    scope_average,
-    dark_boxcar,
-    white_boxcar,
-    scope_boxcar
+    dark_meta[1],
+    white_meta[1],
+    scope_meta[1],
+    dark_meta[2],
+    white_meta[2],
+    scope_meta[2],
+    dark_meta[3],
+    white_meta[3],
+    scope_meta[3]
   )
 
   get_data <- function(index) {
