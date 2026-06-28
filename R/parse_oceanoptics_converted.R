@@ -63,17 +63,25 @@ lr_parse_oceanoptics_jaz <- function(filename, ...) {
   savetime <- grep("^(Date|Fecha): .*", content, value = TRUE)
   savetime <- sub("^(Date|Fecha): ", "", savetime)
 
-  oo_savetime_regex <- "^(\\w{3} \\w{3} \\d{2} \\d{2}:\\d{2}:\\d{2}) (\\w+ )?(\\d{4})$"
-  tz <- ""
+  savetime_parts <- regmatches(
+    savetime,
+    regexec(
+      "^(\\w{3} \\w{3} \\d{2} \\d{2}:\\d{2}:\\d{2}) (\\w+ )?(\\d{4})$",
+      savetime
+    )
+  )[[1]]
 
-  if (grepl(oo_savetime_regex, savetime)) {
+  if (length(savetime_parts) > 0) {
     # The value we extract here might not follow the official naming and could
     # not be recognized by tzdata.
-    tz <- trimws(sub(oo_savetime_regex, "\\2", savetime))
-    savetime <- sub(oo_savetime_regex, "\\1 \\3", savetime)
+    tz <- trimws(savetime_parts[3])
+    savetime <- paste(savetime_parts[2], savetime_parts[4])
+  } else {
+    # If we can't extract the timezone, we will assume UTC.
+    tz <- "UTC"
   }
 
-  if (tz == "") {
+  if (!nzchar(tz)) {
     tz <- "UTC"
   }
   tz <- convert_backward_tzdata(tz)
