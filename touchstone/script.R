@@ -52,6 +52,32 @@ touchstone::benchmark_run(
       system.file("testdata", ..., package = "lightr")
     }
   },
+  avasoft6_binary = lr_parse_avantes_trm(
+    test.file("avantes2.TRM")
+  ),
+  n = 50
+)
+
+touchstone::benchmark_run(
+  {
+    library(lightr)
+    test.file <- function(...) {
+      system.file("testdata", ..., package = "lightr")
+    }
+  },
+  avasoft8_binary = lr_parse_avantes_rfl8(
+    test.file("compare", "Avantes", "30849.RFL8")
+  ),
+  n = 50
+)
+
+touchstone::benchmark_run(
+  {
+    library(lightr)
+    test.file <- function(...) {
+      system.file("testdata", ..., package = "lightr")
+    }
+  },
   csv = lr_parse_csv(test.file("spec.csv")),
   n = 50
 )
