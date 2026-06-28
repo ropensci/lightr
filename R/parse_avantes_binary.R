@@ -61,11 +61,7 @@ lr_parse_avantes_trm <- function(filename, ...) {
   }
 
   # Coefficients for the polynome controlling wavelength sampling
-  WLIntercept <- readBin(f, "numeric", 1, 4, endian = "little")
-  WLX1 <- readBin(f, "numeric", 1, 4, endian = "little")
-  WLX2 <- readBin(f, "numeric", 1, 4, endian = "little")
-  WLX3 <- readBin(f, "numeric", 1, 4, endian = "little")
-  WLX4 <- readBin(f, "numeric", 1, 4, endian = "little")
+  wl_coefs <- readBin(f, "numeric", n = 5, size = 4, endian = "little")
 
   if (versionID == 60) {
     specID <- intToUtf8(readBin(f, "numeric", 9, 4, endian = "little"))
@@ -167,11 +163,11 @@ lr_parse_avantes_trm <- function(filename, ...) {
   len <- nrow(data)
 
   wl_x <- seq.int(ipixfirst, ipixlast)
-  data$wl <- WLIntercept +
-    WLX1 * wl_x +
-    WLX2 * wl_x^2 +
-    WLX3 * wl_x^3 +
-    WLX4 * wl_x^4
+  data$wl <- wl_coefs[1] +
+    wl_coefs[2] * wl_x +
+    wl_coefs[3] * wl_x^2 +
+    wl_coefs[4] * wl_x^3 +
+    wl_coefs[5] * wl_x^4
 
   # Reorder columns
   data <- data[, c("wl", "dark", "white", "scope")]
