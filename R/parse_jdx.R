@@ -25,25 +25,21 @@
 #'
 lr_parse_oceanoptics_jdx <- function(filename, ...) {
   content <- readLines(filename)
-  author <- grep("^##OWNER=", content, value = TRUE)
-  author <- sub("^##OWNER= ", "", author)[1]
+  author <- sub("^##OWNER= ", "", content[startsWith(content, "##OWNER=")])[1]
   savetime <- NA_character_ # Not available in jdx files
   specmodel <- NA_character_
   specID <- NA_character_
 
   # According to the standard, all blocks must start and end in this way:
-  blockstarts <- grep("^##TITLE=", content)[-1]
-  blockends <- grep("^##END=", content)[-4]
+  blockstarts <- which(startsWith(content, "##TITLE="))[-1]
+  blockends <- which(startsWith(content, "##END="))[-4]
 
   blocktype <- content[blockstarts]
   blocktype <- tolower(gsub(".+: ([[:alpha:]]+) SPECTRUM$", "\\1", blocktype))
 
   get_inttime <- function(index) {
-    inttime <- grep(
-      "^##\\.ACQUISITION TIME=",
-      content[blockstarts[index]:blockends[index]],
-      value = TRUE
-    )
+    block <- content[blockstarts[index]:blockends[index]]
+    inttime <- block[startsWith(block, "##.ACQUISITION TIME=")]
     inttime <- sub("^##\\.ACQUISITION TIME= ", "", inttime)
   }
 
@@ -52,11 +48,8 @@ lr_parse_oceanoptics_jdx <- function(filename, ...) {
   white_inttime <- get_inttime(which(blocktype == "reference"))
 
   get_avg <- function(index) {
-    avg <- grep(
-      "^##\\.AVERAGES=",
-      content[blockstarts[index]:blockends[index]],
-      value = TRUE
-    )
+    block <- content[blockstarts[index]:blockends[index]]
+    avg <- block[startsWith(block, "##.AVERAGES=")]
     avg <- sub("^##\\.AVERAGES= ", "", avg)
   }
 
@@ -65,11 +58,8 @@ lr_parse_oceanoptics_jdx <- function(filename, ...) {
   white_average <- get_avg(which(blocktype == "reference"))
 
   get_boxcar <- function(index) {
-    boxcar <- grep(
-      "^##DATA PROCESSING= BOXCAR:",
-      content[blockstarts[index]:blockends[index]],
-      value = TRUE
-    )
+    block <- content[blockstarts[index]:blockends[index]]
+    boxcar <- block[startsWith(block, "##DATA PROCESSING= BOXCAR:")]
     boxcar <- sub("^##DATA PROCESSING= BOXCAR:([[:digit:]]+).*", "\\1", boxcar)
   }
 
@@ -95,12 +85,8 @@ lr_parse_oceanoptics_jdx <- function(filename, ...) {
 
   get_data <- function(index) {
     # Data is contained in lines that do NOT start with ##
-    data <- grep(
-      "^##",
-      content[blockstarts[index]:blockends[index]],
-      value = TRUE,
-      invert = TRUE
-    )
+    block <- content[blockstarts[index]:blockends[index]]
+    data <- block[!startsWith(block, "##")]
     data <- strsplit(data, ", ", fixed = TRUE)
     data <- do.call(rbind, data)
     # Fix decimal for non-English files
