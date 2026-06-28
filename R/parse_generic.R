@@ -78,8 +78,7 @@ lr_parse_generic <- function(filename, decimal = ".", sep = NULL, ...) {
   raw <- gsub(decimal, ".", raw, fixed = TRUE)
 
   # exclude any line that doesn't start with a number
-  scinum <- "-?[[:digit:]]+\\.?[[:digit:]]*((E|e)(-|\\+)?[[:digit:]]+)?"
-  raw <- raw[grepl(paste0("^", scinum), raw)]
+  raw <- raw[grepl("^-?[0-9]", raw)]
 
   # split on separators
   rawsplit <- strsplit(raw, ";", fixed = TRUE)
