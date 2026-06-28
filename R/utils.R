@@ -1,5 +1,5 @@
 int32_to_uint32 <- function(int32) {
-  ifelse(int32 >= 0, int32, 2^31 - 1 + int32)
+  int32 + (int32 < 0L) * 4294967296
 }
 
 convert_backward_tzdata <- function(tz) {
