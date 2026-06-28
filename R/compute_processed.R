@@ -9,5 +9,5 @@
 #' @keywords internal
 #'
 lr_compute_processed <- function(spdata) {
-  with(spdata, (scope - dark) / (white - dark) * 100)
+  (spdata$scope - spdata$dark) / (spdata$white - spdata$dark) * 100
 }
