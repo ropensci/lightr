@@ -7,6 +7,12 @@
   specific parser defined in this package, or to pass a custom parser function
   defined by the user (#3).
 
+## Minor changes
+
+* Performance improvements:
+  - `lr_parse_oceanoptics_jdx`: ~2x faster
+  - `lr_parse_oceanoptics_jaz`: ~1.5x faster
+
 # lightr 2.0.0
 
 ## Major breaking changes
