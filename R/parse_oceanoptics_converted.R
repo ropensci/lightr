@@ -168,13 +168,21 @@ lr_parse_oceanoptics_jaz <- function(filename, ...) {
 
   # SPECTRA
 
-  data_start <- grep(
-    "^(>>>>>Begin (Processed )?Spectral Data<<<<<|>>>>> Comienza Data<<<<< Espectral Procesado Del EL)$",
-    content
+  data_start <- which(
+    content %in%
+      c(
+        ">>>>>Begin Spectral Data<<<<<",
+        ">>>>>Begin Processed Spectral Data<<<<<",
+        ">>>>> Comienza Data<<<<< Espectral Procesado Del EL"
+      )
   )
-  data_end <- grep(
-    "^(>>>>>End (Processed )?Spectral Data<<<<<|>>>>> Data<<<<< Espectral Procesado Extremo)$",
-    content
+  data_end <- which(
+    content %in%
+      c(
+        ">>>>>End Spectral Data<<<<<",
+        ">>>>>End Processed Spectral Data<<<<<",
+        ">>>>> Data<<<<< Espectral Procesado Extremo"
+      )
   )
 
   # Some files are missing the ending "tag". Let's then assume that data go to
