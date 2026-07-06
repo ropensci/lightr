@@ -45,7 +45,10 @@ test_that("Fallback", {
   )
 
   expect_identical(
-    lr_parse_avantes_rfl8(test.file("compare", "Avantes", "feather.RFL8"), specnum = 1),
+    lr_parse_avantes_rfl8(
+      test.file("compare", "Avantes", "feather.RFL8"),
+      specnum = 1
+    ),
     dispatch_parser(
       test.file("compare", "Avantes", "feather.RFL8"),
       specnum = 1

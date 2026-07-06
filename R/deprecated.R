@@ -142,7 +142,11 @@ lr_parse_procspec <- function(filename, verify_checksum = FALSE, ...) {
     what = "lr_parse_procspec()",
     with = "lr_parse_oceanoptics_procspec()"
   )
-  lr_parse_oceanoptics_procspec(filename = filename, verify_checksum = verify_checksum, ...)
+  lr_parse_oceanoptics_procspec(
+    filename = filename,
+    verify_checksum = verify_checksum,
+    ...
+  )
 }
 
 # From parse_spc.R ------------------------------------------------------------
