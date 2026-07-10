@@ -39,6 +39,7 @@ URL: https://docs.ropensci.org/lightr/, https://github.com/ropensci/lightr
 BugReports: https://github.com/ropensci/lightr/issues
 License: GPL (>=2)
 Roxygen: list(markdown = TRUE)
+Encoding: UTF-8
 Language: en-GB
 VignetteBuilder: knitr
 Config/testthat/edition: 3
