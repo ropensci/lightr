@@ -152,6 +152,14 @@ on the extension in the tables to see an example of this file format):
 
 [`spc`]: https://github.com/ropensci/lightr/raw/main/inst/testdata/compare/CRAIC/CRAIC.spc
 
+### [StellarNet](https://www.stellarnet.us/)
+
+  | Extension | Parser                   |
+  |:----------|:-------------------------|
+  | `TRM`     | `lr_parse_generic()` (*) |
+
+(*) No automatic dispatch. Parser needs to be passed explicitly via the `parser=` argument in `lr_get_spec()`, `lr_get_metadata()` and `lr_convert_tocsv()`.
+
 ### Others
 
   | Extension | Parser                        |
