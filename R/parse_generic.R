@@ -71,8 +71,10 @@ lr_parse_generic <- function(filename, decimal = ".", sep = NULL, ...) {
   # substitute separators for a single value to be used in split
   raw <- gsub(seps, ";", raw)
 
-  # remove split character from first or last occurence
-  raw <- gsub("^;|;$", "", raw)
+  # remove split character from first or last occurrence.
+  # Faster than regex approach
+  raw <- substring(raw, startsWith(raw, ";") + 1)
+  raw <- substring(raw, 1, nchar(raw) - endsWith(raw, ";"))
 
   # convert decimal value to point
   raw <- gsub(decimal, ".", raw, fixed = TRUE)
