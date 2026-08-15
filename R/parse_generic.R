@@ -50,7 +50,10 @@
 #' @export
 #'
 lr_parse_generic <- function(filename, decimal = ".", sep = NULL, ...) {
-  seps <- paste0("(", paste(c("[[:blank:]]", ";", sep), collapse = "|\\"), ")+")
+  seps <- c("\t", " ", sep)
+  # Drop ';' if included as this is the final transformer we want so no need to
+  # change it.
+  seps <- seps[seps != ";"]
 
   # Code from pavo::getspec
 
@@ -69,7 +72,9 @@ lr_parse_generic <- function(filename, decimal = ".", sep = NULL, ...) {
   raw <- sub("\001", "", raw, fixed = TRUE)
 
   # substitute separators for a single value to be used in split
-  raw <- gsub(seps, ";", raw)
+  for (s in seps) {
+    raw <- gsub(s, ";", raw, fixed = TRUE)
+  }
 
   # remove split character from first or last occurrence.
   # Faster than regex approach
@@ -83,7 +88,7 @@ lr_parse_generic <- function(filename, decimal = ".", sep = NULL, ...) {
   raw <- raw[grepl("^-?[0-9]", raw)]
 
   # split on separators
-  rawsplit <- strsplit(raw, ";", fixed = TRUE)
+  rawsplit <- strsplit(raw, ";+")
 
   ncols <- lengths(rawsplit)
 
