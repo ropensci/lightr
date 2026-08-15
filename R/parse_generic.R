@@ -85,15 +85,25 @@ lr_parse_generic <- function(filename, decimal = ".", sep = NULL, ...) {
   # split on separators
   rawsplit <- strsplit(raw, ";", fixed = TRUE)
 
-  rawsplit <- do.call(rbind, rawsplit)
+  ncols <- lengths(rawsplit)
 
-  if (is.null(rawsplit) || dim(rawsplit)[2] < 2) {
+  if (
+    is.null(rawsplit) ||
+      any(ncols < 2) ||
+      length(unique(ncols)) != 1
+  ) {
     stop(
       "Parsing failed.\n",
       "Please a different value for 'sep' argument",
       call. = FALSE
     )
   }
+
+  rawsplit <- matrix(
+    unlist(rawsplit),
+    ncol = ncols[1],
+    byrow = TRUE
+  )
 
   # convert to numeric, check for NA
   # FIXME: this causes a loss of precision on some platforms, which ultimately
