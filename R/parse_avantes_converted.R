@@ -46,7 +46,10 @@ lr_parse_avantes_ttt <- function(filename, ...) {
   specmodel <- NA_character_
   inttime <- sub("^Integration time: ([[:graph:]]+) ms$", "\\1", content[2])
   average <- sub("^Average: ([[:digit:]]+) scans$", "\\1", content[3])
-  boxcar <- sub("^Nr of pixels used for smoothing: ", "", content[4])
+  boxcar <- substring(
+    content[4],
+    nchar("Nr of pixels used for smoothing: ") + 1L
+  )
 
   # The ID is also sometimes included in the first line (comment line) but not
   # always so it's better not to rely on this.
