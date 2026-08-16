@@ -40,9 +40,9 @@ lr_parse_oceanoptics_jdx <- function(filename, ...) {
   get_block_metadata <- function(index) {
     block <- content[blockstarts[index]:blockends[index]]
     inttime <- block[startsWith(block, "##.ACQUISITION TIME=")]
-    inttime <- sub("^##\\.ACQUISITION TIME= ", "", inttime)
+    inttime <- substring(inttime, nchar("##.ACQUISITION TIME= ") + 1L)
     avg <- block[startsWith(block, "##.AVERAGES=")]
-    avg <- sub("^##\\.AVERAGES= ", "", avg)
+    avg <- substring(avg, nchar("##.AVERAGES= ") + 1L)
     boxcar <- block[startsWith(block, "##DATA PROCESSING= BOXCAR:")]
     boxcar <- sub("^##DATA PROCESSING= BOXCAR:([[:digit:]]+).*", "\\1", boxcar)
     return(c(inttime, avg, boxcar))
