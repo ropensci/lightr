@@ -84,7 +84,7 @@ test_that("get_spec warn & error", {
   expect_warning(
     expect_warning(
       expect_message(lr_get_spec(test.file(), ext = c("fail", "jdx"))),
-      "Could not import one or more"
+      "Could not import"
     ),
     "try a different value"
   )
@@ -103,7 +103,7 @@ test_that("get_spec warn & error", {
         lim = c(10, 50),
         interpolate = TRUE
       )),
-      "wl range"
+      "wavelength range"
     )
   )
 })

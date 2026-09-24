@@ -2435,7 +2435,8 @@
       4 files found; importing spectra:
     Condition
       Error:
-      ! 'interpolate = FALSE' can only work if all input files sample the same wavelengths.
+      ! `interpolate = FALSE` can only work if all input files sample the same wavelengths. The provided files use 3 different wavelength ranges.
+      Use `interpolate = TRUE` to interpolate the spectra onto a common wavelength grid
 
 ---
 

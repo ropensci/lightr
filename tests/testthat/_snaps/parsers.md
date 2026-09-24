@@ -6,7 +6,7 @@
     Condition
       Error:
       ! The file has been modified since its creation by the spectrometer. This means data integrity may be compromised and it is unclear how much you can trust your results.
-      To bypass the warning, use 'check = FALSE'
+      To bypass this error, use `verify_checksum = FALSE`.
 
 ---
 
@@ -45885,7 +45885,7 @@
       lr_parse_avantes_rfl8(test.file("compare", "Avantes", "feather.RFL8"), specnum = 5)
     Condition
       Error:
-      ! 'specnum' is larger than the number of spectra in the input file
+      ! `specnum` must be between 1 and 2 (the number of spectra in /home/hgruson/Projects/lightr/inst/testdata/compare/Avantes/feather.RFL8), but you provided 5.
 
 # CRAIC
 
@@ -49671,7 +49671,7 @@
     Condition
       Error:
       ! Parsing failed.
-      Please a different value for 'sep' argument
+      Please try a different value for 'sep' argument
 
 ---
 
