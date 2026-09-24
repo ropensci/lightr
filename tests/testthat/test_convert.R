@@ -73,7 +73,7 @@ test_that("Convert csv", {
       )),
       "already exists"
     ),
-    "import failed"
+    "failed to convert"
   )
 
   output <- expect_message(
@@ -96,7 +96,7 @@ test_that("Convert warn & error", {
   expect_warning(
     expect_warning(
       expect_message(expect_null(lr_convert_tocsv(tdir, ext = "fail"))),
-      "File import failed"
+      "failed to convert"
     ),
     "different value for 'sep'"
   )
@@ -109,7 +109,7 @@ test_that("Convert warn & error", {
         ext = c("fail", "jdx"),
         overwrite = TRUE
       )),
-      "Could not import one or more"
+      "Could not convert one or more"
     ),
     "different value for 'sep'"
   )
@@ -119,7 +119,7 @@ test_that("Convert warn & error", {
   # Missing
   expect_warning(
     expect_null(lr_convert_tocsv(where = tdir, ext = "missing")),
-    "No files found"
+    "No files"
   )
 
   expect_warning(

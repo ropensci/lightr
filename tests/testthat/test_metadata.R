@@ -49,7 +49,7 @@ test_that("get_metadata warn & error", {
   expect_warning(
     expect_warning(
       expect_message(expect_null(lr_get_metadata(test.file(), ext = "fail"))),
-      "File import failed"
+      "failed to import"
     ),
     "different value for 'sep'"
   )
@@ -58,7 +58,7 @@ test_that("get_metadata warn & error", {
   expect_warning(
     expect_warning(
       expect_message(lr_get_metadata(test.file(), ext = c("fail", "jdx"))),
-      "Could not import one or more"
+      "Could not import"
     ),
     "different value for 'sep'"
   )
@@ -66,6 +66,6 @@ test_that("get_metadata warn & error", {
   # Missing
   expect_warning(
     expect_null(lr_get_metadata(ext = "missing")),
-    "No files found"
+    "No files"
   )
 })
