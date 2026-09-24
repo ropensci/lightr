@@ -43,8 +43,12 @@ lr_parse_avantes_trm <- function(filename, ...) {
 
   if (!versionID %in% c(60, 70)) {
     stop(
-      "parsing for this file type has not yet been implemented. ",
-      "Please open an issue with the problematic file.",
+      "This file has version ID ",
+      versionID,
+      ", which is not yet supported (only versions 60 and 70 can be ",
+      "parsed).\n",
+      "Please open an issue at https://github.com/ropensci/lightr/issues ",
+      "with a copy of the problematic file.",
       call. = FALSE
     )
   }
@@ -276,7 +280,13 @@ lr_parse_avasoft8 <- function(filename, specnum) {
   specnum <- specnum %||% 1
   if (specnum > numspectra) {
     stop(
-      "'specnum' is larger than the number of spectra in the input file",
+      "`specnum` must be between 1 and ",
+      numspectra,
+      " (the number of spectra in ",
+      filename,
+      "), but you provided ",
+      specnum,
+      ".",
       call. = FALSE
     )
   }
@@ -536,8 +546,8 @@ lr_parse_avantes_raw8 <- function(filename, specnum = NULL, ...) {
 #'
 lr_parse_avantes_irr8 <- function(filename, specnum = NULL, ...) {
   warning(
-    "It is unclear how *.IRR8 irradiance files should be normalized.",
-    "The processed column is left to NA.",
+    "It is unclear how *.IRR8 irradiance files should be normalized, ",
+    "so the 'processed' column is left as NA.",
     call. = FALSE
   )
   lr_parse_avasoft8(filename, specnum = specnum)

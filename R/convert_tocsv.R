@@ -35,7 +35,8 @@ lr_convert_tocsv <- function(
 ) {
   if (is.null(where)) {
     warning(
-      "Please provide a valid location to read and write the files.",
+      "Please provide a valid location to read and write the files ",
+      "with the 'where' argument.",
       call. = FALSE
     )
     return(NULL)
@@ -54,7 +55,13 @@ lr_convert_tocsv <- function(
 
   if (nb_files == 0) {
     warning(
-      'No files found. Try a different value for argument "ext".',
+      "No files with extension '",
+      paste0(".", ext, collapse = "', '"),
+      "' found in '",
+      where,
+      "'.\n",
+      "Check that the path is correct ",
+      "or try a different value for the 'ext' argument.",
       call. = FALSE
     )
     return(NULL)
@@ -91,8 +98,11 @@ lr_convert_tocsv <- function(
 
   if (length(whichfailed) == nb_files) {
     warning(
-      "File import failed.\n",
-      "Check input files and function arguments.",
+      "All ",
+      nb_files,
+      " files failed to convert. See the warnings above for the specific ",
+      "reason (e.g. wrong file format, or an incorrect 'ext' or 'sep' ",
+      "argument).",
       call. = FALSE
     )
     return(NULL)
@@ -100,7 +110,7 @@ lr_convert_tocsv <- function(
 
   if (length(whichfailed) > 0) {
     warning(
-      "Could not import one or more files:\n",
+      "Could not convert one or more files:\n",
       paste(files[whichfailed], collapse = "\n"),
       call. = FALSE
     )

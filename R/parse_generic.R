@@ -99,7 +99,7 @@ lr_parse_generic <- function(filename, decimal = ".", sep = NULL, ...) {
   ) {
     stop(
       "Parsing failed.\n",
-      "Please a different value for 'sep' argument",
+      "Please try a different value for 'sep' argument",
       call. = FALSE
     )
   }
