@@ -88,7 +88,13 @@ lr_get_spec <- function(
 
   if (nb_files == 0) {
     warning(
-      'No files found. Try a different value for argument "ext".',
+      "No files with extension '",
+      paste0(".", ext, collapse = "', '"),
+      "' found in '",
+      where,
+      "'.\n",
+      "Check that the path is correct ",
+      "or try a different value for the 'ext' argument.",
       call. = FALSE
     )
     return(NULL)
@@ -120,7 +126,13 @@ lr_get_spec <- function(
       if (length(bounds) == 0) {
         warning(
           f,
-          " does not contain spectral data over the provided wl range",
+          " does not contain spectral data over the wavelength range (",
+          lim[1],
+          " to ",
+          lim[2],
+          " nm).\n",
+          "Try adjusting the 'lim' argument to a range covered by the file, ",
+          "or check that the file is a valid spectra file.",
           call. = FALSE
         )
         return(NULL)
@@ -157,15 +169,20 @@ lr_get_spec <- function(
 
   if (length(whichfailed) == nb_files) {
     warning(
-      "File import failed.\n",
-      "Check input files and function arguments.",
+      "All ",
+      nb_files,
+      " files failed to import. See the warnings above for the specific ",
+      "reason (e.g. wrong file format, or an incorrect 'ext' or 'sep' ",
+      "argument).",
       call. = FALSE
     )
     return(NULL)
   }
   if (length(whichfailed) > 0) {
     warning(
-      "Could not import one or more files:\n",
+      "Could not import ",
+      length(whichfailed),
+      " file(s):\n",
       paste(files[whichfailed], collapse = "\n"),
       call. = FALSE
     )
@@ -180,10 +197,16 @@ lr_get_spec <- function(
 
     final <- cbind(range, tmp)
   } else {
-    if (length(unique(lapply(tmp, function(x) x[, "wl"]))) != 1) {
+    n_wl_ranges <- length(unique(lapply(tmp, function(x) x[, "wl"])))
+    if (n_wl_ranges != 1) {
       stop(
-        "'interpolate = FALSE' can only work if all input files sample the ",
-        "same wavelengths.",
+        "`interpolate = FALSE` can only work if all input files sample the ",
+        "same wavelengths. ",
+        "The provided files use ",
+        n_wl_ranges,
+        " different wavelength ranges.\n",
+        "Use `interpolate = TRUE` to interpolate the spectra onto a common ",
+        "wavelength grid",
         call. = FALSE
       )
     }

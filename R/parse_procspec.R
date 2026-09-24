@@ -52,7 +52,12 @@ lr_parse_oceanoptics_procspec <- function(
       if (algo == "SHA-512") {
         actual_hash <- digest::digest(file = data_file, algo = "sha512")
       } else {
-        warning("Unknown hash in signature. Skipping.", call. = FALSE)
+        warning(
+          "Unsupported hash algorithm (",
+          algo,
+          ") in signature. Skipping integrity check.",
+          call. = FALSE
+        )
         actual_hash <- saved_hash
       }
       if (actual_hash != saved_hash) {
@@ -60,14 +65,15 @@ lr_parse_oceanoptics_procspec <- function(
           "The file has been modified since its creation by the spectrometer. ",
           "This means data integrity may be compromised ",
           "and it is unclear how much you can trust your results.\n",
-          "To bypass the warning, use 'check = FALSE'",
+          "To bypass this error, use `verify_checksum = FALSE`.",
           call. = FALSE
         )
       }
     } else {
       warning(
-        "The digest package is required for check = TRUE. ",
-        "Skipping integrity check...",
+        "The 'digest' package is required for `verify_checksum = TRUE`. ",
+        "Skipping integrity check. ",
+        "You can install it with `install.packages('digest')`.",
         call. = FALSE
       )
     }

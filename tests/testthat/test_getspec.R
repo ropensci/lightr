@@ -75,9 +75,9 @@ test_that("get_spec warn & error", {
   expect_warning(
     expect_warning(
       expect_message(expect_null(lr_get_spec(test.file(), ext = "fail"))),
-      "File import failed"
+      "failed to import"
     ),
-    "different value for 'sep'"
+    "try a different value"
   )
 
   # Partial fail
@@ -86,13 +86,13 @@ test_that("get_spec warn & error", {
       expect_message(lr_get_spec(test.file(), ext = c("fail", "jdx"))),
       "Could not import one or more"
     ),
-    "different value for 'sep'"
+    "try a different value"
   )
 
   # Missing
   expect_warning(
     expect_null(lr_get_spec(ext = "missing")),
-    "No files found"
+    "No files"
   )
 
   expect_warning(
