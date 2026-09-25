@@ -143,12 +143,12 @@ test_that("Avantes", {
     )
   )
 
-  expect_snapshot(
+  expect_error(
     lr_parse_avantes_rfl8(
       test.file("compare", "Avantes", "feather.RFL8"),
       specnum = 5
     ),
-    error = TRUE
+    "specnum` must be between 1 and"
   )
 
   # expect_snapshot(

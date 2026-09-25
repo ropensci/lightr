@@ -45879,14 +45879,6 @@
       [13] "1"                  
       
 
----
-
-    Code
-      lr_parse_avantes_rfl8(test.file("compare", "Avantes", "feather.RFL8"), specnum = 5)
-    Condition
-      Error:
-      ! `specnum` must be between 1 and 2 (the number of spectra in /home/hgruson/Projects/lightr/inst/testdata/compare/Avantes/feather.RFL8), but you provided 5.
-
 # CRAIC
 
     Code
